@@ -1,0 +1,1169 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Acronyms &#8212; Implementing a Zero Trust Architecture Project  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="_static/content.css?v=59cd0ab0" />
+    <link rel="stylesheet" type="text/css" href="_static/breadcrumbs.css?v=ddd885d8" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'acronyms';</script>
+    <script src="_static/jquery.visible.js?v=5b129ffc"></script>
+    <script src="_static/jquery.leaveNotice-nist.js?v=7cf1efa2"></script>
+    <script src="_static/applyLeaveNotice.js?v=38741b1c"></script>
+    <script src="_static/smoothNavScroll.js?v=2ce98a12"></script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Glossary" href="glossary.html" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
+    <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+    <link rel="stylesheet" type="text/css" href="https://pages.nist.gov/leaveNotice/css/jquery.leaveNotice.css" />
+    <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJSMY46M5C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RJSMY46M5C');
+    </script>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="width: max-content;">
+    <ul class="wy-breadcrumbs">
+        <li style="list-style: none;"><a href="index.html" aria-label="Home"><i class="fa fa-home"></i></a></li>
+        <li class="breadcrumb-item active">&ensp;Acronyms</li>
+    </ul>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+  </div>
+  
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Implementing a Zero Trust Architecture Project  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture" title="Main Project Page" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="_static/MainProjectLogo.jpg" class="icon-link-image" alt="Main Project Page"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Implementing a Zero Trust Architecture
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="VolumeA/ExecutiveSummary.html">Executive Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VolumeA/Introduction.html">Introduction to the Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VolumeA/ProjectOverview.html">Project Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Acronyms</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/acronyms.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Acronyms</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="acronyms">
+<h1>Acronyms<a class="headerlink" href="#acronyms" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is supplementary material for the <a class="reference external" href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf">NIST SP 1800-35 publication</a>.</p>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id1">
+<caption><span class="caption-text">List of Acronyms</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>AAA</p></td>
+<td><p>Authentication, Authorization, and Accounting</p></td>
+</tr>
+<tr class="row-even"><td><p>ACL</p></td>
+<td><p>Access Control List</p></td>
+</tr>
+<tr class="row-odd"><td><p>AD</p></td>
+<td><p>Active Directory</p></td>
+</tr>
+<tr class="row-even"><td><p>AD FS</p></td>
+<td><p>Active Directory Federation Services</p></td>
+</tr>
+<tr class="row-odd"><td><p>AG</p></td>
+<td><p>(Okta) Access Gateway</p></td>
+</tr>
+<tr class="row-even"><td><p>AI</p></td>
+<td><p>Artificial Intelligence</p></td>
+</tr>
+<tr class="row-odd"><td><p>AMI</p></td>
+<td><p>Amazon Machine Image</p></td>
+</tr>
+<tr class="row-even"><td><p>AP</p></td>
+<td><p>Access Point</p></td>
+</tr>
+<tr class="row-odd"><td><p>API</p></td>
+<td><p>Application Programming Interface</p></td>
+</tr>
+<tr class="row-even"><td><p>APM</p></td>
+<td><p>(F5 BIG-IP) Access Policy Manager</p></td>
+</tr>
+<tr class="row-odd"><td><p>APNs</p></td>
+<td><p>Apple Push Notification service</p></td>
+</tr>
+<tr class="row-even"><td><p>ATP</p></td>
+<td><p>(Microsoft Azure) Advanced Threat Protection, (Palo Alto Networks) Advanced Threat Prevention</p></td>
+</tr>
+<tr class="row-odd"><td><p>AURL</p></td>
+<td><p>(Palo Alto Networks) Advanced URL Filtering</p></td>
+</tr>
+<tr class="row-even"><td><p>AWS</p></td>
+<td><p>Amazon Web Services</p></td>
+</tr>
+<tr class="row-odd"><td><p>BCE</p></td>
+<td><p>(Google) BeyondCorp Enterprise</p></td>
+</tr>
+<tr class="row-even"><td><p>BYOD</p></td>
+<td><p>Bring Your Own Device</p></td>
+</tr>
+<tr class="row-odd"><td><p>C&amp;C</p></td>
+<td><p>Command-and-Control</p></td>
+</tr>
+<tr class="row-even"><td><p>CA</p></td>
+<td><p>Certificate Authority, (Zscaler) Central Authority</p></td>
+</tr>
+<tr class="row-odd"><td><p>CASB</p></td>
+<td><p>Cloud Access Security Broker</p></td>
+</tr>
+<tr class="row-even"><td><p>CCECG</p></td>
+<td><p>(Palo Alto Networks) Common Criteria Evaluated Configuration Guide</p></td>
+</tr>
+<tr class="row-odd"><td><p>CDM</p></td>
+<td><p>Continuous Diagnostics and Mitigation</p></td>
+</tr>
+<tr class="row-even"><td><p>CDSS</p></td>
+<td><p>(Palo Alto Networks) Cloud-Delivered Security Services</p></td>
+</tr>
+<tr class="row-odd"><td><p>CEF</p></td>
+<td><p>Common Event Format</p></td>
+</tr>
+<tr class="row-even"><td><p>CESA</p></td>
+<td><p>Cisco Endpoint Security Analytics</p></td>
+</tr>
+<tr class="row-odd"><td><p>CI/CD</p></td>
+<td><p>Continuous Integration/Continuous Delivery</p></td>
+</tr>
+<tr class="row-even"><td><p>CIE</p></td>
+<td><p>(Palo Alto Networks) Cloud Identity Engine</p></td>
+</tr>
+<tr class="row-odd"><td><p>CIEM</p></td>
+<td><p>Cloud Infrastructure Entitlement Management</p></td>
+</tr>
+<tr class="row-even"><td><p>CLI</p></td>
+<td><p>Command Line Interface</p></td>
+</tr>
+<tr class="row-odd"><td><p>CP4S</p></td>
+<td><p>(IBM) Cloud Pak for Security</p></td>
+</tr>
+<tr class="row-even"><td><p>CRADA</p></td>
+<td><p>Cooperative Research and Development Agreement</p></td>
+</tr>
+<tr class="row-odd"><td><p>CSE</p></td>
+<td><p>Cisco Secure Endpoint</p></td>
+</tr>
+<tr class="row-even"><td><p>CSW</p></td>
+<td><p>Cisco Secure Workload</p></td>
+</tr>
+<tr class="row-odd"><td><p>CVE</p></td>
+<td><p>Common Vulnerabilities and Exposures</p></td>
+</tr>
+<tr class="row-even"><td><p>DDoS</p></td>
+<td><p>Distributed Denial of Service</p></td>
+</tr>
+<tr class="row-odd"><td><p>DHCP</p></td>
+<td><p>Dynamic Host Configuration Protocol</p></td>
+</tr>
+<tr class="row-even"><td><p>DISA</p></td>
+<td><p>Defense Information Systems Agency</p></td>
+</tr>
+<tr class="row-odd"><td><p>DLP</p></td>
+<td><p>Data Loss Prevention</p></td>
+</tr>
+<tr class="row-even"><td><p>DMZ</p></td>
+<td><p>Demilitarized Zone</p></td>
+</tr>
+<tr class="row-odd"><td><p>DN</p></td>
+<td><p>Domain Name</p></td>
+</tr>
+<tr class="row-even"><td><p>DNS</p></td>
+<td><p>Domain Name System</p></td>
+</tr>
+<tr class="row-odd"><td><p>DTLS</p></td>
+<td><p>Datagram Transport Layer Security</p></td>
+</tr>
+<tr class="row-even"><td><p>E1B1</p></td>
+<td><p>Enterprise 1 Build 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>E1B2</p></td>
+<td><p>Enterprise 1 Build 2</p></td>
+</tr>
+<tr class="row-even"><td><p>E1B3</p></td>
+<td><p>Enterprise 1 Build 3</p></td>
+</tr>
+<tr class="row-odd"><td><p>E1B4</p></td>
+<td><p>Enterprise 1 Build 4</p></td>
+</tr>
+<tr class="row-even"><td><p>E1B5</p></td>
+<td><p>Enterprise 1 Build 5</p></td>
+</tr>
+<tr class="row-odd"><td><p>E1B6</p></td>
+<td><p>Enterprise 1 Build 6</p></td>
+</tr>
+<tr class="row-even"><td><p>E2B1</p></td>
+<td><p>Enterprise 2 Build 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>E2B3</p></td>
+<td><p>Enterprise 2 Build 3</p></td>
+</tr>
+<tr class="row-even"><td><p>E2B4</p></td>
+<td><p>Enterprise 2 Build 4</p></td>
+</tr>
+<tr class="row-odd"><td><p>E2B5</p></td>
+<td><p>Enterprise 2 Build 5</p></td>
+</tr>
+<tr class="row-even"><td><p>E3B1</p></td>
+<td><p>Enterprise 3 Build 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>E3B2</p></td>
+<td><p>Enterprise 3 Build 2</p></td>
+</tr>
+<tr class="row-even"><td><p>E3B3</p></td>
+<td><p>Enterprise 3 Build 3</p></td>
+</tr>
+<tr class="row-odd"><td><p>E3B4</p></td>
+<td><p>Enterprise 3 Build 4</p></td>
+</tr>
+<tr class="row-even"><td><p>E3B5</p></td>
+<td><p>Enterprise 3 Build 5</p></td>
+</tr>
+<tr class="row-odd"><td><p>E4B3</p></td>
+<td><p>Enterprise 4 Build 3</p></td>
+</tr>
+<tr class="row-even"><td><p>E4B4</p></td>
+<td><p>Enterprise 4 Build 4</p></td>
+</tr>
+<tr class="row-odd"><td><p>EBS</p></td>
+<td><p>(Amazon) Elastic Block Store</p></td>
+</tr>
+<tr class="row-even"><td><p>EC2</p></td>
+<td><p>(Amazon) Elastic Compute Cloud</p></td>
+</tr>
+<tr class="row-odd"><td><p>ECS</p></td>
+<td><p>(Amazon) Elastic Container Service</p></td>
+</tr>
+<tr class="row-even"><td><p>EDR</p></td>
+<td><p>Endpoint Detection and Response</p></td>
+</tr>
+<tr class="row-odd"><td><p>EIG</p></td>
+<td><p>Enhanced Identity Governance</p></td>
+</tr>
+<tr class="row-even"><td><p>EKS</p></td>
+<td><p>(Amazon) Elastic Kubernetes Service</p></td>
+</tr>
+<tr class="row-odd"><td><p>EMM</p></td>
+<td><p>Enterprise Mobility Management</p></td>
+</tr>
+<tr class="row-even"><td><p>EO</p></td>
+<td><p>Executive Order</p></td>
+</tr>
+<tr class="row-odd"><td><p>ePO</p></td>
+<td><p>(Trellix) ePolicy Orchestrator</p></td>
+</tr>
+<tr class="row-even"><td><p>EPP</p></td>
+<td><p>Endpoint Protection Platform</p></td>
+</tr>
+<tr class="row-odd"><td><p>ETA</p></td>
+<td><p>(Cisco) Encrypted Traffic Analytics</p></td>
+</tr>
+<tr class="row-even"><td><p>E/W</p></td>
+<td><p>East/West</p></td>
+</tr>
+<tr class="row-odd"><td><p>FedRAMP</p></td>
+<td><p>Federal Risk and Authorization Management Program</p></td>
+</tr>
+<tr class="row-even"><td><p>FIDO U2F</p></td>
+<td><p>Fast Identity Online Universal 2nd Factor</p></td>
+</tr>
+<tr class="row-odd"><td><p>FIPS</p></td>
+<td><p>Federal Information Processing Standards</p></td>
+</tr>
+<tr class="row-even"><td><p>FQDN</p></td>
+<td><p>Fully Qualified Domain Name</p></td>
+</tr>
+<tr class="row-odd"><td><p>FTD</p></td>
+<td><p>(Cisco) Firepower Threat Defense</p></td>
+</tr>
+<tr class="row-even"><td><p>FTUE</p></td>
+<td><p>First-Time User-Experience</p></td>
+</tr>
+<tr class="row-odd"><td><p>FWaaS</p></td>
+<td><p>Firewall as a Service</p></td>
+</tr>
+<tr class="row-even"><td><p>GA</p></td>
+<td><p>General Availability</p></td>
+</tr>
+<tr class="row-odd"><td><p>GCP</p></td>
+<td><p>Google Cloud Platform</p></td>
+</tr>
+<tr class="row-even"><td><p>GDE</p></td>
+<td><p>(IBM Security) Guardium Data Encryption</p></td>
+</tr>
+<tr class="row-odd"><td><p>GIN</p></td>
+<td><p>(Symantec) Global Intelligence Network</p></td>
+</tr>
+<tr class="row-even"><td><p>GP</p></td>
+<td><p>(Palo Alto Networks) GlobalProtect</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPO</p></td>
+<td><p>Group Policy Object</p></td>
+</tr>
+<tr class="row-even"><td><p>HDAP</p></td>
+<td><p>High-Availability Directory Access Protocol</p></td>
+</tr>
+<tr class="row-odd"><td><p>HIP</p></td>
+<td><p>Host Information Profile</p></td>
+</tr>
+<tr class="row-even"><td><p>HR</p></td>
+<td><p>Human Resources</p></td>
+</tr>
+<tr class="row-odd"><td><p>HTTP</p></td>
+<td><p>Hypertext Transfer Protocol</p></td>
+</tr>
+<tr class="row-even"><td><p>HTTPS</p></td>
+<td><p>Hypertext Transfer Protocol Secure</p></td>
+</tr>
+<tr class="row-odd"><td><p>IaaS</p></td>
+<td><p>Infrastructure as a Service</p></td>
+</tr>
+<tr class="row-even"><td><p>IaC</p></td>
+<td><p>Infrastructure as Code</p></td>
+</tr>
+<tr class="row-odd"><td><p>IAM</p></td>
+<td><p>(AWS) Identity and Access Management</p></td>
+</tr>
+<tr class="row-even"><td><p>IAP</p></td>
+<td><p>Identity-Aware Proxy</p></td>
+</tr>
+<tr class="row-odd"><td><p>IBM</p></td>
+<td><p>International Business Machines Corporation</p></td>
+</tr>
+<tr class="row-even"><td><p>ICA</p></td>
+<td><p>Intermediate Certificate Authority</p></td>
+</tr>
+<tr class="row-odd"><td><p>ICAM</p></td>
+<td><p>Identity, Credential, and Access Management</p></td>
+</tr>
+<tr class="row-even"><td><p>IDaaS</p></td>
+<td><p>Identity as a Service</p></td>
+</tr>
+<tr class="row-odd"><td><p>IdP</p></td>
+<td><p>Identity Provider</p></td>
+</tr>
+<tr class="row-even"><td><p>IGA</p></td>
+<td><p>(Symantec) Identity Governance and Administration</p></td>
+</tr>
+<tr class="row-odd"><td><p>IIS</p></td>
+<td><p>Internet Information Services</p></td>
+</tr>
+<tr class="row-even"><td><p>IL4</p></td>
+<td><p>(Department of Defense) Impact Level 4</p></td>
+</tr>
+<tr class="row-odd"><td><p>IoMT</p></td>
+<td><p>Internet of Medical Things</p></td>
+</tr>
+<tr class="row-even"><td><p>IN UEM</p></td>
+<td><p>Ivanti Neurons for Unified Endpoint Management</p></td>
+</tr>
+<tr class="row-odd"><td><p>IoT</p></td>
+<td><p>Internet of Things</p></td>
+</tr>
+<tr class="row-even"><td><p>IP</p></td>
+<td><p>Internet Protocol</p></td>
+</tr>
+<tr class="row-odd"><td><p>IPsec</p></td>
+<td><p>Internet Protocol Security</p></td>
+</tr>
+<tr class="row-even"><td><p>IPv4</p></td>
+<td><p>Internet Protocol version 4</p></td>
+</tr>
+<tr class="row-odd"><td><p>IPv6</p></td>
+<td><p>Internet Protocol version 6</p></td>
+</tr>
+<tr class="row-even"><td><p>ISE</p></td>
+<td><p>(Cisco) Identity Services Engine</p></td>
+</tr>
+<tr class="row-odd"><td><p>IT</p></td>
+<td><p>Information Technology</p></td>
+</tr>
+<tr class="row-even"><td><p>ITL</p></td>
+<td><p>Information Technology Lab</p></td>
+</tr>
+<tr class="row-odd"><td><p>ITOps</p></td>
+<td><p>Information Technology Operations</p></td>
+</tr>
+<tr class="row-even"><td><p>JDBC</p></td>
+<td><p>Java Database Connectivity</p></td>
+</tr>
+<tr class="row-odd"><td><p>KCD</p></td>
+<td><p>Kerberos Constrained Delegation</p></td>
+</tr>
+<tr class="row-even"><td><p>LDAP</p></td>
+<td><p>Lightweight Directory Access Protocol</p></td>
+</tr>
+<tr class="row-odd"><td><p>LDAPS</p></td>
+<td><p>Lightweight Directory Access Protocol Secure</p></td>
+</tr>
+<tr class="row-even"><td><p>LTM</p></td>
+<td><p>(F5 BIG-IP) Local Traffic Manager</p></td>
+</tr>
+<tr class="row-odd"><td><p>MAM</p></td>
+<td><p>Mobile Application Management</p></td>
+</tr>
+<tr class="row-even"><td><p>MDM</p></td>
+<td><p>Mobile Device Management</p></td>
+</tr>
+<tr class="row-odd"><td><p>MES</p></td>
+<td><p>(Lookout) Mobile Endpoint Security</p></td>
+</tr>
+<tr class="row-even"><td><p>MFA</p></td>
+<td><p>Multifactor Authentication</p></td>
+</tr>
+<tr class="row-odd"><td><p>ML</p></td>
+<td><p>Machine Learning</p></td>
+</tr>
+<tr class="row-even"><td><p>MSV</p></td>
+<td><p>Mandiant Security Validation</p></td>
+</tr>
+<tr class="row-odd"><td><p>MTD</p></td>
+<td><p>Mobile Threat Defense</p></td>
+</tr>
+<tr class="row-even"><td><p>mTLS</p></td>
+<td><p>Mutual Transport Layer Security</p></td>
+</tr>
+<tr class="row-odd"><td><p>MU SPN</p></td>
+<td><p>Mobile User Security Processing Node</p></td>
+</tr>
+<tr class="row-even"><td><p>NCCoE</p></td>
+<td><p>National Cybersecurity Center of Excellence</p></td>
+</tr>
+<tr class="row-odd"><td><p>NDR</p></td>
+<td><p>Network Detection and Response</p></td>
+</tr>
+<tr class="row-even"><td><p>NGAV</p></td>
+<td><p>Next-Generation Antivirus</p></td>
+</tr>
+<tr class="row-odd"><td><p>NGFW</p></td>
+<td><p>Next-Generation Firewall</p></td>
+</tr>
+<tr class="row-even"><td><p>NIST</p></td>
+<td><p>National Institute of Standards and Technology</p></td>
+</tr>
+<tr class="row-odd"><td><p>NNM</p></td>
+<td><p>(Tenable) Nessus Network Monitor</p></td>
+</tr>
+<tr class="row-even"><td><p>NPE</p></td>
+<td><p>Non-Person Entity</p></td>
+</tr>
+<tr class="row-odd"><td><p>NPS</p></td>
+<td><p>Network Policy Server</p></td>
+</tr>
+<tr class="row-even"><td><p>N/S</p></td>
+<td><p>North/South</p></td>
+</tr>
+<tr class="row-odd"><td><p>NSG</p></td>
+<td><p>Network Security Group</p></td>
+</tr>
+<tr class="row-even"><td><p>NTA</p></td>
+<td><p>Network Traffic Analysis</p></td>
+</tr>
+<tr class="row-odd"><td><p>NTP</p></td>
+<td><p>Network Time Protocol</p></td>
+</tr>
+<tr class="row-even"><td><p>NVM</p></td>
+<td><p>(Cisco) Network Visibility Module</p></td>
+</tr>
+<tr class="row-odd"><td><p>OAuth</p></td>
+<td><p>Open Authorization</p></td>
+</tr>
+<tr class="row-even"><td><p>OIDC</p></td>
+<td><p>OpenID Connect</p></td>
+</tr>
+<tr class="row-odd"><td><p>OMB</p></td>
+<td><p>Office of Management and Budget</p></td>
+</tr>
+<tr class="row-even"><td><p>OS</p></td>
+<td><p>Operating System</p></td>
+</tr>
+<tr class="row-odd"><td><p>OT</p></td>
+<td><p>Operational Technology</p></td>
+</tr>
+<tr class="row-even"><td><p>OU</p></td>
+<td><p>Organizational Unit</p></td>
+</tr>
+<tr class="row-odd"><td><p>OTP</p></td>
+<td><p>One-Time Password</p></td>
+</tr>
+<tr class="row-even"><td><p>OVA</p></td>
+<td><p>Okta Verify App, Open Virtual Appliance</p></td>
+</tr>
+<tr class="row-odd"><td><p>PA</p></td>
+<td><p>Policy Administrator</p></td>
+</tr>
+<tr class="row-even"><td><p>PaaS</p></td>
+<td><p>Platform as a Service</p></td>
+</tr>
+<tr class="row-odd"><td><p>PAN</p></td>
+<td><p>Palo Alto Networks</p></td>
+</tr>
+<tr class="row-even"><td><p>PAW</p></td>
+<td><p>(Intune) Privilege Access Workstations</p></td>
+</tr>
+<tr class="row-odd"><td><p>PDCe</p></td>
+<td><p>Primary Domain Controller Emulator</p></td>
+</tr>
+<tr class="row-even"><td><p>PDP</p></td>
+<td><p>Policy Decision Point</p></td>
+</tr>
+<tr class="row-odd"><td><p>PE</p></td>
+<td><p>Policy Engine</p></td>
+</tr>
+<tr class="row-even"><td><p>PEP</p></td>
+<td><p>Policy Enforcement Point</p></td>
+</tr>
+<tr class="row-odd"><td><p>PII</p></td>
+<td><p>Personally Identifiable Information</p></td>
+</tr>
+<tr class="row-even"><td><p>PIP</p></td>
+<td><p>Policy Information Point</p></td>
+</tr>
+<tr class="row-odd"><td><p>PKI</p></td>
+<td><p>Public Key Infrastructure</p></td>
+</tr>
+<tr class="row-even"><td><p>QoS</p></td>
+<td><p>Quality of Service</p></td>
+</tr>
+<tr class="row-odd"><td><p>QR</p></td>
+<td><p>Quick Response</p></td>
+</tr>
+<tr class="row-even"><td><p>RADIUS</p></td>
+<td><p>Remote Authentication Dial-In User Service</p></td>
+</tr>
+<tr class="row-odd"><td><p>R&amp;D</p></td>
+<td><p>Research and Development</p></td>
+</tr>
+<tr class="row-even"><td><p>RDBMS</p></td>
+<td><p>Relational Database Management System</p></td>
+</tr>
+<tr class="row-odd"><td><p>RDP</p></td>
+<td><p>Remote Desktop Protocol</p></td>
+</tr>
+<tr class="row-even"><td><p>RDS</p></td>
+<td><p>Remote Desktop Server</p></td>
+</tr>
+<tr class="row-odd"><td><p>REST</p></td>
+<td><p>Representational State Transfer</p></td>
+</tr>
+<tr class="row-even"><td><p>RN SPN</p></td>
+<td><p>Remote Network Security Processing Node</p></td>
+</tr>
+<tr class="row-odd"><td><p>S3</p></td>
+<td><p>(Amazon) Simple Storage Service</p></td>
+</tr>
+<tr class="row-even"><td><p>SaaS</p></td>
+<td><p>Software as a Service</p></td>
+</tr>
+<tr class="row-odd"><td><p>SAML</p></td>
+<td><p>Security Assertion Markup Language</p></td>
+</tr>
+<tr class="row-even"><td><p>SASE</p></td>
+<td><p>Secure Access Service Edge</p></td>
+</tr>
+<tr class="row-odd"><td><p>SAW</p></td>
+<td><p>(Microsoft) Secure Admin Workstation</p></td>
+</tr>
+<tr class="row-even"><td><p>SCC</p></td>
+<td><p>SCAP Compliance Checker</p></td>
+</tr>
+<tr class="row-odd"><td><p>SC SPN</p></td>
+<td><p>Service Connection Security Processing Node</p></td>
+</tr>
+<tr class="row-even"><td><p>SCIM</p></td>
+<td><p>System for Cross-Domain Identity Management</p></td>
+</tr>
+<tr class="row-odd"><td><p>SDLC</p></td>
+<td><p>Software Development Lifecycle</p></td>
+</tr>
+<tr class="row-even"><td><p>SDP</p></td>
+<td><p>Software-Defined Perimeter</p></td>
+</tr>
+<tr class="row-odd"><td><p>SD-WAN</p></td>
+<td><p>Software-Defined Wide Area Network</p></td>
+</tr>
+<tr class="row-even"><td><p>SFTP</p></td>
+<td><p>SSH File Transfer Protocol</p></td>
+</tr>
+<tr class="row-odd"><td><p>SIEM</p></td>
+<td><p>Security Information and Event Management</p></td>
+</tr>
+<tr class="row-even"><td><p>SMB</p></td>
+<td><p>Server Message Block</p></td>
+</tr>
+<tr class="row-odd"><td><p>SMS</p></td>
+<td><p>Short Message Service</p></td>
+</tr>
+<tr class="row-even"><td><p>SMTP</p></td>
+<td><p>Simple Mail Transfer Protocol</p></td>
+</tr>
+<tr class="row-odd"><td><p>SNA</p></td>
+<td><p>(Cisco) Secure Network Analytics</p></td>
+</tr>
+<tr class="row-even"><td><p>SOAR</p></td>
+<td><p>Security Orchestration, Automation, and Response</p></td>
+</tr>
+<tr class="row-odd"><td><p>SoD</p></td>
+<td><p>Separation of Duties</p></td>
+</tr>
+<tr class="row-even"><td><p>SP</p></td>
+<td><p>Special Publication</p></td>
+</tr>
+<tr class="row-odd"><td><p>SPA</p></td>
+<td><p>Single Packet Authentication</p></td>
+</tr>
+<tr class="row-even"><td><p>SQL</p></td>
+<td><p>Structured Query Language</p></td>
+</tr>
+<tr class="row-odd"><td><p>SRE</p></td>
+<td><p>Site Reliability Engineer</p></td>
+</tr>
+<tr class="row-even"><td><p>SSE</p></td>
+<td><p>(Skyhigh Security) Security Service Edge</p></td>
+</tr>
+<tr class="row-odd"><td><p>SSH</p></td>
+<td><p>Secure Shell</p></td>
+</tr>
+<tr class="row-even"><td><p>SSL</p></td>
+<td><p>Secure Sockets Layer</p></td>
+</tr>
+<tr class="row-odd"><td><p>SSO</p></td>
+<td><p>Single Sign-On</p></td>
+</tr>
+<tr class="row-even"><td><p>SSPR</p></td>
+<td><p>Single Sign-On Password Reset</p></td>
+</tr>
+<tr class="row-odd"><td><p>STIG</p></td>
+<td><p>Security Technical Implementation Guide</p></td>
+</tr>
+<tr class="row-even"><td><p>SWG</p></td>
+<td><p>Secure Web Gateway</p></td>
+</tr>
+<tr class="row-odd"><td><p>TCP</p></td>
+<td><p>Transmission Control Protocol</p></td>
+</tr>
+<tr class="row-even"><td><p>TGW</p></td>
+<td><p>Transit Gateway</p></td>
+</tr>
+<tr class="row-odd"><td><p>TLS</p></td>
+<td><p>Transport Layer Security</p></td>
+</tr>
+<tr class="row-even"><td><p>TOTP</p></td>
+<td><p>Time-Based One-Time Pad</p></td>
+</tr>
+<tr class="row-odd"><td><p>TTP</p></td>
+<td><p>Tactics, Techniques, and Procedures</p></td>
+</tr>
+<tr class="row-even"><td><p>UAC</p></td>
+<td><p>User Account Control</p></td>
+</tr>
+<tr class="row-odd"><td><p>UAG</p></td>
+<td><p>(VMware) Unified Access Gateway</p></td>
+</tr>
+<tr class="row-even"><td><p>UDP</p></td>
+<td><p>User Datagram Protocol</p></td>
+</tr>
+<tr class="row-odd"><td><p>UEM</p></td>
+<td><p>Unified Endpoint Management</p></td>
+</tr>
+<tr class="row-even"><td><p>UI</p></td>
+<td><p>User Interface</p></td>
+</tr>
+<tr class="row-odd"><td><p>URL</p></td>
+<td><p>Uniform Resource Locator</p></td>
+</tr>
+<tr class="row-even"><td><p>USB</p></td>
+<td><p>Universal Serial Bus</p></td>
+</tr>
+<tr class="row-odd"><td><p>VDI</p></td>
+<td><p>Virtual Desktop Infrastructure</p></td>
+</tr>
+<tr class="row-even"><td><p>VDS</p></td>
+<td><p>(VMware) vSphere Distributed Switch</p></td>
+</tr>
+<tr class="row-odd"><td><p>VIP</p></td>
+<td><p>(Symantec) Validation and ID Protection</p></td>
+</tr>
+<tr class="row-even"><td><p>VLAN</p></td>
+<td><p>Virtual Local Area Network</p></td>
+</tr>
+<tr class="row-odd"><td><p>VM</p></td>
+<td><p>Virtual Machine</p></td>
+</tr>
+<tr class="row-even"><td><p>VNET</p></td>
+<td><p>Virtual Network</p></td>
+</tr>
+<tr class="row-odd"><td><p>VPC</p></td>
+<td><p>Virtual Private Cloud</p></td>
+</tr>
+<tr class="row-even"><td><p>VPN</p></td>
+<td><p>Virtual Private Network</p></td>
+</tr>
+<tr class="row-odd"><td><p>vSAN</p></td>
+<td><p>Virtual Storage Area Network</p></td>
+</tr>
+<tr class="row-even"><td><p>VSI</p></td>
+<td><p>Virtual Server Instance</p></td>
+</tr>
+<tr class="row-odd"><td><p>WAF</p></td>
+<td><p>Web Application Firewall</p></td>
+</tr>
+<tr class="row-even"><td><p>WF</p></td>
+<td><p>(Palo Alto Networks) Wildfire</p></td>
+</tr>
+<tr class="row-odd"><td><p>WSS</p></td>
+<td><p>(Symantec) Web Security Service</p></td>
+</tr>
+<tr class="row-even"><td><p>WSUS</p></td>
+<td><p>(Microsoft) Windows Server Update Service</p></td>
+</tr>
+<tr class="row-odd"><td><p>XDR</p></td>
+<td><p>Extended Detection and Response</p></td>
+</tr>
+<tr class="row-even"><td><p>XSS</p></td>
+<td><p>Cross-Site Scripting</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZCC</p></td>
+<td><p>Zscaler Client Connector</p></td>
+</tr>
+<tr class="row-even"><td><p>ZIA</p></td>
+<td><p>Zscaler Internet Access</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZPA</p></td>
+<td><p>Zscaler Private Access</p></td>
+</tr>
+<tr class="row-even"><td><p>ZSO</p></td>
+<td><p>(Ivanti) Zero Sign-On</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZTA</p></td>
+<td><p>Zero Trust Architecture</p></td>
+</tr>
+<tr class="row-even"><td><p>ZTNA</p></td>
+<td><p>Zero Trust Network Access</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="glossary.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Glossary</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<p>
+  
+    By NIST<br/>
+  
+</p>
+
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> Certain commercial equipment, instruments, or
+          materials are identified in this documentation to foster understanding. Such
+          identification does not imply recommendation or endorsement by the National
+          Institute of Standards and Technology, nor does it imply that the materials
+          or equipment identified are necessarily the best available for the purpose.
+        </div>
+      </p>
+    </div>
+</footer>
+  </body>
+</html>
