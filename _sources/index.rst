@@ -1,5 +1,7 @@
-Implementing a Zero Trust Architecture 
-=========================================
+**NIST SPECIAL PUBLICATION 1800-35**
+
+Implementing a Zero Trust Architecture: Full Document 
+=========================================================================
 
 .. include:: /_publication_note.rst
 
