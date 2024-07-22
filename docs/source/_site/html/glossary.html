@@ -1,0 +1,578 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Glossary &#8212; Implementing a Zero Trust Architecture Project  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="_static/content.css?v=59cd0ab0" />
+    <link rel="stylesheet" type="text/css" href="_static/breadcrumbs.css?v=83cea8a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'glossary';</script>
+    <script src="_static/jquery.visible.js?v=5b129ffc"></script>
+    <script src="_static/jquery.leaveNotice-nist.js?v=7cf1efa2"></script>
+    <script src="_static/applyLeaveNotice.js?v=38741b1c"></script>
+    <script src="_static/smoothNavScroll.js?v=2ce98a12"></script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Acronyms" href="acronyms.html" />
+    <link rel="prev" title="Zero Trust Journey Takeaways" href="VolumeB/ZeroTrustTakeaways.html" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
+    <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+    <link rel="stylesheet" type="text/css" href="https://pages.nist.gov/leaveNotice/css/jquery.leaveNotice.css" />
+    <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJSMY46M5C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RJSMY46M5C');
+    </script>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="width: max-content;">
+    <ul class="wy-breadcrumbs">
+        <li><a href="index.html" aria-label="Home"><i class="fa fa-home"></i></a></li>
+        <li class="breadcrumb-item active">&ensp;Glossary</li>
+    </ul>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+  </div>
+  
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Implementing a Zero Trust Architecture Project  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture" title="Main Project Page" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="_static/MainProjectLogo.jpg" class="icon-link-image" alt="Main Project Page"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Implementing a Zero Trust Architecture
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="VolumeA/ExecutiveSummary.html">Executive Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VolumeA/Introduction.html">Introduction to the Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VolumeA/ProjectOverview.html">Project Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="VolumeB/architecture.html">Architecture and Builds</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="VolumeB/BuildsImplemented.html">Builds Implemented</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="VolumeB/appendices/index.html">Build Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="VolumeB/appendices/Appendix-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VolumeB/appendices/Appendix-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VolumeB/appendices/Appendix-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VolumeB/appendices/Appendix-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VolumeB/appendices/Appendix-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VolumeB/appendices/Appendix-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VolumeB/appendices/Appendix-E2B3.html">Enterprise 2 Build 3 (E2B3) — Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VolumeB/appendices/Appendix-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VolumeB/appendices/Appendix-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VolumeB/appendices/Appendix-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VolumeB/appendices/Appendix-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VolumeB/appendices/Appendix-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VolumeB/appendices/Appendix-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VolumeB/appendices/Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VolumeB/appendices/Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VolumeB/appendices/Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VolumeB/appendices/Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="VolumeC/index.html">Build Implementation Instructions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="VolumeC/HowTo-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeC/HowTo-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeC/HowTo-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeC/HowTo-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeC/HowTo-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeC/HowTo-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeC/HowTo-E2B3.html">Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeC/HowTo-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeC/HowTo-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeC/HowTo-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeC/HowTo-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeC/HowTo-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeC/HowTo-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeC/HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeC/HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeC/HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeC/HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeC/Hardening.html">Hardening Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="VolumeB/GeneralFindings.html">General Findings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VolumeB/FutureBuildConsiderations.html">Future Build Considerations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="VolumeD/index.html">Functional Demonstrations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="VolumeD/FunctionalLabDemonstration.html">Demonstration Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeD/UseCaseA.html">Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeD/UseCaseB.html">Use Case B: Enterprise-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeD/UseCaseC.html">Use Case C: Collaboration: Federated-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeD/UseCaseD.html">Use Case D: Other-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeD/UseCaseE.html">Use Case E: Guest: No-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeD/UseCaseF.html">Use Case F: Confidence Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeD/UseCaseG.html">Use Case G: Service-Service Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeD/UseCaseH.html">Use Case H: Data Level Security Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeD/FunctionalDemonstrationResultSummaries.html">Functional Demonstration Result Summaries</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="VolumeD/results/index.html">Functional Demonstration Results</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="VolumeD/results/EIGCrawlResults.html">EIG Crawl Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VolumeD/results/EIGRunResults.html">EIG Run Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VolumeD/results/SDPMicroResults.html">SDP, Microsegmentation, and SASE Phase Demonstration Results</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="VolumeE/index.html">Risk and Compliance Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="VolumeE/RisksAddressed.html">Risks Addressed by the ZTA Reference Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeE/ArchitectureSecurityMappings.html">ZTA Security Mapping Context and Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VolumeE/Mappings.html">Mappings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="VolumeB/ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acronyms.html">Acronyms</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/glossary.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Glossary</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="glossary">
+<span id="global-glossary"></span><h1>Glossary<a class="headerlink" href="#glossary" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is supplementary material for the <a class="reference external" href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf">NIST SP 1800-35 publication</a>.</p>
+</div>
+<dl class="simple glossary">
+<dt id="term-Managed-Devices">Managed Devices<a class="headerlink" href="#term-Managed-Devices" title="Link to this term">#</a></dt><dd><p>Personal computers, laptops, mobile devices, virtual machines, and infrastructure components require management agents, allowing information technology staff to discover, maintain, and control them. Those with broken or missing agents cannot be seen or managed by agent-based security products. [NIST SP 1800-15 Vol. B]</p>
+</dd>
+<dt id="term-Policy">Policy<a class="headerlink" href="#term-Policy" title="Link to this term">#</a></dt><dd><p>Statements, rules, or assertions that specify the correct or expected behavior of an entity. For example, an authorization policy might specify the correct access control rules for a software component. [NIST SP 800-95 and NIST IR 7621 Rev. 1]</p>
+</dd>
+<dt id="term-Policy-Administrator-PA">Policy Administrator (PA)<a class="headerlink" href="#term-Policy-Administrator-PA" title="Link to this term">#</a></dt><dd><p>An access control mechanism component that executes the PE’s policy decision by sending commands to a PEP to establish and terminate the communications path between the subject and the resource.</p>
+</dd>
+<dt id="term-Policy-Decision-Point-PDP">Policy Decision Point (PDP)<a class="headerlink" href="#term-Policy-Decision-Point-PDP" title="Link to this term">#</a></dt><dd><p>An access control mechanism component that computes access decisions by evaluating the applicable policies. The functions of the PE and PA comprise a PDP. [NIST SP 800-162, adapted]</p>
+</dd>
+<dt id="term-Policy-Enforcement-Point-PEP">Policy Enforcement Point (PEP)<a class="headerlink" href="#term-Policy-Enforcement-Point-PEP" title="Link to this term">#</a></dt><dd><p>An access control mechanism component that enforces access policy decisions in response to a request from a subject requesting access to a protected resource. [NIST SP 800-162, adapted]</p>
+</dd>
+<dt id="term-Policy-Engine-PE">Policy Engine (PE)<a class="headerlink" href="#term-Policy-Engine-PE" title="Link to this term">#</a></dt><dd><p>An access control mechanism component that decides whether to grant, deny, or revoke access to a resource for a given subject based on enterprise policy, information from supporting components, and a trust algorithm.</p>
+</dd>
+<dt id="term-Policy-Information-Point-PIP">Policy Information Point (PIP)<a class="headerlink" href="#term-Policy-Information-Point-PIP" title="Link to this term">#</a></dt><dd><p>An access control mechanism component that provides telemetry and other information generated by policy or collected by supporting components that the PDP needs for making policy decisions. [NIST SP 800-162, adapted]</p>
+</dd>
+<dt id="term-Risk">Risk<a class="headerlink" href="#term-Risk" title="Link to this term">#</a></dt><dd><p>The net negative impact of the exercise of a vulnerability, considering both the probability and the impact of occurrence. [NIST SP 1800-15 Vol. B]</p>
+</dd>
+<dt id="term-Security-Control">Security Control<a class="headerlink" href="#term-Security-Control" title="Link to this term">#</a></dt><dd><p>A safeguard or countermeasure prescribed for an information system or an organization designed to protect the confidentiality, integrity, and availability of its information and to meet a set of defined security requirements. [NIST SP 800-53 Rev. 5]</p>
+</dd>
+<dt id="term-Threat">Threat<a class="headerlink" href="#term-Threat" title="Link to this term">#</a></dt><dd><p>Any circumstance or event with the potential to adversely impact organizational operations (including mission, functions, image, or reputation), organizational assets, or individuals through an information system via unauthorized access, destruction, disclosure, modification of information, and/or denial of service. Also, the potential for a threat-source to successfully exploit a particular information system vulnerability. [Federal Information Processing Standards 200]</p>
+</dd>
+<dt id="term-Vulnerability">Vulnerability<a class="headerlink" href="#term-Vulnerability" title="Link to this term">#</a></dt><dd><p>Weakness in an information system, system security procedures, internal controls, or implementation that could be exploited or triggered by a threat source. [NIST SP 800-37 Rev. 2]</p>
+</dd>
+<dt id="term-Zero-Trust">Zero Trust<a class="headerlink" href="#term-Zero-Trust" title="Link to this term">#</a></dt><dd><p>A cybersecurity paradigm focused on resource protection and the premise that trust is never granted implicitly but must be continually evaluated. [NIST SP 800-207]</p>
+</dd>
+<dt id="term-Zero-Trust-Architecture-ZTA">Zero Trust Architecture (ZTA)<a class="headerlink" href="#term-Zero-Trust-Architecture-ZTA" title="Link to this term">#</a></dt><dd><p>An enterprise cybersecurity architecture that is based on zero trust principles and designed to prevent data breaches and limit internal lateral movement. Zero trust architecture is an end-to-end approach to enterprise resource and data security that encompasses identity (person and non-person entities), credentials, access management, operations, endpoints, hosting environments, and the interconnecting infrastructure. [NIST SP 800-207]</p>
+</dd>
+</dl>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="VolumeB/ZeroTrustTakeaways.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Zero Trust Journey Takeaways</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="acronyms.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Acronyms</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<p>
+  
+    By NIST<br/>
+  
+</p>
+
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> Certain commercial equipment, instruments, or
+          materials are identified in this documentation to foster understanding. Such
+          identification does not imply recommendation or endorsement by the National
+          Institute of Standards and Technology, nor does it imply that the materials
+          or equipment identified are necessarily the best available for the purpose.
+        </div>
+      </p>
+    </div>
+</footer>
+  </body>
+</html>

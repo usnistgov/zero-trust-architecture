@@ -1,0 +1,1102 @@
+Introduction to the Guide
+==========================
+
+.. include:: /_publication_note.rst
+
+This guide outlines best practices for the implementation of zero trust architectures (ZTAs). These best practices were identified through a collaborative project at the National Cybersecurity Center of Ex-cellence (NCCoE). The NCCoE and its collaborators are using commercially available technology in lab environments to build interoperable, open standards-based ZTA implementations that align to the concepts and principles in `NIST Special Publication (SP) 800-207, Zero Trust Architecture <https://csrc.nist.gov/publications/detail/sp/800-207/final>`__. The implementations include ZTA approaches for enhanced identity governance (EIG), software-defined perimeter (SDP), microsegmentation, and secure access service edge (SASE). This project is developing, demonstrating, and documenting example ZTA solutions to help inform organizations as they develop plans to integrate ZTA into their enterprise environments. As the project progresses, this preliminary draft will be updated.
+
+Audience
+--------
+
+The primary audience for this guide is medium and large enterprises. These enterprises are assumed to have trained operators and network administrators with the skills to deploy ZTA components and supporting components for data security, endpoint security, identity and access management, and security analytics. The enterprises are also assumed to have critical resources that require protection, some of which are located on-premises and others of which are in the cloud; and a requirement to provide partners, contractors, guests, and employees, both local and remote, with secure access to these critical resources. For a full list of assumptions for this project, see our supplemental :ref:`Assumptions` documentation.
+
+While this guide supports `Executive Order 14028, Improving the Nation's Cybersecurity <https://www.federalregister.gov/documents/2021/05/17/2021-10460/improving-the-nations-cybersecurity>`__, which requires all federal agencies to develop plans to implement ZTA, it is not specific to federal agency audiences.
+
+Readers of this guide should already be familiar with ZTA basics and the topics covered in `NIST Special Publication (SP) 800-207, Zero Trust Architecture <https://csrc.nist.gov/publications/detail/sp/800-207/final>`__.
+
+
+Scope
+-----
+
+The scope of this guide is implementing a ZTA for a conventional, general-purpose enterprise IT infrastructure with support for traditional IT resources such as laptops, desktops, servers, mobile devices, and other systems with credentials. Discovery of resources, assets, communication flows, and other elements is also within scope. The focus is on using the ZTA to protect access to enterprise data, regardless of who initiates the access request (e.g., enterprise employees, partners, contractors, or corporate network guests), from where the access request is initiated (e.g., from the corporate network, a branch office, or the public internet), or where the resources are located, (e.g., on-premises or in the cloud). 
+
+ZTAs for industrial control systems, operational technology (OT) environments, and Internet of Things (IoT) devices are explicitly out of scope for this project. Application of ZTA principles to these environments would be part of a separate project. For information on other related NCCoE projects, see `National Cybersecurity Center of Excellence, Internet of Things (IoT) <https://www.nccoe.nist.gov/iot>`__ and `National Cybersecurity Center of Excellence, Manufacturing <https://www.nccoe.nist.gov/manufacturing>`__. Addressing the risk and policy requirements of discovering and classifying data is also out of scope.
+
+
+How to Use This Guide
+----------------------
+
+This guide provides technical details for 17 example ZTA implementations that were rigorously built in a lab at NCCoE. They were constructed according to the principles of zero trust and various zero trust architecture deployment approaches outlined in NIST Special Publication (SP) 800-207, Zero Trust Architecture.
+
+This version of the guide introduces a new manner of content delivery in two formats, one we refer to as the “High-Level Document in PDF Format” and the other as the “Full Document in Web Format.” The document in PDF format is meant to serve as an introductory reading with respect to insight into the project effort, as it provides a high-level summary of project goals, reference architecture, various ZTA implementations, and findings. The document in the web format provides in-depth details in terms of technologies leveraged, their specific integrations and configurations, and the use cases and scenarios demonstrated. The web format document also contains information on the implemented security capabilities and their mappings to the NIST Cybersecurity Framework (CSF) versions 1.1 and 2.0, NIST SP 800-53r5, and security measures outlined in “EO-Critical Software” under Executive Order (EO) 14028.
+
+Readers are encouraged to begin by reading the document in PDF format (found at the `Main Project Page <https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture>`__) to perceive a high-level insight into the project. Then readers may drill down from that document into the deeper sections of the linked online document in web format to access in-depth information as needed. Therefore, this web content is organized as follows:
+
+- :ref:`Project Overview` provides an overview about the NCCoE's “Implementing a Zero Trust Architecture” project from the viewpoints of motivation for the project, challenges in implementing ZTAs, project execution and implementation approach, as well as collaborating organizations and their contributions on the project.
+
+- :ref:`Architecture and Builds` discusses the reference architectures considered for demonstrating various types of ZTA deployment approaches used across 17 implementations built. It also lists the technology products, along with out-of-the-box capabilities used in each build. Furthermore, this section provides information regarding the NCCoE lab's physical architecture platform used in implementing the builds.
+
+- :ref:`Build Implementation Instructions` lists 17 example implementations in a table format with relevant columns that identify technology products and capabilities used as “Policy Engines,” as well as ZTA deployment approaches used in each implementation.
+
+- :ref:`General Findings` explores the noteworthy findings and conclusions recorded throughout the demonstration of each ZTA deployment approach across 17 unique lab implementations.
+
+- :ref:`Functional Demonstrations` discusses the essence of functional demonstrations scoped for the project from the viewpoints of demonstration methodology, use cases, and scenarios. It also lists the functional demonstration results for each implementation, both in summary and fully detailed formats.
+
+- :ref:`Risk and Compliance Management` provides information regarding each build's implemented security capabilities and their mappings to the NIST Cybersecurity Framework (CSF) versions 1.1 and 2.0, NIST SP 800-53r5, and security measures outlined in “EO-Critical Software” under Executive Order (EO) 14028.
+
+- :ref:`Zero Trust Journey Takeaways` concludes that document by sharing a list of takeaways as recommended steps for a zero trust journey, intended for organizations that are considering ZTA adoption for their environments.
+
+ZTA implementers and others seeking detailed information on designing and deploying ZTA solutions are encouraged to read all sections of the guide, as well as utilize the wealth of additional resources linked to throughout those sections.
+
+Cybersecurity professionals, compliance professionals, and others who are primarily concerned with how ZTA solutions relate to the CSF, NIST SP 800-53, and EO 14028 should focus on :ref:`Risk and Compliance Management` and the resources it links to.
+
+Anyone interested primarily in the lessons learned from the project should focus on the takeaways provided in :ref:`Zero Trust Journey Takeaways`.
+
+Assumptions
+-----------
+
+This project is guided by the following assumptions:
+
+-  `NIST SP 800-207, Zero Trust Architecture <https://csrc.nist.gov/publications/detail/sp/800-207/final>`__ is a definitive source of ZTA concepts and principles.
+
+-  Enterprises that want to migrate gradually to an increasing use of ZTA concepts and principles in their network environments may desire to integrate ZTA with their legacy enterprise and cloud systems.
+
+-  To prepare for a migration to ZTA, enterprises may want to inventory and prioritize all resources that require protection based on risk. They will also need to define policies that determine under what set of conditions subjects will be given access to each resource based on attributes of both the subject and the resource (e.g., location, type of authentication used, user role), as well as other variables such as day and time.
+
+-  Enterprises should use a risk-based approach to set and prioritize milestones for their gradual adoption and integration of ZTA across their enterprise environment.
+
+-  There is no single approach for migrating to ZTA that is best for all enterprises.
+
+-  ZTA is a set of concepts and principles, not a set of technical specifications that can be complied with. Therefore, zero trust compliance is not an objective. Rather, the objective is continuous improvement of the access control processes and policies in accordance with the principles of ZTA.
+
+-  Devices, applications, and other non-human entities can have different levels of capabilities:
+
+-  Neither host-based firewalls nor host-based intrusion prevention systems (IPS) are mandatory components; they are, however, capabilities that can be added when a device is capable of supporting them.
+
+-  Some limited functionality devices that are not able to host firewall, IPS, and other capabilities on their own may be associated with services that provide these capabilities for them. In this case, both the device and its supporting services can be considered the subject in the ZTA access interaction.
+
+-  Some devices are bound to users (e.g., desktop, laptop, smartphone); other devices are not bound to users (e.g., kiosk endpoints, servers, applications, services). Both types of devices can be subjects and request access to enterprise resources.
+
+-  ZTA components used in any given enterprise solution should be interoperable regardless of their vendor origin.
+
+Collaborators and Their Contributions
+-------------------------------------
+
+Organizations participating in this project submitted their capabilities in response to an open call in the Federal Register for all sources of relevant security capabilities from academia and industry (vendors and integrators). Respondents with relevant capabilities or product components (identified as “Technology Partners/Collaborators” herein) signed a CRADA to collaborate with NIST in a consortium to build example ZTA solutions.
+
+Each of these technology partners and collaborators has described the relevant products and capabilities they bring to this ZTA effort in the following subsections. The NCCoE does not certify or validate products or services. We demonstrate the capabilities that can be achieved by using participants' contributed technology.
+
+Appgate
+~~~~~~~
+
+Appgate is the secure access company. It empowers how people work and connect by providing solutions purpose-built on zero trust security principles. This security approach enables fast, simple, and secure connections from any device and location to workloads across any IT infrastructure in cloud, on-premises, and hybrid environments.
+
+Appgate SDP
+^^^^^^^^^^^^
+
+The Appgate SDP solution has been designed with the intent to provide all the critical elements of NIST SP 800-207. The Appgate SDP has a controller that offers policy administrator (PA) and policy engine (PE) functionality and gateways that offer policy enforcement point (PEP) functionality. Appgate SDP natively integrates with components via representational state transfer (REST) application programming interfaces (APIs) and metadata. By providing highly performant, scalable, secure, integrated, and cloaked zero trust access, Appgate SDP is able to ensure that the correct device and user (under the appropriate conditions at that moment in time) are connected. For more information about Appgate SDP, see https://www.appgate.com/zero-trust-network-access/how-it-works.
+
+AWS
+~~~
+
+AWS provides a platform in the cloud that hosts private and public sector agencies in most countries around the world. AWS offers more than 200 services which include compute, storage, networking, database, analytics, application services, deployment, management, developer, mobile, IoT, artificial intelligence (AI), security, and hybrid and enterprise applications. Additionally, AWS provides several security-related services and features such as Identity and Access Management (IAM), Virtual Private Cloud (VPC), PrivateLink, and Security Hub, allowing AWS customers to build and deliver their services worldwide with a high degree of confidence and assurance. AWS's array of third-party applications provides complementary functionality that further extends the capabilities of the AWS environment. To learn more about security services and compliance on AWS, please visit: https://aws.amazon.com/products/security.
+
+The following subsections briefly list some AWS services relevant to ZTA that are being provided in support of this project, organized by category of service.
+
+Identity
+^^^^^^^^
+
+**IAM**: AWS Identity and Access Management (IAM) provides fine-grained access control across all of AWS. With IAM, organizations can specify who can access which services and resources, and under which conditions. With IAM policies, organizations manage permissions to their workforce and systems to ensure least-privilege permissions.
+
+**Cognito**: Amazon Cognito lets organizations add user sign-up, sign-in, and access control to web and mobile apps quickly and easily. Cognito scales to millions of users and supports sign-in with social identity providers, such as Apple, Facebook, Google, and Amazon, and enterprise identity providers via Security Assertion Markup Language (SAML) 2.0 and OpenID Connect.
+
+Network/Network Security
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+**VPC**: Amazon Virtual Private Cloud (Amazon VPC) gives organizations full control over their virtual networking environment, including resource placement, connectivity, and security. A couple of key security features found in VPCs are network access control lists (ACLs) that act as firewalls for controlling traffic in and out of subnets, and security groups that act as host-based firewalls for controlling traffic to individual Amazon Elastic Compute Cloud (Amazon EC2) instances.
+
+**PrivateLink**: AWS PrivateLink provides private connectivity between VPCs, AWS services, and on-premises networks without exposing traffic to the public internet. AWS PrivateLink makes it easy to connect services across different accounts and VPCs to significantly simplify network architecture.
+
+**Network Firewall:** AWS Network Firewall is a managed service that makes it easy to deploy essential network protections for all of an organization's Amazon VPCs.
+
+**Web Application Firewall**: AWS WAF is a web application firewall (WAF) that helps protect web applications and APIs against common web exploits and bots that may affect availability, compromise security, or consume excessive resources.
+
+**Route 53**: Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service. It is designed to give developers and businesses an extremely reliable and cost-effective way to route end users to internet applications. Amazon Route 53 is fully compliant with IPv6 as well. With Route 53 Resolver an organization can filter and regulate outbound DNS traffic for its VPC.
+
+Compute
+^^^^^^^
+
+**EC2**: Amazon EC2 is a web service that provides secure, resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers.
+
+**ECS**: Amazon Elastic Container Service (Amazon ECS) is a fully managed container orchestration service that makes it easy to deploy, manage, and scale containerized applications.
+
+**EKS**: Amazon Elastic Kubernetes Service (Amazon EKS) is a managed container service to run and scale Kubernetes applications in the cloud or on-premises.
+
+Storage
+^^^^^^^
+
+**EBS**: Amazon Elastic Block Store (Amazon EBS) is an easy-to-use, scalable, high-performance block-storage service designed for Amazon EC2.
+
+**S3**: Amazon Simple Storage Service (Amazon S3) is an object storage service that offers scalability, data availability, security, and performance.
+
+Management/Monitoring
+^^^^^^^^^^^^^^^^^^^^^
+
+**Systems Manager**: AWS Systems Manager is the operations hub for AWS applications and resources, and it is broken into four core feature groups: Operations Management, Application Management, Change Management, and Node Management.
+
+**Security Hub**: AWS Security Hub is a cloud security posture management service that performs security best practice checks, aggregates alerts, and enables automated remediation.
+
+**CloudWatch**: Amazon CloudWatch is a monitoring and observability service built for DevOps engineers, developers, site reliability engineers (SREs), IT managers, and product owners. CloudWatch provides data and actionable insights to monitor applications, respond to system-wide performance changes, and optimize resource utilization.
+
+**CloudTrail**: AWS CloudTrail monitors and records account activity across AWS infrastructures, giving organizations control over storage, analysis, and remediation actions.
+
+**GuardDuty**: Amazon GuardDuty is a threat detection service that continuously monitors AWS accounts and workloads for malicious activity and delivers detailed security findings for visibility and remediation.
+
+**Firewall Manager**: AWS Firewall Manager is a security management service which allows organizations to centrally configure and manage firewall rules across their accounts and applications in AWS Organizations.
+
+Cisco
+~~~~~
+
+Cisco Systems, or Cisco, delivers collaboration, enterprise, and industrial networking and security solutions. The company's cybersecurity team, Cisco Secure, is one of the largest cloud and network security providers in the world. Cisco's Talos Intelligence Group, the largest commercial threat intelligence team in the world, is comprised of world-class threat researchers, analysts, and engineers, and supported by unrivaled telemetry and sophisticated systems. The group feeds rapid and actionable threat intelligence to Cisco customers, products, and services to help identify new threats quickly and defend against them. Cisco solutions are built to work together and integrate into your environment, using the “network as a sensor” and “network as an enforcer” approach to both make your team more efficient and keep your enterprise secure. Learn more about Cisco at https://www.cisco.com/go/secure.
+
+Cisco Secure Access by Duo
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Duo is a PE, PA, and PEP for users and their devices. It delivers simple, safe access to all applications — on-premises or in the cloud — for any user, device, or location. It makes it easy to effectively implement and enforce security policies and processes, using strong authentication to reduce the risk of data breaches due to compromised credentials and access from unauthorized devices.
+
+Cisco Identity Services Engine (ISE)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Cisco ISE is a network central PDP that includes both the PE and PA to help organizations provide secure access to users, their devices, and the non-user devices in their network environment. It simplifies the delivery of consistent and secure access control to PEPs across wired and wireless multi-vendor networks, as well as remote VPN connections. It controls switches, routers, and other network devices as PEPs, enabling granular control of every connection down to the individual port, delivering a dynamic, granular, and automated approach to policy enforcement that simplifies the delivery of highly secure, microsegmented network access control. ISE is tightly integrated with and enhances network and security devices, allowing it to transform the network from a simple conduit for data into an intuitive and adaptive security sensor and enforcer that acts to accelerate the time to detection and time to resolution of network threats.
+
+Cisco Secure Endpoint (formerly AMP)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Cisco Secure Endpoint addresses the full life cycle of the advanced malware problem before, during, and after an attack. It uses global threat intelligence to strengthen defenses, antivirus to block known malware, and static and dynamic file analysis to detect emerging malware, continuously monitoring file and system activity for emerging threats. When something new is detected, the solution provides a retrospective alert with the full recorded history of the file back to the point of entry, and the rich contextual information needed during a potential breach investigation to both prioritize remediation and create response plans.
+
+As a policy input point, Secure Endpoint delivers deep visibility, context, and control to rapidly detect, contain, and remediate advanced threats if they evade front-line defenses. It can also eliminate malware with a few clicks and provide a cost-effective security solution without affecting operational efficiency.
+
+Cisco Firepower Threat Defense (FTD)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Cisco FTD is a threat-focused, next-generation firewall with unified management. It provides advanced threat protection before, during, and after attacks. By delivering comprehensive, unified policy management of firewall functions, application control, threat prevention, and advanced malware protection, from network to endpoint, it increases visibility and security posture while reducing risk.
+
+Cisco Secure Network Analytics (formerly Stealthwatch)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Cisco Secure Network Analytics <https://www.cisco.com/c/en/us/products/security/stealthwatch/index.html>`__ aggregates and analyzes network telemetry — information generated by network devices — to turn the network into a sensor. As a policy input point, it provides enterprise-wide network visibility and applies advanced security analytics to detect and respond to threats in real time. It delivers end-to-end network visibility on-premises, in private clouds, and in public clouds. Secure Network Analytics detects a wide range of network and data center issues ranging from command-and-control (C&C) attacks to ransomware, from distributed denial of service (DDoS) attacks to illicit cryptomining, and from malware to insider threats.
+
+Secure Network Analytics can be deployed on-premises as a hardware appliance or virtual machine (VM), or cloud-delivered as a SaaS solution. It works with the entire Cisco router and switch portfolio as well as a wide variety of other security solutions.
+
+Cisco Encrypted Traffic Analytics (ETA)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Cisco ETA <https://www.cisco.com/go/eta>`__ helps illuminate the dark corners of encrypted traffic without decryption by using new types of data elements and enhanced NetFlow telemetry independent of protocol details. Cisco ETA can help detect malicious activity in encrypted traffic by applying advanced security analytics. At the same time, the integrity of the encrypted traffic is maintained because there is no need for bulk decryption.
+
+Cisco SecureX
+^^^^^^^^^^^^^
+
+`Cisco SecureX <http://www.cisco.com/go/secureX>`__ is an extended detection and response (XDR) cloud-native integrated threat response platform within the Cisco Secure portfolio. Its open, extensible integrations connect to the infrastructure, providing unified visibility and simplicity in one location. It maximizes operational efficiency to secure the network, users and endpoints, cloud edge, and applications. Cisco SecureX radically reduces the dwell time and human-powered tasks involved with detecting, investigating, and remediating threats to counter attacks, or securing access and managing policy to stay compliant. The time savings and better collaboration involved with orchestrating and automating security across SecOps, ITOps, and NetOps teams help advance the security maturity level.
+
+Cisco Endpoint Security Analytics (CESA)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Cisco Endpoint Security Analytics (CESA) <http://www.cisco.com/c/en/us/products/security/endpoint-security-analytics-built-on-splunk/index.html?dtid=osscdc000283>`__ analyzes endpoint telemetry generated by the Network Visibility Module (NVM), which is built into the Cisco AnyConnect® Secure Mobility Client. CESA feeds Splunk Enterprise software to analyze NVM data provided by endpoints to uncover endpoint-specific security risks and breaches. This data includes information about data loss, unapproved applications and SaaS usage, security evasion, unknown malware, user behavior when not connected to the enterprise, endpoint asset inventory, and destination allowlists and denylists.
+
+Cisco AnyConnect Secure Mobility Client
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Cisco AnyConnect Secure Mobility Client <http://www.cisco.com/c/en/us/products/security/anyconnect-secure-mobility-client/index.html?dtid=osscdc000283>`__ is a unified endpoint software client compatible with several of today's major enterprise mobility platforms. It helps manage the security risks associated with extended networks. Built on foundational VPN technology, it extends beyond remote-access capabilities to offer user-friendly, network-based security including:
+
+-  Simple and context-aware security policy enforcement
+
+-  An uninterrupted, intelligent, always-on security connection to remote devices
+
+-  Visibility into network and device-user behavior
+
+-  Web inspection technology to defend against compromised websites
+
+Cisco Network Devices
+^^^^^^^^^^^^^^^^^^^^^
+
+`Cisco network devices <https://www.cisco.com/site/us/en/products/networking/index.html>`__ do more than move packets on the network; they provide a platform to improve user experience, unify management, automate tasks, analyze activity, and enhance security across the enterprise. In a zero-trust environment, Cisco switches, routers, and other devices provide continuous visibility using the “network as a sensor” to monitor network activity, reporting 100% of NetFlow and other metadata. These devices act as PEPs utilizing a “network as an enforcer” approach to microsegment network access control to each port and enable dynamic and automated policy enforcement. This policy enforcement simplifies the delivery of highly secure control across environments.
+
+Cisco Secure Workload (CSW—formerly Tetration)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Today's networks include applications running in a hybrid multi-cloud environment that uses bare-metal, virtualized, cloud-based and container-based workloads. A key challenge is how to better secure applications and data without compromising agility. Cisco Secure Workload (formerly known as Cisco Tetration) is designed to address this security challenge by providing comprehensive workload protection by bringing security closer to applications and tailoring the security posture based on the application behavior. Secure Workload achieves this by using advanced machine learning and behavior analysis techniques. This platform provides a ready-to-use solution to support the following security use cases:
+
+-  Microsegmentation policies that allow implementation of a zero trust model: It enforces policies that allow only the traffic required for business purposes
+
+-  Behavioral baselining, analysis, and identifying anomalies on the workloads
+
+-  Detection of common vulnerabilities and exposures associated with the software packages installed on the resources
+
+-  Enforcement of policies that proactively quarantine servers when vulnerabilities are detected, blocking communication
+
+DigiCert
+~~~~~~~~
+
+DigiCert is a global provider of digital trust, enabling individuals and businesses to engage online with the confidence that their footprint in the digital world is secure. DigiCert® ONE, the platform for digital trust, provides organizations with centralized visibility and control over a broad range of public and private trust needs, securing websites, enterprise access and communication, software, identity, content, and devices. For more information, visit `digicert.com <https://digicert.com/>`__.
+
+DigiCert CertCentral TLS Manager
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DigiCert CertCentral is used to provision publicly trusted Transport Layer Security (TLS) server authentication certificates. CertCentral relies on DigiCert's publicly trusted root certificates with excellent ubiquity to provide the necessary interoperability with the widest range of third-party products.
+
+DigiCert Enterprise PKI Manager
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DigiCert Enterprise PKI Manager is a digital certificate management solution for enterprise identity and access public key infrastructure (PKI) use cases. Enterprise PKI Manager simplifies and streamlines certificate lifecycle management for identity and access of users, devices, and applications, supporting a broad array of certificate types with automated workflows, preconfigured templates, multiple enrollment and authentication methods, and a rich ecosystem of integrated technology partners. It is part of the DigiCert family of products delivering digital trust solutions. Enterprise PKI Manager is built on DigiCert ONE's modern, containerized architecture, delivering scalability capable of serving high volumes of certificates, supporting flexible deployment in cloud, on-premises, or hybrid deployment models, and enabling dynamic and rapid intermediate Certificate Authority (ICA) creation to meet the diverse needs of different business groups.
+
+F5
+~~
+
+F5 empowers its customers to create, secure, and operate applications that deliver extraordinary digital experiences. Fueled by automation and AI-driven insights, these applications will naturally adapt based on their changing environment—so companies can focus on their core business, boost speed to market, improve operations, and build trust with their customers. By enabling these adaptive applications, F5 with NGINX and F5 Distributed Cloud Services technologies offers a comprehensive suite of solutions for every digital organization.
+
+BIG-IP Product Family
+^^^^^^^^^^^^^^^^^^^^^
+
+The BIG-IP product family provides full proxy security, application intelligence, and scalability for application traffic. As the amount of traffic grows or shrinks, BIG-IP can be adjusted or it can request addition or removal of application servers. It provides rich application traffic programmability to further enhance application security and application traffic steering requirements. In addition, BIG-IP's rich control plane programmability allows for integrations into on-premises orchestration engines, cloud automation/orchestration, and continuous integration/continuous delivery (CI/CD) pipelines, and the ability to deliver application security in a DevSecOps manner. All capabilities can be propagated as common policy throughout the enterprise regardless of whether an organization utilizes F5 hardware or a virtualized on-premises or cloud environment.
+
+BIG-IP modules provide the ability to layer on additional capabilities. The modules being considered for this project are discussed in the subsections below.
+
+BIG-IP Local Traffic Manager (LTM)
+''''''''''''''''''''''''''''''''''
+
+BIG-IP LTM is an enterprise-class load balancer providing granular layer 7 control, Secure Sockets Layer (SSL) offloading, and acceleration capabilities. It allows for massive scaling of traditional and modern apps across the enterprise and provides visibility into TLS-encrypted streams, TLS security enforcement, and Federal Information Processing Standards (FIPS) certified cryptography.
+
+BIG-IP Access Policy Manager (APM)
+''''''''''''''''''''''''''''''''''
+
+BIG-IP APM integrates and unifies secure user access to ensure the correct people have the correct access to the correct applications—anytime, anywhere, providing the ability to authenticate users into applications allowing for granular application access control and zero trust capabilities across the application landscape. BIG-IP APM sits in front of applications and APIs to enforce application authentication and access control for each user as part of zero trust.
+
+BIG-IP Web Application Firewall (WAF)
+'''''''''''''''''''''''''''''''''''''
+
+BIG-IP WAF provides the flexibility to deploy WAF services closer to the apps so they're protected wherever they reside. It has the ability to virtually patch applications for security vulnerabilities such as the latest Common Vulnerabilities and Exposures (CVE) entry without application code changes. It also reduces unwanted application traffic, allowing the application to be more responsive to its intended users while providing complete visibility into the application traffic. WAF provides API security, protecting against web application security concerns. WAF provides secure communication and vetting of traffic to APIs and applications.
+
+NGINX Product Family
+^^^^^^^^^^^^^^^^^^^^
+
+NGINX is a cloud-native, easy-to-use reverse proxy, load balancer, and API gateway. It integrates advanced monitoring, strengthens security controls, and orchestrates Kubernetes containers.
+
+NGINX Ingress Controller
+''''''''''''''''''''''''
+
+NGINX Ingress Controller combines software load balancing with simplified configuration based on standard Kubernetes Ingress resources or custom NGINX Ingress resources to ensure that applications in a Kubernetes cluster are delivered reliably, securely, and at high velocity. It provides security to Kubernetes-based microservices and APIs using API gateway and WAF capabilities. The Ingress Controller protects application and API containers in the Kubernetes environment by enforcing security on all traffic entering the Kubernetes node.
+
+NGINX Plus
+''''''''''
+
+NGINX Plus is an all-in-one load balancer, web server, content cache, WAF, and API gateway. NGINX Plus is built on NGINX Open Source. It is intended to reduce complexity and simplify management by consolidating several capabilities, including reverse proxy and TLS termination, into a single elastic ingress/egress tier. It acts as a webserver to server applications that are secured by the system's zero trust capabilities.
+
+NGINX Service Mesh
+''''''''''''''''''
+
+NGINX Service Mesh scales from open-source projects to a fully supported, secure, and scalable enterprise-grade solution. It provides a turnkey service-to-service solution featuring a unified data plane for ingress and egress Kubernetes management in a single configuration. NGINX Service Mesh provides for mutual TLS authentication (mTLS) enforcement, rate limiting, quality of service (QoS), and an API gateway to enforce security at each pod, securing pods from both north/south (N/S) and east/west (E/W) traffic and allowing for zero trust enforcement for all pod traffic.
+
+Forescout
+~~~~~~~~~
+
+Forescout delivers automated cybersecurity across the digital terrain. It empowers its customers to achieve continuous alignment of their security frameworks with their digital realities, across all asset types - IT, IoT, OT, and Internet of Medical Things (IoMT). Forescout enables organizations to manage cyber risk through automation and data-powered insights.
+
+The Forescout Platform provides complete asset visibility of connected devices, continuous compliance, network segmentation, network access control, and a strong foundation for zero trust. Forescout customers gain data-powered intelligence to accurately detect risks and quickly remediate cyberthreats without disruption of critical business assets. https://www.forescout.com/company/
+
+Forescout eyeSight
+^^^^^^^^^^^^^^^^^^
+
+Forescout eyeSight delivers comprehensive device visibility across an organization's entire digital terrain - without disrupting critical business processes. It discovers every IP-connected device, auto-classifies it, and assesses its compliance posture and risk the instant the device connects to the network. https://www.forescout.com/products/eyesight/
+
+Forescout eyeControl
+^^^^^^^^^^^^^^^^^^^^
+
+Forescout eyeControl provides flexible and frictionless network access control for heterogeneous enterprise networks. It enforces and automates zero trust security policies for least-privilege access on all managed and unmanaged assets across an organization's digital terrain. Policy-based controls can continuously enforce asset compliance, proactively reduce attack surfaces, and rapidly respond to incidents. https://www.forescout.com/products/eyecontrol/
+
+Forescout eyeSegment
+^^^^^^^^^^^^^^^^^^^^
+
+Forescout eyeSegment accelerates zero trust segmentation. It simplifies the design, planning, and deployment of non-disruptive, dynamic segmentation across an organization's digital terrain to reduce attack surface and regulatory risk. https://www.forescout.com/products/eyesegment/
+
+Forescout eyeExtend
+^^^^^^^^^^^^^^^^^^^
+
+Forescout eyeExtend automates security workflows across disparate products. It shares device context between the Forescout platform and other IT and security products, automates policy enforcement across disparate tools, and accelerates system-wide response to mitigate risks. https://www.forescout.com/products/eyeextend/
+
+Google Cloud
+~~~~~~~~~~~~
+
+`Google Cloud <https://cloud.google.com/>`__ brings the best of Google's innovative products and services to enable enterprises of all sizes to create new user experiences, transform their operations, and operate more efficiently. Google's mission is to accelerate every organization's ability to digitally transform its business with the best infrastructure, platform, industry solutions, and expertise. Google Cloud helps customers protect their data using the same infrastructure and security services Google uses for its own operations, defending against the toughest threats. Google pioneered the zero trust model at the core of its services and operations, and it enables its customers to do the same with its broad portfolio of solutions.
+
+BeyondCorp Enterprise (BCE)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`BeyondCorp Enterprise (BCE) <https://cloud.google.com/beyondcorp-enterprise>`__ is a zero trust solution, built on the Google platform and global network, which provides customers with simple and secure access to applications and cloud resources and offers integrated threat and data protection. It leverages the Chrome Browser and the Google Cloud platform (GCP) to protect and monitor proxy traffic from an organization's network. It allows customers to enforce context-aware policies (using factors such as identity, device posturing, and other signal information) to authorize access to SaaS applications and resources hosted on Google Cloud, third-party clouds, or on-premises. This solution is built from Google's own approach of shifting access controls from the network perimeter to individual users and devices, allowing for secure access without the need for a VPN.
+
+BCE key capabilities include:
+
+-  **Zero trust access**
+
+    -  **Context-aware access proxy (identity-aware proxy):** Globally deployed proxy built on the GCP that leverages identity, device, and contextual information to apply continuous authorization access decisions to applications and VMs deployed in real-time on GCP, other clouds, or on-premises data centers.
+
+    -  **Google Chrome:** The Secure Enterprise Browser is a core component of the BeyondCorp zero trust offering. Chrome provides agentless zero trust access to web apps hosted on GCP, other clouds (e.g., AWS, Azure), or on-premises data centers.
+
+    -  **Data loss prevention (DLP):** DLP features help businesses prevent sensitive data from being leaked to unauthorized users.
+
+    -  **Threat protection:** Chrome Secure Enterprise Browser includes a number of features to protect users from malware, phishing, and other online threats.
+
+    -  **Device posturing:** Ability to collect detailed information from endpoint devices. This includes areas like OS version, encrypted state, processes, certificates, and many other areas that can be used as part of a least privilege access model.
+
+    -  **Advanced reporting:** Deep visibility into web traffic and user actions within web applications and the data being transmitted between a device and application.
+
+    -  **Legacy client application access (IAP TCP Forwarding):** Software kit that enables zero trust access to non-HTTP, thick-client apps hosted in the GCP, other clouds, or on-premises data centers via an Identity-Aware Proxy (IAP).
+
+-  **Protections**
+
+    -  **Chronicle Security Orchestration, Automation, and Response (SOAR):** Cloud-based security platform that combines Google Chronicle's threat detection and response capabilities with Google SOAR's automation and orchestration capabilities. This integration allows organizations to quickly and easily automate security workflows, reducing the time it takes to respond to threats and improving their overall security posture. Leveraging machine learning to identify and prioritize threats allows for reducing the need for manual analysis. In addition, Chronicle SOAR automates common incident response tasks, such as triaging alerts, investigating incidents, and remediating vulnerabilities, providing a more cohesive ZTA strategy.
+
+    -  **Data protection:** Built-in Chrome browser capabilities to detect and prevent sensitive data loss, including prevention of copying, pasting, printing, and uploading/downloading of protected content in and out of the browser. Additional capabilities include preventing the accidental and intentional exfiltration of corporate data, and enforcing data protection policies across applications.
+
+    -  **Advanced threat analytics:** Chronicle's security analytics platform helps organizations detect, investigate, and respond to threats. Chronicle collects and normalizes security telemetry from across an organization's infrastructure, including logs, network traffic, and application data. Chronicle then uses machine learning to identify and prioritize threats. Chronicle also provides tools for investigating threats and responding to incidents.
+
+    -  **Threat protection:** Built-in Chrome browser capabilities include filtering and blocking harmful or unauthorized URLs in real-time, identifying phishing sites and malicious content in real-time, stopping suspicious file and malware transfers, providing sandbox detonation capabilities, and protecting user credentials and passwords.
+
+-  **Integrations**
+
+    -  **BeyondCorp Alliance ecosystem integrations:** A collection of integrations from BeyondCorp Alliance member partners that enable organizations to share signal information from EDR, MDM, enterprise mobility management (EMM), and other device or ecosystem endpoints to use in access policy decisions. (Members include Check Point, Citrix, CrowdStrike, InTune, Jamf, Lookout, Palo Alto Networks, Symantec by Broadcom, and VMware.)
+
+-  **Network connectivity**
+
+    -  **Hybrid Network Endpoint Group (NEG):** Private connectivity from Google Cloud to applications outside of Google Cloud (i.e., hosted by other clouds or on-premises data centers.)
+
+    -  **VPN interconnect:** Private connectivity via an interconnect from Google Cloud to applications outside of Google Cloud (i.e., hosted by other clouds or on-premises data centers.)
+
+    -  **App connector:** Secure internet-based connectivity from Google Cloud to applications outside of Google Cloud (i.e., hosted by other clouds or on-premises data centers via containerized network appliance.)
+
+    -  **Cloud Armor:** Provides a WAF service that protects your HTTP(S)-based applications from common web attacks, including DDoS, cross-site scripting (XSS), and SQL injection. Cloud Armor is a regional service that can be used to protect applications running on GCP or on-premises.
+
+-  **Platform**
+
+    -  **Google Platform:** Google's public cloud computing services including data management, application development, storage, hybrid & multi-cloud, security, and AI and ML that run on Google infrastructure.
+
+    -  **Google Network:** Google's global backbone with 146 edge locations in over 200 countries and territories provides low-latency connections, integrated DDoS protection, elastic scaling, and private transit.
+
+IBM
+~~~
+
+International Business Machines Corporation (IBM) is an American multinational technology corporation headquartered in Armonk, New York, with operations in over 171 countries. IBM produces and sells computer hardware, middleware, and software, and provides hosting and consulting services in areas ranging from mainframe computers to nanotechnology. IBM is also a major research organization, holding the record for most annual U.S. patents generated by a business (as of 2020) for 28 consecutive years. IBM has a large and diverse portfolio of products and services that range in the categories of cloud computing, AI, commerce, data and analytics, IoT, IT infrastructure, mobile, digital workplace, and cybersecurity.
+
+IBM Security Trusteer
+^^^^^^^^^^^^^^^^^^^^^
+
+IBM Security® Trusteer® solutions help detect fraud, authenticate users, and establish identity trust across a digital user journey. Trusteer uses cloud-based intelligence, AI, and ML to holistically identify new and existing users while improving the overall user experience by reducing the friction created with traditional forms of MFA. Within a ZTA, Trusteer acts as a risk engine that improves the efficacy of policy decisions enforced by various identity and access management solutions.
+
+IBM Security QRadar XDR
+^^^^^^^^^^^^^^^^^^^^^^^
+
+IBM Security QRadar® XDR suite provides a single unified workflow across an organization's security tools. Built on a unified cross-domain security platform, IBM Cloud Pak® for Security, the open architecture of QRadar XDR suite enables organizations to integrate their EDR, SIEM, network detection and response (NDR), security orchestration, automation, and response (SOAR), and threat intelligence solutions in support of a ZTA.
+
+IBM Security QRadar SIEM helps security teams detect, prioritize, and respond to threats across the enterprise. As an integral part of an organization's XDR and zero trust strategies, it automatically aggregates and analyzes log and flow data from thousands of devices, endpoints, and apps across the network, providing single, prioritized alerts to speed incident analysis and remediation. QRadar SIEM is available for on-premises and cloud environments.
+
+IBM Security QRadar SOAR is designed to help security teams respond to cyberthreats with confidence, automate with intelligence, and collaborate with consistency. It guides a team in resolving incidents by codifying established incident response processes into dynamic playbooks. The open and agnostic platform helps accelerate and orchestrate response by automating actions with intelligence and integrating with other security tools.
+
+IBM Security QRadar XDR Connect is a cloud-native, open XDR solution that saves time by connecting tools, workflows, insights, and people. The solution adapts to a team's skills and needs, whether the user is an analyst looking for streamlined visibility and automated investigations or an experienced threat hunter looking for advanced threat detection. XDR Connect empowers organizations with tools that strengthen their zero trust model and enable them to be more productive.
+
+IBM Security Verify
+^^^^^^^^^^^^^^^^^^^
+
+Modernized, modular IBM Security Verify provides deep, AI-powered context for both consumer and workforce identity and access management. It protects users and apps, inside and outside the enterprise, with a low-friction, cloud-native, SaaS approach. Verify delivers critical features for supporting a zero trust strategy based on least privilege and continuous verification, including single sign-on (SSO), multi-factor and passwordless authentication, adaptive access, identity lifecycle management, and identity analytics.
+
+IBM Security MaaS360
+^^^^^^^^^^^^^^^^^^^^
+
+IBM Security MaaS360® with Watson protects devices, apps, content, and data, which allows organizations to rapidly scale their hybrid workforce and BYOD initiatives. IBM Security MaaS360 can help build a zero trust strategy with modern device management. And with Watson, organizations can take advantage of contextual analytics via AI for actionable insights.
+
+IBM Security Guardium
+^^^^^^^^^^^^^^^^^^^^^
+
+IBM Security Guardium® Insights is a data security hub for the modern data source environment. It builds and automates compliance policy enforcement and streams and centralizes data activity across a multi-cloud ecosystem. It can apply advanced analytics to uncover data risk insights. Guardium Insights can complement and enhance existing Guardium Data Protection deployments or be installed on its own to help solve compliance and cloud data activity monitoring challenges. Built on a unified cross-domain security platform, IBM Cloud Pak for Security, Guardium Insights can deploy and scale in any data environment — as well as integrate and share insights with major security tools such as IBM Security QRadar XDR, Splunk, ServiceNow, and more, in support of a ZTA.
+
+IBM Cloud Pak for Security
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+IBM Cloud Pak for Security is a unified cross-domain security platform that integrates existing security tools to generate insights into threats across hybrid, multi-cloud environments. It provides organizations with the ability to track, manage, and resolve cybersecurity incidents and create response plans that are based on industry standards and best practices.
+
+Ivanti
+~~~~~~
+
+Ivanti finds, heals, manages, and protects devices regardless of location - automatically. It is an enterprise software company specializing in endpoint management, network security, risk-based vulnerability management, and service and asset management. The Ivanti solution is able to discover, manage, secure, and service all endpoints across the enterprise including corporate/government-owned and BYOD. Ivanti is actively involved with helping to better prepare government and enterprises with cybersecurity and zero trust best practices. Learn more about Ivanti here: https://www.ivanti.com/. The Ivanti solution enables an enterprise to centrally manage/monitor endpoints and trigger adaptive policies to remediate threats, quarantine devices, and maintain compliance.
+
+Ivanti Neurons for Unified Endpoint Management (UEM)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Ivanti Neurons for UEM helps enterprises create a secure workspace on any device with apps, configurations, and policies for the user based on their role. Users get easy and secure access to the resources they need for their productivity. For more information, see https://www.ivanti.com/products/ivanti-neurons-for-mdm.
+
+The Ivanti Neurons for UEM platform provides the fundamental visibility and IT controls needed to secure, manage, and monitor any corporate or employee-owned mobile device or desktop that accesses business-critical data. The Neurons for UEM platform allows organizations to secure a vast range of employee and BYOD devices being used within the organization while managing the entire life cycle of the device, including:
+
+-  Policy configuration management and enforcement
+
+-  Application distribution and management
+
+-  Script management and distribution for desktop devices
+
+-  Automated device actions
+
+-  Continuous access control and MFA
+
+-  Threat detection and remediation against device, network application, and phishing attacks
+
+Ivanti Sentry
+^^^^^^^^^^^^^
+
+Ivanti Sentry is an in-line intelligent gateway that helps secure access to on-premises resources and provides authentication and authorization to enterprise data. For more information, see https://www.ivanti.com/products/secure-connectivity/sentry.
+
+Ivanti Access ZSO
+^^^^^^^^^^^^^^^^^
+
+Ivanti Access Zero Sign-On (ZSO) enforces risk-based policies to prevent unauthorized users, endpoints, apps or services from connecting to enterprise cloud services. ZSO helps identify the user, device, app, location, network type, and presence of threats. The adaptive access control check is the basis of the zero trust model. ZSO provides a frictionless single sign-on experience to end users leveraging secure mobile based MFA. The solution is federated with the Okta Identity Cloud to provide continuous authentication and authorization. For more information, see https://www.ivanti.com/products/zero-sign-on.
+
+Ivanti Mobile Threat Defense
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The combination of cloud and mobile threat defense (MTD) protects data on-device and on-the-network with state-of-the-art encryption and threat monitoring to detect and remediate device, network, app-level, and phishing attacks. For more information, see https://www.ivanti.com/products/mobile-threat-defense.
+
+Lookout
+~~~~~~~
+
+Lookout is a cybersecurity company focused on securing users, devices, and data as users operate in the cloud. The Lookout platform helps organizations consolidate IT security, get complete visibility across all cloud services, and protect sensitive data wherever it goes.
+
+Lookout Mobile Endpoint Security (MES)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Lookout MES is a SaaS-based MTD solution that protects devices from threats and risks via the Lookout for Work mobile application. Lookout protects Android and Apple mobile devices from malicious or risky apps, device threats, network threats, and phishing attacks. Lookout attests to the security posture of the mobile device, which is provided to the policy engine to determine access to a resource. The mobile asset is continuously monitored by Lookout for any change to its security posture. Lookout protection can be deployed to managed or unmanaged devices and works on trusted or untrusted networks. Lookout has integrations with productivity and collaboration solutions, as well as unified endpoint management solutions.
+
+Mandiant
+~~~~~~~~
+
+Mandiant scales its intelligence and expertise through the Mandiant Advantage SaaS platform to deliver current intelligence, automation of alert investigation, and prioritization and validation of security control products from a variety of vendors. (http://www.mandiant.com/)
+
+Mandiant Security Validation (MSV)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Mandiant Security Validation (MSV), continuously informed by Mandiant frontline intelligence on the latest attacker tactics, techniques, and procedures (TTPs), automates a testing program that gives real data on how security controls are performing. This solution provides visibility and evidence on the status of security controls' effectiveness against adversary threats targeting organizations and data to optimize the environment against relevant threats. MSV can provide many benefits to an organization (for example, identify limitations in current cybersecurity stack, evaluate proposed cybersecurity tools for an organization, determine overlapping controls, automate assessment actions, and train cybersecurity operators). To support these use cases, MSV emulates attackers to safely process advanced cyberattack security content within production environments. It is designed so defenses respond to it as if an attack is taking place across the most critical areas of the enterprise.
+
+Using the natural design of the Security Validation platform, Mandiant is able to support the project in testing and documenting the outcome of one of the key tenets of ZTA, “The enterprise monitors and measures the integrity and security posture of all owned and associated resources.” To do this, the software produces quantifiable evidence that shows how people, processes, and technologies perform when specific malicious behaviors are encountered, such as attacks by a specific threat actor or attack vector.
+
+The core Validation components of the MSV platform are:
+
+-  The Director - This is the main component of the platform and provides the following functionality:
+
+    -  Acts as the Integration point and content manager for the SIEM and other components of the security stack
+
+    -  Hosts the Content Library (Actions, Sequences, Evaluations, and Files) used for testing security controls
+
+    -  Manages the Actor assignment during testing
+
+    -  Aggregates testing results and facilitates report creation
+
+    -  Maintains connections with the Mandiant Updater and Content Services, allowing updates to be received automatically for the platform and its content
+
+-  Actors (also referred to as flex, Endpoint, and Network Actors) - The components that safely perform tests in production environments. Specifically, use these to verify the configuration and test the effectiveness of network security controls; Windows, Mac, and Linux endpoint controls; and email controls.
+
+-  Cloud controls
+
+-  Policy compliance
+
+The Director is the component that receives the information from the systems in the environment based on an integration with a SIEM and/or directly with the security appliance itself. Tests are run between Actors and not directly on systems in the environment.
+
+Microsoft
+~~~~~~~~~
+
+`Microsoft Security <https://www.microsoft.com/en-us/security/business/be-fearless>`__ brings together the capabilities of security, compliance, identity, and management to natively integrate individual layers of protection across clouds, platforms, endpoints, and devices. Microsoft Security helps reduce the risk of data breaches and compliance violations and improve productivity by providing the necessary coverage to enable zero trust. Microsoft's security products give IT leaders the tools to confidently help their organization digitally transform with Microsoft's protection across their entire environment.
+
+Azure
+^^^^^
+
+`Microsoft Azure <https://azure.microsoft.com/en-us/overview/>`__ is Microsoft's public cloud computing platform. It provides a range of cloud services, including compute, analytics, storage, and networking.
+
+Azure Active Directory (Azure AD) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Azure AD <https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis>`__ is an IAM/identity as a service (IDaaS) product from Microsoft that performs ICAM management, authentication (both SSO and MFA), authorization, federation, and governance, and also functions as a PE, PA, and PEP.
+
+Microsoft Intune - Device Management
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In `Intune <https://docs.microsoft.com/en-us/mem/intune/fundamentals/what-is-intune>`__, devices are managed using an approach that's suitable for the organization. For organization-owned devices, an organization may want full control over the devices, including settings, features, and security. In this approach, devices and users of these devices “enroll” in Intune. Once enrolled, they receive the organization's rules and settings through policies configured in Intune. For example, organizations can set password and PIN requirements, create a VPN connection, set up threat protection, and more.
+
+Microsoft Intune - Application Management
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Microsoft Intune <https://docs.microsoft.com/en-us/mem/intune/apps/app-management>`__ provides mobile application management (MAM), which is designed to protect organization data at the application level, including custom apps and store apps. App management can be used on organization-owned devices and personal devices. When apps are managed in Intune, administrators can:
+
+-  add and assign mobile apps to user groups and devices, including users in specific groups, devices in specific groups, and more;
+
+-  configure apps to start or run with specific settings enabled and update existing apps already on the device;
+
+-  see reports on which apps are used and track their usage; and
+
+-  do a selective wipe by removing only organization data from apps.
+
+Microsoft Defender for Endpoint
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Microsoft Defender for Endpoint <https://docs.microsoft.com/en-us/mem/intune/protect/advanced-threat-protection>`__ is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats.
+
+Microsoft Sentinel
+^^^^^^^^^^^^^^^^^^
+
+`Microsoft Sentinel <https://docs.microsoft.com/en-us/azure/sentinel/overview>`__ is a scalable, cloud-native solution for SIEM. It was previously known as Azure Sentinel.
+
+Microsoft Defender for Identity
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Microsoft Defender for Identity <https://docs.microsoft.com/en-us/defender-for-identity/what-is>`__ (formerly Azure Advanced Threat Protection, also known as Azure ATP) is a cloud-based security solution that leverages an organization's on-premises AD signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions directed at the organization. Defender for Identity enables SecOps analysts and security professionals struggling to detect advanced attacks in hybrid environments to:
+
+-  monitor users, entity behavior, and activities with learning-based analytics;
+
+-  protect user identities and credentials stored in AD;
+
+-  identify and investigate suspicious user activities and advanced attacks throughout the kill chain; and
+
+-  provide clear incident information on a simple timeline for fast triage.
+
+Azure AD Identity Protection
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Identity Protection <https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection>`__, which is part of Azure AD, is a tool that allows organizations to accomplish three key tasks:
+
+-  automate the detection and remediation of identity-based risks;
+
+-  investigate risks using data in the portal; and
+
+-  export risk detection data to the SIEM.
+
+Identity Protection uses the learnings Microsoft has acquired from its position in organizations with Azure AD, in the consumer space with Microsoft Accounts, and in gaming with Xbox to protect users. Microsoft analyses 6.5 trillion signals per day to identify and protect customers from threats.
+
+The signals generated by and fed to Identity Protection can be further fed into tools like Conditional Access to make access decisions or fed back to a SIEM tool for further investigation based on an organization's enforced policies.
+
+Microsoft Defender for Office 365 (for email)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Microsoft Defender for Office 365 <https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/overview?view=o365-worldwide>`__ (for email) prevents broad, volume-based, known attacks. It protects email and collaboration from zero-day malware, phishing, and business email compromise. It also adds post-breach investigation, hunting, and response, as well as automation and simulation (for training).
+
+Azure App Proxy & Intune VPN Tunnel
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Azure Active Directory Application Proxy <https://docs.microsoft.com/en-us/azure/active-directory/app-proxy/>`__ provides secure remote access and cloud-scale security to an organization's private applications.
+
+`Microsoft Tunnel <https://docs.microsoft.com/en-us/mem/intune/protect/microsoft-tunnel-overview>`__ is a VPN gateway solution for Microsoft Intune that runs in a container on Linux and allows access to on-premises resources from iOS/iPadOS and Android Enterprise devices using modern authentication and conditional access.
+
+Secure Admin Workstation (SAW)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Secure Admin Workstations <https://www.microsoft.com/en-us/insidetrack/protecting-high-risk-environments-with-secure-admin-workstations>`__ are limited-use client computers—built on Windows 10—that help protect high-risk environments from security risks such as malware, phishing, and pass-the-hash attacks. They provide secure access to restricted environments.
+
+Windows 365 for Enterprise and Azure Virtual Desktop
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Windows 365 for Enterprise <https://docs.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-overview?view=o365-worldwide>`__ is a cloud-based service that automatically creates a new type of Windows virtual machine (Cloud PCs) for your end users that provides the productivity, security, and collaboration benefits of Microsoft 365.
+
+`Azure Virtual Desktop <https://docs.microsoft.com/en-us/azure/virtual-desktop/overview>`__ is a desktop and app virtualization service that runs on the cloud.
+
+For this project, Microsoft 365 for Enterprise and Azure Virtual Desktop can both be used to show how to secure virtual desktop infrastructure (VDI).
+
+Microsoft Defender for Cloud
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Defender for Cloud <https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction>`__ is a tool for security posture management and threat protection. It strengthens the security posture of an organization's cloud resources, and with its integrated Microsoft Defender plans, Defender for Cloud protects workloads running in Azure, hybrid, and other cloud platforms. Because it's natively integrated, deployment of Defender for Cloud is easy, providing an organization with simple auto provisioning to secure its resources by default.
+
+Microsoft Purview
+^^^^^^^^^^^^^^^^^
+
+`Microsoft Purview <https://docs.microsoft.com/en-us/azure/purview/overview>`__ is a unified data governance service that helps organizations manage and govern their on-premises, multi-cloud, and SaaS data. It creates a holistic, up-to-date map of an organization's data landscape with automated data discovery, sensitive data classification, and end-to-end data lineage, enabling data curators to manage and secure the organization's data estate. It also empowers data consumers to find valuable, trustworthy data.
+
+Microsoft Defender for Cloud Apps
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Microsoft Defender for Cloud Apps <https://docs.microsoft.com/en-us/defender-cloud-apps/what-is-defender-for-cloud-apps>`__ is a CASB that supports various deployment modes, including log collection, API connectors, and reverse proxy. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all of an organization's Microsoft and third-party cloud services. Microsoft Defender for Cloud Apps natively integrates with Microsoft solutions and is designed with security professionals in mind. It provides simple deployment, centralized management, and innovative automation capabilities.
+
+Microsoft Entra Permissions Management
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Microsoft Entra Permissions Management <https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-permissions-management>`__ (formerly known as CloudKnox) is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities, for example, overprivileged workload and user identities, actions, and resources across multi-cloud infrastructures in Microsoft Azure, AWS, and GCP.
+
+Okta
+~~~~
+
+Okta is an independent identity provider helping organizations protect the identities of their extended workforces, partners, and customers. With more than 7,000 pre-built integrations to applications and infrastructure providers, Okta provides simple and secure access to people and organizations everywhere, giving them the confidence to reach their full potential. Learn more about Okta here: `Okta.com <https://www.okta.com/>`__.
+
+Okta Identity Cloud
+^^^^^^^^^^^^^^^^^^^
+
+The Okta Identity Cloud is an independent and neutral platform that securely connects the correct people to the correct technologies at the appropriate time. The Okta Identity Cloud includes identity and access management products, integrations, and platform services for extended `Workforce Identity <https://www.okta.com/workforce-identity/>`__ and `Customer Identity <https://www.okta.com/customer-identity/>`__ use cases.
+
+The Okta Identity Cloud provides secure user storage, authentication capabilities (primary and MFA) to applications and resources (infrastructure, APIs) regardless of location (on-premises, cloud, or hybrid), as well as automation and orchestration capabilities for identity use cases, such as for automating user onboarding and offboarding or for identifying and acting on inactive user accounts. Products used in this project include the following.
+
+Universal Directory
+'''''''''''''''''''
+
+`Okta Universal Directory <https://www.okta.com/products/universal-directory/>`__ is a cloud metadirectory that is used as a single source of truth to manage all users (employees, contractors, customers), groups, and devices. These users can be sourced directly within Okta or from any number of sources including AD, Lightweight Directory Access Protocol (LDAP), HR systems, and other SaaS applications.
+
+Single Sign-On (SSO)
+''''''''''''''''''''
+
+`Okta SSO <https://www.okta.com/products/single-sign-on/>`__ delivers seamless and secure access to all cloud and on-premises apps for end users, centralizing and protecting all user access via Okta's cloud portal.
+
+`Okta FastPass <https://www.okta.com/fastpass/>`__, available as a part of Okta SSO, enables passwordless authentication. Organizations can use Okta FastPass to minimize end-user friction when accessing corporate resources, while still enforcing Okta's adaptive policy checks.
+
+Adaptive Multi-Factor Authentication (MFA)
+''''''''''''''''''''''''''''''''''''''''''
+
+`Okta Adaptive MFA <https://www.okta.com/products/adaptive-multi-factor-authentication/>`__ uses intelligent policies to enable contextual access management, allowing administrators to set policies based on risk signals native to Okta as well as from third parties, such as device posture from EDR vendors. Okta Adaptive MFA also enables administrators to choose the factor(s) that work best for their organization, balancing security and ease of use with options such as secure authenticator apps, WebAuthn, and biometrics, which many organizations also choose as passwordless options.
+
+Okta Access Gateway
+'''''''''''''''''''
+
+`Okta Access Gateway <https://www.okta.com/products/access-gateway/>`__ is an application access proxy that delivers access management (SSO, MFA, and URL authorization) to on-premises apps using legacy on-premises protocols - header-based authentication and Kerberos - without requiring changes in source code. In combination with Okta SSO, it allows users to access cloud and on-premises apps remotely from a single place and delivers the same easy and secure login experience for SaaS and on-premises apps.
+
+Okta Verify
+'''''''''''
+
+Okta Verify is a lightweight application that is used both as an authenticator option (e.g., OTP or push, available on macOS, Windows, iOS, and Android) with Okta MFA as well as to register a device to Okta. Registering a device to Okta enables organizations to deliver secure, seamless, passwordless authentication to apps, strong device-level security, and more. Okta Verify is FIPS 140-2 validated.
+
+Okta Integration Network
+''''''''''''''''''''''''
+
+The `Okta Integration Network <https://www.okta.com/okta-integration-network/>`__ serves as a conduit to connect thousands of applications and resources (infrastructure, APIs) to Okta for access management (SSO/MFA) and provisioning (automating onboarding and offboarding of user accounts). This integration network makes it easy for administrators to manage and control access for all users behind a single pane of glass, and easy for users to get to the tools they need with a unified access experience.
+
+In addition, the Okta Integration Network also serves as a rich ecosystem to support risk signal sharing for zero trust security. Okta's deep integration with partners in the zero trust ecosystem allows the Okta Identity Cloud to take in risk signals for the purpose of making smarter contextual decisions regarding access. For example, integrations with EMM or EDR solutions allow the Okta IDaaS platform to know the managed state of a device or device risk posture and make decisions regarding access accordingly. Okta can also pass risk signals to third parties such as inline network solutions, which can in turn leverage Okta's risk assessment to limit actions within SaaS apps when risk is high (e.g., read-only). Okta's risk-based approach to access allows for fine-grained control of user friction and provides organizations with a truly zero trust PDP to make just-in-time, contextual-based authentication decisions to any resource, from anywhere.
+
+Palo Alto Networks
+~~~~~~~~~~~~~~~~~~
+
+Palo Alto Networks is shaping the cloud-centric future with technology designed to transform the way people and organizations operate by using the latest breakthroughs in AI, analytics, automation, and orchestration. By delivering an integrated platform and empowering a growing ecosystem of partners, Palo Alto Networks security technologies enable organizations to apply consistent security controls across clouds, networks, endpoints, and mobile devices.
+
+Their core capabilities include the ability to inspect all traffic, including all applications, threats, and content, and tie that traffic to the user, regardless of location or device type. The user, application, and content—the elements that run your business—become integral components of your enterprise's zero trust security policy.
+
+Towards that end, their Next Generation Firewall (including all hardware-based, VM, and containerized form factors) and Prisma Access have consistent core capabilities fundamental for zero trust policy enforcement—including User-ID, App-ID, and Device-ID.
+
+-  *User-ID*\ ™ technology enables organizations to identify users in all locations, no matter their device type or OS. Visibility into application activity—based on users and groups, instead of IP addresses—safely enables applications by aligning usage with business requirements.
+
+-  *App-ID*\ ™ technology enables organizations to accurately identify applications in all traffic passing through the network, including applications disguised as authorized traffic, using dynamic ports, or trying to hide under the veil of encryption. App-ID allows organizations to understand and control applications and their functions, such as video streaming versus chat, upload versus download, and screen-sharing versus remote device control.
+
+-  *Device-ID*\ ™ technology enables organizations to enforce policy rules based on a device, regardless of changes to its IP address or location. By providing traceability for devices and associating network events with specific devices, Device-ID allows organizations to gain context for how events relate to devices and write policies that are associated with devices, instead of users, locations, or IP addresses, which can change over time.
+
+All NGFW form factors and Prisma Access also include the following cloud-delivered security service (CDSS) capabilities: Advanced Threat Prevention (ATP), Wildfire (WF) malware analysis, Advanced URL Filtering (AURL), and DNS Security (DNS). These capabilities are supported by the GlobalProtect (GP) remote access solution and can all be centrally managed by Panorama.
+
+Next-Generation Firewall (NGFW)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Palo Alto Networks Next-Generation Firewall (NGFW) is a machine learning (ML) powered network security platform available in physical, virtual, containerized, and cloud-delivered form factors—all managed centrally via Panorama. The Palo Alto Networks NGFWs inspect all traffic, including all applications, threats, and content, and tie that traffic to the user, regardless of location or device type. Built on a single-pass architecture, the Palo Alto Networks NGFW performs full-stack, single-pass inspection of all traffic across all ports, providing complete context around the application, associated content, and user identity to form the basis for zero trust security policy decisions.
+
+Additional NGFWs, including cloud-delivered, software-based VMs (VM-Series), and container-based (CN-Series), are anticipated to be used as part of the microsegmentation deployment model phase of this project, deployed as PEPs deeper within each enterprise environment. Regardless of form factor, any NGFW or Prisma Access instance can serve as a PEP, enabled by the core (User-ID, Application-ID, Device-ID) technologies described above—helping organizations achieve common zero trust use cases such as data center segmentation, user or application-based segmentation, or cloud transformation.
+
+Prisma Access
+^^^^^^^^^^^^^
+
+Prisma Access allows organizations to securely enable remote workforces and branch locations, and will be more extensively demonstrated during the SDP deployment model phase of the project. The cloud-native architecture of Prisma Access is designed to ensure on-demand and elastic scaling of comprehensive networking and security services across a global, high-performance network. Together with Prisma SD-WAN (software-defined wide area network), Prisma Access provides the foundational layer for a complete secure access service edge (SASE) solution that delivers networking and security with a common service delivery model.
+
+Prisma Access combines least-privileged access with deep and ongoing security inspection as well as enterprise DLP to protect all users, devices, apps, and data. Prisma Access fully inspects all application traffic bidirectionally—including TLS-encrypted traffic—on all ports, whether communicating with the internet, the cloud, the data center, or between branches. Additionally, Prisma Access provides more security coverage consolidating multiple point products into a single converged platform that includes Firewall as a Service (FWaaS), Zero Trust Network Access (ZTNA), next-generation CASB, cloud SWG, VPN, and more—all managed through a single console.
+
+Prisma Access connects users and applications with fine-grained access controls, providing behavior-based continuous trust verification after users connect to dramatically reduce the attack surface.
+
+Cortex XDR
+^^^^^^^^^^
+
+Cortex XDR is an XDR tool that natively integrates network, endpoint, and cloud data to stop sophisticated attacks. Leveraging behavioral analytics, it identifies unknown and highly evasive threats targeting your environment. ML and AI models uncover threats from multiple sources, including managed and unmanaged devices. Cortex XDR speeds alert triage and incident response by providing a comprehensive picture of each threat and revealing the root cause. By stitching different types of data together and simplifying investigations, Cortex XDR reduces the time and experience required at every stage of security operations, from triage to threat hunting. Native integration with enforcement points lets you respond to threats quickly and apply the knowledge gained from investigations to mitigate future attacks.
+
+Cortex XDR features Identity Analytics, which detects malicious user activities by applying ML and behavioral analytics to users, machines, and entities. Using an analytics engine to examine logs and data, Identity Analytics can understand normal behaviors across your environment and create a baseline so that it can raise alerts when abnormal activity occurs. With this function, suspicious user activity such as stolen or misused credentials, lateral movement, credential harvesting, exfiltration, and brute-force attacks can be detected. This ML-derived insight offers critical identity context specific to each bespoke environment Cortex XDR is deployed into, allowing for higher-fidelity alerts to aid organizations in fine-tuning access granted to critical assets—an imperative for ZTA.
+
+PC Matic
+~~~~~~~~
+
+PC Matic is an endpoint protection solution for enterprises of all sizes, utilizing PC Matic's proactive application allowlisting technology. Through a series of global and local allowlists, PC Matic's software asset management restricts unauthorized programs and processes from accessing resources such as data or services on a network. Unlike traditional application allowlisting products that solely rely on self-made local allowlists, PC Matic operates off both the user's local list and a real-time automated global allowlist consisting of verified files, processes, digital certificates, and scripts. PC Matic eliminates governance issues by granting users the ability to create application, digital certificate, directory, or scripting policies within their local lists. This capability takes immediate effect and can be deployed to individual endpoints, departments, groups, whole organizations, and all agencies and enterprises managed across the account.
+
+PC Matic Pro
+^^^^^^^^^^^^
+
+PC Matic Pro's on-premises endpoint protection provides default-deny protection at the device. PC Matic Pro monitors for any process that attempts to execute and automatically denies access to any unauthorized or known malicious entities. When the unauthorized files and/or processes are denied access, all metadata pertaining to the block is then communicated to the architecture's SIEM for prioritizing and further investigation. This integration provides users with increased visibility over their managed devices and networks. If a block is verified and warranted, the SIEM of choice can utilize the policy engine from either PC Matic or a third-party vendor to create and enforce the exception, granting immediate access to the desired deployment. PC Matic's real-time policy offerings eliminate governance issues, take immediate effect without delay or issue, and provide users with streamlined management across their managed architectures. PC Matic's allow-by-exception approach to prevention enhances the zero trust model and minimizes the network's attack surface by ensuring only authorized processes are granted privileges to execute and proceed further.
+
+Ping Identity
+~~~~~~~~~~~~~
+
+Ping Identity delivers intelligent identity solutions for the enterprise. Ping enables companies to achieve zero trust identity-defined security and more personalized, streamlined user experiences. The PingOne Cloud Platform provides customers, workforces, and partners with access to cloud, mobile, SaaS, and on-premises applications across the hybrid enterprise. Over half of the Fortune 100 choose Ping for their identity expertise, open standards, and partnerships with companies including Microsoft and Amazon. Ping Identity provides flexible identity solutions that accelerate digital business initiatives and secure the enterprise through multi-factor authentication, single sign-on, access management, intelligent API security, and directory and data governance capabilities. For more information, please visit https://www.pingidentity.com/.
+
+PingFederate
+^^^^^^^^^^^^
+
+PingFederate is an enterprise federation server that enables user authentication and single sign-on. It is a global authentication authority that allows customers, employees, and partners to access all the applications they need from any device securely. PingFederate easily integrates with applications across the enterprise, third-party authentication sources, diverse user directories, and existing IAM systems, all while supporting current and past versions of identity standards. It will connect everyone to everything.
+
+PingFederate can be deployed within Ping Identity's SaaS offerings, in a customer cloud, as a traditional application, and within air-gapped or network segmented environments.
+
+The deployment architecture of PingFederate eliminates the need to maintain redundant copies of configurations and trust relationships. Supported federation standards include OAuth, OpenID, OpenID Connect, SAML, WS-Federation, WS-Trust, and System for Cross-Domain Identity Management (SCIM).
+
+PingOne DaVinci
+^^^^^^^^^^^^^^^
+
+PingOne DaVinci is a SaaS platform that enables a flexible and adaptive integration framework, allowing you to easily create identity journeys via a drag-and-drop interface. Through DaVinci, administrators can quickly design automated workflows for different identity use cases including authentication, identity proofing, and fraud detection. DaVinci is an open interface with integrations and connections across multiple applications and identity ecosystems.
+
+PingOne SSO
+^^^^^^^^^^^
+
+PingOne SSO is a SaaS federation platform. Using single sign-on (SSO), users can sign on to all their applications and services with one set of credentials. It gives employees, partners, and customers secure, one-click access from anywhere, on any device, and it reduces the number of separate accounts and passwords they need to manage.
+
+SSO is made possible by a centralized authentication service that all apps (even third-party) can use to confirm a user's identity. Identity standards like SAML, OAuth, and OpenID Connect allow for encrypted tokens to be transmitted securely between the server and the apps to indicate that a user has already been authenticated and has permission to access the additional apps.
+
+PingOne Risk
+^^^^^^^^^^^^
+
+PingOne Risk is a SaaS platform that enables administrators to configure intelligence-based authentication policies by combining the results of multiple risk predictors to calculate a single risk score. Data feeds and inputs roll into set risk predictors. The predictors are assigned different scores and aggregated into a risk policy to determine if a user poses low, medium, or high risk to the organization and what level of authentication will be required. Administrators can create multiple risk policies and apply them in different use cases to meet business requirements.
+
+PingOne Verify
+^^^^^^^^^^^^^^
+
+PingOne Verify is a SaaS platform that reduces uncertainty during onboarding and prevents fraudulent registration with convenient identity verification. PingOne Verify enables secure user verification based on a government-issued document and real-time face capture (a live selfie). The Verify dashboard summarizes all transactions, which enables you to manage all verifications, exceptions, and rejections within the PingOne platform.
+
+PingOne Authorize
+^^^^^^^^^^^^^^^^^
+
+PingOne Authorize is a SaaS platform that leverages real-time data to make authorization decisions for access to data, services, APIs, and other resources. Organizations increasingly want to codify their authorization requirements as policies, giving business owners the flexibility to adapt and evolve access control rules over time. Our solution helps organizations accurately control what users can see and do within applications and APIs. With an exploding number of applications, regulations, and access control requirements to manage, abstracting authorization logic to a centralized administrative control plane is the key to enabling scale and consistency.
+
+PingID
+^^^^^^
+
+PingID is a SaaS platform that provides an MFA solution for the workforce and partners that drastically improves organizational security posture in minutes. PingID protects applications accessed via SSO and it integrates seamlessly with Microsoft Azure AD, Active Directory Federation Services (AD FS), and Windows login, macOS login, and SSH applications.
+
+Supported authentication methods include mobile push, email OTP, SMS OTP, time-based OTP (TOTP) authenticator apps, Quick Response (QR) codes, FIDO2-bound biometrics, and security keys.
+
+PingAccess
+^^^^^^^^^^
+
+PingAccess is a centralized access security solution with a comprehensive policy engine. It provides secure access to applications and APIs down to the URL level and ensures that only authorized users can access the resources they need. PingAccess allows organizations to protect web apps, APIs, and other resources using rules and other authentication criteria.
+
+PingAccess can be deployed within Ping Identity's SaaS offerings, in a customer cloud, as a traditional application, and within air-gapped or network segmented environments.
+
+PingDirectory
+^^^^^^^^^^^^^
+
+PingDirectory is a fast, scalable directory used to store identity and rich profile data. Organizations that need maximum uptime for millions of identities use PingDirectory to securely store and manage sensitive customer, partner, and employee data. PingDirectory acts as a single source of identity truth.
+
+Users get loaded into PingDirectory through import, API connection, manual entry, or bidirectional, real-time synchronization from LDAP, relational database management system (RDBMS), Java Database Connectivity (JDBC), or SCIM data stores. Both structured and unstructured user data are secured and stored by leveraging encryption, password validators, cryptographic log signing, and more. Out-of-the-box load balancing, rate limiting, and data transformations with an integrated proxy ensure maximum server performance and user data availability at scale during peak usage.
+
+PingDirectory can be deployed within Ping Identity's SaaS offerings, in a customer cloud, as a traditional application, and within air-gapped or network segmented environments.
+
+Radiant Logic
+~~~~~~~~~~~~~
+
+Radiant Logic, the enterprise Identity Data Fabric company, helps organizations combat complexity and improve defenses by making identity data easy to access, manage, use, and protect. With Radiant, it's fast and easy to put identity data to work, creating the identity data foundation of the enterprise where organizations can realize meaningful business value, accelerate innovation, and achieve zero trust. Built to combat identity sprawl, enterprise technical debt, and interoperability issues, the RadiantOne platform connects many disparate identity data sources across legacy and cloud infrastructures, without disruption. It can accelerate the success of initiatives including SSO, mergers and acquisitions integrations, identity governance and administration, hybrid and multi-cloud environments, customer identity and access management, and more with an identity data fabric foundation. Visit http://www.radiantlogic.com/ to learn more.
+
+RadiantOne Intelligent Identity Data Platform
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The RadiantOne Intelligent Identity Data Platform builds an identity data fabric using federated identity as the foundation for zero trust. It is the single authoritative source for identity data, enabling critical initiatives by making identity data and related context available in real time to consumers regardless of where that data resides. RadiantOne's Intelligent Identity Data Platform uses patented identity unification methods to abstract and enrich identity data from multiple sources, build complete global user profiles, and deliver real-time identity data on-demand to any service or application. Zero trust relies on evaluating a rich and authoritative granular set of attributes in real time against an access policy to determine authorization. RadiantOne provides a single authoritative place for all components of the ZTA to quickly and easily request the exact data they need in the format, structure, schema, and protocol each requires. In order to provide the flexibility and scalability that organizations need, the platform is broken into six distinct modules: Federated Identity Engine; Universal Directory; Global Synchronization; Directory Migration; Insights, Reports & Administration; and Single Sign-On.
+
+RadiantOne Federated Identity Engine
+''''''''''''''''''''''''''''''''''''
+
+The Federated Identity Engine abstracts and unifies identity data from all sources (on-premises or cloud-based) to form an identity data fabric that is flexible and scalable, and turns identity data into a reusable resource. The identity data fabric provides a central access point for authoritative identity data to all applications, and encompasses all subjects, users, and objects (employees, contractors, partners, customers, members, non-enterprise employees, devices, NPEs, service accounts, bots, IoT, risk scoring, and data and other assets). RadiantOne gathers, maps, normalizes, and transforms identity data to build a de-duplicated list of users, enriched with all identity attributes to create a single global profile for each user. The Federated Identity Engine is schema-agnostic and standards-based, which allows it to build unlimited and flexible views correlated from all sources of rich and granular identity data, updated in near-real-time, and delivered at speed in the format required by all the consuming applications in the ZTA. These views are stored in a highly scalable, modern big data store kept in near-real-time sync with local identity sources of truth.
+
+RadiantOne Universal Directory
+''''''''''''''''''''''''''''''
+
+The RadiantOne Universal Directory provides a modern way of storing and accessing identity information in a highly scalable, fault-tolerant, containerized solution for distributed identity storage. Its highly performant cluster architecture scales easily to hundreds of millions of objects, delivering automation, high availability, and multi-cluster deployments to easily accommodate distributed data centers. Universal Directory is FIPS 140-2 certified for securing data-in-transit and data-at-rest, and it provides detailed audit logs and reports. Universal Directory is accessible by all LDAP, SQL, SCIM, and REST-enabled applications. 
+
+RadiantOne Single Sign On (SSO)
+'''''''''''''''''''''''''''''''
+
+Single Sign On is the gateway between identity stores and applications that support federation standards—SAML, OIDC, WS-Federation—for connecting users with seamless, secure, and uniform access to federated applications. SSO enables a secure federated infrastructure, creating one access point to connect all internal identity and authentication sources for strong authentication. It also provides a self-service portal for managing passwords and user profiles.
+
+RadiantOne Global Synchronization
+'''''''''''''''''''''''''''''''''
+
+Global Synchronization leverages bidirectional connectors to propagate identity data and keep it coherent across enterprise systems in near-real-time, regardless of the location of the underlying identity source data (on-premises, cloud-based, or hybrid). It builds a reliable and highly scalable infrastructure with a transport layer based on message queuing for guaranteed delivery of changes. Global Synchronization reduces complexity and administrative burden, simplifies provisioning and syncing identity centrally, and ensures consistency and accuracy with real-time change detection to underlying identity data attributes.
+
+SailPoint
+~~~~~~~~~
+
+SailPoint offers identity security technologies that automate the identity lifecycle; manage the integrity of identity attributes; enforce least privilege through dynamic access controls, role-based policies, and separation of duties (SoD); and continuously assess, govern, and respond to access risks using AI and ML. SailPoint Identity Security is the cornerstone of an effective zero trust strategy. Discover more at https://www.sailpoint.com/.
+
+IdentityIQ Platform
+^^^^^^^^^^^^^^^^^^^
+
+SailPoint IdentityIQ is an identity and access management software platform custom-built for complex enterprises. It delivers full lifecycle and compliance management for provisioning, access requests, access certifications, and SoD. The platform integrates with SailPoint's extensive library of connectors to intelligently govern access to today's essential business applications. Harnessing the power of AI and ML, SailPoint's AI Services seamlessly automate access, delivering only the required access to the correct identities and technology at the appropriate time.
+
+As an identity governance platform, SailPoint provides organizations with a foundation that enables a compliant and secure infrastructure driven by a zero trust approach with complete visibility of all access, frictionless automation of processes, and comprehensive integration across hybrid environments. SailPoint connects to enterprise resources to aggregate accounts and correlate with authoritative records to build a foundational identity profile from which all enterprise access is based. Users are granted birthright access based on dynamic attribute evaluation, and additional access for all integrated resources is requested and governed through a centralized SailPoint request portal. The SailPoint governance platform is enriched through its extensible API framework to support integrations with other identity security tools. The IdentityIQ platform contains two components, IdentityIQ Compliance Manager and IdentityIQ Lifecycle Manager.
+
+IdentityIQ Compliance Manager
+'''''''''''''''''''''''''''''
+
+IdentityIQ Compliance Manager automates access certifications, policy management, and audit reporting to streamline compliance processes and improve the effectiveness of identity governance.
+
+**Access certification** ensures least-privileged access by continuously monitoring and removing accounts and entitlements that are no longer needed.
+
+**Separation of duties** **policies** enforce business procedures to detect and prevent inappropriate access or actions by proactively scanning for violations.
+
+**Audit reporting** simplifies the collection the information needed to manage the compliance process and replaces manual searches for data located in various systems around the enterprise through an integrated platform.
+
+IdentityIQ Lifecycle Manager
+''''''''''''''''''''''''''''
+
+IdentityIQ Lifecyle Manager enables an organization to manage changes to access through user-friendly self-service requests and lifecycle events for fast, automated delivery of access to users.
+
+**Access requests** enable users to request and receive access to enterprise on-premises and SaaS applications and data while ensuring compliance through policy enforcement and elevating reviews for privileged access.
+
+**Automated provisioning** detects and triggers changes to a user's access based on a user joining, moving within, or leaving an organization. Direct provisioning reduces risk by automatically changing or removing accounts and access in an appropriate manner with automated role and attribute-based access.
+
+Symantec by Broadcom
+~~~~~~~~~~~~~~~~~~~~~
+
+Symantec by Broadcom provides business-critical software designed to modernize, optimize, and protect complex hybrid environments. As part of Broadcom, the Symantec Enterprise Division business reinvests more than 14% of revenue back into research and development (R&D), enabling it to innovate across its cybersecurity portfolio and deliver new functionality that delivers both effective zero trust security and an exceptional user experience. With more than 80% of its workforce dedicated to R&D and operations, Symantec by Broadcom's engineering-centered culture supports a comprehensive portfolio of enterprise software, enabling scalability, agility, and security for organizations. For more information, go to https://symantec.com/.
+
+Symantec Cloud Secure Web Gateway
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Symantec Cloud Secure Web Gateway, built upon secure web gateway (SWG) technology, is a cloud-delivered network security service that offers protection against advanced threats, provides access control, and safeguards critical business information for secure and compliant use of cloud applications and the web.
+
+Web Isolation
+^^^^^^^^^^^^^
+
+Web Isolation enables safe web browsing that protects against malware and phishing threats, even when inadvertently visiting uncategorized and risky websites. Remotely executing web sessions in a secured container stops malware downloads, and read-only browsing defeats phishing attacks. Available as a cloud service or an on-premises virtual appliance, Web Isolation can be standalone or integrated with a proxy or email security solution.
+
+CASB with Data Loss Prevention (DLP)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Cloud Access Security Broker (CASB) identifies all cloud apps in use, enforces cloud application management policies, detects and blocks unusual behavior, and integrates with other Symantec by Broadcom solutions, including ProxySG, Data Loss Prevention (DLP), Validation and ID Protection (VIP) Authentication Service, Symantec Zero Trust Network Access (ZTNA), and Email Security.cloud, to extend network security policies to the cloud. The integration with DLP consistently extends data compliance policies to over 100 Software as a Service (SaaS) cloud apps and automates policy synchronization with cloud properties. Additional APIs for AWS and Azure also provide visibility and control of the management plane, along with cloud workload assurance for discovering new cloud deployments and monitoring them for critical misconfigurations.
+
+Symantec ZTNA
+^^^^^^^^^^^^^
+
+Symantec ZTNA is a cloud-delivered service providing highly secure zero trust network access for enterprise applications deployed in Infrastructure as a Service (IaaS) clouds or on-premises data center environments. This SaaS platform eliminates inbound connections to a network, creates an SDP between users and corporate applications, and establishes application-level access. This service avoids the management complexity and security limitations of traditional remote access tools, ensuring that all corporate applications and services are completely cloaked—invisible to attackers targeting applications, firewalls, and virtual private networks (VPNs).
+
+Information Centric Analytics (ICA), part of Data Loss Prevention 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+User and entity behavior analytics is a vital tool to reduce user-based risk. Using it, customers can identify anomalous or suspicious activity to help discover potential insider threats and data exfiltration. It builds behavior profiles of users and entities so high-risk accounts can be investigated. Wider risk context is available when security event telemetry is correlated from many data sources, including DLP, Endpoint Protection, and ProxySG.
+
+Symantec Endpoint Security Complete, including Endpoint Detection and Response (EDR) and Mobile Security
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Symantec by Broadcom's endpoint security offering delivers protection, detection, and response in a single solution. Symantec Endpoint Security Complete addresses threats along the entire attack chain. It protects all endpoints (workstations, servers, iOS and Android mobile phones and tablets) across all major operating systems, is easy to deploy with a single-agent installation, and provides flexible management options (cloud, on-premises, and hybrid).
+
+VIP Authentication Service
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+VIP is a secure, reliable, and scalable authentication service that provides risk-based and multi-factor authentication (MFA) for all types of users. Risk-based authentication transparently collects data and assesses risk using a variety of attributes such as device identification, geolocation, user behavior, and threat information from the Symantec Global Intelligence Network (GIN). VIP provides MFA using a broad range of authenticators such as push, Short Message Service (SMS) or voice one-time password (OTP), Fast Identity Online (FIDO) Universal 2nd Factor (U2F), and fingerprint biometric. This intelligent, layered security approach prevents inappropriate access and online identity fraud without impacting the user experience. VIP also denies access to compromised devices before they can attempt authentication to the network and tracks advanced and persistent threats. An intuitive credential provisioning portal enables self-service that reduces help desk and administrator costs. An integration with Symantec CloudSOC protects against risky behavior even after application login.
+
+VIP Authentication Hub
+^^^^^^^^^^^^^^^^^^^^^^
+
+Authentication Hub is a highly scalable authentication engine that meets zero trust needs by providing phishing-resistant authentication using FIDO2 as well as other multi-factor options, combined with a highly flexible authentication policy model. It includes risk assessment to enable context-sensitive authentication branching. The microservice architecture is built API-first for broad deployment and integration options, and it integrates out of the box with Symantec by Broadcom's IAM portfolio.
+
+Privileged Access Management 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Privileged Access Management can minimize the risk of data breaches by continually protecting sensitive administrative credentials, controlling privileged user access, and monitoring and recording privileged user activity.
+
+Security Analytics
+^^^^^^^^^^^^^^^^^^
+
+Security Analytics is an advanced network traffic analysis (NTA) and forensics solution that performs full-packet capture to provide complete network security visibility, anomaly detection, and real-time content inspection for all network traffic to help detect and resolve security incidents more quickly and thoroughly.
+
+SiteMinder
+^^^^^^^^^^
+
+While providing the convenience of a single sign-on experience, SiteMinder was built from the ground up using zero trust principles. Every individual resource that is accessed via SiteMinder is only reached once SiteMinder determines if the resource is sufficiently protected, if the user is authenticated, and if the user has authorization to the specific resource. This zero trust approach is applied across all resource access methods (e.g., traditional HTTP, SAML, WS-Federation, OpenID Connect [OIDC], Open Authorization [OAuth]). SiteMinder is deployed in extremely high-performance critical-path business environments. It supports a range of authenticators and in combination with VIP offerings (noted above) provides capabilities to meet the most challenging use cases.
+
+Identity Governance and Administration (IGA)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Having a comprehensive ability to manage the lifecycle of user accounts across on-premises and cloud environments is an essential element of a zero trust infrastructure. Symantec IGA delivers comprehensive access governance and management capabilities through an easy-to-use, business-oriented interface. Broad provisioning support for on-premises and cloud apps enables you to automate the granting of new entitlements and removal of unnecessary ones from users throughout the identity lifecycle. Finally, access governance streamlines and simplifies the processes associated with reviewing and approving entitlements, helping ensure a 360-degree view of user entitlements and improving your adherence to zero trust principles.
+
+Tenable
+~~~~~~~
+
+Tenable®, Inc. is the Cyber Exposure company. Organizations around the globe rely on Tenable to understand and reduce cyber risk. As the creator of Nessus®, Tenable extended its expertise in vulnerabilities to see and secure any digital asset on any computing platform.
+
+Tenable.io
+^^^^^^^^^^
+
+Powered by Nessus technology and managed in the cloud, Tenable.io provides comprehensive vulnerability coverage with the ability to predict which security issues to remediate first. Using an advanced asset identification algorithm, Tenable.io can provide accurate information about dynamic assets and vulnerabilities in ever-changing environments. As a cloud-delivered solution, its intuitive dashboard visualizations, comprehensive risk-based prioritization, and seamless integration with third-party solutions help security teams maximize efficiency and scale for greater productivity.
+
+Tenable.ad
+^^^^^^^^^^
+
+Tenable.ad is a software solution that helps organizations harden their AD by finding and fixing AD weaknesses and vulnerabilities before attacks happen. Tenable.ad Indicators of Exposure discover and prioritize weaknesses within existing AD domains and reduce exposure by following Tenable.ad step-by-step remediation guidance. Tenable.ad keeps an AD in this hardened state by continuously monitoring and alerting in real time of any new misconfigurations, while Tenable.ad Indicators of Attacks enable detection and response to AD attacks in real time. In addition, Tenable.ad tracks and records all changes to an AD, helping show the link between AD changes and malicious actions. Tenable.ad can send alerts using email or through an existing SIEM solution.
+
+Trellix
+~~~~~~~
+
+Trellix is redefining the future of cybersecurity. The company's open and native XDR platform helps organizations confronted by today's most advanced threats gain confidence in the protection and resilience of their operations. Trellix's security experts, along with an extensive partner ecosystem, accelerate technology innovation through ML and automation to empower customers. See more at https://trellix.com/. Trellix solutions can play a pivotal role in assisting organizations in meeting their zero trust outcomes through Trellix's extensive portfolio of enforcement points and ability to quickly quantify risk and orchestrate responses.
+
+Trellix offers a comprehensive portfolio of tools that align with zero trust objectives and outcomes. The following subsections discuss the tools from the portfolio currently being included in this NCCoE effort.
+
+MVISION Complete Suite
+^^^^^^^^^^^^^^^^^^^^^^
+
+MVISION Complete delivers a comprehensive suite of tools that provide threat and data protection across endpoints, web, and cloud. Individual products included in the MVISION Complete Suite include the following.
+
+Trellix ePO
+'''''''''''
+
+Trellix ePolicy Orchestrator (ePO) is a centralized management console for deploying, configuring, and managing Trellix endpoint security solutions including threat prevention, data protection, and EDR. For more information on Trellix ePO, please visit `ePolicy Orchestrator \| Trellix <https://www.trellix.com/en-in/products/epo.html>`__.
+
+Trellix Insights
+''''''''''''''''
+
+Trellix Insights is a threat intelligence platform integrated with the Trellix solution portfolio that enables customers to gain contextual understanding of active global threat campaigns relevant to their vertical. Through integrated understanding of compensating controls and detection events, Insights enables organizations to predictively stay ahead of threats, quickly identify campaign activity within their environment, and receive the guidance necessary to proactively defend against campaigns. For more information on Trellix Insights, please visit `Trellix Insights \| Trellix <https://www.trellix.com/en-us/products/trellix-insights.html>`__.
+
+Trellix Endpoint Security Platform
+''''''''''''''''''''''''''''''''''
+
+Trellix Endpoint Security Platform blocks malicious and targeted attacks using traditional and enhanced detection techniques as part of a layered protection strategy. Techniques include generic malware detection, behavioral detection, ML, containment, and enhanced remediation. For more information on Trellix Endpoint Security, please visit `Trellix Endpoint Security \| Trellix <https://www.trellix.com/en-us/products/endpoint-security.html?data-tab=install-upgrade>`__.
+
+Trellix EDR
+'''''''''''
+
+Trellix EDR collects and analyzes device trace data using advanced detection techniques in order to surface suspected threats within an enterprise. Trellix EDR empowers security operations teams to gain important context about the environment with true real-time enterprise search capabilities and integrated threat intelligence. Trellix EDR is an asset to resource-starved security operations teams working to keep up with the ever-growing threat landscape by incorporating integrated AI-assisted guided investigations. Guided investigations analyze thousands of artifacts beyond the initial detection event to replicate a traditionally manual playbook process. By automating this process, analysts can reach conclusions faster, reduce time to detection, and accelerate confident response activities. For more information on Trellix EDR, please visit `Trellix EDR - Endpoint Detection & Response \| Trellix <https://www.trellix.com/en-us/products/edr.html>`__.
+
+Trellix DLP Endpoint
+''''''''''''''''''''
+
+Trellix DLP Endpoint enables organizations to discover, control, and block access to sensitive data on the endpoint. Trellix DLP Endpoint integrates with identity providers to assign policy based on users' roles and groups, and in a ZTA can adjust data protection policy as user trust changes. Additionally, DLP Endpoint is managed by ePO, and it includes a full case management system for aggregating multiple DLP incidents and identifying malicious insiders. For more information on Trellix DLP Endpoint, please visit `DLP Endpoint \| Trellix <https://www.trellix.com/en-in/products/dlp-endpoint.html>`__.
+
+Skyhigh Security SSE Platform
+'''''''''''''''''''''''''''''
+
+Skyhigh Security, once part of Trellix's foundational company, McAfee Enterprise, has been established as a separate business entity and sister company to Trellix. Skyhigh Security's Security Service Edge (SSE) platform is part of the MVISION Complete Suite, delivered by Skyhigh Security, and offers comprehensive protection for cloud, web, and data protection. Skyhigh Security integrates a CASB platform with strong cloud-hosted web security and data protection controls to deliver a highly secure, highly available platform for protecting hybrid and multi-cloud enterprises. For more information on Skyhigh Security's SSE platform please visit `What is SSE? \| Security Service Edge \| Skyhigh Security <https://www.skyhighsecurity.com/en-us/cybersecurity-defined/what-is-sse.html>`__.
+
+The MVISION Complete Suite aids in the ability to meet zero trust objectives by delivering device-level protection and alerting, application protection through contextual access controls, user trust through user activity monitoring, data security through comprehensive data protection and discovery, and analytics and intelligence through EDR and Insights.
+
+Full Remote Browser Isolation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Remote browser isolation enables organizations to fully contain web applications within a secure container to prevent malware and data leakage and provide complete control over a browser session. The Skyhigh SSE solution out of the box offers remote browser isolation for risky websites to ensure no implicit trust is being granted to web applications prior to trust validation. In some cases, organizations would choose that no implicit trust is ever extended to web traffic, regardless of known reputation. In this scenario, full-time browser isolation is required to meet this objective. The Trellix offering, with sister company Skyhigh Security, includes the ability for full remote browser isolation as an add-on module. For more information on remote browser isolation, see `Remote Browser Isolation \| McAfee Products <https://www.mcafee.com/enterprise/en-us/products/remote-browser-isolation.html>`__.
+
+Helix (XDR)
+^^^^^^^^^^^
+
+To achieve zero trust outcomes, it is necessary to have a common platform that applies AI-driven, real-time threat intelligence to data collected from devices and security sensors as a mechanism for surfacing advanced attacks and associated entity risk, and to orchestrate proactive and remediating responses across native and open security tools. Within many zero trust reference architectures, this platform could be considered the dynamic access control plane, or the trust algorithm.
+
+Trellix delivers this capability through Helix. Helix is a cloud-hosted, intelligence-driven platform that collects data from over 600 different sensors and point solutions, analyzes the data against known threats, behaviors, and campaigns using AI and enhanced detection rules, and powers automated and manual responses across Trellix native and third-party policy engines. For more information on Trellix XDR, see `Trellix-Platform \| Trellix <https://www.trellix.com/en-hk/products/trellix-platform.html>`__.
+
+CloudVisory
+^^^^^^^^^^^
+
+It's no secret that cloud services are now pervasive; many applications have been moved either through SaaS or cloud services development to cloud data centers. This presents new challenges for many organizations as they work to gain better visibility and control over IaaS-hosted cloud applications and the thousands of microservices that support them. As organizations look to adopt zero trust principles within the cloud, it will become imperative that proper service configuration, IAM roles, cloud network traffic, and workloads are fully evaluated for risk and protected. CloudVisory supports these objectives through:
+
+-  CI/CD integration to ensure proper service configuration, and continuous posture assessments to guard against configuration drift
+
+-  IAM policy inspection
+
+-  intelligent network microsegmentation
+
+-  intra-cloud and cloud-to-cloud network monitoring
+
+-  multi-cloud support
+
+For more information on CloudVisory, see `CloudVisory \| Trellix <https://www.trellix.com/en-us/products/cloudvisory.html>`__.
+
+VMware
+~~~~~~
+
+Enabling secure work from anywhere is a critical requirement for most businesses, and a zero trust architecture is best suited to enable that. But zero trust is not a single product; rather, it is a solution that requires visibility and control at the various points that link a user with the resources they need. The VMware Anywhere Workspace is designed for zero trust with connected control points for devices, users, networks, and applications.
+
+Note that after the VMware products were implemented at NCCoE, VMware was acquired by Broadcom.
+
+Securing Devices
+^^^^^^^^^^^^^^^^
+
+The foundation of trust is the posture of devices used by users to access applications and resources. VMware Workspace ONE™ enables customers to manage the configuration and posture of any device. Via the Compliance engine in Workspace ONE, policies are created using a customer-selectable set of attributes and configurations. Minimum posture requirements for application access can be defined for any device, whether managed by Workspace ONE or not. To limit the on-device software footprint for personally owned devices, Workspace ONE Mobile Application Management (MAM) capabilities can provide posture assessment and compliance within applications such as Workspace ONE Tunnel, Boxer, and Web, as well as for customer-developed applications. With the addition of endpoint security solutions such as Workspace ONE Mobile Threat Defense (MTD) and Carbon Black Cloud, advanced security can be implemented to ensure the device is trustworthy; and out-of-compliance devices can trigger response and remediation via Workspace ONE UEM. Integrations with other leading endpoint and network security solutions also are made possible through Workspace ONE Trust Network, where threat signals are used to inform and influence device posture assessments and trigger remediation and response.
+
+Secure Identities
+^^^^^^^^^^^^^^^^^^
+
+User identity, posture, and behavior are also critical to zero trust. Workspace ONE Access integrates seamlessly with leading identity providers and layers on a rich set of controls that provide conditional access to any application or resource while delivering an optimal end user experience. Workspace ONE Access integrates with user, device, and login risk analytics provided by Workspace ONE Intelligence, thereby adding behavioral context to conditional application access policies and in case of established trust, granting passwordless SSP based access to applications and resources. Adoption of zero trust solutions including MFA is eased with choices including integrations for third party FIDO2 authentications or the use of phishing resistant multi-factor authentication client included with Workspace ONE Intelligent Hub.
+
+Secure Network Connectivity
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Providing secure connectivity to resources, regardless of location, in an efficient and safe manner is critical to zero trust. With Zero Trust Network Access, which VMware delivers with Workspace ONE Tunnel and Secure Access, companies can tailor access based on resource sensitivity, device posture, user role, and authentication strength, as well as the application being used to access the network. VMware is unique in providing per-app tunneling capabilities for both managed and unmanaged devices, meaning that access to a resource can be allowed only via specified applications (e.g. Chrome, Firefox or a native client application). Traffic policies can be sculpted to provide different access to each application. With Tunnel, a device is not placed onto a network or given an internal IP address, which further minimizes network-borne threats to endpoints, and the security risks of hub-based network architectures. Secure access can be provided as either a managed service from VMware or with the customer-deployed Unified Access Gateway (UAG). Integrating with NSX can further segment access by limiting access to NSX Security Groups to specific applications managed by Workspace ONE.
+
+In addition to Workspace ONE Tunnel and Secure Access, VMware Horizon also provides secure access to virtual desktops and applications that run inside your data center, which also provides complete data containerization.
+
+Application Workload
+^^^^^^^^^^^^^^^^^^^^
+
+VMware vSphere provides workload isolation through virtualization. VMware NSX secures access to workloads by providing microsegmentation within the data center, which provides granular access policies that allow traffic only between specific resources. The deep integration between vSphere, NSX, and Carbon Black Cloud, allows for security to be further improved by restricting communication between specific processes between disparate workloads, thus ensuring that only traffic between processes and workloads that is specifically intended is permitted.
+
+NSX provides additional east-west (intra-data center) inspection of traffic, including IDS/IPS capabilities, Network Traffic Analytics (NTA), and Network Detection and Response (NDR), which provide advanced threat protection against advanced threats and lateral movement.
+
+Data
+^^^^
+
+VMware Workspace ONE Unified Endpoint Management (UEM) is responsible for device enrollment, a mobile application catalog, policy enforcement regarding device compliance, and integration with key enterprise services, such as email, content, and social media.
+
+Workspace ONE UEM features include:
+
+-  Device management platform - Allows full lifecycle management of a wide variety of devices, including phones, tablets, Windows 10, and rugged and special-purpose devices.
+
+-  Application deployment capabilities - Provides automatic deployment or self-service application access for employees.
+
+-  User and device profile services - Ensures that configuration settings for users and devices comply with enterprise security requirements and simplify end-user access to applications
+
+-  Productivity tools - Includes an email client with secure email functionality, a content management tool for securely storing and managing content, and a web browser to ensure secure access to corporate information and tools.
+
+Visibility and Analytics
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Having visibility into the operation of the zero trust solution requires bringing together data from many solution elements. Additionally, bringing data together can enable analysis and generation of insights that can inform a ZTA.
+
+Workspace ONE Intelligence provides visibility and analytics for device, identity, and network activities and highlights conditions that deviate significantly from the norm. Enterprises now can see how devices compare to their enterprise fleet, and these insights can be used for reporting and visualization and as input to automated response actions and playbooks. Resource access attempts can be profiled to look for new or unusual access patterns, and that information can be used to directly inform zero trust access policies.
+
+Workspace ONE Intelligence can incorporate threat data from leading security providers via Workspace ONE Trust Network, which gives additional context and insights that administrators can use to assess hygiene and posture.
+
+Automation and Orchestration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Workspace ONE Intelligence provides automation and orchestration capabilities that can be triggered by any event. Automations can be as simple as notifying a user that their device needs an operating system (OS) update to remain compliant, or complex actions that involve multiple products, such as responding to detected malicious code on a device by opening a ticket in a ticketing system, then notifying IT and security teams, removing sensitive enterprise applications and data, followed by quarantining the device from the network. This is all made possible through API integrations with VMware and third-party products and is enabled in a low- or no-code manner.
+
+VMware's product offerings provide the foundation for ZTA.
+
+-  Connected control points - device, user, network, and workload
+
+-  Freedom of choice - any device, any application, any cloud
+
+-  Respecting privacy - clearly communicate what data the enterprise can - and cannot - see
+
+-  End-user experience - better security delivered in a way that improves user experience
+
+For more information about VMware's zero trust offerings, please see https://www.vmware.com/solutions/zero-trust-security.html.
+
+Zimperium
+~~~~~~~~~
+
+Zimperium secures both mobile devices and applications so they can safely and securely access data. Patented on-device ML-based security provides visibility and protection against known and zero-day threats and attacks.
+
+Zimperium Mobile Threat Defense
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Zimperium Mobile Threat Defense is an advanced MTD solution for enterprises, providing persistent, on-device protection to both corporate-owned and BYOD devices against modern attack vectors. Leveraging Zimperium's patented z9 on-device detection engine, Zimperium MTD detects threats across the kill chain, including device compromise, network, phishing, and application attacks.
+
+Zimperium's MTD provides on-device behavior detection via an on-device agent, even when the device is not connected to a network. Zimperium's MTD begins protecting devices against all primary attack vectors immediately after deployment. The Zimperium zConsole provides a management interface used to configure threat policies, manage device groups/users, and view events and the forensics that are associated with those events.
+
+Zimperium provides critical mobile security data for organizations, with integrations into multiple, concurrent enterprise SIEM/SOAR, UEM, XDR, and IAM platforms. Data is securely shared via REST API, syslog, etc. Zimperium MTD provides comprehensive *device attestation* enabling a complete picture of mobile endpoint security and increased visibility into risks such as jailbreak detections. Zimperium MTD provides continuous protection for mobile devices, providing the risk intelligence and forensic data necessary for security administrators to raise their mobile security confidence. Zimperium integrates mobile threat data into security reporting systems and processes. Using Zimperium's vast integrations ecosystem, mobile device state, security posture, events, etc. are shared, enabling multimodal protections to be automatically deployed, including “conditional access” to sensitive information via MDM/UEMs, SOAR, and IAM, for example. Zimperium MTD protects devices against all primary attack vectors, including via USB and removable storage, and even when the device is not connected to a network.
+
+Zscaler
+~~~~~~~
+
+Zscaler provides secure user access to public-facing sites and on- or off-premises private applications via the Zscaler Zero Trust Exchange, a cloud-delivered security service edge technology. The Zero Trust Exchange helps IT move away from legacy network infrastructure to achieve modern workforce enablement, infrastructure modernization, and security transformation.
+
+Zscaler's role in the ZTA is to provide full visibility and control of context-based, least-privilege access to internet and SaaS applications as well as private applications in Infrastructure as a Service (IaaS), Platform as a Service (PaaS), or internally hosted environments via the Zero Trust Exchange.
+
+Zscaler Zero Trust Exchange
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Users accessing the internet or a SaaS application can leverage the **Zscaler Internet Access (ZIA)** solution. This solution delivers a comprehensive security stack—including TLS inspection, advanced firewall, SWG, DLP, virus protection, and sandbox capabilities—for end users, which follows them no matter where they are.
+
+Users accessing private applications either locally or in the cloud can leverage the **Zscaler Private Access (ZPA)** solution, which also provides a virtual PDP+PEP in the cloud.
+
+The **Zscaler Client Connector** brokers access for both ZIA and ZPA, offering lightweight single-agent protection and visibility, as well as optionally gathering telemetry for end-user experience monitoring.
+
+Combining ZIA and ZPA provides a FedRAMP-accredited solution that organizations can integrate into their unique digital ecosystems today. Moreover, since Zscaler is an integral part of any zero trust framework, organizations can leverage Zscaler's cloud service provider, EDR, SIEM/SOAR, and software-defined wide area network (SD-WAN) integration partnerships with Microsoft, AWS, Okta, CrowdStrike, and other industry leaders to promote data visibility and access management.

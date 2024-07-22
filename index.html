@@ -1,0 +1,865 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Implementing a Zero Trust Architecture &#8212; Implementing a Zero Trust Architecture Project  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="_static/content.css?v=59cd0ab0" />
+    <link rel="stylesheet" type="text/css" href="_static/breadcrumbs.css?v=ddd885d8" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <script src="_static/jquery.visible.js?v=5b129ffc"></script>
+    <script src="_static/jquery.leaveNotice-nist.js?v=7cf1efa2"></script>
+    <script src="_static/applyLeaveNotice.js?v=38741b1c"></script>
+    <script src="_static/smoothNavScroll.js?v=2ce98a12"></script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Executive Summary" href="VolumeA/ExecutiveSummary.html" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
+    <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+    <link rel="stylesheet" type="text/css" href="https://pages.nist.gov/leaveNotice/css/jquery.leaveNotice.css" />
+    <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJSMY46M5C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RJSMY46M5C');
+    </script>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="width: max-content;">
+    <ul class="wy-breadcrumbs">
+        <li style="list-style: none;"><a href="#" aria-label="Home"><i class="fa fa-home"></i></a></li>
+        <li class="breadcrumb-item active">&ensp;Implementing a Zero Trust Architecture</li>
+    </ul>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Implementing a Zero Trust Architecture Project  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture" title="Main Project Page" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="_static/MainProjectLogo.jpg" class="icon-link-image" alt="Main Project Page"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Implementing a Zero Trust Architecture
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="VolumeA/ExecutiveSummary.html">Executive Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VolumeA/Introduction.html">Introduction to the Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VolumeA/ProjectOverview.html">Project Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acronyms.html">Acronyms</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/index.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Implementing a Zero Trust Architecture</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disclaimer">DISCLAIMER</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback">FEEDBACK</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#national-cybersecurity-center-of-excellence">NATIONAL CYBERSECURITY CENTER OF EXCELLENCE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nist-cybersecurity-practice-guides">NIST CYBERSECURITY PRACTICE GUIDES</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">ABSTRACT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keywords">KEYWORDS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">ACKNOWLEDGMENTS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-conventions">DOCUMENT CONVENTIONS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#call-for-patent-claims">CALL FOR PATENT CLAIMS</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="implementing-a-zero-trust-architecture">
+<h1>Implementing a Zero Trust Architecture<a class="headerlink" href="#implementing-a-zero-trust-architecture" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is supplementary material for the <a class="reference external" href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf">NIST SP 1800-35 publication</a>.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Oliver Borchert</strong></p>
+<p><strong>Gema Howell</strong></p>
+<p><strong>Alper Kerman</strong></p>
+<p><strong>Scott Rose</strong></p>
+<p><strong>Murugiah Souppaya</strong></p>
+<p>National Institute of</p>
+<p>Standards and Technology</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Jason Ajmo</strong></p>
+<p><strong>Yemi Fashina</strong></p>
+<p><strong>Parisa Grayeli</strong></p>
+<p><strong>Joseph Hunt</strong></p>
+<p><strong>Jason Hurlburt</strong></p>
+<p><strong>Nedu Irrechukwu</strong></p>
+<p><strong>Joshua Klosterman</strong></p>
+<p><strong>Oksana Slivina</strong></p>
+<p><strong>Susan Symington</strong></p>
+<p><strong>Allen Tan</strong></p>
+<p>The MITRE Corporation</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Karen Scarfone</strong></p>
+<p>Scarfone Cybersecurity</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>William Barker</strong></p>
+<p>Dakota Consulting</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Peter Gallagher</strong></p>
+<p><strong>Aaron Palermo</strong></p>
+<p>Appgate</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Madhu Balaji</strong></p>
+<p><strong>Adam Cerini</strong></p>
+<p><strong>Rajarshi Das</strong></p>
+<p>AWS (Amazon Web Services)</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Jacob Barosin</strong></p>
+<p><strong>Peter Bjork</strong></p>
+<p><strong>Hans Drolshagen</strong></p>
+<p><strong>Keith Luck</strong></p>
+<p><strong>Jerry Haskins</strong></p>
+<p><strong>Dale McKay</strong></p>
+<p>Broadcom (VMware)</p>
+</td>
+<td><p><strong>Brian Butler</strong></p>
+<p><strong>Mike Delaguardia</strong></p>
+<p><strong>Matthew Hyatt</strong></p>
+<p><strong>Randy Martin</strong></p>
+<p><strong>Peter Romness</strong></p>
+<p>Cisco</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Corey Bonnell</strong></p>
+<p><strong>Dean Coclin</strong></p>
+<p>DigiCert</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Ryan Johnson</strong></p>
+<p><strong>Dung Lam</strong></p>
+<p><strong>Darwin Tolbert</strong></p>
+<p>F5</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Tim Jones</strong></p>
+<p><strong>Tom May</strong></p>
+<p>Forescout</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Christopher Altman</strong></p>
+<p><strong>Alex Bauer</strong></p>
+<p><strong>Marco Genovese</strong></p>
+<p>Google Cloud</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Andrew Campagna</strong></p>
+<p><strong>John Dombroski</strong></p>
+<p><strong>Adam Frank</strong></p>
+<p><strong>Nalini Kannan</strong></p>
+<p><strong>Priti Patil</strong></p>
+<p><strong>Harmeet Singh</strong></p>
+<p><strong>Mike Spisak</strong></p>
+<p><strong>Krishna Yellepeddy</strong></p>
+<p>IBM</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Nicholas Herrmann</strong></p>
+<p><strong>Corey Lund</strong></p>
+<p><strong>Farhan Saifudin</strong></p>
+<p>Ivanti</p>
+</td>
+<td><p><strong>Madhu Dodda</strong></p>
+<p><strong>Tim LeMaster</strong></p>
+<p>Lookout</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Ken Durbin</strong></p>
+<p><strong>James Elliott</strong></p>
+<p><strong>Earl Matthews</strong></p>
+<p><strong>David Pricer</strong></p>
+<p>Mandiant</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Joey Cruz</strong></p>
+<p><strong>Tarek Dawoud</strong></p>
+<p><strong>Carmichael Patton</strong></p>
+<p><strong>Alex Pavlovsky</strong></p>
+<p><strong>Brandon Stephenson</strong></p>
+<p><strong>Clay Taylor</strong></p>
+<p>Microsoft</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Bob Lyons</strong></p>
+<p><strong>Vinu Panicker</strong></p>
+<p>Okta</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Imran Bashir</strong></p>
+<p><strong>Ali Haider</strong></p>
+<p><strong>Nishit Kothari</strong></p>
+<p><strong>Sean Morgan</strong></p>
+<p><strong>Seetal Patel</strong></p>
+<p><strong>Norman Wong</strong></p>
+<p>Palo Alto Networks</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Zack Austin</strong></p>
+<p><strong>Shawn Higgins</strong></p>
+<p><strong>Rob Woodsworth</strong></p>
+<p>PC Matic</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Mitchell Lewars</strong></p>
+<p><strong>Bryan Rosensteel</strong></p>
+<p>Ping Identity</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Don Coltrain</strong></p>
+<p><strong>Wade Ellery</strong></p>
+<p><strong>Deborah McGinn</strong></p>
+<p>Radiant Logic</p>
+</td>
+<td><p><strong>Frank Briguglio</strong></p>
+<p><strong>Ryan Tighe</strong></p>
+<p>SailPoint</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Kyle Black</strong></p>
+<p><strong>Scott Gordon</strong></p>
+<p><strong>Sunjeet Randhawa</strong></p>
+<p>Symantec by Broadcom</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Chris Jensen</strong></p>
+<p><strong>Joshua Moll</strong></p>
+<p>Tenable</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Jason White</strong></p>
+<p>Trellix, Public Sector</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Joe Brown</strong></p>
+<p><strong>Gary Bradt</strong></p>
+<p>Zimperium</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Jeffrey Adorno</strong></p>
+<p><strong>Syed Ali</strong></p>
+<p><strong>Bob Smith</strong></p>
+<p>Zscaler</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>July 2024</p>
+<p>FOURTH PRELIMINARY DRAFT</p>
+<p><img alt="This graphic contains the logos for NIST and the NCCoE." src="_images/Figure1.png" /></p>
+<section id="disclaimer">
+<h2>DISCLAIMER<a class="headerlink" href="#disclaimer" title="Link to this heading">#</a></h2>
+<p>Certain commercial entities, equipment, products, or materials may be identified by name or company logo or other insignia in order to acknowledge their participation in this collaboration or to describe an experimental procedure or concept adequately. Such identification is not intended to imply special status or relationship with NIST or recommendation or endorsement by NIST or NCCoE; neither is it intended to imply that the entities, equipment, products, or materials are necessarily the best available for the purpose.</p>
+<p>National Institute of Standards and Technology Special Publication 1800-35, Natl. Inst. Stand. Technol. Spec. Publ. 1800-35, (July 2024), CODEN: NSPUE2</p>
+</section>
+<section id="feedback">
+<h2>FEEDBACK<a class="headerlink" href="#feedback" title="Link to this heading">#</a></h2>
+<p>NIST is using an agile process to publish this content. As work continues on implementing additional example solutions, documentation is being made available as soon as possible rather than delaying release until all builds are completed. You can improve this guide by contributing feedback. As you review and adopt this solution for your own organization, we ask you and your colleagues to share your experience and advice with us.</p>
+<p>Please submit comments by completing the comment template spreadsheet posted on <a class="reference external" href="https://www.nccoe.nist.gov/projects/implementing-zero-trust-architectures">https://www.nccoe.nist.gov/projects/implementing-zero-trust-architectures</a> and emailing it to <a class="reference external" href="mailto:nccoe-zta-project&#37;&#52;&#48;list&#46;nist&#46;gov">nccoe-zta-project<span>&#64;</span>list<span>&#46;</span>nist<span>&#46;</span>gov</a>.</p>
+<p>Public comment period: July 31, 2024 through September 30, 2024</p>
+<p>All comments are subject to release under the Freedom of Information Act.</p>
+<p>NIST is particularly interested in your feedback on the following questions:</p>
+<ol class="arabic simple">
+<li><p>How well do the practices in this guide relate to existing practices leveraged by your organization? Are there significant gaps between the sets of practices that this guide should address?</p></li>
+<li><p>How do you expect this guide to influence your future practices and processes?</p></li>
+<li><p>How do you envision using this guide? What changes would you like to see to increase/improve that use?</p></li>
+<li><p>What suggestions do you have on changing the format of the provided information?</p></li>
+</ol>
+<div class="line-block">
+<div class="line">National Cybersecurity Center of Excellence</div>
+<div class="line">National Institute of Standards and Technology</div>
+<div class="line">100 Bureau Drive</div>
+<div class="line">Mailstop 2002</div>
+<div class="line">Gaithersburg, MD 20899</div>
+<div class="line">Email: <a class="reference external" href="mailto:nccoe&#37;&#52;&#48;nist&#46;gov">nccoe<span>&#64;</span>nist<span>&#46;</span>gov</a></div>
+</div>
+</section>
+<section id="national-cybersecurity-center-of-excellence">
+<h2>NATIONAL CYBERSECURITY CENTER OF EXCELLENCE<a class="headerlink" href="#national-cybersecurity-center-of-excellence" title="Link to this heading">#</a></h2>
+<p>The National Cybersecurity Center of Excellence (NCCoE), a part of the National Institute of Standards and Technology (NIST), is a collaborative hub where industry organizations, government agencies, and academic institutions work together to address businesses ‘ most pressing cybersecurity issues. This public-private partnership enables the creation of practical cybersecurity solutions for specific industries, as well as for broad, cross-sector technology challenges. Through consortia under Cooperative Research and Development Agreements (CRADAs), including technology partners—from Fortune 50 market leaders to smaller companies specializing in information technology security—the NCCoE applies standards and best practices to develop modular, adaptable example cybersecurity solutions using commercially available technology. The NCCoE documents these example solutions in the NIST Special Publication 1800 series, which maps capabilities to the NIST Cybersecurity Framework and details the steps needed for another entity to re-create the example solution. The NCCoE was established in 2012 by NIST in partnership with the State of Maryland and Montgomery County, Maryland.</p>
+<p>To learn more about the NCCoE, visit <a class="reference external" href="https://www.nccoe.nist.gov/">https://www.nccoe.nist.gov/</a>. To learn more about NIST, visit <a class="reference external" href="https://www.nist.gov">https://www.nist.gov</a>.</p>
+</section>
+<section id="nist-cybersecurity-practice-guides">
+<h2>NIST CYBERSECURITY PRACTICE GUIDES<a class="headerlink" href="#nist-cybersecurity-practice-guides" title="Link to this heading">#</a></h2>
+<p>NIST Cybersecurity Practice Guides (Special Publication 1800 series) target specific cybersecurity challenges in the public and private sectors. They are practical, user-friendly guides that facilitate the adoption of standards-based approaches to cybersecurity. They show members of the information security community how to implement example solutions that help them align with relevant standards and best practices, and provide users with the materials lists, configuration files, and other information they need to implement a similar approach.</p>
+<p>The documents in this series describe example implementations of cybersecurity practices that businesses and other organizations may voluntarily adopt. These documents do not describe regulations or mandatory practices, nor do they carry statutory authority.</p>
+</section>
+<section id="abstract">
+<h2>ABSTRACT<a class="headerlink" href="#abstract" title="Link to this heading">#</a></h2>
+<p>A zero trust architecture (ZTA) enables secure authorized access to enterprise resources that are distributed across on-premises and multiple cloud environments, while enabling a hybrid workforce and partners to access resources from anywhere, at any time, from any device in support of the organization’s mission.</p>
+<p>This NIST Cybersecurity Practice Guide explains how organizations can implement ZTA consistent with the concepts and principles outlined in NIST Special Publication (SP) 800-207, Zero Trust Architecture. The NCCoE worked with 24 collaborators under Cooperative Research Development Agreements (CRADAs) to integrate commercially available technology to build 17 ZTA example implementations and demonstrate a number of common use cases. Detailed technical information on each build can serve as a valuable resource for your technology implementers by providing models they can emulate. The lessons learned from the implementations and integrations can benefit your organization by saving time and resources. This guide also includes mappings of ZTA principles to commonly used security standards and guidance.</p>
+</section>
+<section id="keywords">
+<h2>KEYWORDS<a class="headerlink" href="#keywords" title="Link to this heading">#</a></h2>
+<p><em>enhanced identity governance (EIG); identity, credential, and access management (ICAM); microsegmentation; secure access service edge (SASE); software-defined perimeter (SDP); zero trust; zero trust architecture (ZTA).</em></p>
+</section>
+<section id="acknowledgments">
+<h2>ACKNOWLEDGMENTS<a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h2>
+<p>We are grateful to the following individuals for their generous contributions of expertise and time.</p>
+<ul class="simple">
+<li><p>Appgate: Jason Garbis, Adam Rose, Jonathan Roy</p></li>
+<li><p>AWS (Amazon Web Services): Conrad Fernandes*, Harrison Holstein, Quint Van Deman</p></li>
+<li><p>Broadcom (VMware): Andrew Babakian*, Genc Domi*, Paul Mancuso, Dennis Moreau*, Wayne Pauley*, Jacob Rapp*</p></li>
+<li><p>Cisco: Ken Andrews, Robert Bui, Leo Lebel, Tom Oast, Aaron Rodriguez, Kelly Sennett, Steve Vetter, Micah Wilson</p></li>
+<li><p>F5: Daniel Cayer, David Clark, Jay Kelley, Darrell Pierson</p></li>
+<li><p>Forescout: Yejin Jang*, Neal Lucier*</p></li>
+<li><p>Google Cloud: Tim Knudson*</p></li>
+<li><p>IBM: Nilesh Atal, Himanshu Gupta, Lakshmeesh Hegde, Sharath Math, Naveen Murthy, Nikhil Shah, Deepa Shetty, Harishkumar Somashekaraiah</p></li>
+<li><p>IT Coalition: Aaron Cook, Vahid Esfahani*, Jeff Laclair, Ebadullah Siddiqui*, Musumani Woods*</p></li>
+<li><p>Ivanti: Patty Arcano, Jeffery Burton, Jay Dineshkumar</p></li>
+<li><p>Lookout: Tyler Croak, Jeff Gilhool, Hashim Khan*</p></li>
+<li><p>Microsoft: Thomas Detzner, Ehud Itshaki, Janet Jones, Hemma Prafullchandra*, Enrique Saggese, Sarah Young</p></li>
+<li><p>MITRE: Eileen Division*, Spike Dog, Sallie Edwards, Ayayidjin Gabiam, Jolene Loveless*, Karri Meldorf, Kenneth Sandlin, Lauren Swan, Jessica Walton</p></li>
+<li><p>NIST: Mike Bartock, Douglas Montgomery, Cherilyn Pascoe, Kevin Stine</p></li>
+<li><p>Okta: Brian Dack, Sean Frazier, Naveed Mirza, Kelsey Nelson, Ron Wilson</p></li>
+<li><p>PC Matic: Andy Tuch</p></li>
+<li><p>Ping Identity: Ivan Anderson, Aubrey Turner</p></li>
+<li><p>Radiant Logic: Bill Baz, Rusty Deaton, John Petrutiu, Lauren Selby</p></li>
+<li><p>SailPoint: Peter Amaral, Jim Russell, Esteban Soto</p></li>
+<li><p>Symantec by Broadcom: Eric Michael</p></li>
+<li><p>Tenable: Jeremiah Stallcup</p></li>
+<li><p>Zimperium: Dan Butzer, Jim Kovach*, Kern Smith</p></li>
+<li><p>Zscaler: Jeremy James, Lisa Lorenzin*, Matt Moulton, Patrick Perry</p></li>
+</ul>
+<p><em>* Former employee; all work for this publication was done while at that organization</em></p>
+<p>Special thanks to all who reviewed and provided feedback on this document.</p>
+<p>The collaborators who have or will participate in this project’s current or upcoming builds submitted their capabilities in response to a notice in the Federal Register. Respondents with relevant capabilities or product components were invited to sign a Cooperative Research and Development Agreement (CRADA) with NIST, allowing them to participate in a consortium to build this example solution. We are working with the following list of collaborators.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id1">
+<caption><span class="caption-text">Technology Partners/Collaborators</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.appgate.com/">Appgate</a></p></td>
+<td><p><a class="reference external" href="https://www.ibm.com/">IBM</a></p></td>
+<td><p><a class="reference external" href="https://www.pingidentity.com/">Ping Identity</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://aws.amazon.com/">AWS</a></p></td>
+<td><p><a class="reference external" href="https://www.ivanti.com/">Ivanti</a></p></td>
+<td><p><a class="reference external" href="https://explore.radiantlogic.com/home">Radiant Logic</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.vmware.com/">Broadcom (VMware)</a></p></td>
+<td><p><a class="reference external" href="https://www.lookout.com/">Lookout</a></p></td>
+<td><p><a class="reference external" href="https://www.sailpoint.com/">SailPoint</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.cisco.com/">Cisco</a></p></td>
+<td><p><a class="reference external" href="https://www.mandiant.com/">Mandiant</a></p></td>
+<td><p><a class="reference external" href="https://www.broadcom.com/products/cybersecurity">Symantec by Broadcom</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.digicert.com/">DigiCert</a></p></td>
+<td><p><a class="reference external" href="https://www.microsoft.com/en-us/security/business/zero-trust">Microsoft</a></p></td>
+<td><p><a class="reference external" href="https://www.tenable.com/">Tenable</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.f5.com/">F5</a></p></td>
+<td><p><a class="reference external" href="https://www.okta.com/">Okta</a></p></td>
+<td><p><a class="reference external" href="https://www.trellix.com/en-us/index.html">Trellix</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.forescout.com/">Forescout</a></p></td>
+<td><p><a class="reference external" href="http://www.paloaltonetworks.com/">Palo Alto Networks</a></p></td>
+<td><p><a class="reference external" href="https://www.zimperium.com/">Zimperium</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://cloud.google.com/">Google Cloud</a></p></td>
+<td><p><a class="reference external" href="https://www.pcmatic.com/pro/">PC Matic</a></p></td>
+<td><p><a class="reference external" href="https://www.zscaler.com/">Zscaler</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Note that after the VMware products were implemented at NCCoE, VMware was acquired by Broadcom.</p>
+</section>
+<section id="document-conventions">
+<h2>DOCUMENT CONVENTIONS<a class="headerlink" href="#document-conventions" title="Link to this heading">#</a></h2>
+<p>The terms “shall” and “shall not” indicate requirements to be followed strictly to conform to the publication and from which no deviation is permitted. The terms “should” and “should not” indicate that among several possibilities, one is recommended as particularly suitable without mentioning or excluding others, or that a certain course of action is preferred but not necessarily required, or that (in the negative form) a certain possibility or course of action is discouraged but not prohibited. The terms “may” and “need not” indicate a course of action permissible within the limits of the publication. The terms “can” and “cannot” indicate a possibility and capability, whether material, physical, or causal.</p>
+</section>
+<section id="call-for-patent-claims">
+<h2>CALL FOR PATENT CLAIMS<a class="headerlink" href="#call-for-patent-claims" title="Link to this heading">#</a></h2>
+<p>This public review includes a call for information on essential patent claims (claims whose use would be required for compliance with the guidance or requirements in this Information Technology Laboratory (ITL) draft publication). Such guidance and/or requirements may be directly stated in this ITL Publication or by reference to another publication. This call also includes disclosure, where known, of the existence of pending U.S. or foreign patent applications relating to this ITL draft publication and of any relevant unexpired U.S. or foreign patents.</p>
+<p>ITL may require from the patent holder, or a party authorized to make assurances on its behalf, in written or electronic form, either:</p>
+<ol class="loweralpha simple">
+<li><p>assurance in the form of a general disclaimer to the effect that such party does not hold and does not currently intend holding any essential patent claim(s); or</p></li>
+<li><p>assurance that a license to such essential patent claim(s) will be made available to applicants desiring to utilize the license for the purpose of complying with the guidance or requirements in this ITL draft publication either:</p>
+<ol class="arabic simple">
+<li><p>under reasonable terms and conditions that are demonstrably free of any unfair discrimination; or</p></li>
+<li><p>without compensation and under reasonable terms and conditions that are demonstrably free of any unfair discrimination.</p></li>
+</ol>
+</li>
+</ol>
+<p>Such assurance shall indicate that the patent holder (or third party authorized to make assurances on its behalf) will include in any documents transferring ownership of patents subject to the assurance, provisions sufficient to ensure that the commitments in the assurance are binding on the transferee, and that the transferee will similarly include appropriate provisions in the event of future transfers with the goal of binding each successor-in-interest.</p>
+<p>The assurance shall also indicate that it is intended to be binding on successors-in-interest regardless of whether such provisions are included in the relevant transfer documents.</p>
+<p>Such statements should be addressed to: <a class="reference external" href="mailto:nccoe-zta-project&#37;&#52;&#48;list&#46;nist&#46;gov">nccoe-zta-project<span>&#64;</span>list<span>&#46;</span>nist<span>&#46;</span>gov</a></p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="VolumeA/ExecutiveSummary.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Executive Summary</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disclaimer">DISCLAIMER</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback">FEEDBACK</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#national-cybersecurity-center-of-excellence">NATIONAL CYBERSECURITY CENTER OF EXCELLENCE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nist-cybersecurity-practice-guides">NIST CYBERSECURITY PRACTICE GUIDES</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">ABSTRACT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keywords">KEYWORDS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">ACKNOWLEDGMENTS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-conventions">DOCUMENT CONVENTIONS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#call-for-patent-claims">CALL FOR PATENT CLAIMS</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<p>
+  
+    By NIST<br/>
+  
+</p>
+
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> Certain commercial equipment, instruments, or
+          materials are identified in this documentation to foster understanding. Such
+          identification does not imply recommendation or endorsement by the National
+          Institute of Standards and Technology, nor does it imply that the materials
+          or equipment identified are necessarily the best available for the purpose.
+        </div>
+      </p>
+    </div>
+</footer>
+  </body>
+</html>

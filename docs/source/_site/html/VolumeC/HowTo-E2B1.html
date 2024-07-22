@@ -1,0 +1,763 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides &#8212; Implementing a Zero Trust Architecture Project  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/content.css?v=59cd0ab0" />
+    <link rel="stylesheet" type="text/css" href="../_static/breadcrumbs.css?v=83cea8a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeC/HowTo-E2B1';</script>
+    <script src="../_static/jquery.visible.js?v=5b129ffc"></script>
+    <script src="../_static/jquery.leaveNotice-nist.js?v=7cf1efa2"></script>
+    <script src="../_static/applyLeaveNotice.js?v=38741b1c"></script>
+    <script src="../_static/smoothNavScroll.js?v=2ce98a12"></script>
+    <link rel="icon" href="../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides" href="HowTo-E3B1.html" />
+    <link rel="prev" title="Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides" href="HowTo-E1B1.html" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
+    <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+    <link rel="stylesheet" type="text/css" href="https://pages.nist.gov/leaveNotice/css/jquery.leaveNotice.css" />
+    <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJSMY46M5C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RJSMY46M5C');
+    </script>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="width: max-content;">
+    <ul class="wy-breadcrumbs">
+        <li><a href="../index.html" aria-label="Home"><i class="fa fa-home"></i></a></li>
+            <li class="breadcrumb-item">&ensp;<a href="index.html">Build Implementation Instructions</a></li>
+        <li class="breadcrumb-item active">&ensp;Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides</li>
+    </ul>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+  </div>
+  
+  
+
+  
+    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Implementing a Zero Trust Architecture Project  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture" title="Main Project Page" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/MainProjectLogo.jpg" class="icon-link-image" alt="Main Project Page"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Implementing a Zero Trust Architecture
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ExecutiveSummary.html">Executive Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/Introduction.html">Introduction to the Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ProjectOverview.html">Project Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeB/architecture.html">Architecture and Builds</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeB/BuildsImplemented.html">Builds Implemented</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../VolumeB/appendices/index.html">Build Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B3.html">Enterprise 2 Build 3 (E2B3) — Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Build Implementation Instructions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B3.html">Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardening.html">Hardening Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/GeneralFindings.html">General Findings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/FutureBuildConsiderations.html">Future Build Considerations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeD/index.html">Functional Demonstrations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/FunctionalLabDemonstration.html">Demonstration Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseA.html">Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseB.html">Use Case B: Enterprise-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseC.html">Use Case C: Collaboration: Federated-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseD.html">Use Case D: Other-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseE.html">Use Case E: Guest: No-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseF.html">Use Case F: Confidence Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseG.html">Use Case G: Service-Service Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseH.html">Use Case H: Data Level Security Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/FunctionalDemonstrationResultSummaries.html">Functional Demonstration Result Summaries</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../VolumeD/results/index.html">Functional Demonstration Results</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/EIGCrawlResults.html">EIG Crawl Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/EIGRunResults.html">EIG Run Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/SDPMicroResults.html">SDP, Microsegmentation, and SASE Phase Demonstration Results</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeE/index.html">Risk and Compliance Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/RisksAddressed.html">Risks Addressed by the ZTA Reference Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/ArchitectureSecurityMappings.html">ZTA Security Mapping Context and Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/Mappings.html">Mappings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acronyms.html">Acronyms</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/VolumeC/HowTo-E2B1.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ping-identity-pingone">Ping Identity PingOne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-pingone-and-pingfederate">Configuration: PingOne and PingFederate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-radiant-logic">Integration with Radiant Logic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-cisco-duo">Integration with Cisco Duo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiant-logic-radiantone">Radiant Logic RadiantOne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-and-configuration">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration">Integration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sailpoint-identityiq">SailPoint IdentityIQ</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Integration with Radiant Logic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-ad">Integration with AD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-ping-identity">Integration with Ping Identity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cisco-duo">Cisco Duo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Integration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#palo-alto-networks-next-generation-firewall">Palo Alto Networks Next Generation Firewall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-security-qradar-xdr">IBM Security QRadar XDR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-io">Tenable.io</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-ad">Tenable.ad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-nnm">Tenable NNM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mandiant-security-validation-msv">Mandiant Security Validation (MSV)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digicert-certcentral">DigiCert CertCentral</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="enterprise-2-build-1-e2b1-eig-crawl-ping-identity-ping-federate-as-pe-product-guides">
+<h1>Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides<a class="headerlink" href="#enterprise-2-build-1-e2b1-eig-crawl-ping-identity-ping-federate-as-pe-product-guides" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is supplementary material for the <a class="reference external" href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf">NIST SP 1800-35 publication</a>.</p>
+</div>
+<p>This section of the practice guide contains detailed instructions for installing, configuring, and integrating all of the products used to implement E2B1. For additional details on E2B1’s logical and physical architectures, please refer to <a class="reference internal" href="../VolumeB/architecture.html#architecture-and-builds"><span class="std std-ref">Architecture and Builds</span></a>.</p>
+<section id="ping-identity-pingone">
+<h2>Ping Identity PingOne<a class="headerlink" href="#ping-identity-pingone" title="Link to this heading">#</a></h2>
+<p>Ping Identity PingOne is a SaaS solution that provides ICAM capabilities to an enterprise. The following sections describe the setup of PingOne and its PingFederate service, and various integrations to other products. Ping Identity integrates with Radiant Logic for identity information, and with Cisco Duo to delegate the second authentication factor for users accessing resources.</p>
+<section id="configuration-pingone-and-pingfederate">
+<h3>Configuration: PingOne and PingFederate<a class="headerlink" href="#configuration-pingone-and-pingfederate" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" id="ping-one-config">
+<li><p>PingOne setup: From your web browser, type pingone.com and click the “Try Ping” at the top right of the screen. Follow the instructions to sign up.</p></li>
+<li><p>Once the PingOne environment is set up and functioning, scroll down the screen and click on the PingFederate service. A new browser tab will open. Most of the configuration will be performed on PingFederate for this build.</p></li>
+<li><p>Create an <a class="reference external" href="https://docs.pingidentity.com/bundle/pingfederate-111/page/rgr1564002998046.html">IDP adaptor</a>. This configuration should include some required values like mail and group membership (these will be mapped in steps below to the policy contract) and this adaptor is used as the first authentication factor and will be applied in the policy in the next step.</p></li>
+<li><p><a class="reference external" href="https://docs.pingidentity.com/bundle/pingfederate-110/page/qmq1564002987890.html">Create a policy</a> contract as a list to map values to the connection(s). The policy contract will use a policy to fulfill the mappings from sources (such as LDAP or Third-Party Identity Provider using a Federated Hub).</p></li>
+<li><p>Create an authentication policy that will be used to dictate application authentication. For our policies, we are using user ID and password for the first authentication factor (step 3 above) and Duo as the second authentication factor (Integration with Cisco Duo section).</p></li>
+<li><p><a class="reference external" href="https://docs.pingidentity.com/bundle/pingfederate-110/page/aat1564002989773.html">Create a policy contract</a> to connect that uses the above policy.</p></li>
+<li><p>Configure <a class="reference external" href="https://docs.pingidentity.com/r/en-us/pingfederate-110/help_idpconnectionconfigtasklet_idpbrowserssostate">SAML application</a> integrations. Note that all applications are different. For our resources (applications), certain SAML formats and attributes are used. Follow the linked documentation above to configure the specific setup of your own application.</p></li>
+<li><p>For this build, we developed policies that allow employees to access all resources (resource 1 and resource 2) and contractors to access resource 2 only. In order to do that, we leveraged the “memberof” attribute from Radiant Logic to identify employees and contractors. Once this information is identified, refer to:</p>
+<ol class="loweralpha simple">
+<li><p><a class="reference external" href="https://docs.pingidentity.com/bundle/pingfederate-111/page/jul1564002986701.html">Authentication Policies</a> to define the attribute mappings using this information</p></li>
+<li><p><a class="reference external" href="https://docs.pingidentity.com/r/en-us/pingfederate-110/help_idpconnectionconfigtasklet_idpbrowserssostate">SAML applications</a> to configure issuance criteria to information retrieved from Radiant Logic</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="integration-with-radiant-logic">
+<h3>Integration with Radiant Logic<a class="headerlink" href="#integration-with-radiant-logic" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" id="ping-one-integration">
+<li><p>For this build we installed a <a class="reference external" href="https://docs.pingidentity.com/bundle/pingone/page/djk1630007404580.html">PingOne Gateway</a>, which is “on-premise software that allows PingOne to communicate with other systems like LDAP servers,” to communicate with RadiantOne. The PingOne Gateway was installed on a Windows Server on the same subnet as the RadiantOne server. We used the PingOne Gateway due to restrictions of multiple firewalls and NAT rules within our lab environments (some are not under our control) from allowing PingOne from the Internet to reach RadiantOne in Enterprise 2. In many environments, the LDAP gateway is not needed if NAT is not used, and opening the proper TCP/UDP ports on the enterprise firewalls will allow communication between PingOne and the on-prem resource. Note: Prerequisites and instructions for installing the gateway are available under <strong>Connections/Gateway</strong> in the PingOne console.</p></li>
+<li><p>Once the Gateway is configured, click the <strong>Add</strong> button within the Connections/Gateway screen. Follow instructions on the screen to complete the integration with Radiant Logic. Note: A service account and other information from Radiant Logic is needed for the setup. Ensure this service account is created within Radiant Logic prior to configuring the PingOne Gateway.</p></li>
+<li><p>From PingFederate, go to <strong>Data Stores</strong> and create a <strong>New Data Store</strong> for Radiant Logic. Select <strong>LDAP</strong> for your <strong>LDAP Type</strong> and fill in the variables to complete the configuration.</p></li>
+</ol>
+</section>
+<section id="integration-with-cisco-duo">
+<h3>Integration with Cisco Duo<a class="headerlink" href="#integration-with-cisco-duo" title="Link to this heading">#</a></h3>
+<p>Make sure that configuration from Cisco Duo is completed before performing the integration.</p>
+<p>For <a class="reference external" href="https://docs.pingidentity.com/bundle/pingfederate-111/page/rgr1564002998046.html">IDP application integration</a>, from the <strong>Authentication</strong> tab, select <strong>IDP Adaptors</strong>, and click <strong>Create New Instance</strong> to create the integration with Cisco Duo to use Duo MFA as the second authentication factor. Specific API configuration information that was created from Cisco Duo is needed here to complete the setup.</p>
+<p>Note: For this build, we are using Duo, although Ping Identity has its own MFA.</p>
+</section>
+</section>
+<section id="radiant-logic-radiantone">
+<h2>Radiant Logic RadiantOne<a class="headerlink" href="#radiant-logic-radiantone" title="Link to this heading">#</a></h2>
+<section id="installation-and-configuration">
+<h3>Installation and Configuration<a class="headerlink" href="#installation-and-configuration" title="Link to this heading">#</a></h3>
+<p>Refer to <a class="reference internal" href="HowTo-E1B1.html#radiant-install"><span class="std std-ref">Radiant Logic RadiantOne Installation and Configuration</span></a>.</p>
+</section>
+<section id="integration">
+<h3>Integration<a class="headerlink" href="#integration" title="Link to this heading">#</a></h3>
+<p>Refer to <a class="reference internal" href="HowTo-E1B1.html#radiant-integration"><span class="std std-ref">Radiant Logic RadiantOne Integration</span></a> for integration with SailPoint.</p>
+<p>For integration with Ping Identity, a service account was created in RadiantOne. This service account, along with various credential information is used by PingFederate to communicate with RadiantOne to authenticate users. The communication between RadiantOne and PingFederate is through the Ping Gateway, which was installed on the same subnet as RadiantOne.</p>
+</section>
+</section>
+<section id="sailpoint-identityiq">
+<h2>SailPoint IdentityIQ<a class="headerlink" href="#sailpoint-identityiq" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Installation and Configuration<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Refer to <a class="reference internal" href="HowTo-E1B1.html#sailpoint-install"><span class="std std-ref">SailPoint IdentityIQ Installation and Configuration</span></a>.</p>
+</section>
+<section id="id2">
+<h3>Integration with Radiant Logic<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Refer to <a class="reference internal" href="HowTo-E1B1.html#sailpoint-integration-radiant"><span class="std std-ref">SailPoint IdentityIQ Integration with Radiant Logic</span></a>.</p>
+</section>
+<section id="integration-with-ad">
+<h3>Integration with AD<a class="headerlink" href="#integration-with-ad" title="Link to this heading">#</a></h3>
+<p>Refer to <a class="reference internal" href="HowTo-E1B1.html#sailpoint-integration-ad"><span class="std std-ref">SailPoint IdentityIQ Integration with AD</span></a>.</p>
+</section>
+<section id="integration-with-ping-identity">
+<h3>Integration with Ping Identity<a class="headerlink" href="#integration-with-ping-identity" title="Link to this heading">#</a></h3>
+<p>There is no integration with Ping Identity. For this build, SailPoint provides AD user information and Duo pulls from AD.</p>
+</section>
+</section>
+<section id="cisco-duo">
+<h2>Cisco Duo<a class="headerlink" href="#cisco-duo" title="Link to this heading">#</a></h2>
+<p>Cisco Duo is a SaaS solution that implements and enforces security policies and processes, using strong authentication to reduce the risk of data breaches due to compromised credentials and access from unauthorized devices. For this build, we use Cisco Duo as the second authentication factor for resources.</p>
+<section id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h3>
+<p id="cisco-duo-config">Sign up with Cisco Duo to create a Duo instance. Once you have admin access, create policies and integration with AD and Ping Identity.</p>
+<p><a class="reference external" href="https://duo.com/docs/policy#global-policy">Create a policy</a> to enable MFA for users. Navigate to <strong>Policy</strong> and click <strong>Edit Global Policy</strong>. In the Global Policy, there are many sub-policies that can be applied. For this build, we enabled the following:</p>
+<ul class="simple">
+<li><p>New User policy: prompt any user without the Duo app to enroll</p></li>
+<li><p>Authentication policy: require two-factor</p></li>
+<li><p>Authentication methods: Duo Mobile app (Duo Push)</p></li>
+<li><p>Device Health application: enable macOS and Windows (note: these are the only operating systems that are capable of device health monitoring when installed with Cisco Duo.)</p></li>
+<li><p>Custom Policies: create a policy to monitor device health if the authentication request comes from PingFederate. Self-enrollment is enabled so users will be prompted to install a Duo client on the end device for health monitoring. For this build, users will not be given access to a resource if their macOS or Windows firewall is turned off. There are other health checks available.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>Integration<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p id="cisco-duo-integration">For integration with PingFederate, navigate to <strong>Applications</strong> and <a class="reference external" href="https://duo.com/docs/pingfederate">click Protect an application</a>. Follow the instructions to complete the configuration. Note the three pieces of information provided: Client ID, Client secret, and API hostname. This information will be used to configure the integration within PingFederate to communicate with Duo.</p>
+<p>For integration with <a class="reference external" href="https://duo.com/docs/directorysync">Microsoft Active Directory</a>, navigate to <strong>Users</strong> and click on <strong>Directory Sync</strong>. Follow the instructions to configure the AD integration. A <a class="reference external" href="https://duo.com/docs/authproxy-overview">Duo Authentication Proxy</a> is needed for this build since the Enterprise 2 AD is not visible to the Internet.</p>
+</section>
+</section>
+<section id="palo-alto-networks-next-generation-firewall">
+<h2>Palo Alto Networks Next Generation Firewall<a class="headerlink" href="#palo-alto-networks-next-generation-firewall" title="Link to this heading">#</a></h2>
+<p id="palo-alto-ngfw">In this build, a dedicated Palo Alto Networks Next Generation Firewall (NGFW) virtualized system was deployed as a security and access control device. The Palo Alto Networks virtualized systems (vsys) are separate, logical firewall instances within a single physical Palo Alto Networks firewall. Each vsys is an independent, separately managed firewall with its traffic kept separate from the traffic of other virtual systems. The firewall provides <a class="reference external" href="https://docs.paloaltonetworks.com/pan-os/10-1/pan-os-admin/getting-started/segment-your-network-using-interfaces-and-zones">zone-based network filtering</a> for both inbound and outbound traffic, including remote access VPNs using the GlobalProtect clients.</p>
+<p>Prior to the deployment of the vsys, the <a class="reference external" href="https://docs.paloaltonetworks.com/pan-os/10-1/pan-os-admin/getting-started/integrate-the-firewall-into-your-management-network/perform-initial-configuration">initial configuration</a> of the physical firewall was performed. <a class="reference external" href="https://docs.paloaltonetworks.com/pan-os/10-1/pan-os-admin/virtual-systems/configure-virtual-systems">Creating a vsys</a> requires the following:</p>
+<ul class="simple">
+<li><p>A superuser administrative role</p></li>
+<li><p>A configured interface</p></li>
+<li><p>A Virtual Systems license</p></li>
+</ul>
+<p>Once the vsys has been deployed, we <a class="reference external" href="https://docs.paloaltonetworks.com/pan-os/10-1/pan-os-admin/getting-started/set-up-a-basic-security-policy">created a security policy</a> for filtering the inbound and outbound traffic.</p>
+<p>For GlobalProtect VPN access installation instructions, visit: <a class="reference external" href="https://docs.paloaltonetworks.com/globalprotect/10-1/globalprotect-admin/globalprotect-quick-configs/remote-access-vpn-authentication-profile">https://docs.paloaltonetworks.com/globalprotect/10-1/globalprotect-admin/globalprotect-quick-configs/remote-access-vpn-authentication-profile</a></p>
+</section>
+<section id="ibm-security-qradar-xdr">
+<h2>IBM Security QRadar XDR<a class="headerlink" href="#ibm-security-qradar-xdr" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#ibm-qradar"><span class="std std-ref">IBM Security QRadar XDR</span></a>.</p>
+</section>
+<section id="tenable-io">
+<h2>Tenable.io<a class="headerlink" href="#tenable-io" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id8"><span class="std std-ref">Tenable.io</span></a>.</p>
+</section>
+<section id="tenable-ad">
+<h2>Tenable.ad<a class="headerlink" href="#tenable-ad" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id11"><span class="std std-ref">Tenable.ad</span></a>.</p>
+</section>
+<section id="tenable-nnm">
+<h2>Tenable NNM<a class="headerlink" href="#tenable-nnm" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id12"><span class="std std-ref">Tenable NNM</span></a>.</p>
+</section>
+<section id="mandiant-security-validation-msv">
+<h2>Mandiant Security Validation (MSV)<a class="headerlink" href="#mandiant-security-validation-msv" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#mandiant-msv"><span class="std std-ref">Mandiant Security Validation (MSV)</span></a>.</p>
+</section>
+<section id="digicert-certcentral">
+<h2>DigiCert CertCentral<a class="headerlink" href="#digicert-certcentral" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id13"><span class="std std-ref">DigiCert CertCentral</span></a>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="HowTo-E1B1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="HowTo-E3B1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ping-identity-pingone">Ping Identity PingOne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-pingone-and-pingfederate">Configuration: PingOne and PingFederate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-radiant-logic">Integration with Radiant Logic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-cisco-duo">Integration with Cisco Duo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiant-logic-radiantone">Radiant Logic RadiantOne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-and-configuration">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration">Integration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sailpoint-identityiq">SailPoint IdentityIQ</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Integration with Radiant Logic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-ad">Integration with AD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-ping-identity">Integration with Ping Identity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cisco-duo">Cisco Duo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Integration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#palo-alto-networks-next-generation-firewall">Palo Alto Networks Next Generation Firewall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-security-qradar-xdr">IBM Security QRadar XDR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-io">Tenable.io</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-ad">Tenable.ad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-nnm">Tenable NNM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mandiant-security-validation-msv">Mandiant Security Validation (MSV)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digicert-certcentral">DigiCert CertCentral</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<p>
+  
+    By NIST<br/>
+  
+</p>
+
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> Certain commercial equipment, instruments, or
+          materials are identified in this documentation to foster understanding. Such
+          identification does not imply recommendation or endorsement by the National
+          Institute of Standards and Technology, nor does it imply that the materials
+          or equipment identified are necessarily the best available for the purpose.
+        </div>
+      </p>
+    </div>
+</footer>
+  </body>
+</html>

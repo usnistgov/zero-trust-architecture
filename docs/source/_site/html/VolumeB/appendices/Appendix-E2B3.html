@@ -1,0 +1,905 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Enterprise 2 Build 3 (E2B3) — Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs &#8212; Implementing a Zero Trust Architecture Project  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/content.css?v=59cd0ab0" />
+    <link rel="stylesheet" type="text/css" href="../../_static/breadcrumbs.css?v=83cea8a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeB/appendices/Appendix-E2B3';</script>
+    <script src="../../_static/jquery.visible.js?v=5b129ffc"></script>
+    <script src="../../_static/jquery.leaveNotice-nist.js?v=7cf1efa2"></script>
+    <script src="../../_static/applyLeaveNotice.js?v=38741b1c"></script>
+    <script src="../../_static/smoothNavScroll.js?v=2ce98a12"></script>
+    <link rel="icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs" href="Appendix-E3B3.html" />
+    <link rel="prev" title="Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE" href="Appendix-E1B3.html" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
+    <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+    <link rel="stylesheet" type="text/css" href="https://pages.nist.gov/leaveNotice/css/jquery.leaveNotice.css" />
+    <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJSMY46M5C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RJSMY46M5C');
+    </script>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="width: max-content;">
+    <ul class="wy-breadcrumbs">
+        <li><a href="../../index.html" aria-label="Home"><i class="fa fa-home"></i></a></li>
+            <li class="breadcrumb-item">&ensp;<a href="../architecture.html">Architecture and Builds</a></li>
+            <li class="breadcrumb-item">&ensp;<a href="index.html">Build Architecture Details</a></li>
+        <li class="breadcrumb-item active">&ensp;Enterprise 2 Build 3 (E2B3) — Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs</li>
+    </ul>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+  </div>
+  
+  
+
+  
+    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Implementing a Zero Trust Architecture Project  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture" title="Main Project Page" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/MainProjectLogo.jpg" class="icon-link-image" alt="Main Project Page"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Implementing a Zero Trust Architecture
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../VolumeA/ExecutiveSummary.html">Executive Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VolumeA/Introduction.html">Introduction to the Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VolumeA/ProjectOverview.html">Project Overview</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../architecture.html">Architecture and Builds</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../BuildsImplemented.html">Builds Implemented</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Build Architecture Details</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Enterprise 2 Build 3 (E2B3) — Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../VolumeC/index.html">Build Implementation Instructions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E2B3.html">Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/Hardening.html">Hardening Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../GeneralFindings.html">General Findings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FutureBuildConsiderations.html">Future Build Considerations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../VolumeD/index.html">Functional Demonstrations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeD/FunctionalLabDemonstration.html">Demonstration Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeD/UseCaseA.html">Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeD/UseCaseB.html">Use Case B: Enterprise-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeD/UseCaseC.html">Use Case C: Collaboration: Federated-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeD/UseCaseD.html">Use Case D: Other-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeD/UseCaseE.html">Use Case E: Guest: No-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeD/UseCaseF.html">Use Case F: Confidence Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeD/UseCaseG.html">Use Case G: Service-Service Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeD/UseCaseH.html">Use Case H: Data Level Security Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeD/FunctionalDemonstrationResultSummaries.html">Functional Demonstration Result Summaries</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../VolumeD/results/index.html">Functional Demonstration Results</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeD/results/EIGCrawlResults.html">EIG Crawl Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeD/results/EIGRunResults.html">EIG Run Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeD/results/SDPMicroResults.html">SDP, Microsegmentation, and SASE Phase Demonstration Results</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../VolumeE/index.html">Risk and Compliance Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeE/RisksAddressed.html">Risks Addressed by the ZTA Reference Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeE/ArchitectureSecurityMappings.html">ZTA Security Mapping Context and Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeE/Mappings.html">Mappings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../acronyms.html">Acronyms</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/VolumeB/appendices/Appendix-E2B3.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Enterprise 2 Build 3 (E2B3) — Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technologies">Technologies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-architecture">Build Architecture</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-architecture">Logical Architecture</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#icam-information-architecture">ICAM Information Architecture</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-architecture">Physical Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e2b3-message-flows-for-resource-access-requests-non-compliant-endpoints-forbidden-access-requests-and-policy-discovery">E2B3 Message Flows for Resource Access Requests, Non-Compliant Endpoints, Forbidden Access Requests, and Policy Discovery</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-message-flow-for-non-mobile-endpoints-pingfederate-cisco-duo-cisco-secure-endpoint-cisco-ise-cisco-secure-workload-and-radiant-logic">Authentication Message Flow for Non-Mobile Endpoints (PingFederate, Cisco Duo, Cisco Secure Endpoint, Cisco ISE, Cisco Secure Workload, and Radiant Logic)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-message-flow-for-mobile-endpoints-pingfederate-vmware-workspace-one-cisco-duo-cisco-secure-endpoint-cisco-ise-cisco-secure-workload-and-radiant-logic">Authentication Message Flow for Mobile Endpoints (PingFederate, VMware Workspace ONE, Cisco Duo, Cisco Secure Endpoint, Cisco ISE, Cisco Secure Workload, and Radiant Logic)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#message-flow-when-an-endpoint-is-determined-to-be-non-compliant-pingfederate-vmware-workspace-one-cisco-secure-endpoint-and-cisco-ise">Message Flow When an Endpoint is Determined to Be Non-Compliant (PingFederate, VMware Workspace ONE, Cisco Secure Endpoint, and Cisco ISE)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#message-flow-when-an-endpoint-is-compliant-but-a-user-access-request-is-not-permitted-by-policy-pingfederate-and-cisco-ise">Message Flow When an Endpoint is Compliant but a User Access Request Is Not Permitted by Policy (PingFederate and Cisco ISE)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#message-flow-when-cisco-secure-workload-csw-is-used-to-automatically-discover-policies">Message Flow When Cisco Secure Workload (CSW) Is Used to Automatically Discover Policies</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#message-flow-in-which-cisco-ise-manages-user-access-to-the-network-and-resources">Message Flow in which Cisco ISE Manages User Access to the Network and Resources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="enterprise-2-build-3-e2b3-microsegmentation-cisco-ise-cisco-secure-workload-and-ping-identity-ping-federate-as-pes">
+<h1>Enterprise 2 Build 3 (E2B3) — Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs<a class="headerlink" href="#enterprise-2-build-3-e2b3-microsegmentation-cisco-ise-cisco-secure-workload-and-ping-identity-ping-federate-as-pes" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is supplementary material for the <a class="reference external" href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf">NIST SP 1800-35 publication</a>.</p>
+</div>
+<section id="technologies">
+<h2>Technologies<a class="headerlink" href="#technologies" title="Link to this heading">#</a></h2>
+<p>E2B3 uses products from Cisco Systems, IBM, Mandiant, Palo Alto Networks, Ping Identity, Radiant Logic, SailPoint, Tenable, and VMware. Certificates from DigiCert are also used. For more information on these collaborators and the products and technologies that they contributed to this project overall, see <a class="reference internal" href="../../VolumeA/Introduction.html#collaborators-and-their-contributions"><span class="std std-ref">Collaborators and Their Contributions</span></a>.</p>
+<p>E2B3 components consist of PingFederate, which is connected to the Ping Identity SaaS offering of PingOne, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, Cisco ISE, Cisco Secure Workload, Cisco Duo, Cisco Secure Endpoint, Cisco Secure Network Analytics, Cisco network devices, Palo Alto Networks Next Generation Firewall (NGFW), IBM Security QRadar XDR, Tenable.io, Tenable.ad, Tenable Nessus Network Monitor (NNM), Mandiant Security Validation (MSV), VMware Workspace ONE UEM and Access, and DigiCert CertCentral.</p>
+<p><em>Table 1</em> lists all of the technologies used in E2B3. It lists the products used to instantiate each ZTA component and the security function that each component provides.</p>
+<p><strong>Table 1 - E2B3 Products and Technologies</strong></p>
+<div class="pst-scrollable-table-container"><table class="table" id="id1">
+<caption><span class="caption-text">E2B3 Products and Technologies</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 30.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Product</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PE</p></td>
+<td><p>Ping Identity PingFederate, Cisco ISE, and Cisco Secure Workload</p></td>
+<td><p>Decides whether to grant, deny, or revoke access to a resource based on enterprise policy, information from supporting components, and a trust algorithm.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PA</p></td>
+<td><p>Ping Identity PingFederate, Cisco ISE, and Cisco Secure Workload</p></td>
+<td><p>Executes the PE’s policy decision by sending commands to a PEP that establishes and shuts down the communication path between subject and resource.</p></td>
+</tr>
+<tr class="row-even"><td><p>PEP</p></td>
+<td><p>Ping Identity PingFederate, Cisco Duo, Cisco Network Devices, and Cisco Secure Workload</p></td>
+<td><p>Guards the trust zone that hosts one or more enterprise resources; establishes, monitors, and terminates the connection between subject and resource as directed by the PA; forwards requests to and receives commands from the PA.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ICAM - Identity Management</p></td>
+<td><p>Ping Identity PingFederate</p></td>
+<td><p>Creates and manages enterprise user and device accounts, identity records, role information, and access attributes that form the basis of access decisions within an organization to ensure the correct subjects have the appropriate access to the correct resources at the appropriate time.</p></td>
+</tr>
+<tr class="row-even"><td><p>ICAM - Access &amp; Credential Management</p></td>
+<td><p>Ping Identity PingFederate</p></td>
+<td><p>Manages access to resources by performing user and device authentication (e.g., SSO and MFA) and using identity, role, and access attributes to determine which access requests are authorized.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ICAM - Federated Identity</p></td>
+<td><p>Radiant Logic RadiantOne Intelligent Identity Data Platform</p></td>
+<td><p>Aggregates and correlates all attributes relating to an identity or object that is being authorized by a ZTA. It enables users of one domain to securely access data or systems of another domain seamlessly, and without the need for completely redundant user administration. Federated identity encompasses the traditional ICAM data, supports identities that may be part of a larger federated ICAM community, and may include non-enterprise employees.</p></td>
+</tr>
+<tr class="row-even"><td><p>ICAM - Identity Governance</p></td>
+<td><p>SailPoint IdentityIQ</p></td>
+<td><p>Provides policy-based, centralized, automated processes to manage user identity and access control functions (e.g., ensuring segregation of duties, role management, logging, access reviews, analytics, reporting) to ensure compliance with requirements and regulations.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ICAM - MFA</p></td>
+<td><p>Cisco Duo</p></td>
+<td><p>Supports MFA of a user identity by requiring the user to provide not only something they know (e.g., a password), but also something they have (e.g., a token).</p></td>
+</tr>
+<tr class="row-even"><td><p>Endpoint Security - UEM/MDM</p></td>
+<td><p>VMware Workspace ONE UEM</p></td>
+<td><p>Manages and secures enterprise desktop computers, laptops, and/or mobile devices in accordance with enterprise policy to protect applications and data; ensure device compliance; mitigate and remediate vulnerabilities and threats; monitor for suspicious activity to prevent and detect intrusions; prevent, detect, and disable malware and other malicious or unauthorized traffic; repair infected files when possible; provide alerts and recommend remediation actions; and encrypt data. Pushes enterprise applications and updates to devices, enables users to download enterprise applications that they are authorized to access, remotely deletes all applications and data from devices if needed, tracks user activity on devices, and detects and addresses security issues on the device.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint Security - EPP</p></td>
+<td><p>Cisco Secure Endpoint</p></td>
+<td><p>Detects and stops threats to endpoints through an integrated suite of endpoint protection technologies including antivirus, data encryption, intrusion prevention, EDR, and DLP. May include mechanisms that are designed to protect applications and data; ensure device compliance with policies regarding hardware, firmware, software, and configuration; monitor endpoints for vulnerabilities, suspicious activity, intrusion, infection, and malware; block unauthorized traffic; disable malware and repair infections; manage and administer software and updates; monitor behavior and critical data; and enable endpoints to be tracked, troubleshooted, and wiped, if necessary.</p></td>
+</tr>
+<tr class="row-even"><td><p>Endpoint Security - Endpoint Compliance</p></td>
+<td><p>Cisco Duo</p></td>
+<td><p>Performs device health checks by validating specific tools or services within the endpoint including antivirus, data encryption, intrusion prevention, EPP, and firewall. If the device does not pass the health check, Duo fails second-factor authentication and denies user access.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Security Analytics - SIEM</p></td>
+<td><p>IBM Security QRadar XDR</p></td>
+<td><p>Collects and consolidates security information and security event data from many sources; correlates and analyzes the data to help detect anomalies and recognize potential threats and vulnerabilities; and logs the data to adhere to data compliance requirements.</p></td>
+</tr>
+<tr class="row-even"><td><p>Security Analytics - Endpoint Monitoring</p></td>
+<td><p>Tenable.io</p></td>
+<td><p>Discovers all IP-connected endpoints and performs continuous collection, examination, and analysis of software versions, configurations, and other information regarding hosts (devices or VMs) that are connected to the network.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Security Analytics - Vulnerability Scanning and Assessment</p></td>
+<td><p>Tenable.io and Tenable.ad</p></td>
+<td><p>Scans and assesses the enterprise infrastructure and resources for security risks, identifies vulnerabilities and misconfigurations, and provides remediation guidance regarding investigating and prioritizing responses to incidents.</p></td>
+</tr>
+<tr class="row-even"><td><p>Security Analytics - Traffic Inspection</p></td>
+<td><p>Tenable NNM</p></td>
+<td><p>Intercepts, examines, and records relevant traffic transmitted on the network.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Security Analytics - Network Discovery</p></td>
+<td><p>Tenable NNM</p></td>
+<td><p>Discovers, classifies, and assesses the risk posed by devices and users on the network.</p></td>
+</tr>
+<tr class="row-even"><td><p>Security Analytics - Network Monitoring</p></td>
+<td><p>Cisco Secure Network Analytics</p></td>
+<td><p>Aggregates and analyzes network telemetry information generated by network devices to provide network visibility on-premises and detect and respond to threats. Threat information can be passed to PDP, which can then perform additional actions such as blocking or quarantining a device.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Security Analytics - Security Validation</p></td>
+<td><p>Mandiant Security Validation</p></td>
+<td><p>Provides visibility and evidence on the status of the security controls’ effectiveness in the ZTA. Enables security capabilities of the enterprise to be monitored and verified by continuously validating and measuring the cybersecurity controls; also used to automate the demonstrations that were performed to showcase ZTA capabilities. Deployed throughout the project’s laboratory environment to enable monitoring and verification of various security aspects of the builds. VMs that are intended to operate as actors are deployed on each of the subnetworks in each of the enterprises. These actors can be used to initiate various actions for the purpose of verifying that security controls are working to support the objectives of zero trust.</p></td>
+</tr>
+<tr class="row-even"><td><p>General - Remote Connectivity</p></td>
+<td><p>Palo Alto Networks NGFW, Palo Alto Networks Panorama</p></td>
+<td><p>Enables authorized remote users to securely access the inside of the enterprise. (Once inside, the ZTA manages the users’ access to resources.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>General - Certificate Management</p></td>
+<td><p>DigiCert CertCentral TLS Manager</p></td>
+<td><p>Provides automated capabilities to issue, install, inspect, revoke, renew, and otherwise manage TLS certificates.</p></td>
+</tr>
+<tr class="row-even"><td><p>General - Cloud IaaS</p></td>
+<td><p>None</p></td>
+<td><p>Provides computing resources, complemented by storage and networking capabilities, hosted by a cloud service provider, offered to customers on demand, and exposed through a GUI and an API.</p></td>
+</tr>
+<tr class="row-odd"><td><p>General - Cloud SaaS</p></td>
+<td><p>Cisco Secure Endpoint, Cisco Duo, Cisco Secure Workload, DigiCert CertCentral, Ping Identity PingOne (PingFederate service), Tenable.io, and VMware Workspace ONE</p></td>
+<td><p>Cloud-based software delivered for use by the enterprise.</p></td>
+</tr>
+<tr class="row-even"><td><p>General - Application</p></td>
+<td><p>GitLab</p></td>
+<td><p>Example enterprise resource to be protected. (In this build, GitLab is integrated with Ping Identity and IBM Security QRadar XDR pulls logs from GitLab.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>General - Enterprise-Managed Device</p></td>
+<td><p>Windows client, macOS client, and mobile devices (iOS and Android)</p></td>
+<td><p>Example endpoints to be protected. All enterprise-managed devices are running a VMware Workspace ONE UEM agent and also have the Cisco Duo installed.</p></td>
+</tr>
+<tr class="row-even"><td><p>General - BYOD</p></td>
+<td><p>Windows client, macOS client, and mobile devices (iOS and Android)</p></td>
+<td><p>Example endpoints to be protected.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="build-architecture">
+<h2>Build Architecture<a class="headerlink" href="#build-architecture" title="Link to this heading">#</a></h2>
+<p>In this section we present the logical architecture of E2B3 relative to how it instantiates the reference architecture depicted in <a class="reference internal" href="../architecture.html#architecturefigure1"><span class="std std-ref">Architecture - Figure 1</span></a>. We also describe E2B3’s physical architecture and present message flow diagrams for some of its processes.</p>
+<section id="logical-architecture">
+<h3>Logical Architecture<a class="headerlink" href="#logical-architecture" title="Link to this heading">#</a></h3>
+<p><a class="reference internal" href="#appendix-e2b3-figure1"><span class="std std-ref">Figure 1</span></a> depicts the logical architecture of E2B3. The figure uses numbered arrows to depict the general flow of messages needed for a subject to request access to a resource and have that access request evaluated based on subject identity (both requesting user and requesting endpoint identity), user authorizations, and requesting endpoint health. It also depicts the flow of messages supporting periodic reauthentication of the requesting user and the requesting endpoint and periodic verification of requesting endpoint health, all of which must be performed to continually reevaluate access. The labeled steps in <a class="reference internal" href="#appendix-e2b3-figure1"><span class="std std-ref">Figure 1</span></a> have the same meanings as they do in <a class="reference internal" href="../architecture.html#architecturefigure1"><span class="std std-ref">Architecture - Figure 1</span></a> and <a class="reference internal" href="../architecture.html#architecturefigure2"><span class="std std-ref">Architecture - Figure 2</span></a>. However, <a class="reference internal" href="#appendix-e2b3-figure1"><span class="std std-ref">Figure 1</span></a> includes the specific products that instantiate the architecture of E2B3. <em>Figure 1</em> also does not depict any of the resource management steps found in <a class="reference internal" href="../architecture.html#architecturefigure1"><span class="std std-ref">Architecture - Figure 1</span></a> and <a class="reference internal" href="../architecture.html#architecturefigure2"><span class="std std-ref">Architecture - Figure 2</span></a> because the ZTA technologies deployed in E2B3 do not support the ability to perform authentication and reauthentication of the resource or periodic verification of resource health.</p>
+<p>E2B3 was designed to have three PDPs: Cisco ISE, Cisco Secure Workload, and Ping Identity PingFederate. Ping Identity PingFederate also serves as the identity, access, and credential manager. PingFederate, Cisco Duo, Cisco network devices, and Cisco Secure Workload also serve as PEPs. Radiant Logic acts as a PIP for the PDP as it responds to inquiries and provides user identity and authentication information on demand in order for Ping Identity PingFederate to make near-real-time access decisions. VMware Workspace One UEM provides endpoint management, and Cisco Secure Endpoint provides endpoint protection. Cisco Duo provides second-factor user authentication. Note that both multifactor authentication and directory services are also available through Ping, but for purposes of this collaborative build, Ping is demonstrating standards-based interoperability by integrating with Cisco Duo for MFA and Radiant Logic RadiantOne for federated identity services. A more detailed depiction of the messages that flow among components to support a user access request can be found in <a class="reference internal" href="#e2b3-message-flows-for-resource-access-requests-non-compliant-endpoints-forbidden-access-requests-and-policy-discovery"><span class="std std-ref">E2B3 Message Flows for Resource Access Requests, Non-Compliant Endpoints, Forbidden Access Requests, and Policy Discovery</span></a>.</p>
+<p><strong>Figure 1 - Logical Architecture of E2B3</strong></p>
+<p><img alt="This figure depicts the logical architecture of E2B3. The figure uses numbered arrows to depict the general flow of messages needed for a subject to request access to a resource and have that access request evaluated based on subject identity (both requesting user and requesting endpoint identity), user authorizations, and requesting endpoint health." src="../../_images/AppendixJ-Figure1.png" /></p>
+<section id="icam-information-architecture">
+<span id="appendix-e2b3-figure1"></span><h4>ICAM Information Architecture<a class="headerlink" href="#icam-information-architecture" title="Link to this heading">#</a></h4>
+<p>How ICAM information is provisioned, distributed, updated, shared, correlated, governed, and used among ZTA components is fundamental to the operation of the ZTA. The ICAM information architecture ensures that when a subject requests access to a resource, the aggregated set of identity information and attributes necessary to identify, authenticate, and authorize the subject is available to be used as a basis on which to make the access decision.</p>
+<p>In E2B3, Ping Identity, Radiant Logic, and SailPoint integrate with each other as well as with other components of the ZTA to support the ICAM information architecture. The ways that these components work together to correlate identity information and to support actions such as users joining, changing roles, and leaving the enterprise are the same in E2B3 as they are in E2B1. These interactions are described in <a class="reference internal" href="Appendix-E2B1.html#e2b1icam"><span class="std std-ref">E2B1 - ICAM Information Architecture</span></a>.</p>
+</section>
+</section>
+<section id="physical-architecture">
+<h3>Physical Architecture<a class="headerlink" href="#physical-architecture" title="Link to this heading">#</a></h3>
+<p><a class="reference internal" href="../architecture.html#enterprise-2"><span class="std std-ref">Enterprise 2</span></a> describes the physical architecture of the E2B3 network.</p>
+</section>
+<section id="e2b3-message-flows-for-resource-access-requests-non-compliant-endpoints-forbidden-access-requests-and-policy-discovery">
+<h3>E2B3 Message Flows for Resource Access Requests, Non-Compliant Endpoints, Forbidden Access Requests, and Policy Discovery<a class="headerlink" href="#e2b3-message-flows-for-resource-access-requests-non-compliant-endpoints-forbidden-access-requests-and-policy-discovery" title="Link to this heading">#</a></h3>
+<p>This section depicts five message flow scenarios that demonstrate various build capabilities.</p>
+<section id="authentication-message-flow-for-non-mobile-endpoints-pingfederate-cisco-duo-cisco-secure-endpoint-cisco-ise-cisco-secure-workload-and-radiant-logic">
+<h4>Authentication Message Flow for Non-Mobile Endpoints (PingFederate, Cisco Duo, Cisco Secure Endpoint, Cisco ISE, Cisco Secure Workload, and Radiant Logic)<a class="headerlink" href="#authentication-message-flow-for-non-mobile-endpoints-pingfederate-cisco-duo-cisco-secure-endpoint-cisco-ise-cisco-secure-workload-and-radiant-logic" title="Link to this heading">#</a></h4>
+<p><a class="reference internal" href="#appendix-e2b3-figure2"><span class="std std-ref">Figure 2</span></a> depicts the high-level message flow supporting the use case in which a subject who has an enterprise ID, is using a laptop (i.e., a non-mobile) endpoint, and is authorized to access an enterprise resource, requests and receives access to that resource. In the case depicted here, access to the resource is authenticated and authorized by:</p>
+<ul class="simple">
+<li><p>PingFederate, which acts as a PDP and identity provider;</p></li>
+<li><p>Cisco ISE, which also acts as a PDP;</p></li>
+<li><p>Cisco Duo, which consists of an agent on the endpoint and a cloud component that work together to perform second-factor user authentication and also to gather device health information to ensure device compliance;</p></li>
+<li><p>Cisco Secure Endpoint, which runs on the endpoint and performs continuous monitoring to detect threats;</p></li>
+<li><p>Radiant Logic, which performs user authentication at the request of PingFederate; and</p></li>
+<li><p>Cisco Secure Workload (CSW), which provides resource protection by applying policies directly to the resource.</p></li>
+</ul>
+<p>These policies allow and deny communications to and from the resource by configuring the firewall on the resource.</p>
+<p>The message flow depicted in <a class="reference internal" href="#appendix-e2b3-figure2"><span class="std std-ref">Figure 2</span></a> shows only the messages that are sent in response to the access request. However, the authentication and access process also relies on the following additional background communications that occur among components on an ongoing basis:</p>
+<ul class="simple">
+<li><p>The Cisco Duo endpoint agent periodically syncs with the Cisco Duo cloud component to reauthenticate the requesting endpoint device using a unique certificate that has been provisioned specifically for that device and sends the cloud component information about device health (e.g., firewall running, anti-malware software, iOS version).</p></li>
+<li><p>Cisco Duo is integrated with PingFederate. During the authentication flow, Cisco Duo sends PingFederate assurance that, based on the device health information it has collected, the device is compliant with configured policy.</p></li>
+<li><p>Cisco Secure Endpoint threat detection is continuously running on the endpoint and also acts as a PEP. If Secure Endpoint detects a threat, it notifies both Cisco Duo and Cisco ISE, and it can perform an automated response. For example, it can isolate the infected endpoint and perform a forensic snapshot of it.</p></li>
+<li><p>Cisco ISE acts as a PDP. It receives notifications from Cisco Secure Endpoint and relies on telemetry information that Secure Endpoint provides to make its access decisions. If Cisco Secure Endpoint detects a threat in the device posture and notifies ISE, ISE can prevent the endpoint from sending packets and also shut down the port that the user is trying to reach.</p></li>
+</ul>
+<p><em>Figure 2</em> depicts the message flow for the user’s request to access the resource from a non-mobile device.</p>
+<p><strong>Figure 2 - Use Case E2B3 - User Authentication and Access Enforcement When the Requesting Device Is Non-Mobile</strong></p>
+<p><img alt="This figure depicts the high-level message flow supporting the use case in which a subject who has an enterprise ID, is using a laptop (i.e., a non-mobile) endpoint, and is authorized to access an enterprise resource, requests and receives access to that resource." src="../../_images/AppendixJ-Figure2.png" /></p>
+<p id="appendix-e2b3-figure2">The message flow depicted in <em>Figure 2</em> consists of the following steps:</p>
+<ol class="arabic simple">
+<li><p>A user on a non-mobile device requests to access a resource by typing the resource’s URL into a browser.</p></li>
+<li><p>Because Cisco CSW policy allows this communication, resource firewall rules have been configured to allow the resource to receive the access request. The resource receives the access request and sends a user authentication request to PingFederate.</p></li>
+<li><p>PingFederate prompts for username and password.</p></li>
+<li><p>The user responds with username and password.</p></li>
+<li><p>PingFederate sends the user’s credentials to the LDAP gateway.</p></li>
+<li><p>The LDAP gateway sends an LDAP authentication request to Radiant Logic.</p></li>
+<li><p>Radiant Logic authenticates the user.</p></li>
+<li><p>Radiant Logic replies to the LDAP gateway with indication of a successful user authentication and the user’s attributes.</p></li>
+<li><p>The LDAP gateway responds to PingFederate with the user’s attributes.</p></li>
+<li><p>PingFederate requests Cisco Duo to perform second-factor user authentication.</p></li>
+<li><p>Cisco Duo verifies that the requesting device has the unique certificate that it was provisioned and verifies that device health is according to policy (e.g., firewall running, anti-malware software, iOS version).</p></li>
+<li><p>Cisco Duo challenges the user to provide the second authentication factor.</p></li>
+<li><p>The user responds with the second authentication factor.</p></li>
+<li><p>Cisco Duo responds to PingFederate, indicating that the user authenticated successfully.</p></li>
+<li><p>PingFederate sends a SAML assertion token to the resource. The resource accepts the assertion and grants the access request.</p></li>
+<li><p>User traffic to and from the resource is secured according to policy (e.g., using TLS or HTTPS).</p></li>
+</ol>
+<p>Note that the message flow described above is the same regardless of whether the employee is located on-premises at headquarters, on-premises at a branch office, or off-premises at home or elsewhere. It is also the same regardless of whether the resource is located on-premises or in the cloud.</p>
+</section>
+<section id="authentication-message-flow-for-mobile-endpoints-pingfederate-vmware-workspace-one-cisco-duo-cisco-secure-endpoint-cisco-ise-cisco-secure-workload-and-radiant-logic">
+<h4>Authentication Message Flow for Mobile Endpoints (PingFederate, VMware Workspace ONE, Cisco Duo, Cisco Secure Endpoint, Cisco ISE, Cisco Secure Workload, and Radiant Logic)<a class="headerlink" href="#authentication-message-flow-for-mobile-endpoints-pingfederate-vmware-workspace-one-cisco-duo-cisco-secure-endpoint-cisco-ise-cisco-secure-workload-and-radiant-logic" title="Link to this heading">#</a></h4>
+<p><a class="reference internal" href="#appendix-e2b3-figure3"><span class="std std-ref">Figure 3</span></a> depicts the high-level message flow supporting the use case in which a subject who has an enterprise ID, is using a mobile device, and is authorized to access an enterprise resource, requests and receives access to that resource. In the case depicted here, access to the resource is protected by PingFederate, which acts as a PDP and is the centralized identity provider in the identity federation. In addition to performing its own user authentication, PingFederate is integrated with VMware Workspace ONE and delegates localized authentication of the mobile device and user to Workspace ONE. Workspace ONE manages the mobile endpoint, ensures that its certificate is valid, gathers device health information to ensure device compliance, performs remediation if possible, and then authenticates the user and device. After successfully authenticating the user and the device, Workspace ONE notifies PingFederate, which, as the centralized identity provider, determines what additional authentication must be performed, if any. In the use case depicted here, PingFederate oversees multifactor authentication of the user by requesting username and credentials, delegating initial authentication to Radiant Logic, and then asking Cisco Duo to perform second-factor user authentication. In addition, Cisco Secure Endpoint performs continuous endpoint threat detection, Cisco Secure Workload applies policies directly to the resource to protect it, and Cisco ISE acts as a PDP to enforce policy beyond user and device authentication.</p>
+<p>The message flow depicted in <a class="reference internal" href="#appendix-e2b3-figure3"><span class="std std-ref">Figure 3</span></a> shows only the messages that are sent in response to the access request. However, the authentication and access process also rely on the following additional background communications that occur among components on an ongoing basis:</p>
+<ul class="simple">
+<li><p>VMware Workspace ONE is integrated with PingFederate and Cisco ISE. Workspace ONE periodically sends Cisco ISE assurance that, based on device health information it is collecting, the mobile device is managed, has the unique certificate that was provisioned specifically for that device, and is compliant with configured policy (e.g., firewall running, anti-malware software enabled, iOS version correct). Workspace ONE may also provide this information to Ping as part of the authentication flow.</p></li>
+<li><p>The Cisco Duo endpoint agent periodically syncs with the Cisco Duo cloud component to reauthenticate the requesting endpoint device using a unique certificate that has been provisioned specifically for that device, and sends the cloud component information about device health (e.g., firewall running, anti-malware software, iOS version).</p></li>
+<li><p>Cisco Duo is integrated with PingFederate. During the authentication flow, Cisco Duo sends PingFederate assurance that, based on the device health information it has collected, the device is compliant with configured policy.</p></li>
+<li><p>Cisco Secure Endpoint threat detection is continuously running on the endpoint and also acts as a PEP. If Secure Endpoint detects a threat, it notifies Cisco ISE, which can perform an automated response. For example, it can isolate the infected endpoint and perform a forensic snapshot of it.</p></li>
+<li><p>Cisco ISE acts as a PDP. It receives notifications from Cisco Secure Endpoint and VMware Workspace ONE and relies on telemetry information that they provide to it to make its access decisions. If Cisco Secure Endpoint detects a threat in the device posture and notifies ISE, ISE can shut down the port that the user is trying to reach. If VMware Workspace ONE determines that the device is out of compliance, is no longer managed, or does not have a valid certificate, and notifies ISE, ISE can shut down the target port until the device’s security posture can be remediated.</p></li>
+</ul>
+<p><em>Figure 3</em> depicts the message flow for the user’s request to access the resource from a mobile device.</p>
+<p><strong>Figure 3 - Use Case E2B3 - User Authentication and Access Enforcement When the Requesting Device Is Mobile</strong></p>
+<p><img alt="This figure depicts the high-level message flow supporting the use case in which a subject who has an enterprise ID, is using a mobile device, and is authorized to access an enterprise resource, requests and receives access to that resource." src="../../_images/AppendixJ-Figure3.png" /></p>
+<p id="appendix-e2b3-figure3">The message flow depicted in <em>Figure 3</em> consists of the following steps:</p>
+<ol class="arabic simple">
+<li><p>A user on a mobile device requests to access a resource by typing the resource’s URL into a browser.</p></li>
+<li><p>The user gets redirected to PingFederate for authentication.</p></li>
+<li><p>PingFederate recognizes that the user is on a mobile device and redirects the user to VMware Workspace ONE.</p></li>
+<li><p>VMware Workspace ONE performs a device certificate check and a device compliance check.</p></li>
+<li><p>With a successful user and device authentication, VMware Workspace ONE redirects the now-authenticated user to PingFederate.</p></li>
+<li><p>PingFederate now knows that the user is authenticated and that the device is compliant to corporate policies. As required by the configured access policies, PingFederate will require step-up authentication using Duo for MFA.</p></li>
+<li><p>Ping requests Duo to perform step-up authentication.</p></li>
+<li><p>Cisco Duo challenges the user to provide the second authentication factor.</p></li>
+<li><p>The user responds with the second authentication factor.</p></li>
+<li><p>Cisco Duo contacts PingFederate, indicating that the user authenticated successfully.</p></li>
+<li><p>PingFederate generates the assertion to the target resource and redirects the user there.</p></li>
+<li><p>The user is single signed-on into the target resource.</p></li>
+</ol>
+<p>Note that the message flow described above is the same regardless of whether the employee is located on-premises at headquarters, on-premises at a branch office, or off-premises at home or elsewhere. It is also the same regardless of whether the resource is located on-premises or in the cloud.</p>
+</section>
+<section id="message-flow-when-an-endpoint-is-determined-to-be-non-compliant-pingfederate-vmware-workspace-one-cisco-secure-endpoint-and-cisco-ise">
+<h4>Message Flow When an Endpoint is Determined to Be Non-Compliant (PingFederate, VMware Workspace ONE, Cisco Secure Endpoint, and Cisco ISE)<a class="headerlink" href="#message-flow-when-an-endpoint-is-determined-to-be-non-compliant-pingfederate-vmware-workspace-one-cisco-secure-endpoint-and-cisco-ise" title="Link to this heading">#</a></h4>
+<p><em>Figure 4</em> depicts the high-level message flow supporting the use case in which a subject who has already been granted access to an enterprise resource is using a device that goes out of compliance because it no longer has a required security tool running. In the case depicted here, Cisco ISE serves as a PDP; VMware Workspace ONE UEM is running on the endpoint and monitoring device posture.</p>
+<p>The message flow depicted in <em>Figure 4</em> is assumed to take place after the user has been authenticated, authorized, and granted access to the resource.</p>
+<p><strong>Figure 4 - Use Case E2B3 - Message Flow When an Endpoint is Determined to Be Non-Compliant</strong></p>
+<p><img alt="This figure depicts the high-level message flow supporting the use case in which a subject who has already been granted access to an enterprise resource is using a device that goes out of compliance because it no longer has a required security tool running." src="../../_images/AppendixJ-Figure4.png" /></p>
+<p>The message flow depicted in <em>Figure 4</em> consists of the following steps:</p>
+<ol class="arabic simple">
+<li><p>The user, who has already been authenticated and is using a compliant device, is securely accessing an enterprise resource that they are authorized to access.</p></li>
+<li><p>VMware Workspace ONE periodically reauthenticates the requesting endpoint device using a unique certificate that has been provisioned specifically for that device and also monitors the device posture (e.g., firewall running, anti-malware software, OS version) to ensure that it is compliant with configured policy.</p></li>
+<li><p>Cisco Secure Endpoint threat detection is running on the endpoint and also acts as a PEP. If Secure Endpoint detects a threat, it notifies both Cisco Duo and Cisco ISE, and it can perform an automated response. For example, it can isolate the infected endpoint and perform a forensic snapshot of it. In this use case, Secure Endpoint does not detect any threats on the device.</p></li>
+<li><p>Workspace ONE detects that the firewall (or other required security tool) is no longer running on the device and informs Cisco ISE that the device is not compliant with policy.</p></li>
+<li><p>ISE updates its PEPs (i.e., routers, switches, firewalls) to prevent the device from reaching the resource.</p></li>
+<li><p>Meanwhile, Workspace ONE works to patch the endpoint and eventually brings it into compliance.</p></li>
+<li><p>When the update is complete, Workspace ONE notifies ISE that the device is compliant again.</p></li>
+<li><p>ISE permits the device to access the resource again.</p></li>
+<li><p>The device is able to access the resource again.</p></li>
+</ol>
+</section>
+<section id="message-flow-when-an-endpoint-is-compliant-but-a-user-access-request-is-not-permitted-by-policy-pingfederate-and-cisco-ise">
+<h4>Message Flow When an Endpoint is Compliant but a User Access Request Is Not Permitted by Policy (PingFederate and Cisco ISE)<a class="headerlink" href="#message-flow-when-an-endpoint-is-compliant-but-a-user-access-request-is-not-permitted-by-policy-pingfederate-and-cisco-ise" title="Link to this heading">#</a></h4>
+<p><em>Figure 5</em> depicts the high-level message flow supporting the use case in which a subject who has already been granted access to an enterprise resource tries to access an IP address that is known to be the command-and-control site for malware, thereby indicating that the subject endpoint is compromised. In the case depicted here, Cisco ISE serves as a PDP, Cisco Secure Endpoint examines the endpoint for threats, and Cisco Secure Network Analytics (SNA) monitors IP flows throughout the network to detect threats such as requests to connect to forbidden IP addresses.</p>
+<p>The message flow depicted in <em>Figure 5</em> is assumed to take place after the user has been authenticated, authorized, and granted access to the resource.</p>
+<p><strong>Figure 5 - Use Case E2B3 - Message Flow When a User’s Endpoint is Compliant but the User Requests Access to a Domain that Is Not Permitted by Policy</strong></p>
+<p><img alt="This figure depicts the high-level message flow supporting the use case in which a subject who has already been granted access to an enterprise resource tries to access an IP address that is known to be the command-and-control site for malware, thereby indicating that the subject endpoint is compromised." src="../../_images/AppendixJ-Figure5.png" /></p>
+<p>The message flow depicted in <em>Figure 5</em> consists of the following steps:</p>
+<ol class="arabic simple">
+<li><p>The user, who has already been authenticated and is using a compliant device, is securely accessing an enterprise resource that they are authorized to access.</p></li>
+<li><p>Cisco Secure Endpoint, which is running on the user’s device, is monitoring the device for threats. VMware Workspace ONE UEM is running on the endpoint to ensure device compliance.</p></li>
+<li><p>Cisco SNA is pulling traffic from switches and firewalls throughout the network to monitor IP flows.</p></li>
+<li><p>The user’s endpoint attempts to access the IP address of a known malware command-and-control site. This attempt to access a prohibited domain indicates that the endpoint has been compromised.</p></li>
+<li><p>Cisco SNA detects the request to access the prohibited IP address and notifies Cisco ISE.</p></li>
+<li><p>ISE limits the device’s access to the network.</p></li>
+</ol>
+</section>
+<section id="message-flow-when-cisco-secure-workload-csw-is-used-to-automatically-discover-policies">
+<h4>Message Flow When Cisco Secure Workload (CSW) Is Used to Automatically Discover Policies<a class="headerlink" href="#message-flow-when-cisco-secure-workload-csw-is-used-to-automatically-discover-policies" title="Link to this heading">#</a></h4>
+<p><em>Figure 6</em> depicts the high-level message flow supporting the use case in which Cisco Secure Workload (CSW) is used to discover resource access policies. CSW includes both a cloud-based SaaS component and an agent that is deployed on the on-premises resource. The CSW agent on the resource communicates with the cloud-based CSW component on an ongoing basis to inform the cloud-based component of all communications flows that the resource is engaged in and to apply policies created by CSW to the resource.</p>
+<p><strong>Figure 6 - Use Case E2B3 - Cisco Secure Workload Policy Discovery</strong></p>
+<p><img alt="This figure depicts the high-level message flow supporting the use case in which Cisco Secure Workload (CSW) is used to discover resource access policies." src="../../_images/AppendixJ-Figure6.png" /></p>
+<p>The message flow depicted in <em>Figure 6</em> consists of the following steps:</p>
+<ol class="arabic simple">
+<li><p>The CSW agent informs the CSW cloud component about the communications flows that the resource is engaged in.</p></li>
+<li><p>Based on these communications flows, the CSW cloud component discovers what endpoints the resource is communicating with and in what manner, and it formulates these communications flows into policies.</p></li>
+<li><p>A system administrator examines these policies, determines which ones describe legitimate resource communications and which ones do not, and updates them to ensure that only authorized access will be permitted and all unauthorized access will be blocked. Once the system administrator is satisfied that the policies are correct, the policies are turned on to be enforced. (Note that when CSW is being used, all communications between the resource and the CSW cloud component are automatically considered to be legitimate and will be permitted, even if a system administrator tries to mark them as unauthorized. The CSW agent on the resource must be able to communicate with the CSW cloud in order to discover flows and provide policies to the CSW agent.)</p></li>
+<li><p>The CSW cloud component sends the newly formulated policies to the CSW agent on the resource.</p></li>
+<li><p>The policies are applied to the resource’s firewall.</p></li>
+<li><p>All communications to and from the resource that are permitted by the resource’s newly configured firewall policies will be allowed.</p></li>
+<li><p>All communications to and from the resource that are not permitted by the resource’s newly configured firewall policies will be blocked.</p></li>
+</ol>
+</section>
+<section id="message-flow-in-which-cisco-ise-manages-user-access-to-the-network-and-resources">
+<h4>Message Flow in which Cisco ISE Manages User Access to the Network and Resources<a class="headerlink" href="#message-flow-in-which-cisco-ise-manages-user-access-to-the-network-and-resources" title="Link to this heading">#</a></h4>
+<p><em>Figure 7</em> depicts the high-level message flow supporting the use case in which Cisco ISE manages user connection to the network and access to resources. The user’s endpoint has Cisco AnyConnect running on it for purposes of validating endpoint compliance.</p>
+<p><strong>Figure 7 - Use Case E2B3 - Cisco ISE Manages Access to the Network and Resources</strong></p>
+<p><img alt="This is a ladder diagram depicting the high-level message flow supporting the use case in which Cisco ISE manages user connection to the network and access to resources." src="../../_images/AppendixJ-Figure7.png" /></p>
+<p>The message flow depicted in <em>Figure 7</em> consists of the following steps:</p>
+<ol class="arabic simple">
+<li><p>The user logs into the endpoint using their credentials.</p></li>
+<li><p>Cisco Anyconnect connects to the network, which may be either a wired or wireless connection. This request is received at the AP or switch.</p></li>
+<li><p>The AP or switch interacts with Cisco ISE to ensure that the user is authenticated.</p></li>
+<li><p>The Cisco AnyConnect ISE posture module, which is running on the user’s endpoint, provides information to ISE to enable it to validate that the endpoint is compliant.</p></li>
+<li><p>ISE notifies the AP/switch that the user is authorized to connect to the network and also indicates which resources the user is permitted to access.</p></li>
+<li><p>The AP/switch allows the user to connect to the network.</p></li>
+<li><p>All subsequent attempts to access resources that the user is authorized to access are permitted by the AP/switch.</p></li>
+</ol>
+<p>All subsequent attempts to access resources that the user is not authorized to access are blocked by the AP/switch.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Appendix-E1B3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Appendix-E3B3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technologies">Technologies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-architecture">Build Architecture</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-architecture">Logical Architecture</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#icam-information-architecture">ICAM Information Architecture</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-architecture">Physical Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e2b3-message-flows-for-resource-access-requests-non-compliant-endpoints-forbidden-access-requests-and-policy-discovery">E2B3 Message Flows for Resource Access Requests, Non-Compliant Endpoints, Forbidden Access Requests, and Policy Discovery</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-message-flow-for-non-mobile-endpoints-pingfederate-cisco-duo-cisco-secure-endpoint-cisco-ise-cisco-secure-workload-and-radiant-logic">Authentication Message Flow for Non-Mobile Endpoints (PingFederate, Cisco Duo, Cisco Secure Endpoint, Cisco ISE, Cisco Secure Workload, and Radiant Logic)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-message-flow-for-mobile-endpoints-pingfederate-vmware-workspace-one-cisco-duo-cisco-secure-endpoint-cisco-ise-cisco-secure-workload-and-radiant-logic">Authentication Message Flow for Mobile Endpoints (PingFederate, VMware Workspace ONE, Cisco Duo, Cisco Secure Endpoint, Cisco ISE, Cisco Secure Workload, and Radiant Logic)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#message-flow-when-an-endpoint-is-determined-to-be-non-compliant-pingfederate-vmware-workspace-one-cisco-secure-endpoint-and-cisco-ise">Message Flow When an Endpoint is Determined to Be Non-Compliant (PingFederate, VMware Workspace ONE, Cisco Secure Endpoint, and Cisco ISE)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#message-flow-when-an-endpoint-is-compliant-but-a-user-access-request-is-not-permitted-by-policy-pingfederate-and-cisco-ise">Message Flow When an Endpoint is Compliant but a User Access Request Is Not Permitted by Policy (PingFederate and Cisco ISE)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#message-flow-when-cisco-secure-workload-csw-is-used-to-automatically-discover-policies">Message Flow When Cisco Secure Workload (CSW) Is Used to Automatically Discover Policies</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#message-flow-in-which-cisco-ise-manages-user-access-to-the-network-and-resources">Message Flow in which Cisco ISE Manages User Access to the Network and Resources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<p>
+  
+    By NIST<br/>
+  
+</p>
+
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> Certain commercial equipment, instruments, or
+          materials are identified in this documentation to foster understanding. Such
+          identification does not imply recommendation or endorsement by the National
+          Institute of Standards and Technology, nor does it imply that the materials
+          or equipment identified are necessarily the best available for the purpose.
+        </div>
+      </p>
+    </div>
+</footer>
+  </body>
+</html>

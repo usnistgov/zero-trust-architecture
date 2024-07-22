@@ -1,0 +1,771 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Build Implementation Instructions &#8212; Implementing a Zero Trust Architecture Project  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/content.css?v=59cd0ab0" />
+    <link rel="stylesheet" type="text/css" href="../_static/breadcrumbs.css?v=83cea8a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeC/index';</script>
+    <script src="../_static/jquery.visible.js?v=5b129ffc"></script>
+    <script src="../_static/jquery.leaveNotice-nist.js?v=7cf1efa2"></script>
+    <script src="../_static/applyLeaveNotice.js?v=38741b1c"></script>
+    <script src="../_static/smoothNavScroll.js?v=2ce98a12"></script>
+    <link rel="icon" href="../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides" href="HowTo-E1B1.html" />
+    <link rel="prev" title="Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE" href="../VolumeB/appendices/Appendix-E1B6.html" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
+    <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+    <link rel="stylesheet" type="text/css" href="https://pages.nist.gov/leaveNotice/css/jquery.leaveNotice.css" />
+    <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJSMY46M5C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RJSMY46M5C');
+    </script>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="width: max-content;">
+    <ul class="wy-breadcrumbs">
+        <li><a href="../index.html" aria-label="Home"><i class="fa fa-home"></i></a></li>
+        <li class="breadcrumb-item active">&ensp;Build Implementation Instructions</li>
+    </ul>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+  </div>
+  
+  
+
+  
+    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Implementing a Zero Trust Architecture Project  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture" title="Main Project Page" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/MainProjectLogo.jpg" class="icon-link-image" alt="Main Project Page"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Implementing a Zero Trust Architecture
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ExecutiveSummary.html">Executive Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/Introduction.html">Introduction to the Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ProjectOverview.html">Project Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeB/architecture.html">Architecture and Builds</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeB/BuildsImplemented.html">Builds Implemented</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../VolumeB/appendices/index.html">Build Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B3.html">Enterprise 2 Build 3 (E2B3) — Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Build Implementation Instructions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B3.html">Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardening.html">Hardening Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/GeneralFindings.html">General Findings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/FutureBuildConsiderations.html">Future Build Considerations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeD/index.html">Functional Demonstrations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/FunctionalLabDemonstration.html">Demonstration Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseA.html">Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseB.html">Use Case B: Enterprise-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseC.html">Use Case C: Collaboration: Federated-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseD.html">Use Case D: Other-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseE.html">Use Case E: Guest: No-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseF.html">Use Case F: Confidence Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseG.html">Use Case G: Service-Service Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseH.html">Use Case H: Data Level Security Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/FunctionalDemonstrationResultSummaries.html">Functional Demonstration Result Summaries</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../VolumeD/results/index.html">Functional Demonstration Results</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/EIGCrawlResults.html">EIG Crawl Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/EIGRunResults.html">EIG Run Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/SDPMicroResults.html">SDP, Microsegmentation, and SASE Phase Demonstration Results</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeE/index.html">Risk and Compliance Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/RisksAddressed.html">Risks Addressed by the ZTA Reference Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/ArchitectureSecurityMappings.html">ZTA Security Mapping Context and Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/Mappings.html">Mappings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acronyms.html">Acronyms</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/VolumeC/index.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Build Implementation Instructions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-overview">Build Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eig-crawl-phase-build-features">EIG Crawl Phase Build Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eig-run-phase-build-features">EIG Run Phase Build Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdp-microsegmentation-and-sase-phase-build-features">SDP, Microsegmentation, and SASE Phase Build Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-architecture-overview">Physical Architecture Overview</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="build-implementation-instructions">
+<h1>Build Implementation Instructions<a class="headerlink" href="#build-implementation-instructions" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is supplementary material for the <a class="reference external" href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf">NIST SP 1800-35 publication</a>.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<p>The following section of this guide shows information technology (IT) professionals and security engineers how we implemented numerous example zero trust architecture (ZTA) solutions. We cover all of the products employed in this reference design.</p>
+<p><em>Note: This is not comprehensive documentation. There are many possible service and security configurations for these products that are out of scope for these demonstrations.</em></p>
+<section id="build-overview">
+<h2>Build Overview<a class="headerlink" href="#build-overview" title="Link to this heading">#</a></h2>
+<p>This NIST Cybersecurity Practice Guide addresses the challenge of using standards-based protocols and available technologies to build a ZTA. In our lab at the NCCoE and using our collaborators’ cloud infrastructure, we plan to implement and demonstrate a variety of builds that serve as example ZTA solutions, each of which is designed to dynamically and securely manage access to resources across a set of use cases that a medium or large enterprise might typically deploy. Our plan is to implement these builds in a series of phases, starting with a baseline enterprise architecture that represents the typical legacy components that an enterprise might start with when deciding to begin adding zero trust capabilities.</p>
+<p>We began with builds for enhanced identity governance (EIG) that were restricted to a limited set of capabilities. We call these <em>EIG crawl phase builds</em>. The central capabilities of these builds are identity, credential, and access management (ICAM) and endpoint protection. In particular, these EIG crawl phase builds do not include separate, centralized policy engine (PE) or policy administration (PA) components. Instead, these initial EIG crawl phase builds rely upon the PE and PA capabilities provided by their ICAM components. We did not perform an EIG walk phase. After completing the EIG crawl phase builds, we enhanced these implementations by adding specialized PE and PA components, device discovery, and cloud-based resources in the EIG run phase. Next, we began the software-defined perimeter (SDP), microsegmentation, and secure access service edge (SASE) phase of the project. As its name suggests, this phase involved integrating ZTA components that support one or more of the SDP, microsegmentation, and SASE deployment models. It also integrated additional supporting components and features to provide an increasingly rich set of ZTA functionalities.</p>
+<p>This practice guide provides instructions for reproducing the builds that we have implemented so far, as listed in Table 1:</p>
+<p><strong>Table 1 - Implemented ZTA Builds and their Policy Engines and Architecture Types</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Build</p></th>
+<th class="head"><p>Policy Engines</p></th>
+<th class="head"><p>ZTA Architecture Instantiated</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E1B1</p></td>
+<td><p>Okta Identity Cloud</p>
+<p>Ivanti Access ZSO</p>
+</td>
+<td><p>EIG Crawl</p></td>
+</tr>
+<tr class="row-odd"><td><p>E2B1</p></td>
+<td><p>Ping Identity Ping Federate</p></td>
+<td><p>EIG Crawl</p></td>
+</tr>
+<tr class="row-even"><td><p>E3B1</p></td>
+<td><p>Azure AD (Conditional Access, later renamed Entra Conditional Access)</p></td>
+<td><p>EIG Crawl</p></td>
+</tr>
+<tr class="row-odd"><td><p>E1B2</p></td>
+<td><p>Zscaler ZPA Central Authority (CA)</p></td>
+<td><p>EIG Run</p></td>
+</tr>
+<tr class="row-even"><td><p>E3B2</p></td>
+<td><p>Microsoft Azure AD (Conditional Access, later renamed Entra Conditional Access)</p>
+<p>Microsoft Intune</p>
+<p>Forescout eyeControl</p>
+<p>Forescout eyeExtend</p>
+</td>
+<td><p>EIG Run</p></td>
+</tr>
+<tr class="row-odd"><td><p>E1B3</p></td>
+<td><p>Zscaler ZPA Central Authority (CA)</p></td>
+<td><p>SDP</p></td>
+</tr>
+<tr class="row-even"><td><p>E2B3</p></td>
+<td><p>Ping Identity PingFederate</p>
+<p>Cisco ISE</p>
+<p>Cisco Secure Workload</p>
+</td>
+<td><p>Microsegmentation</p></td>
+</tr>
+<tr class="row-odd"><td><p>E3B3</p></td>
+<td><p>Microsoft Azure AD (Conditional Access, later renamed Entra Conditional Access)</p>
+<p>Microsoft Intune</p>
+<p>Microsoft Sentinel</p>
+<p>Forescout eyeControl</p>
+<p>Forescout eyeExtend</p>
+</td>
+<td><p>SDP and Microsegmentation</p></td>
+</tr>
+<tr class="row-even"><td><p>E4B3</p></td>
+<td><p>IBM Security Verify</p></td>
+<td><p>EIG Run</p></td>
+</tr>
+<tr class="row-odd"><td><p>E1B4</p></td>
+<td><p>Appgate SDP Controller</p></td>
+<td><p>SDP</p></td>
+</tr>
+<tr class="row-even"><td><p>E2B4</p></td>
+<td><p>Symantec Cloud Secure Web Gateway (Cloud SWG)</p>
+<p>Symantec ZTNA</p>
+<p>Symantec Cloud Access Security Broker (CASB)</p>
+</td>
+<td><p>SDP and SASE</p></td>
+</tr>
+<tr class="row-odd"><td><p>E3B4</p></td>
+<td><p>F5 BIG-IP</p>
+<p>F5 NGINX Plus</p>
+<p>Forescout eyeControl</p>
+<p>Forescout eyeExtend</p>
+</td>
+<td><p>SDP</p></td>
+</tr>
+<tr class="row-even"><td><p>E4B4</p></td>
+<td><p>VMware Workspace ONE Access</p>
+<p>VMware Unified Access Gateway (UAG)</p>
+<p>VMware NSX-T</p>
+</td>
+<td><p>SDP, Microsegmentation, and EIG</p></td>
+</tr>
+<tr class="row-odd"><td><p>E1B5</p></td>
+<td><p>PAN NGFW</p>
+<p>PAN Prisma Access</p>
+</td>
+<td><p>SASE and Microsegmentation</p></td>
+</tr>
+<tr class="row-even"><td><p>E2B5</p></td>
+<td><p>Lookout SSE</p>
+<p>Okta Identity Clouds</p>
+</td>
+<td><p>SDP and SASE</p></td>
+</tr>
+<tr class="row-odd"><td><p>E3B5</p></td>
+<td><p>Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access)</p>
+<p>Microsoft Security Service Edge</p>
+</td>
+<td><p>SDP and SASE</p></td>
+</tr>
+<tr class="row-even"><td><p>E1B6</p></td>
+<td><p>Ivanti Neurons for Zero Trust Access</p></td>
+<td><p>SDP and Microsegmentation</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The NCCoE worked with members of the ZTA community of interest to develop a diverse but non-comprehensive set of use cases and scenarios to demonstrate the capabilities of the builds. The use cases are summarized in <a class="reference internal" href="../VolumeD/index.html#functional-demonstrations"><span class="std std-ref">Functional Demonstrations</span></a>.</p>
+<section id="eig-crawl-phase-build-features">
+<h3>EIG Crawl Phase Build Features<a class="headerlink" href="#eig-crawl-phase-build-features" title="Link to this heading">#</a></h3>
+<p>A general ZTA reference design is depicted in <a class="reference internal" href="../VolumeB/architecture.html#architecturefigure1"><span class="std std-ref">Figure 1 - General ZTA Reference Architecture</span></a>. It consists of ZTA core components: a policy decision point (PDP), which includes both a PE and a PA, and one or more policy enforcement points (PEPs); and ZTA functional components for ICAM, security analytics, data security, and endpoint security. The EIG crawl phase builds differ from this reference design insofar as they do not include separate, dedicated PDP components. Their ICAM component serves as their PDP, and they include very limited data security and security analytics functionality. These limitations were intentionally placed on the initial builds in an attempt to demonstrate the ZTA functionality that an enterprise that currently has ICAM and endpoint protection solutions deployed will be able to support without having to add additional ZTA-specific capabilities.</p>
+<p>Each EIG crawl phase build is instantiated in a unique way, depending on the equipment used and the capabilities supported. Briefly, the three builds are as follows:</p>
+<ul class="simple">
+<li><p>E1B1 uses products from IBM, Ivanti, Mandiant, Okta, Radiant Logic, SailPoint, Tenable, and Zimperium. Certificates from DigiCert are also used.</p></li>
+<li><p>E2B1 uses products from Cisco Systems, IBM, Mandiant, Palo Alto Networks, Ping Identity, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used.</p></li>
+<li><p>E3B1 uses products from F5, Forescout, Lookout, Mandiant, Microsoft, Palo Alto Networks, PC Matic, and Tenable. Certificates from DigiCert are also used.</p></li>
+</ul>
+</section>
+<section id="eig-run-phase-build-features">
+<h3>EIG Run Phase Build Features<a class="headerlink" href="#eig-run-phase-build-features" title="Link to this heading">#</a></h3>
+<p>The EIG run phase, as its name suggests, builds upon the EIG crawl phase architecture. The EIG run phase no longer imposes the requirement that the PE and PA components must be provided by the ICAM products used in the build. It also adds capabilities to the EIG crawl phase. In addition to protecting access to resources that are located on-premises, the run phase also protects access to some resources that are hosted in the cloud. The EIG run phase includes a device discovery capability, which is performed as part of the baseline. In addition to monitoring and alerting when new devices are detected, enforcement can be enabled to deny access to devices that are not compliant. The run phase also includes the capability to establish a tunnel between the requesting endpoint and the resource being accessed over which access to the resource can be brokered.</p>
+<p>Each EIG run phase build is instantiated in a unique way, depending on the equipment used and the capabilities supported. Briefly, the three builds are as follows:</p>
+<ul class="simple">
+<li><p>E1B2 uses products from Amazon Web Services, IBM, Ivanti, Mandiant, Okta, Radiant Logic, SailPoint, Tenable, and Zscaler. Certificates from DigiCert are also used.</p></li>
+<li><p>E3B2 uses products from F5, Forescout, Mandiant, Microsoft, Palo Alto Networks, PC Matic, and Tenable. Certificates from DigiCert are also used.</p></li>
+<li><p>E4B3 uses products from IBM, Mandiant, Palo Alto Networks, Tenable, and VMware. Certificates from DigiCert are also used.</p></li>
+</ul>
+</section>
+<section id="sdp-microsegmentation-and-sase-phase-build-features">
+<h3>SDP, Microsegmentation, and SASE Phase Build Features<a class="headerlink" href="#sdp-microsegmentation-and-sase-phase-build-features" title="Link to this heading">#</a></h3>
+<p>The SDP, microsegmentation, and SASE phase builds are based on the general ZTA reference design that is depicted in <a class="reference internal" href="../VolumeB/architecture.html#architecturefigure1"><span class="std std-ref">Figure 1 - General ZTA Reference Architecture</span></a>. It consists of ZTA core components: a PDP, which includes both a PE and a PA; one or more PEPs; and ZTA functional components for ICAM, security analytics, data security, and endpoint security. The builds implemented in the SDP, microsegmentation, and SASE phase of the project each deploy elements of one or more of the SDP, microsegmentation, or SASE deployments.</p>
+<p>Each SDP, microsegmentation, and SASE phase build is instantiated in a unique way, depending on the equipment used and the capabilities supported. Briefly, the eleven builds are as follows:</p>
+<ul class="simple">
+<li><p>E1B3 uses all of the same products and technologies as E1B2, so there is no separate section for E1B3 in this document.</p></li>
+<li><p>E2B3 uses products from Cisco Systems, IBM, Mandiant, Palo Alto Networks, Ping Identity, Radiant Logic, SailPoint, Tenable, and VMware. Certificates from DigiCert are also used.</p></li>
+<li><p>E3B3 uses products from F5, Forescout, Mandiant, Microsoft, Palo Alto Networks, PC Matic, and Tenable. Certificates from DigiCert are also used.</p></li>
+<li><p>E1B4 uses products from Amazon Web Services, Appgate, IBM, Ivanti, Mandiant, Okta, Radiant Logic, SailPoint, Tenable, and Zimperium. Certificates from DigiCert are also used.</p></li>
+<li><p>E2B4 uses products from Google Cloud, IBM, Mandiant, Okta, Radiant Logic, SailPoint, Symantec by Broadcom, Tenable, and VMware. Certificates from DigiCert are also used.</p></li>
+<li><p>E3B4 uses products from F5, Forescout, Mandiant, Microsoft, Palo Alto Networks, and Tenable. Certificates from DigiCert are also used.</p></li>
+<li><p>E4B4 uses products from IBM, Mandiant, Tenable, and VMware. Certificates from DigiCert are also used.</p></li>
+<li><p>E1B5 uses products from Amazon Web Services, IBM, Mandiant, Okta, Palo Alto Networks, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used.</p></li>
+<li><p>E2B5 uses products from Google Cloud, IBM, Lookout, Mandiant, Okta, Radiant Logic, SailPoint, Tenable, and VMware. Certificates from DigiCert are also used.</p></li>
+<li><p>E3B5 uses products from Mandiant, Microsoft, and Tenable. Certificates from DigiCert are also used.</p></li>
+<li><p>E1B6 uses products from Amazon Web Services, IBM, Ivanti, Mandiant, Okta, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used.</p></li>
+</ul>
+</section>
+<section id="physical-architecture-overview">
+<h3>Physical Architecture Overview<a class="headerlink" href="#physical-architecture-overview" title="Link to this heading">#</a></h3>
+<p>The laboratory environment in which the builds have been implemented is depicted and described in detail in the <a class="reference internal" href="../VolumeB/architecture.html#architecturephysical"><span class="std std-ref">ZTA Laboratory Physical Architecture</span></a> section. The laboratory architecture drawing from that section is reproduced here in the <a class="reference download internal" download="" href="../_downloads/d1ae80fdbdb76002fca63d2d96450209/Architecture-PhysicalFullDetail.png"><code class="xref download docutils literal notranslate"><span class="pre">full</span> <span class="pre">architecture</span> <span class="pre">diagram</span></code></a>. As shown, this laboratory environment includes four separate enterprise environments, each hosting its own distinct implementation of a ZTA architecture. The enterprises may interoperate as needed by a given use case, and the baseline enterprise environments have the flexibility to support enhancements. The laboratory environment also includes a management virtual local area network (VLAN) on which the following components are installed: Ansible, Terraform, MSV Director, and MSV Protected Theater. These management components support infrastructure as code (IaC) automation and orchestration.</p>
+<p>The following builds are supported within the physical architecture depicted in the full architecture diagram and documented in the remainder of this guide:</p>
+<ul class="simple">
+<li><p>E1B1 components consist of DigiCert CertCentral, IBM Cloud Pak for Security (CP4S), IBM Security QRadar XDR, Ivanti Access Zero Sign-On (ZSO), Ivanti Neurons for Unified Endpoint Management (UEM), Ivanti Sentry, Ivanti Tunnel, Mandiant Security Validation (MSV), Okta Identity Cloud, Okta Verify App, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, Tenable.ad, Tenable.io, and Zimperium Mobile Threat Defense (MTD).</p></li>
+<li><p>E2B1 components consist of Cisco Duo, DigiCert CertCentral, IBM Security QRadar XDR, Mandiant MSV, Palo Alto Networks Next Generation Firewall (NGFW), PingFederate, which is a service in the Ping Identity Software as a Service (SaaS) offering of PingOne, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, Tenable.ad, Tenable.io, and Tenable Nessus Network Monitor (NNM).</p></li>
+<li><p>E3B1 components consist of DigiCert CertCentral, F5 BIG-IP, Forescout eyeSight, Lookout Mobile Endpoint Security (MES), Mandiant MSV, Microsoft Azure Active Directory (AD), Microsoft Defender for Endpoint, Microsoft Endpoint Manager, Microsoft Sentinel, Palo Alto Networks NGFW, PC Matic Pro, Tenable.ad, and Tenable.io.</p></li>
+<li><p>E1B2 and E1B3 components consist of Amazon Web Services (AWS) Infrastructure as a Service (IaaS), DigiCert CertCentral, IBM CP4S, IBM Security QRadar XDR, Mandiant MSV, Okta Identity Cloud, Okta Verify App, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, Tenable.ad, Tenable.io, Tenable NNM, Zscaler Admin Portal, Zscaler Application Connector, Zscaler Central Authority, Zscaler Client Connector (ZCC), Zscaler Internet Access (ZIA) Public Service Edges, and Zscaler Private Access (ZPA) Public Service Edges.</p></li>
+<li><p>E3B2 components consist of DigiCert CertCentral, F5 BIG-IP, Forescout eyeControl, Forescout eyeExtend, Forescout eyeSegment, Forescout eyeSight, Mandiant MSV, Microsoft AD, Microsoft Azure AD, Microsoft Azure AD (Conditional Access), Microsoft Azure AD Identity Protection, Microsoft Azure (IaaS), Microsoft Defender for Cloud, Microsoft Defender for Cloud Apps, Microsoft Defender for Endpoint, Microsoft Intune, Microsoft Office 365 (SaaS), Microsoft Sentinel, Palo Alto Networks NGFW, PC Matic Pro, Tenable.ad, Tenable.io, and Tenable NNM.</p></li>
+<li><p>E2B3 components consist of Cisco Duo, Cisco Identity Services Engine (ISE), Cisco network devices, Cisco Secure Endpoint (CSE), Cisco Secure Network Analytics (SNA), Cisco Secure Workload, DigiCert CertCentral, IBM Security QRadar XDR, Mandiant MSV, Palo Alto Networks NGFW, Ping Identity PingOne, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, Tenable.ad, Tenable.io, Tenable NNM, VMware Workspace ONE UEM and Access.</p></li>
+<li><p>E3B3 components consist of DigiCert CertCentral, F5 BIG-IP, Forescout eyeControl, Forescout eyeExtend, Forescout eyeSight, Forescout eyeSegment, Mandiant MSV, Microsoft AD, Microsoft Azure AD, Microsoft Azure AD (Conditional Access), Microsoft Azure AD Identity Governance, Microsoft Intune, Microsoft Sentinel, Microsoft Azure App Proxy, Microsoft Defender for Endpoint, Microsoft Azure AD Identity Protection, Microsoft Defender for Identity, Microsoft Defender for Office, Microsoft Entra Permissions Management, Microsoft Defender for Cloud Apps, Microsoft Purview  - Data Loss Prevention (DLP), Microsoft Purview Information Protection, Microsoft Purview Information Protection Scanner, Microsoft Intune VPN Tunnel, Microsoft Azure Arc, Microsoft Azure Automanage, Microsoft Intune Privilege Access Workstation, Microsoft Azure Virtual Desktop Windows 365, Microsoft Defender for Cloud, Microsoft Azure (IaaS), Microsoft Office 365 (SaaS), Palo Alto Networks NGFW, PC Matic Pro, Tenable.io, Tenable.ad, and Tenable NNM.</p></li>
+<li><p>E4B3 components consist of DigiCert ONE, IBM CP4S, IBM QRadar XDR, IBM Security Guardium Data Encryption, IBM Security MaaS360 (for both laptops and mobile devices), IBM Security Verify, Mandiant MSV, Palo Alto Networks GlobalProtect VPN, Tenable.ad, Tenable.io, Tenable NNM, and VMware infrastructure.</p></li>
+<li><p>E1B4 components consist of Appgate SDP Controller, Appgate SDP Gateway, Appgate SDP client, Appgate Portal, AWS IaaS and SaaS, DigiCert CertCentral, IBM CP4S, IBM Security QRadar XDR, Ivanti Neurons for UEM Platform, Mandiant MSV, Okta Identity Cloud, Okta Verify App, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, Tenable.ad, Tenable.io, Tenable NNM, and Zimperium MTD.</p></li>
+<li><p>E2B4 components consist of Symantec Cloud Secure Web Gateway (Cloud SWG), Symantec Zero Trust Network Access (ZTNA), Symantec Cloud Access Security Broker (CASB), Symantec Endpoint Security Agent, VMware Workspace ONE UEM, Symantec DLP Cloud Detection Service, Symantec ZTNA Connector, Okta Identity Cloud, Okta Verify App, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, IBM Security QRadar XDR, Tenable.io, Tenable.ad, Tenable NNM, Mandiant MSV, Google Cloud, and DigiCert CertCentral.</p></li>
+<li><p>E3B4 components consist of F5 BIG-IP, F5 NGINX Plus, F5 Access App, Microsoft AD, Microsoft Azure AD, Microsoft Azure AD Identity Governance, Microsoft Intune, Microsoft Sentinel, Tenable.io, Tenable.ad, Tenable NNM, Mandiant MSV, Forescout eyeControl, Forescout eyeExtend, Forescout eyeSight, Forescout eyeSegment, Microsoft Azure (IaaS), and DigiCert CertCentral.</p></li>
+<li><p>E4B4 components consist of VMware Workspace ONE Access, VMware Unified Access Gateway (UAG), VMware NSX-T, VMware Workspace ONE UEM, VMware Workspace ONE MTD, VMware Carbon Black Enterprise EDR, VMware Carbon Black Cloud, VMware vSphere, VMware vCenter, VMware vSAN, IBM Security QRadar XDR, Mandiant MSV, Tenable.io, Tenable.ad, Tenable NNM, and DigiCert ONE.</p></li>
+<li><p>E1B5 components consist of PAN Panorama, PAN Next Generation Firewall (NGFW), PAN Prisma Access, PAN Prisma SASE (Prisma Access &amp; Prisma SD-WAN), PAN Cloud Delivered Security Services (CDSS), PAN Cloud Identity Engine, PAN Global Protect, PAN Strata Cloud Manager, Okta Identity Cloud, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, Okta Verify App, IBM Security QRadar XDR, Tenable.io, Tenable.ad, Tenable NNM, Mandiant MSV, DigiCert CertCentral, and AWS IaaS.</p></li>
+</ul>
+<p>For a detailed description of the architecture of each build, see <a class="reference internal" href="../VolumeB/appendices/index.html#build-architecture-details"><span class="std std-ref">Build Architecture Details</span></a>. The remainder of this guide describes how to implement the EIG crawl, EIG run, and SDP, microsegmentation, and SASE phase builds.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../VolumeB/appendices/Appendix-E1B6.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="HowTo-E1B1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-overview">Build Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eig-crawl-phase-build-features">EIG Crawl Phase Build Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eig-run-phase-build-features">EIG Run Phase Build Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdp-microsegmentation-and-sase-phase-build-features">SDP, Microsegmentation, and SASE Phase Build Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-architecture-overview">Physical Architecture Overview</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<p>
+  
+    By NIST<br/>
+  
+</p>
+
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> Certain commercial equipment, instruments, or
+          materials are identified in this documentation to foster understanding. Such
+          identification does not imply recommendation or endorsement by the National
+          Institute of Standards and Technology, nor does it imply that the materials
+          or equipment identified are necessarily the best available for the purpose.
+        </div>
+      </p>
+    </div>
+</footer>
+  </body>
+</html>

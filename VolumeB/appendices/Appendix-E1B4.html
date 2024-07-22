@@ -1,0 +1,747 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE &#8212; Implementing a Zero Trust Architecture Project  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/content.css?v=59cd0ab0" />
+    <link rel="stylesheet" type="text/css" href="../../_static/breadcrumbs.css?v=ddd885d8" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeB/appendices/Appendix-E1B4';</script>
+    <script src="../../_static/jquery.visible.js?v=5b129ffc"></script>
+    <script src="../../_static/jquery.leaveNotice-nist.js?v=7cf1efa2"></script>
+    <script src="../../_static/applyLeaveNotice.js?v=38741b1c"></script>
+    <script src="../../_static/smoothNavScroll.js?v=2ce98a12"></script>
+    <link rel="icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
+    <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+    <link rel="stylesheet" type="text/css" href="https://pages.nist.gov/leaveNotice/css/jquery.leaveNotice.css" />
+    <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJSMY46M5C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RJSMY46M5C');
+    </script>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="width: max-content;">
+    <ul class="wy-breadcrumbs">
+        <li style="list-style: none;"><a href="../../index.html" aria-label="Home"><i class="fa fa-home"></i></a></li>
+        <li class="breadcrumb-item active">&ensp;Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE</li>
+    </ul>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Implementing a Zero Trust Architecture Project  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture" title="Main Project Page" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/MainProjectLogo.jpg" class="icon-link-image" alt="Main Project Page"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Implementing a Zero Trust Architecture
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../VolumeA/ExecutiveSummary.html">Executive Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VolumeA/Introduction.html">Introduction to the Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VolumeA/ProjectOverview.html">Project Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../acronyms.html">Acronyms</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/VolumeB/appendices/Appendix-E1B4.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technologies">Technologies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-architecture">Build Architecture</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-architecture">Logical Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#icam-information-architecture">ICAM Information Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-architecture">Physical Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#message-flows-for-successful-resource-access-requests">Message Flows for Successful Resource Access Requests</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-in-which-access-to-a-resource-that-is-on-premises-is-enforced-by-appgate">Use Case in which Access to a Resource that Is On-Premises Is Enforced by Appgate</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-in-which-access-to-a-resource-in-the-aws-cloud-is-enforced-by-appgate">Use Case in which Access to a Resource in the AWS Cloud is Enforced by Appgate</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#service-to-service-use-case-in-which-a-request-by-one-service-to-access-another-service-is-controlled-by-appgate">Service-to-Service Use Case in which a request by one service to access another service is controlled by Appgate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="enterprise-1-build-4-e1b4-sdp-appgate-sdp-controller-as-pe">
+<h1>Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE<a class="headerlink" href="#enterprise-1-build-4-e1b4-sdp-appgate-sdp-controller-as-pe" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is supplementary material for the <a class="reference external" href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf">NIST SP 1800-35 publication</a>.</p>
+</div>
+<section id="technologies">
+<h2>Technologies<a class="headerlink" href="#technologies" title="Link to this heading">#</a></h2>
+<p>E1B4 uses products from Amazon Web Services, Appgate, IBM, Ivanti, Mandiant, Okta, Radiant Logic, SailPoint, Tenable, and Zimperium. Certificates from DigiCert are also used. For more information on these collaborators and the products and technologies that they contributed to this project overall, see <a class="reference internal" href="../../VolumeA/ProjectOverview.html#collaborators-and-their-contributions"><span class="std std-ref">Collaborators and Their Contributions</span></a>.</p>
+<p>E1B4 components consist of Appgate SDP Controller, Appgate SDP Gateway, Appgate SDP client, Appgate Portal, Appgate Injector (Appgate for Kubernetes), Okta Identity Cloud, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, Okta Verify App, Ivanti Neurons for Unified Endpoint Management (UEM) Platform, Zimperium Mobile Threat Defense, IBM Security QRadar XDR, Tenable.io, Tenable.ad, Tenable NNM, IBM Cloud Pak for Security, Mandiant Security Validation (MSV), DigiCert CertCentral, and AWS IaaS.</p>
+<p><em>Table 1</em> lists all of the technologies used in Build E1B4. It lists the products used to instantiate each ZTA component and the security function that each component provides.</p>
+<p><strong>Table 1 - E1B4 Products and Technologies</strong></p>
+<div class="pst-scrollable-table-container"><table class="table" id="id1">
+<caption><span class="caption-text">E1B4 Products and Technologies</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 30.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Product</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PE</p></td>
+<td><p>Appgate SDP Controller</p></td>
+<td><p>Decides whether to grant, deny, or revoke access to a resource based on enterprise policy, information from supporting components, and a trust algorithm.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PA</p></td>
+<td><p>Appgate SDP Controller</p></td>
+<td><p>Executes the PE’s policy decision by sending commands to a PEP that establishes and shuts down the communication path between subject and resource.</p></td>
+</tr>
+<tr class="row-even"><td><p>PEP</p></td>
+<td><p>Appgate SDP Gateway and Appgate SDP Client</p></td>
+<td><p>Guards the trust zone that hosts one or more enterprise resources; establishes, monitors, and terminates the connection between subject and resource as directed by the PA; forwards requests to and receives commands from the PA.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ICAM - Identity Management</p></td>
+<td><p>Okta Identity Cloud</p></td>
+<td><p>Creates and manages enterprise user and device accounts, identity records, role information, and access attributes that form the basis of access decisions within an organization to ensure the correct subjects have the appropriate access to the correct resources at the appropriate time.</p></td>
+</tr>
+<tr class="row-even"><td><p>ICAM - Access &amp; Credential Management</p></td>
+<td><p>Okta Identity Cloud</p></td>
+<td><p>Manages access to resources by performing user and device authentication (e.g., SSO and MFA) and using identity, role, and access attributes to determine which access requests are authorized.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ICAM - Federated Identity</p></td>
+<td><p>Radiant Logic RadiantOne Intelligent Identity Data Platform</p></td>
+<td><p>Aggregates and correlates all attributes relating to an identity or object that is being authorized by a ZTA. It enables users of one domain to securely access data or systems of another domain seamlessly, and without the need for completely redundant user administration. Federated identity encompasses the traditional ICAM data, supports identities that may be part of a larger federated ICAM community, and may include non-enterprise employees.</p></td>
+</tr>
+<tr class="row-even"><td><p>ICAM - Identity Governance</p></td>
+<td><p>SailPoint IdentityIQ</p></td>
+<td><p>Provides policy-based, centralized, automated processes to manage user identity and access control functions (e.g., ensuring segregation of duties, role management, logging, access reviews, analytics, reporting) to ensure compliance with requirements and regulations.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ICAM - MFA</p></td>
+<td><p>Okta Verify app</p></td>
+<td><p>Supports MFA of a user identity by requiring the user to provide not only something they know (e.g., a password), but also something they have (e.g., a token).</p></td>
+</tr>
+<tr class="row-even"><td><p>Endpoint Security - UEM/MDM</p></td>
+<td><p>Ivanti Neurons for Unified Endpoint Management (UEM) Platform</p></td>
+<td><p>Manages and secures enterprise desktop computers, laptops, and/or mobile devices in accordance with enterprise policy to protect applications and data; ensure device compliance; mitigate and remediate vulnerabilities and threats; monitor for suspicious activity to prevent and detect intrusions; prevent, detect, and disable malware and other malicious or unauthorized traffic; repair infected files when possible; provide alerts and recommend remediation actions; and encrypt data. Pushes enterprise applications and updates to devices, enables users to download enterprise applications that they are authorized to access, remotely deletes all applications and data from devices if needed, tracks user activity on devices, and detects and addresses security issues on the device.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint Security - EPP</p></td>
+<td><p>Zimperium Mobile Threat Defense</p></td>
+<td><p>Detects and stops threats to endpoints through an integrated suite of endpoint protection technologies including antivirus, data encryption, intrusion prevention, EDR, and DLP. May include mechanisms that are designed to protect applications and data; ensure device compliance with policies regarding hardware, firmware, software, and configuration; monitor endpoints for vulnerabilities, suspicious activity, intrusion, infection, and malware; block unauthorized traffic; disable malware and repair infections; manage and administer software and updates; monitor behavior and critical data; and enable endpoints to be tracked, troubleshooted, and wiped, if necessary.</p></td>
+</tr>
+<tr class="row-even"><td><p>Endpoint Security - Endpoint Compliance</p></td>
+<td><p>Appgate SDP Client</p></td>
+<td><p>Can enforce policies based on a defined set of endpoint compliance checks to allow or deny user/endpoint access to a resource, but does not perform the functions of an EPP solution to automatically remediate an endpoint.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Security Analytics - SIEM</p></td>
+<td><p>IBM Security QRadar XDR</p></td>
+<td><p>Collects and consolidates security information and security event data from many sources; correlates and analyzes the data to help detect anomalies and recognize potential threats and vulnerabilities; and logs the data to adhere to data compliance requirements.</p></td>
+</tr>
+<tr class="row-even"><td><p>Security Analytics - Endpoint Monitoring</p></td>
+<td><p>Tenable.io</p></td>
+<td><p>Discovers all IP-connected endpoints and performs continuous collection, examination, and analysis of software versions, configurations, and other information regarding hosts (devices or VMs) that are connected to the network.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Security Analytics - Vulnerability Scanning and Assessment</p></td>
+<td><p>Tenable.io and Tenable.ad</p></td>
+<td><p>Scans and assesses the enterprise infrastructure and resources for security risks, identifies vulnerabilities and misconfigurations, and provides remediation guidance regarding investigating and prioritizing responses to incidents.</p></td>
+</tr>
+<tr class="row-even"><td><p>Security Analytics - Traffic Inspection</p></td>
+<td><p>Tenable NNM</p></td>
+<td><p>Intercepts, examines, and records relevant traffic transmitted on the network.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Security Analytics - Network Discovery</p></td>
+<td><p>Tenable NNM</p></td>
+<td><p>Discovers, classifies, and assesses the risk posed by devices and users on the network.</p></td>
+</tr>
+<tr class="row-even"><td><p>Security Analytics - SOAR</p></td>
+<td><p>IBM Cloud Pak for Security</p></td>
+<td><p>Integrates the SIEM and other security tools into a single pane of glass to support generation of insights into threats and help track, manage, and resolve cybersecurity incidents. Executes predefined incident response workflows to automatically analyze information and orchestrate the operations required to respond.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Security Analytics - Security Validation</p></td>
+<td><p>Mandiant Security Validation</p></td>
+<td><p>Provides visibility and evidence on the status of the security controls’ effectiveness in the ZTA. Enables security capabilities of the enterprise to be monitored and verified by continuously validating and measuring the cybersecurity controls; also used to automate the demonstrations that were performed to showcase ZTA capabilities. Deployed throughout the project’s laboratory environment to enable monitoring and verification of various security aspects of the builds. VMs that are intended to operate as actors are deployed on each of the subnetworks in each of the enterprises. These actors can be used to initiate various actions for the purpose of verifying that security controls are working to support the objectives of zero trust.</p></td>
+</tr>
+<tr class="row-even"><td><p>General - Remote Connectivity</p></td>
+<td><p>Appgate SDP Controller</p></td>
+<td><p>Appgate components are used to provide remote users’ connectivity to on-premises or cloud resources.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Resource Protection - PaaS/Kubernetes Security</p></td>
+<td><p>Appgate Injector</p></td>
+<td><p>The Appgate Injector (Appgate for Kubernetes) creates a per-pod secure connection to the PEP, enabling authorized service-to-service and service-to-resource communication without the Pod or the resource visible on the Internet.</p></td>
+</tr>
+<tr class="row-even"><td><p>Resource Protection - Cloud Workload Protection</p></td>
+<td><p>Appgate Headless Client</p></td>
+<td><p>The Appgate Headless Client validates security compliance of the protected workload and creates a secure connection to the PEP, enabling authorized service-to-service and service-to-resource communication.</p></td>
+</tr>
+<tr class="row-odd"><td><p>General - Certificate Management</p></td>
+<td><p>DigiCert CertCentral TLS Manager</p></td>
+<td><p>Provides automated capabilities to issue, install, inspect, revoke, renew, and otherwise manage TLS certificates.</p></td>
+</tr>
+<tr class="row-even"><td><p>General - Cloud IaaS</p></td>
+<td><p>AWS - GitLab, WordPress</p></td>
+<td><p>Provides computing resources, complemented by storage and networking capabilities, hosted by a cloud service provider, offered to customers on demand, and exposed through a GUI and an API. An IPsec tunnel is used to provide a secure connection from the enterprise to the cloud.</p></td>
+</tr>
+<tr class="row-odd"><td><p>General - Cloud SaaS</p></td>
+<td><p>DigiCert CertCentral, Ivanti Neurons for UEM, Okta Identity Cloud, Tenable.io, Zimperium MTD</p></td>
+<td><p>Cloud-based software delivered for use by the enterprise.</p></td>
+</tr>
+<tr class="row-even"><td><p>General - Application</p></td>
+<td><p>GitLab</p></td>
+<td><p>Example enterprise resource to be protected. (In this build, GitLab is integrated with Okta using SAML, and IBM Security QRadar XDR pulls logs from GitLab). There are instances of GitLab on-premises and in AWS.</p></td>
+</tr>
+<tr class="row-odd"><td><p>General - Enterprise-Managed Device</p></td>
+<td><p>Mobile devices (iOS and Android) and desktops/laptops (Windows and Mac)</p></td>
+<td><p>Example endpoints to be protected. All enterprise-managed mobile devices are running an Ivanti Neurons for UEM agent and also have the Okta Verify App installed. If Ivanti Neurons for UEM agent is used to push Appgate SDP Client to the endpoint, that endpoint is considered to be a managed device.</p></td>
+</tr>
+<tr class="row-even"><td><p>General - BYOD</p></td>
+<td><p>Mobile devices (iOS and Android) and desktops/laptops (Windows, Linux and Mac)</p></td>
+<td><p>Example endpoints to be protected.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="build-architecture">
+<h2>Build Architecture<a class="headerlink" href="#build-architecture" title="Link to this heading">#</a></h2>
+<p>In this section we present the logical architecture of E1B4. We also describe E1B4’s physical architecture and present message flow diagrams for some of its processes.</p>
+<section id="logical-architecture">
+<h3>Logical Architecture<a class="headerlink" href="#logical-architecture" title="Link to this heading">#</a></h3>
+<p><em>Figure 1</em> depicts the logical architecture of E1B4. It uses numbered arrows to depict the general flow of messages needed for a subject to request access to a resource and have that access request evaluated based on subject identity (both requesting user and requesting endpoint identity), user authorizations, and requesting endpoint health. It also depicts the flow of messages supporting periodic reauthentication of the requesting user, the requesting endpoint, and the resource; and periodic verification of requesting endpoint health, all of which must be performed to continually reevaluate access. The labeled steps in <em>Figure 1</em> have the same meanings as they do in <span class="xref std std-ref">Architecture - Figure 1</span>. However, <em>Figure 1</em> includes the specific products that instantiate the architecture of E1B4.</p>
+<p>E1B4 was designed with Appgate components that serve as PEs, PAs, and PEPs, and Okta Identity Cloud that serves as the identity, access, and credential manager. Radiant Logic acts as a PIP for the PDP as it responds to inquiries and provides identity information on demand in order for Okta to make near-real-time access decisions. A more detailed depiction of the messages that flow among components to support a user access request can be found in <a class="reference internal" href="#appendix-e1b4-messageflows"><span class="std std-ref">Message Flows for Successful Resource Access Requests</span></a>.</p>
+<p><strong>Figure 1 - Logical Architecture of E1B4</strong></p>
+<p><img alt="This figure depicts the logical architecture of E1B4. It uses numbered arrows to depict the general flow of messages needed for a subject to request access to a resource and have that access request evaluated based on subject identity (both requesting user and requesting endpoint identity), user authorizations, and requesting endpoint health." src="../../_images/AppendixM-Figure1.png" /></p>
+</section>
+<section id="icam-information-architecture">
+<h3>ICAM Information Architecture<a class="headerlink" href="#icam-information-architecture" title="Link to this heading">#</a></h3>
+<p>How ICAM information is provisioned, distributed, updated, shared, correlated, governed, and used among ZTA components is fundamental to the operation of the ZTA. The ICAM information architecture ensures that when a subject requests access to a resource, the aggregated set of identity information and attributes necessary to identify, authenticate, and authorize the subject is available to be used as a basis on which to make the access decision.</p>
+<p>In E1B4, Okta, Radiant Logic, and SailPoint integrate with each other as well as with other components of the ZTA to support the ICAM information architecture. The ways that these components work together to correlate identity information and to support actions such as users joining, changing roles, and leaving the enterprise are the same in E1B4 as they are in E1B1, E1B2, and E1B3. These interactions are described in <a class="reference internal" href="Appendix-E1B1.html#e1b1icam"><span class="std std-ref">E1B1 - ICAM Information Architecture</span></a>.</p>
+</section>
+<section id="physical-architecture">
+<h3>Physical Architecture<a class="headerlink" href="#physical-architecture" title="Link to this heading">#</a></h3>
+<p><span class="xref std std-ref">Enterprise 1</span> and <span class="xref std std-ref">Enterprise 1 Branch Office</span> describe and depict the physical architecture of E1B4 headquarters network and E1B4 branch office network, respectively.</p>
+</section>
+<section id="message-flows-for-successful-resource-access-requests">
+<h3>Message Flows for Successful Resource Access Requests<a class="headerlink" href="#message-flows-for-successful-resource-access-requests" title="Link to this heading">#</a></h3>
+<p id="appendix-e1b4-messageflows">This section presents the high-level message flows supporting the use cases in which a subject who has an enterprise ID and who is authorized to access an enterprise resource requests and receives access to that resource. In the cases depicted here, access to the resource is protected by the Appgate SDP System, which is comprised of Controllers that act as PDPs; Gateways that acts as PEPs; and the Appgate SDP Client, which supports endpoint compliance. The Appgate system integrates with Okta, which acts as identity provider (IdP); Ivanti Neurons for UEM, which acts as endpoint manager; and Zimperium Mobile Threat Defense. Two message flows are depicted: one in which the resource being accessed is located on-premises and another in which the resource is in the AWS cloud. For the on-premises case, the Appgate SDP Controller and Gateway are located on-premises. For the AWS case, the Appgate SDP Controller and Gateway are located in the cloud.</p>
+<p>Both use cases that are depicted show only the messages that are sent in response to the access request. However, the authentication process also relies on the following additional background communications that occur among components:</p>
+<ul class="simple">
+<li><p>The Ivanti Neurons for UEM agent that is running on the user’s endpoint (mobile devices only) periodically syncs with the Ivanti Neurons for UEM Platform in the cloud to reauthenticate the requesting endpoint device using a unique certificate that has been provisioned specifically for that device, and sends the cloud component information about device posture and health (e.g., risk score, threat defense status, iOS version).</p></li>
+<li><p>Zimperium Mobile Threat Defense is integrated with Ivanti Neurons for UEM, and Zimperium periodically sends threat information to it. When Zimperium detects a threat, it can also block the threat as well as send Ivanti information about the threat.</p></li>
+<li><p>When a user initiates login with the Appgate Mobile Client, the Appgate SDP Controller queries the Ivanti Neurons for UEM Platform to obtain real-time information regarding device health for the user’s device. The Appgate SDP Client running on the user’s endpoint periodically syncs with the Appgate SDP System to provide information regarding device compliance and dynamically adjusts user and device attributes and authorizations.</p></li>
+</ul>
+<p>To access a resource in both use cases depicted here, the user must log into the Appgate SDP Client that is running on the user’s endpoint. When the user logs into the client, the following steps are performed to initiate operations:</p>
+<ol class="arabic simple">
+<li><p>The Appgate SDP Client sends an encrypted Single Packet Authorization (SPA) UDP packet to the Controller to pre-authorize the subsequent TLS connection.</p></li>
+<li><p>The Appgate SDP Client establishes a TLS connection and authenticates to the Appgate SDP Controller. During this process, the user is redirected to Okta and the SAML assertion is sent to the Controller.</p></li>
+<li><p>The Appgate SDP Controller issues a signed and encrypted entitlement token to the client that contains user and device attributes, protected resource authorizations, and the hostnames and SPA keys for authorized Appgate Gateways.</p></li>
+<li><p>The Appgate SDP Client creates a TLS tunnel and passes the signed Entitlement token to an Appgate Gateway that is guarding resources the client is authorized to access. (Note: When there are multiple gateways guarding the same resource, the client chooses one of the gateways based on load balancing information contained in the entitlement token.)</p></li>
+<li><p>The Appgate Gateway validates the token and creates a session-based microfirewall for the user/device to enforce policies created on the Appgate SDP Controller.</p></li>
+</ol>
+<p>Once an authorized user has logged into the Appgate SDP Client, they may access any resource, either on-premises or in the cloud, that they are authorized to access, with the Gateway in each location acting as the PEP.</p>
+<section id="use-case-in-which-access-to-a-resource-that-is-on-premises-is-enforced-by-appgate">
+<h4>Use Case in which Access to a Resource that Is On-Premises Is Enforced by Appgate<a class="headerlink" href="#use-case-in-which-access-to-a-resource-that-is-on-premises-is-enforced-by-appgate" title="Link to this heading">#</a></h4>
+<p><em>Figure 2</em> depicts the message flow for the user’s request to access the resource located on-premises. The message flow begins after the user has already successfully logged into the Appgate SDP Client and established tunnels to all authorized Gateways guarding access to protected resources, which, in this case, is the Appgate SDP Gateway that is located on-premises.</p>
+<p><strong>Figure 2 - Use Case E1B4 - Access to an On-Premises Resource Is Enforced by Appgate</strong></p>
+<p><img alt="This figure depicts the message flow for the user's request to access the resource located on-premises." src="../../_images/AppendixM-Figure2.png" /></p>
+<p>The message flow depicted in <strong>Figure 2</strong> consists of the following steps:</p>
+<ol class="arabic simple">
+<li><p>A user initiates access to an on-premises resource, e.g., GitLab.</p></li>
+<li><p>The endpoint sends a request packet to the resource via this tunnel. The request is sent in the tunnel from the client to the Gateway, and then the Gateway forwards the message to the resource.</p></li>
+<li><p>The resource, which in this case is GitLab, displays the option for the user to sign in with SAML. When the user clicks on the sign-on with SAML icon on the GitLab screen, the resource creates a SAML request and sends the SAML request to the user’s endpoint via the Appgate Gateway and the tunnel.</p></li>
+<li><p>The user’s endpoint sends the SAML request to the Okta Identity Cloud, which is located on the internet.</p></li>
+<li><p>Okta prompts for username and password.</p></li>
+<li><p>The user responds with username and password.</p></li>
+<li><p>Okta authenticates the user and verifies the device certificate.</p></li>
+<li><p>Okta challenges the user to perform second-factor authentication using the Okta Verify App.</p></li>
+<li><p>The user provides the second authentication factor (i.e., biometrics).</p></li>
+<li><p>Okta generates a SAML assertion and sends it to the user’s endpoint.</p></li>
+<li><p>The user’s endpoint sends the SAML assertion to the resource (GitLab) via the tunnel between the Appgate SDP Client and the Appgate SDP Gateway. The resource accepts the assertion and grants the access request.</p></li>
+<li><p>User traffic to and from the resource is transmitted back and forth through the Appgate tunnel, ensuring it is secured according to policy.</p></li>
+</ol>
+<p>The Appgate SDP Client collects system attributes every five minutes and updates the Appgate SDP Controller to ensure the client conforms with policy.</p>
+<p>Note that the message flow depicted in Figure 2 is the same regardless of whether the employee is located on-premises at headquarters, on-premises at a branch office, or off-premises at a remote location.</p>
+</section>
+<section id="use-case-in-which-access-to-a-resource-in-the-aws-cloud-is-enforced-by-appgate">
+<h4>Use Case in which Access to a Resource in the AWS Cloud is Enforced by Appgate<a class="headerlink" href="#use-case-in-which-access-to-a-resource-in-the-aws-cloud-is-enforced-by-appgate" title="Link to this heading">#</a></h4>
+<p><em>Figure 3</em> depicts the message flow for the user’s request to access the resource located in the AWS cloud. The message flow begins after the user has already successfully logged into the Appgate SDP Client and established tunnels to all authorized Gateways guarding access to protected resources, which, in this case, is the Appgate SDP Gateway that is located in AWS.</p>
+<p><strong>Figure 3 - Use Case E1B4 - Access to an AWS Cloud Resource Is Enforced by Appgate</strong></p>
+<p><img alt="This figure depicts the message flow for the user's request to access the resource located in the AWS cloud." src="../../_images/AppendixM-Figure3.png" /></p>
+<p>The message flow depicted in <em>Figure 3</em> consists of the following steps:</p>
+<ol class="arabic simple">
+<li><p>A user initiates access to an AWS cloud resource, e.g., GitLab.</p></li>
+<li><p>The endpoint sends a request packet to the resource via this tunnel. The request is sent in the tunnel from the client to the Gateway, and then the Gateway forwards the message to the resource.</p></li>
+<li><p>The resource, which in this case is GitLab, displays the option for the user to sign in with SAML. When the user clicks on the sign-on with SAML icon on the GitLab screen, the resource creates a SAML request and sends the SAML request to the user’s endpoint via the Appgate Gateway and the tunnel.</p></li>
+<li><p>The user’s endpoint sends the SAML request to the Okta Identity Cloud, which is located on the internet.</p></li>
+<li><p>Okta prompts for username and password.</p></li>
+<li><p>The user responds with username and password.</p></li>
+<li><p>Okta authenticates the user and verifies the device certificate.</p></li>
+<li><p>Okta challenges the user to perform second-factor authentication using the Okta Verify App.</p></li>
+<li><p>The user provides the second authentication factor (i.e., biometrics).</p></li>
+<li><p>Okta generates a SAML assertion and sends it to the user’s endpoint.</p></li>
+<li><p>The user’s endpoint sends the SAML assertion to the resource (GitLab) via the tunnel between the Appgate SDP Client and the Appgate SDP Gateway. The resource accepts the assertion and grants the access request.</p></li>
+<li><p>User traffic to and from the resource is transmitted back and forth through the Appgate tunnel, ensuring it is secured according to policy.</p></li>
+</ol>
+<p>The Appgate SDP Client collects system attributes every five minutes and updates the Appgate SDP Controller to ensure the client conforms with policy.</p>
+<p>Note that the message flow depicted in <em>Figure 3</em> is the same regardless of whether the employee is located on-premises at headquarters, on-premises at a branch office, or off-premises at home or elsewhere.</p>
+</section>
+<section id="service-to-service-use-case-in-which-a-request-by-one-service-to-access-another-service-is-controlled-by-appgate">
+<h4>Service-to-Service Use Case in which a request by one service to access another service is controlled by Appgate<a class="headerlink" href="#service-to-service-use-case-in-which-a-request-by-one-service-to-access-another-service-is-controlled-by-appgate" title="Link to this heading">#</a></h4>
+<p>For this use case, the requesting service has an embedded headless client, i.e., a client that does not have a user interface. This headless client must be pre-configured with an identity profile and credentials. Upon boot-up, the headless client immediately tries to sign in to the Appgate SDP Controller (and it will continue retrying if it fails). The steps in the process are depicted in Figure 4 and described below.</p>
+<p><strong>Figure 4 - Use Case E1B4 - Server-to-Server Access Enforced by Appgate</strong></p>
+<p><img alt="This figure shows the steps in the process for the service-to-service use case in which a request by one service to access another service is controlled by Appgate." src="../../_images/AppendixM-Figure4.png" /></p>
+<p>The message flow depicted in <em>Figure 4</em> consists of the following steps:</p>
+<ol class="arabic simple">
+<li><p>The headless client sends an encrypted SPA UDP packet to the Controller to pre-authorize the subsequent TLS connection.</p></li>
+<li><p>The headless client establishes a TLS connection and authenticates to the Appgate SDP Controller.</p></li>
+<li><p>The Appgate SDP Controller issues a signed entitlement token to the headless client that enables it to access the resources protected by Appgate SDP that it has been authorized to access according to policy created on the Controller.</p></li>
+<li><p>The headless client will automatically try to establish a secure connection with an Appgate Gateway that is guarding resources that the headless client is authorized to access by passing the signed entitlement token to the Gateway.</p></li>
+<li><p>The Gateway validates the token and creates a session-based micro-firewall for the headless client to enforce policies created on the Appgate SDP Controller.</p></li>
+</ol>
+<p>Once a session-based micro-firewall for the headless client has been created on an Appgate SDP Gateway at each site (e.g., on-premises and in AWS), the headless client may access any authorized resource, with the Gateway(s) in each location acting as the PEP. If the headless client initiates access to a protected resource it is authorized to access, the Gateway will route the request to the resource. If the headless client initiates access to a protected resource it is not authorized to access, the Gateway’s session-based micro-firewall will drop the network packets.</p>
+<p>The headless client is not re-authenticated every time it initiates access to a protected resource. However, the Appgate SDP Headless Client collects system attributes every five minutes and updates the Appgate SDP Controller to ensure the client conforms with policy.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technologies">Technologies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-architecture">Build Architecture</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-architecture">Logical Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#icam-information-architecture">ICAM Information Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-architecture">Physical Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#message-flows-for-successful-resource-access-requests">Message Flows for Successful Resource Access Requests</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-in-which-access-to-a-resource-that-is-on-premises-is-enforced-by-appgate">Use Case in which Access to a Resource that Is On-Premises Is Enforced by Appgate</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-in-which-access-to-a-resource-in-the-aws-cloud-is-enforced-by-appgate">Use Case in which Access to a Resource in the AWS Cloud is Enforced by Appgate</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#service-to-service-use-case-in-which-a-request-by-one-service-to-access-another-service-is-controlled-by-appgate">Service-to-Service Use Case in which a request by one service to access another service is controlled by Appgate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<p>
+  
+    By NIST<br/>
+  
+</p>
+
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> Certain commercial equipment, instruments, or
+          materials are identified in this documentation to foster understanding. Such
+          identification does not imply recommendation or endorsement by the National
+          Institute of Standards and Technology, nor does it imply that the materials
+          or equipment identified are necessarily the best available for the purpose.
+        </div>
+      </p>
+    </div>
+</footer>
+  </body>
+</html>

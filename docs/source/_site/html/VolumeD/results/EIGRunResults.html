@@ -1,0 +1,1831 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>EIG Run Phase Demonstration Results &#8212; Implementing a Zero Trust Architecture Project  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/content.css?v=59cd0ab0" />
+    <link rel="stylesheet" type="text/css" href="../../_static/breadcrumbs.css?v=83cea8a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeD/results/EIGRunResults';</script>
+    <script src="../../_static/jquery.visible.js?v=5b129ffc"></script>
+    <script src="../../_static/jquery.leaveNotice-nist.js?v=7cf1efa2"></script>
+    <script src="../../_static/applyLeaveNotice.js?v=38741b1c"></script>
+    <script src="../../_static/smoothNavScroll.js?v=2ce98a12"></script>
+    <link rel="icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="SDP, Microsegmentation, and SASE Phase Demonstration Results" href="SDPMicroResults.html" />
+    <link rel="prev" title="EIG Crawl Phase Demonstration Results" href="EIGCrawlResults.html" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
+    <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+    <link rel="stylesheet" type="text/css" href="https://pages.nist.gov/leaveNotice/css/jquery.leaveNotice.css" />
+    <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJSMY46M5C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RJSMY46M5C');
+    </script>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="width: max-content;">
+    <ul class="wy-breadcrumbs">
+        <li><a href="../../index.html" aria-label="Home"><i class="fa fa-home"></i></a></li>
+            <li class="breadcrumb-item">&ensp;<a href="../index.html">Functional Demonstrations</a></li>
+            <li class="breadcrumb-item">&ensp;<a href="index.html">Functional Demonstration Results</a></li>
+        <li class="breadcrumb-item active">&ensp;EIG Run Phase Demonstration Results</li>
+    </ul>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+  </div>
+  
+  
+
+  
+    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Implementing a Zero Trust Architecture Project  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture" title="Main Project Page" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/MainProjectLogo.jpg" class="icon-link-image" alt="Main Project Page"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Implementing a Zero Trust Architecture
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../VolumeA/ExecutiveSummary.html">Executive Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VolumeA/Introduction.html">Introduction to the Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VolumeA/ProjectOverview.html">Project Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../VolumeB/architecture.html">Architecture and Builds</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeB/BuildsImplemented.html">Builds Implemented</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../VolumeB/appendices/index.html">Build Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeB/appendices/Appendix-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeB/appendices/Appendix-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeB/appendices/Appendix-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeB/appendices/Appendix-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeB/appendices/Appendix-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeB/appendices/Appendix-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeB/appendices/Appendix-E2B3.html">Enterprise 2 Build 3 (E2B3) — Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeB/appendices/Appendix-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeB/appendices/Appendix-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeB/appendices/Appendix-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeB/appendices/Appendix-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeB/appendices/Appendix-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeB/appendices/Appendix-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeB/appendices/Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeB/appendices/Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeB/appendices/Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeB/appendices/Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../VolumeC/index.html">Build Implementation Instructions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E2B3.html">Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/Hardening.html">Hardening Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VolumeB/GeneralFindings.html">General Findings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VolumeB/FutureBuildConsiderations.html">Future Build Considerations</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Functional Demonstrations</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../FunctionalLabDemonstration.html">Demonstration Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UseCaseA.html">Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UseCaseB.html">Use Case B: Enterprise-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UseCaseC.html">Use Case C: Collaboration: Federated-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UseCaseD.html">Use Case D: Other-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UseCaseE.html">Use Case E: Guest: No-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UseCaseF.html">Use Case F: Confidence Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UseCaseG.html">Use Case G: Service-Service Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UseCaseH.html">Use Case H: Data Level Security Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FunctionalDemonstrationResultSummaries.html">Functional Demonstration Result Summaries</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Functional Demonstration Results</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="EIGCrawlResults.html">EIG Crawl Phase Demonstration Results</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">EIG Run Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SDPMicroResults.html">SDP, Microsegmentation, and SASE Phase Demonstration Results</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../VolumeE/index.html">Risk and Compliance Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeE/RisksAddressed.html">Risks Addressed by the ZTA Reference Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeE/ArchitectureSecurityMappings.html">ZTA Security Mapping Context and Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeE/Mappings.html">Mappings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VolumeB/ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../acronyms.html">Acronyms</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/VolumeD/results/EIGRunResults.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>EIG Run Phase Demonstration Results</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-1-build-2-e1b2-eig-run-zscaler-zpa-central-authority-ca-as-pe-detailed-demonstration-results">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Detailed Demonstration Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-3-build-2-e3b2-eig-run-microsoft-azure-ad-conditional-access-later-renamed-entra-conditional-access-microsoft-intune-forescout-eyecontrol-and-forescout-eyeextend-as-pes-detailed-demonstration-results">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Detailed Demonstration Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-4-build-3-e4b3-eig-run-ibm-security-verify-as-pe-detailed-demonstration-results">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Detailed Demonstration Results</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="eig-run-phase-demonstration-results">
+<h1>EIG Run Phase Demonstration Results<a class="headerlink" href="#eig-run-phase-demonstration-results" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is supplementary material for the <a class="reference external" href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf">NIST SP 1800-35 publication</a>.</p>
+</div>
+<p>This section lists the full demonstration results for each of the builds that was implemented as part of the EIG run phase: E1B2, E3B2, and E4B3.</p>
+<section id="enterprise-1-build-2-e1b2-eig-run-zscaler-zpa-central-authority-ca-as-pe-detailed-demonstration-results">
+<h2>Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Detailed Demonstration Results<a class="headerlink" href="#enterprise-1-build-2-e1b2-eig-run-zscaler-zpa-central-authority-ca-as-pe-detailed-demonstration-results" title="Link to this heading">#</a></h2>
+<p>Table 1 lists the full demonstration results for all EIG run phase demonstrations run in Enterprise 1 Build 2 (E1B2). The technology deployed in E1B2 was able to determine endpoint compliance for Windows, Linux, macOS, and mobile devices and prevent noncompliant endpoints from accessing private resources.</p>
+<p><strong>Table 1 - Detailed Demonstration Results for E1B2</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Demo ID</p></th>
+<th class="head"><p>Expected Outcome</p></th>
+<th class="head"><p>Observed Outcome</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A-1.1.a-m</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Demonstration cannot be completed. There is no network-level enforcement present in this build. Zscaler uses the client connector to allow a user on a device to access specific resources only, whether on-prem or remote. Users cannot readily access resources in the enterprise (or network) if they do not have permissions to access them. Resources are not authenticated or checked for compliance in this phase.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-1.2.a-m, A-1.3.a-f, A-1.4.a-g</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Same as in A-1. Demonstration cannot be completed. There is no network-level enforcement present in this build.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-2.1.a-I, A-2.2.a-I, A-2.3.a-f, A-2.4.a-f</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Same as in A-1. Demonstration cannot be completed. There is no network-level enforcement present in this build.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-3.1.a, A-3.3.a, A-3.5.a</p></td>
+<td><p>User request and action is recorded</p></td>
+<td><p>User login to an application is logged</p></td>
+<td><p>Success: Okta records the authentication logs. Administrators can log in to Okta and view logs of when a user logged onto an application and whether the authentication was successful or not. Zscaler Private Access (ZPA) records relevant information about the connection between the endpoint and resource.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-3.1.b, A-3.3.b</p></td>
+<td><p>API call is recorded</p></td>
+<td><p>Logs contain relevant API information</p></td>
+<td><p>Success: Okta records the authentication logs. Administrators can log in to Okta and view logs of when a user logged onto an application and whether the authentication was successful or not. Zscaler ZPA records relevant information about the connection between the endpoint and resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-3.2.a, A-3.4.a, A-3.6.a</p></td>
+<td><p>User request and action is recorded</p></td>
+<td><p>User login to an application is logged</p></td>
+<td><p>Success: Okta records the authentication logs. Administrators can log in to Okta and view logs of when a user logged onto an application and whether the authentication was successful or not. Zscaler ZPA records relevant information about the connection between the endpoint and resource.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-3.2.b, A-3.4.b, A-3.6.a</p></td>
+<td><p>API call is recorded</p></td>
+<td><p>Logs contain relevant API information</p></td>
+<td><p>Success: Okta records the authentication logs. Administrators can log in to Okta and view logs of when a user logged onto an application and whether the authentication was successful or not. Zscaler ZPA records relevant information about the connection between the endpoint and resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.1.a, B-1.2.a, B-1.3.a, B-4.1.a, B-4.2.a, B-4.3.a, D-1.1.a, D-1.2.a, D-1.3.a, D-4.1.a, D-4.2.a, D-4.3.a</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Partial success: User is authenticated via Okta when accessing the resource. User logs into Zscaler client connector as part of login process to the endpoint and policies are applied to the user/endpoint (including laptops, workstations, and mobile devices). User successfully connects to RSS1. However, we cannot validate compliance of RSS1.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.1.b, B-1.2.b, B-1.3.b, B-4.1.b, B-4.2.b, B-4.3.b, D-1.1.b, D-1.2.b, D-1.3.b, D-4.1.b, D-4.2.b, D-4.3.b</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Partial success: User is authenticated via Okta when accessing the resource. User logs into Zscaler client connector as part of login process to the endpoint and policies are applied to the user/endpoint (including laptops, workstations, and mobile devices). User successfully connects to RSS1. However, we cannot validate compliance of RSS1.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.1.c, B-1.2.c, B-1.3.c, B-4.1.c, B-4.2.c, B-4.3.c, D-1.1.c, D-1.2.c, D-1.3.c, D-4.1.c, D-4.2.c, D-4.3.c</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: Demonstration completed with user not able to log in to resource.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.1.d, B-1.2.d, B-1.3.d, B-4.1.d, B-4.2.d, B-4.3.d, D-1.1.d, D-1.2.d, D-1.3.d, D-4.1.d, D-4.2.d, D-4.3.d</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Partial success: Based on configuration in Ent1, the E2 is not authorized to access RSS1 based on enterprise governance policy. ZPA will deny access to the resource.</p>
+<p>Also, RSS compliance cannot be demonstrated in this phase. In this case, user is not granted access to RSS1.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>B-1.1.e, B-1.2.e, B-1.3.e, B-4.1.e, B-4.2.e, B-4.3.e, D-1.1.e, D-1.2.e, D-1.3.e, D-4.1.e, D-4.2.e, D-4.3.e</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Partial success: User is authenticated via Okta when accessing the resource. User logs into Zscaler client connector as part of login process to the endpoint and policies are applied to the user/endpoint (including laptops, workstations, and mobile devices). User successfully connects to RSS2. However, we cannot validate compliance of RSS2.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.1.f, B-1.2.f, B-1.3.f, B-4.1.f, B-4.2.f, B-4.3.f, D-1.1.f, D-1.2.f, D-1.3.f, D-4.1.f, D-4.2.f, D-4.3.f</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: Without user authentication for the resource, the access attempt did not succeed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.1.g, B-1.2.g, B-1.3.g, B-4.1.g, B-4.2.g, B-4.3.g, D-1.1.g, D-1.2.g, D-1.3.g, D-4.1.g, D-4.2.g, D-4.3.g</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: Without user authentication for the resource, the access attempt did not succeed.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.1.h, B-1.2.h, B-1.3.h, B-4.1.h, B-4.2.h, B-4.3.h, D-1.1.h, D-1.2.h, D-1.3.h, D-4.1.h, D-4.2.h, D-4.3.h</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Success: GitLab session timeout is set to one minute for demonstration purposes. After session timed out, user was reauthenticated.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.1.i, B-1.2.i, B-1.3.i, B-4.1.i, B-4.2.i, B-4.3.i, D-1.1.i, D-1.2.i, D-1.3.i, D-4.1.i, D-4.2.i, D-4.3.i</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: After session timeout, user tried to login with incorrect password and was denied.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.1.j, B-1.2.j, B-1.3.j, B-4.1.j, B-4.2.j, B-4.3.j, D-1.1.j, D-1.2.j, D-1.3.j, D-4.1.j, D-4.2.j, D-4.3.j</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: Device posture failure detected by ZPA, so access was denied.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.1.k, B-1.2.k, B-1.3.k, B-4.1.k, B-4.2.k, B-4.3.k, D-1.1.k, D-1.2.k, D-1.3.k, D-4.1.k, D-4.2.k, D-4.3.k</p></td>
+<td><p>Access Limited</p></td>
+<td><p>N/A</p></td>
+<td><p>Partial success: Access to RSS2 is blocked. Currently cannot perform limited access.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.1.l-m, B-1.2.l-m, B-1.3.l-m, B-4.1.l-m, B-4.2.l-m, B-4.3.l-m, D-1.1.l-m, D-1.2.l-m, D-1.3.l-m, D-4.1.l-m, D-4.2.l-m, D-4.3.l-m</p></td>
+<td><p>Access Denied</p></td>
+<td><p>Access Denied</p></td>
+<td><p>Success: User was denied access because the endpoint was noncompliant. Device posture failure detected by ZPA.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.1.n-p, B-1.2.n-p, B-1.3.n-p, B-4.1.n-p, B-4.2.n-p, B-4.3.n-p, D-1.1.n-p, D-1.2.n-p, D-1.3.n-p, D-4.1.n-p, D-4.2.n-p, D-4.3.n-p</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Demonstration cannot be run. Unable to perform compliance checks on RSS.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.2.a-p</p></td>
+<td></td>
+<td></td>
+<td><p>The results are the same as B-1.1 since network policies allow access from branch to Ent1. See results from B-1.1.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.3.a-p</p></td>
+<td></td>
+<td></td>
+<td><p>The results are the same as B-1.1, given that ZPA policies allow the user/device to access the enterprise remotely the same way that user/device would access a resource within the enterprise. See results from B-1.1.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.4.a-p, B-1.5.a-p, B-1.6.a-p, B-4.4.a-p, B-4.5.a-q, and B-4.6.a-p</p></td>
+<td></td>
+<td></td>
+<td><p>Access to cloud-based resources (RSS1 and RSS2) are the same as on-prem. See results from B-1.1.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-2.1.a-d, B-2.2.a-d, B-2.3.a-d, B-5</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Success: Employee is granted access to URL1 and URL2 regardless of hourly access time because employees have full access to both URLs at all times per ZScaler policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-2.1.e, B-2.2.e, B-2.3.e</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: The only way the user is not authenticated is if the user inputs the incorrect password or does not have a second factor during Zscaler Client Connector (ZCC) login. With incorrect 1<sup>st</sup> or 2<sup>nd</sup> factor, ZCC will fail to connect with ZIA and will not be able to access the internet.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-2.1.f, B-2.2.f, B-2.3.f</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: Contractor is blocked from URL1 as expected per Zscaler policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-2.1.g, B-2.2.g, B-2.3.g</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Success: Contractor is granted access to URL2 as expected per Zscaler policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-2.1.h-I, B-2.2.h-I, B-2.3.h-i</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: Contractor is blocked from accessing URL1 due to failed authentication.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-2.1.j, B-2.2.j, B-2.3.j</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>The only way the user is not authenticated is if the user inputs the incorrect password or does not have a second factor during ZCC login. Access is successful because internet access is required for ZIA to function. If not authenticated to ZIA, internet access is unrestricted unless blocked by company firewall.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-2.1.k, B-2.2.k, B-2.3.k</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Success: Employee is granted access after successful reauthentication per Zscaler policy as expected.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-2.1.l, B-2.2.l, B-2.3.l</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: Employee cannot access URL1 or URL2 after reauthentication to Zscaler fails as expected.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-2.1.m-p, B-2.2.m-p, B-2.3.m-p</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Demonstration cannot be completed. ZIA does not perform device posture/compliance checks on endpoints without integration of a third-party EPP product.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.a, B-3.4.a, B-3.5.a</p></td>
+<td><p>Real Req Success</p></td>
+<td><p>Real Req Success</p></td>
+<td><p>Success: Real Request successfully authenticated.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.b, B-3.4.b, B-3.5.b</p></td>
+<td><p>Real Req Fail</p></td>
+<td><p>Real Req Fail</p></td>
+<td><p>Success: Incorrect credentials were entered, and the Real Request failed as expected.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.c, B-3.4.c, B-3.5.c</p></td>
+<td><p>Limit Access for Real Request, Deny Access to Hostile Request</p></td>
+<td><p>N/A</p></td>
+<td><p>Unable to complete demonstration. Current build does not have the capability to differentiate between the Real Request and Hostile Request in this context.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.d, B-3.4.d, B-3.5.d</p></td>
+<td><p>Real Request Keep Access, Deny Access to Hostile Request</p></td>
+<td><p>N/A</p></td>
+<td><p>Unable to complete demonstration. Current build does not have the capability to differentiate between the Real Request and Hostile Request in this context.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.e, B-3.4.e, B-3.5.e</p></td>
+<td><p>Hostile Request Successful</p></td>
+<td><p>Hostile Request Successful</p></td>
+<td><p>Success: Hostile Request successfully authenticated.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.f, B-3.4.f, B-3.5.f</p></td>
+<td><p>Hostile Request Unsuccessful</p></td>
+<td><p>Hostile Request Unsuccessful</p></td>
+<td><p>Success: Incorrect credentials were entered, and the Hostile Request failed as expected.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.g, B-3.4.g, B-3.5.g</p></td>
+<td><p>Real Request Fail, Hostile Request Access Limited</p></td>
+<td><p>N/A</p></td>
+<td><p>Unable to complete demonstration. Current build does not have the capability to differentiate between the Real Request and Hostile Request in this context.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.h, B-3.4.h, B-3.5.h</p></td>
+<td><p>Real Request Fail, Hostile Request remains authenticated</p></td>
+<td><p>N/A</p></td>
+<td><p>Unable to complete demonstration. Current build does not have the capability to differentiate between the Real Request and Hostile Request in this context.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.i, B-3.4.i, B-3.5.i</p></td>
+<td><p>Real Req Success</p></td>
+<td><p>Real Req Success</p></td>
+<td><p>Success: Real Request successfully authenticated.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.j, B-3.4.j, B-3.5.j</p></td>
+<td><p>Real Request remains authenticated, Hostile Request Fail</p></td>
+<td><p>N/A</p></td>
+<td><p>Unable to complete demonstration. Current build does not have the capability to differentiate between the Real Request and Hostile Request in this context.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.k, B-3.4.k, B-3.5.k</p></td>
+<td><p>Hostile Request Fail</p></td>
+<td><p>Hostile Request Fail</p></td>
+<td><p>Success: Incorrect credentials were entered, and the Hostile Request failed as expected.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.l, B-3.4.l, B-3.5.l</p></td>
+<td><p>Real Request Access Successful</p></td>
+<td><p>Real Requet Access Successful</p></td>
+<td><p>Success: Real Request successfully reauthenticated.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.m, B-3.4.m, B-3.5.m</p></td>
+<td><p>Hostile Request Access Denied</p></td>
+<td><p>Hostile Request Access Denied</p></td>
+<td><p>Success: Hostile Request reauthentication failed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.n, B-3.4.n, B-3.5.n</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Demonstration could not be completed due to build not supporting session termination at this level.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.o, B-3.4.o, B-3.5.o</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Demonstration could not be completed due to build not supporting session termination at this level.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-4</p></td>
+<td></td>
+<td></td>
+<td><p>As documented in the rows above, the results of all B-4 use case demonstrations are the same as the results of the B-1 use cases because the device is both authenticated and compliant. In this case, a BYOD device will have to install the ZCC client. See results from B-1.1 for B-4.1, B-4.2, and B-4.3.</p></td>
+</tr>
+<tr class="row-even"><td><p>All C Use Cases</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Demonstrations cannot be performed. Currently, no federation configuration has been set up between Ent1, Ent2, and Ent3.</p></td>
+</tr>
+<tr class="row-odd"><td><p>All D Use Cases</p></td>
+<td></td>
+<td></td>
+<td><p>As documented in the rows above, the results of all D use case demonstrations are the same as the results of the B use cases. Note that the user is a contractor and will have access to resources based on need. The Ivanti Neurons for UEM agent and Okta Verify App will have to be installed on the contractor’s device, whether it’s provided by the enterprise or BYOD.</p></td>
+</tr>
+<tr class="row-even"><td><p>E-1.1.a, E-1.2.a</p></td>
+<td><p>Success</p></td>
+<td><p>Success</p></td>
+<td><p>Success: User/device is recognized by Zscaler Internet Access (ZIA) as unmanaged and given access to the internet. Per ZIA enterprise policies, resources on the internet that are deemed safe for access are reachable by the user with No-ID, which includes a public resource from Enterprise 1.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E-1.1.b, E-1.2.b</p></td>
+<td><p>Success</p></td>
+<td><p>Success</p></td>
+<td><p>Success: User/device is recognized by ZIA as unmanaged and given access to the internet. Per ZIA enterprise policies, resources on the internet that are deemed safe for access are reachable by the user with No-ID.</p></td>
+</tr>
+<tr class="row-even"><td><p>All F Use Cases</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Test cannot be completed without third-party integration with an endpoint protection platform (EPP).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="enterprise-3-build-2-e3b2-eig-run-microsoft-azure-ad-conditional-access-later-renamed-entra-conditional-access-microsoft-intune-forescout-eyecontrol-and-forescout-eyeextend-as-pes-detailed-demonstration-results">
+<h2>Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Detailed Demonstration Results<a class="headerlink" href="#enterprise-3-build-2-e3b2-eig-run-microsoft-azure-ad-conditional-access-later-renamed-entra-conditional-access-microsoft-intune-forescout-eyecontrol-and-forescout-eyeextend-as-pes-detailed-demonstration-results" title="Link to this heading">#</a></h2>
+<p>Table 2 lists the full demonstration results for all EIG run phase demonstrations run in Enterprise 3 Build 2 (E3B2). The technology deployed in E3B2 was able to determine endpoint compliance for Windows, macOS, and mobile devices and prevent noncompliant endpoints from accessing private resources.</p>
+<p><strong>Table 2 - Detailed Demonstration Results for E3B2</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Demo ID</p></th>
+<th class="head"><p>Expected Outcome</p></th>
+<th class="head"><p>Observed Outcome</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A-1.1.a-d</p></td>
+<td><p>Access to Network</p></td>
+<td><p>Access to Network</p></td>
+<td><p>Success: Resource has access to network in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-1.1.b, A-1.1.c, A-1.1.g</p></td>
+<td><p>No Access to Network</p></td>
+<td><p>No Access to Network</p></td>
+<td><p>Partial success: In the current configuration, the endpoint has access limited to the local subnet in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-1.1.d</p></td>
+<td><p>No Access to Network</p></td>
+<td><p>N/A</p></td>
+<td><p>Demonstration cannot be completed. By Scenario A-1 definition, a resource has already undergone onboarding.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-1.1.e</p></td>
+<td><p>Access to Network</p></td>
+<td><p>Access to Network</p></td>
+<td><p>Success: Endpoint has access to network in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-1.1.f</p></td>
+<td><p>Max. Limited Access to Network</p></td>
+<td><p>Max. Limited Access to Network</p></td>
+<td><p>Success: Endpoint has access limited in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-1.1.h</p></td>
+<td><p>Access to Public Network</p></td>
+<td><p>N/A</p></td>
+<td><p>Demonstration cannot be completed. By Scenario A-1 definition, an endpoint has already undergone onboarding.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-1.1.i</p></td>
+<td><p>Access to Network</p></td>
+<td><p>Access to Network</p></td>
+<td><p>Success: BYOD has access to network in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-1.1.j</p></td>
+<td><p>Limited Access to Network</p></td>
+<td><p>Limited Access to Network</p></td>
+<td><p>Success: Endpoint has access limited to the local subnet in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-1.1.k</p></td>
+<td><p>No Access to Network</p></td>
+<td><p>No Access to Network</p></td>
+<td><p>Partial success: In the current configuration, the endpoint has access limited to the local subnet in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-1.1.l</p></td>
+<td><p>Access to Public Network</p></td>
+<td><p>N/A</p></td>
+<td><p>Demonstration cannot be completed. By Scenario A-1 definition, the BYOD has already undergone onboarding.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-1.1.m</p></td>
+<td><p>Access to Public Network</p></td>
+<td><p>Access to Public Network</p></td>
+<td><p>Success: BYOD has access to network in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-1.2.a-m</p></td>
+<td><p>Access to Network</p></td>
+<td><p>N/A</p></td>
+<td><p>Demonstration cannot be completed. There is no branch office configured for Enterprise 3.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-1.3.a</p></td>
+<td><p>Access to Network</p></td>
+<td><p>Access to Network</p></td>
+<td><p>Success: Endpoint has access to network in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-1.3.b</p></td>
+<td><p>Max. Limited Access to Network</p></td>
+<td><p>Max. Limited Access to Network</p></td>
+<td><p>Success: Endpoint has access limited in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-1.3.c</p></td>
+<td><p>No Access to Network</p></td>
+<td><p>No Access to Network</p></td>
+<td><p>Success: Endpoint is denied access to the network after failing to authenticate to the GlobalProtect VPN.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-1.3.d</p></td>
+<td><p>Access to Network</p></td>
+<td><p>Access to Network</p></td>
+<td><p>Success: BYOD has access to network in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-1.3.e</p></td>
+<td><p>Max. Limited Access to Network</p></td>
+<td><p>Max. Limited Access to Network</p></td>
+<td><p>Success: Endpoint has access limited in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-1.3.f</p></td>
+<td><p>No Access to Network</p></td>
+<td><p>No Access to Network</p></td>
+<td><p>Success: BYOD is denied access to the network after failing to authenticate to the GlobalProtect VPN.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-1.4.a-g</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Partial Success: Using Azure roles, a user could be allowed, denied, or provided with limited access to cloud resources. With Azure AD Conditional Access and Microsoft Intune, a device can be given access to a cloud application.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-2.1.a</p></td>
+<td><p>Keep Access to Network</p></td>
+<td><p>Keep Access to Network</p></td>
+<td><p>Success: Resource has access to network in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-2.1.b</p></td>
+<td><p>Terminate Access to Network</p></td>
+<td><p>Limit Access to Network</p></td>
+<td><p>Partial Success: Resource has access limited to the local subnet in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-2.1.c</p></td>
+<td><p>Terminate Access to Network</p></td>
+<td><p>Limit Access to Network</p></td>
+<td><p>Partial Success: Resource has access limited to the local subnet in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-2.1.d</p></td>
+<td><p>Keep Access to Network</p></td>
+<td><p>Keep Access to Network</p></td>
+<td><p>Success: Endpoint has access to network in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-2.1.e</p></td>
+<td><p>Max. Limited Access to Network</p></td>
+<td><p>Max. Limited Access to Network</p></td>
+<td><p>Success: Endpoint has access limited in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-2.1.f</p></td>
+<td><p>Terminate Access to Network</p></td>
+<td><p>Limit Access to Network</p></td>
+<td><p>Partial Success: Resource has access limited to the local subnet in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-2.1.g</p></td>
+<td><p>Keep Access to Network</p></td>
+<td><p>Keep Access to Network</p></td>
+<td><p>Success: BYOD has access to network in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-2.1.h</p></td>
+<td><p>Max. Limited Access to Network</p></td>
+<td><p>Max. Limited Access to Network</p></td>
+<td><p>Success: Endpoint has access limited in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-2.1.i</p></td>
+<td><p>Terminate Access to Network</p></td>
+<td><p>Limit Access to Network</p></td>
+<td><p>Partial success: BYOD has access limited to the local subnet in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-2.2.a-i</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Demonstration cannot be completed. There is no branch office configured for Enterprise 3.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-2.3.a</p></td>
+<td><p>Keep Access to Network</p></td>
+<td><p>Keep Access to Network</p></td>
+<td><p>Success: Endpoint has access to network in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-2.3.b</p></td>
+<td><p>Max. Limited Access to Network</p></td>
+<td><p>Max. Limited Access to Network</p></td>
+<td><p>Success: Endpoint has access limited in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-2.3.c</p></td>
+<td><p>Terminate Access to Network</p></td>
+<td><p>Terminate Access to Network</p></td>
+<td><p>Success: Endpoint has access terminated after failing to reauthenticate to the GlobalProtect VPN.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-2.3.d</p></td>
+<td><p>Keep Access to Network</p></td>
+<td><p>Keep Access to Network</p></td>
+<td><p>Success: BYOD has access to network in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-2.3.e</p></td>
+<td><p>Max. Limited Access to Network</p></td>
+<td><p>Max. Limited Access to Network</p></td>
+<td><p>Success: BYOD has access limited in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-2.3.f</p></td>
+<td><p>Terminate Access to Network</p></td>
+<td><p>Terminate Access to Network</p></td>
+<td><p>Success: BYOD has access terminated after failing to reauthenticate to the GlobalProtect VPN.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-2.4.a,d</p></td>
+<td><p>Keep Access to Network</p></td>
+<td><p>Keep Access to Network</p></td>
+<td><p>Success: Azure is able to allow access to cloud endpoints and resources.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-2.4.b,c,f</p></td>
+<td><p>Terminate Access to Network</p></td>
+<td><p>Terminate Access to Network</p></td>
+<td><p>Success: Azure is able to limit access to cloud endpoints and resources.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-2.4.e</p></td>
+<td><p>Max. Limited Access to Network</p></td>
+<td><p>Max. Limited Access to Network</p></td>
+<td><p>Success: Azure is able to limit access to cloud endpoints and resources.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-3.1.a</p></td>
+<td><p>User request and action is recorded</p></td>
+<td><p>User request is recorded</p></td>
+<td><p>Partial Success: User activity and transaction flow is logged using Forescout. Individual user actions are not visible within this build.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-3.2.a</p></td>
+<td><p>User request and action is recorded</p></td>
+<td><p>User request is recorded</p></td>
+<td><p>Partial Success: User activity and transaction flow is logged using Forescout and Azure AD. Individual user actions are not visible within this build.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-3.3.a, A-3.4.a,</p></td>
+<td><p>User request and action is recorded</p></td>
+<td><p>N/A</p></td>
+<td><p>Branch testing is not available for this build.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-3.5.a, A-3.6.a</p></td>
+<td><p>User request and action is recorded</p></td>
+<td><p>User request is recorded</p></td>
+<td><p>Partial Success: User activity and transaction flow is logged. Individual user actions are not visible.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-3.1.b, A-3.2.b, A-3.3.b, A-3.4.b</p></td>
+<td><p>API call is recorded</p></td>
+<td><p>Activity and transaction flow is recorded</p></td>
+<td><p>Partial Success: Service activity and transaction flow is logged by Forescout. Individual API calls are not visible.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.1.a</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Success: Users access RSS1 based on the EP and RSS compliance with Forescout and Azure AD policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.1.b</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Success: Users access RSS2 based on the EP and RSS compliance with Forescout and Azure AD policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.1.c</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: User authentication failure to Azure AD prevents access.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.1.d</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: E2 is not authorized to access RSS1 in accordance with Azure AD policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.1.e</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Success: Users access RSS2 based on the EP and RSS compliance with Forescout and Azure AD policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.1.f, B-1.1.g,</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: User authentication failure to Azure AD prevents access.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.1.h</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Success: Session timeout is set to one minute for demonstration purposes. After session timed out, user was reauthenticated to Azure AD.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.1.i</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: Users were prevented from accessing resources after reauthentication failure to Azure AD.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.1.j</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: Initial user authentication to Azure AD was successful and user was granted access to RSS1. After E1 became noncompliant, user access to RSS1 was blocked in accordance with Forescout policy, and the user was unable to reauthenticate to Azure AD.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.1.k</p></td>
+<td><p>Access Limited</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Partial success: Initial user authentication to Azure AD was successful and user was granted access to RSS2. In this case, changing the user’s access level on RSS2 would require application-level control that is not available at this time. After E1 became noncompliant, user access to RSS2 was blocked in accordance with Forescout policy, and the user was unable to reauthenticate to Azure AD.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.1.l</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: After E1 became noncompliant, user access to RSS1 was blocked in accordance with Forescout policy, and the user was unable to authenticate to Azure AD.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.1.m</p></td>
+<td><p>Access Limited</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Partial success: In this case, changing the user’s access level on RSS2 would require application-level control that is not available at this time. After E1 became noncompliant, user access to RSS2 was blocked in accordance with Forescout policy, and the user was unable to authenticate to Azure AD.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.1.n-p</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: After the RSS became noncompliant, user access to the RSS was blocked in accordance with Forescout policy, and the user was unable to authenticate to Azure AD.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.2.a-p</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Cannot test because there is no branch office in Ent. 3.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.3.a-p</p></td>
+<td></td>
+<td></td>
+<td><p>The results are the same as B-1.1, given that network policies allow the user/device to access the enterprise remotely using a VPN connection. See results from B-1.1.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.4.a</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Success: Users access RSS1 based on the EP compliance with Forescout and Azure AD policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.4.b</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Success: Users access RSS2 based on the EP compliance with Forescout and Azure AD policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.4.c</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: User authentication failure to Azure AD prevents access.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.4.d</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: E2 is not authorized to access RSS1 in accordance with Azure AD policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.4.e</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Success: Users access RSS2 based on the EP and RSS compliance with Forescout and Azure AD policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.4.f, B-1.4.g</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: User authentication failure to Azure AD prevents access.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.4.h</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Success: Session timeout is set to one minute for demonstration purposes. After session timed out, user was reauthenticated to Azure AD.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.4.i</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: Users were prevented from accessing resources after reauthentication failure to Azure AD.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.4.j</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: Initial user authentication to Azure AD was successful and user was granted access to RSS1. After E1 became noncompliant, user access to RSS1 was blocked in accordance with Forescout policy, and the user was unable to reauthenticate to Azure AD.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.4.k</p></td>
+<td><p>Access Limited</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Partial success: Initial user authentication to Azure AD was successful and user was granted access to RSS2. In this case, changing the user’s access level on RSS2 would require application-level control that is not available at this time. After E1 became noncompliant, user access to RSS2 was blocked in accordance with Forescout policy, and the user was unable to reauthenticate to Azure AD.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.4.l</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: After E1 became noncompliant, user access to RSS1 was blocked in accordance with Forescout policy, and the user was unable to authenticate to Azure AD.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.4.m</p></td>
+<td><p>Access Limited</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Partial success: In this case, changing the user’s access level on RSS2 would require application-level control that is not available at this time. After E1 became noncompliant, user access to RSS2 was blocked in accordance with Forescout policy, and the user was unable to authenticate to Azure AD.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.4.n-p</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Demonstration cannot be performed as verification of cloud resource compliance is not available at this time.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.5.a-p</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Demonstration cannot be performed as branch office is not available at this time.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.6.a-p</p></td>
+<td></td>
+<td></td>
+<td><p>In the current implementation, remote users are connected to a VPN that routes network traffic through the on-prem environment. All test results are similar to B-1.4.a-p.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-2.1.a-d, g, n</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Success: Access allowed in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>B2.1.e, f, l, m, o, p</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: Access denied in accordance with Forescout policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-2.2</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Demonstration cannot be performed as branch office is not available at this time.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-2.3</p></td>
+<td></td>
+<td></td>
+<td><p>In the current implementation, remote users are connected to a VPN that routes network traffic through the on-prem environment. All test results are similar to B-2.1.a-p.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.a, B-3.4.a, B-3.5.a</p></td>
+<td><p>Real Req Success</p></td>
+<td><p>Real Req Success</p></td>
+<td><p>Success: Real Request successfully authenticated.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.b, B-3.4.b, B-3.5.b</p></td>
+<td><p>Real Req Fail</p></td>
+<td><p>Real Req Fail</p></td>
+<td><p>Success: Incorrect credentials were entered, and the Real Request failed as expected.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.c, B-3.4.c, B-3.5.c</p></td>
+<td><p>Limit Access for Real Request, Deny Access to Hostile Request</p></td>
+<td><p>N/A</p></td>
+<td><p>Unable to complete demonstration. Current build does not have the capability to differentiate between the Real Request and Hostile Request in this context.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.d, B-3.4.d, B-3.5.d</p></td>
+<td><p>Real Request Keep Access, Deny Access to Hostile Request</p></td>
+<td><p>N/A</p></td>
+<td><p>Unable to complete demonstration. Current build does not have the capability to differentiate between the Real Request and Hostile Request in this context.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.e, B-3.4.e, B-3.5.e</p></td>
+<td><p>Hostile Request Successful</p></td>
+<td><p>Hostile Request Successful</p></td>
+<td><p>Success: Hostile Request successfully authenticated.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.f, B-3.4.f, B-3.5.f</p></td>
+<td><p>Hostile Request Unsuccessful</p></td>
+<td><p>Hostile Request Unsuccessful</p></td>
+<td><p>Success: Incorrect credentials were entered, and the Hostile Request failed as expected.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.g, B-3.4.g, B-3.5.g</p></td>
+<td><p>Real Request Fail, Hostile Request Access Limited</p></td>
+<td><p>N/A</p></td>
+<td><p>Unable to complete demonstration. Current build does not have the capability to differentiate between the Real Request and Hostile Request in this context.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.h, B-3.4.h, B-3.5.h</p></td>
+<td><p>Real Request Fail, Hostile Request remains authenticated</p></td>
+<td><p>N/A</p></td>
+<td><p>Unable to complete demonstration. Current build does not have the capability to differentiate between the Real Request and Hostile Request in this context.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.i, B-3.4.i, B-3.5.i</p></td>
+<td><p>Real Req Success</p></td>
+<td><p>Real Req Success</p></td>
+<td><p>Success: Real Request successfully authenticated.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.j, B-3.4.j, B-3.5.j</p></td>
+<td><p>Real Request remains authenticated, Hostile Request Fail</p></td>
+<td><p>N/A</p></td>
+<td><p>Unable to complete demonstration. Current build does not have the capability to differentiate between the Real Request and Hostile Request in this context.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.k, B-3.4.k, B-3.5.k</p></td>
+<td><p>Hostile Request Fail</p></td>
+<td><p>Hostile Request Fail</p></td>
+<td><p>Success: Incorrect credentials were entered, and the Hostile Request failed as expected.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.l, B-3.4.l, B-3.5.l</p></td>
+<td><p>Real Request Access Successful</p></td>
+<td><p>Real Request Access Successful</p></td>
+<td><p>Success: Real Request successfully reauthenticated.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.m, B-3.4.m, B-3.5.m</p></td>
+<td><p>Hostile Request Access Denied</p></td>
+<td><p>Hostile Request Access Denied</p></td>
+<td><p>Success: Hostile Request reauthentication fails.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.n, B-3.4.n, B-3.5.n</p></td>
+<td><p>Hostile Request Session Terminated</p></td>
+<td><p>Hostile Request Session Terminated</p></td>
+<td><p>Success: Azure AD sessions terminated.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.o, B-3.4.o, B-3.5.o</p></td>
+<td><p>Real Request Session Terminated</p></td>
+<td><p>Real Request Session Terminated</p></td>
+<td><p>Success: Azure AD sessions terminated.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.2, B-3.3</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Branch office is not included in Build 3.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-4</p></td>
+<td></td>
+<td></td>
+<td><p>All demonstrations here are the same as B-1 since the device is both authenticated and compliant.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-5</p></td>
+<td></td>
+<td></td>
+<td><p>All demonstrations here are the same as B-2 since the device is both authenticated and compliant.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-6</p></td>
+<td></td>
+<td></td>
+<td><p>All demonstrations here are the same as B-3 since the device is both authenticated and compliant.</p></td>
+</tr>
+<tr class="row-even"><td><p>All C Use Cases</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Demonstrations cannot be performed. Currently, no federation configuration has been set up between Ent1, Ent2, and Ent3.</p></td>
+</tr>
+<tr class="row-odd"><td><p>All D Use Cases</p></td>
+<td></td>
+<td></td>
+<td><p>All demonstrations here are the same as B since the device is both authenticated and compliant. Note that the user is a contractor.</p></td>
+</tr>
+<tr class="row-even"><td><p>E-1.1.a, b</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Success: Guests can access public resources and internet in accordance with policy using Forescout.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E-1.2.a, b</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Demonstration cannot be performed as branch office is not available at this time.</p></td>
+</tr>
+<tr class="row-even"><td><p>All F Use Cases</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Confidence level use cases are considered out of scope for the EIG run phase.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="enterprise-4-build-3-e4b3-eig-run-ibm-security-verify-as-pe-detailed-demonstration-results">
+<h2>Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Detailed Demonstration Results<a class="headerlink" href="#enterprise-4-build-3-e4b3-eig-run-ibm-security-verify-as-pe-detailed-demonstration-results" title="Link to this heading">#</a></h2>
+<p>Table 3 lists the full demonstration results for EIG run phase demonstrations in Enterprise 4 Build 3 (E4B3). The technology deployed in E4B3 was able to determine endpoint compliance for Windows and mobile devices and prevent noncompliant endpoints from accessing private resources.</p>
+<p><strong>Table 3 - Detailed Demonstration Results for E4B3</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Demo ID</p></th>
+<th class="head"><p>Expected Outcome</p></th>
+<th class="head"><p>Observed Outcome</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A-1.1.a-d, A-1.1.f, A-1.1.j</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>IBM considers RSS management and granting the endpoint limited access to the network out of scope for their products. Other technologies should be used to perform this function.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-1.1.e, A-1.1.i</p></td>
+<td><p>Access to Network</p></td>
+<td><p>Access to Network</p></td>
+<td><p>Success: MaaS360 configuration allowed iOS and Android devices to successfully authenticate to the Enterprise 4 wireless network.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-1.1.g, A-1.1.k</p></td>
+<td><p>No Access to Network</p></td>
+<td><p>No Access to Network</p></td>
+<td><p>Success: iOS and Android devices were denied access after failing network authentication.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-1.1.h, A-1.1.l, A-1.1.m</p></td>
+<td><p>Access to Public Network</p></td>
+<td><p>Access to Public Network</p></td>
+<td><p>Success: The devices are able to access the Public Network.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-1.2.a-m, A-1.3.a-f, A-1.4.a-g</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Not demonstrated in this build due to no branch in Ent 4.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-1.3.a, A-1.3.d</p></td>
+<td><p>Access to Network</p></td>
+<td><p>Access to Network</p></td>
+<td><p>Success: MaaS360 configuration allowed iOS and Android devices to successfully authenticate to the Enterprise 4 wireless network.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-1.3.c, A-1.3.f</p></td>
+<td><p>No Access to Network</p></td>
+<td><p>No Access to Network</p></td>
+<td><p>Success: iOS and Android devices were denied access after failing network authentication.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-1.3.b, A-1.3.e</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>IBM considers limited network access out of scope for their products. Other technologies should be used to perform this function.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-2</p></td>
+<td></td>
+<td></td>
+<td><p>A-2 results match results from A-1.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-3.1.a, A-3.3.a, A-3.5.a</p></td>
+<td><p>User request and action is recorded</p></td>
+<td><p>User login to an application is logged</p></td>
+<td><p>Success: IBM Security Verify and QRadar record user application requests.</p></td>
+</tr>
+<tr class="row-even"><td><p>A-3.2.a, A-3.4.a, A-3.6.a</p></td>
+<td><p>User request and action is recorded</p></td>
+<td><p>User login to an application is logged</p></td>
+<td><p>Success: IBM Security Verify and QRadar record user application logins.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-3.1.b, A-3.3.b, A-3.2.b, A-3.4.b, A-3.6.a</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>IBM considers API call visibility out of scope for their products. Other technologies should be used to perform this function.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.1.a, B-1.3.a, B-1.4.a, B-4.1.a, B-4.2.a, B-4.3.a, D-1.1.a, D-1.2.a, D-1.3.a, D-4.1.a, D-4.2.a, D-4.3.a</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Partial Success: User is successfully authenticated and granted access to the resource. However, RSS compliance was not obtained.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.1.b, B-1.3.b, B-1.4.b, B-4.1.b, B-4.2.b, B-4.3.b, D-1.1.b, D-1.2.b, D-1.3.b, D-4.1.b, D-4.2.b, D-4.3.b</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Partial Success: User is successfully authenticated and granted access to the resource. However, RSS compliance was not obtained.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.1.c, B-1.3.c, B-1.4.c, B-4.1.c, B-4.2.c, B-4.3.c, D-1.1.c, D-1.2.c, D-1.3.c, D-4.1.c, D-4.2.c, D-4.3.c</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: Demonstration completed with user not able to log in to resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.1.d, B-1.3.d, B-1.4.d, B-4.1.d, B-4.2.d, B-4.3.d, D-1.1.d, D-1.2.d, D-1.3.d, D-4.1.d, D-4.2.d, D-4.3.d</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: User was denied access due to policy constraints.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.1.e, B-1.3.e, B-1.4.e, B-4.1.e, B-4.2.e, B-4.3.e, D-1.1.e, D-1.2.e, D-1.3.e, D-4.1.e, D-4.2.e, D-4.3.e</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Partial Success: User is successfully authenticated and granted access to the resource. However, RSS compliance was not obtained.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.1.f, B-1.3.f, B-1.4.f, B-4.1.f, B-4.2.f, B-4.3.f, D-1.1.f, D-1.2.f, D-1.3.f, D-4.1.f, D-4.2.f, D-4.3.f</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: Without user authentication for the resource the access attempt did not succeed.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.1.g, B-1.3.g, B-1.4.g, B-4.1.g, B-4.2.g, B-4.3.g, D-1.1.g, D-1.2.g, D-1.3.g, D-4.1.g, D-4.2.g, D-4.3.g</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: Without user authentication for the resource, the access attempt did not succeed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.1.h, B-1.3.h, B-1.4.h, B-4.1.h, B-4.2.h, B-4.3.h, D-1.1.h, D-1.2.h, D-1.3.h, D-4.1.h, D-4.2.h, D-4.3.h</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Partial Success: GitLab session timeout is set to one minute for demonstration purposes. After session timed out, user was reauthenticated. However, RSS compliance was not obtained.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.1.i, B-1.3.i, B-1.4.i, B-4.1.i, B-4.2.i, B-4.3.i, D-1.1.i, D-1.2.i, D-1.3.i, D-4.1.i, D-4.2.i, D-4.3.i</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: After session timeout, user tried to login with incorrect credentials and access was denied.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.1.j, B-1.3.j, B-1.4.j, B-4.1.j, B-4.2.j, B-4.3.j, D-1.1.j, D-1.2.j, D-1.3.j, D-4.1.j, D-4.2.j, D-4.3.j</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: User was denied access due to endpoint noncompliance.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.1.k, B-1.3.k, B-1.4.k, B-4.1.k, B-4.2.k, B-4.3.k, D-1.1.k, D-1.2.k, D-1.3.k, D-4.1.k, D-4.2.k, D-4.3.k</p></td>
+<td><p>Access Limited</p></td>
+<td><p>Access Limited</p></td>
+<td><p>Partial Success: User access was downgraded due to having a noncompliant endpoint. However, RSS compliance was not obtained.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.1.l-m, B-1.3.l-m, B-1.4.l-m, B-4.1.l-m, B-4.2.l-m, B-4.3.l-m, D-1.1.l-m, D-1.2.l-m, D-1.3.l-m, D-4.1.l-m, D-4.2.l-m, D-4.3.l-m</p></td>
+<td><p>Access Denied</p></td>
+<td><p>Access Denied</p></td>
+<td><p>Partial Success: User access was downgraded due to having a noncompliant endpoint. However, RSS compliance was not obtained.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-1.1.n-p, B-1.3.n-p, B-1.4.n-p, B-4.1.n-p, B-4.2.n-p, B-4.3.n-p, D-1.1.n-p, D-1.2.n-p, D-1.3.n-p, D-4.1.n-p, D-4.2.n-p, D-4.3.n-p</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Not demonstrated in this build due to lack of resource compliance verification.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-1.2.a-p</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Branch not available in Enterprise 4</p></td>
+</tr>
+<tr class="row-even"><td><p>B-2.1.a-d, B-2.3.a-d</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Success: When using the secure browser on iOS and Android, user was allowed access per policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-2.1.e, B-2.3.e, B-5.1.e, B-5.3.e</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: When using the secure browser on iOS and Android, user was allowed access per policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-2.1.f, B-2.3.f, B-5.1.f, B-5.3.f</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: When using the secure browser on iOS and Android, user was denied access per policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-2.1.g, B-2.3.g, B-5.1.g, B-5.3.g</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Not demonstrated in this build due to MaaS360 limitation, as all MaaS360 resources like the secure browser are unavailable outside of the policy hours.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-2.1.h-i, B-2.3.h-i, B-5.1.h-i, B-5.3.h-i</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: User was denied access due to policy constraints.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-2.1.j-p, B-2.2.j-p, B-2.3.j-p, B-5.1.j-p, B-5.2.j-p, B-5.3.j-p</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Not demonstrated in this build. Due to security of MaaS360 certificate storage, we were unable to invalidate the credentials and produce a unsuccessful authentication. Resource compliance is not available in Ent4.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.a, B-3.4.a, B-3.5.a, B-6.1.a, B-6.4.a, B-6.5.a</p></td>
+<td><p>Real Req Success</p></td>
+<td><p>Real Req Success</p></td>
+<td><p>Success: User is able to successfully authenticate and access the RSS.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.b, B-3.4.b, B-3.5.b, B-6.1.b, B-6.4.b, B-6.5.b</p></td>
+<td><p>Real Req Fail</p></td>
+<td><p>Real Req Fail</p></td>
+<td><p>Success: User is unable to successfully authenticate and access the RSS.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.c, B-3.4.c, B-3.5.c, B-6.1.c, B-6.4.c, B-6.5.c</p></td>
+<td><p>Limit Access for Real Request, Deny Access to Hostile Request</p></td>
+<td><p>N/A</p></td>
+<td><p>Due to security of MaaS360 certificate storage, we were unable to copy the credentials and produce a Hostile authentication. A stolen username/password is insufficient to successfully authenticate.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.d, B-3.4.d, B-3.5.d, B-6.1.d, B-6.4.d, B-6.5.d</p></td>
+<td><p>Real Request Keep Access, Deny Access to Hostile Request</p></td>
+<td><p>N/A</p></td>
+<td><p>Due to security of MaaS360 certificate storage, we were unable to copy the credentials and produce a successful Hostile authentication. A stolen username/password is insufficient to successfully authenticate.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.e, B-3.4.e, B-3.5.e, B-6.1.e, B-6.4.e, B-6.5.e</p></td>
+<td><p>Hostile Request Successful</p></td>
+<td><p>N/A</p></td>
+<td><p>Due to security of MaaS360 certificate storage, we were unable to copy the credentials and produce a successful Hostile authentication. A stolen username/password is insufficient to successfully authenticate.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.f, B-3.4.f, B-3.5.f, B-6.1.f, B-6.4.f, B-6.5.f</p></td>
+<td><p>Hostile Request Unsuccessful</p></td>
+<td><p>Hostile Request Unsuccessful</p></td>
+<td><p>Success: Hostile user fails to properly authenticate and is unable to access the RSS.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.g, B-3.4.g, B-3.5.g, B-6.1.g, B-6.4.g, B-6.5.g</p></td>
+<td><p>Real Request Fail, Hostile Request Access Limited</p></td>
+<td><p>N/A</p></td>
+<td><p>Due to security of MaaS360 certificate storage, we were unable to copy the credentials and produce a successful Hostile authentication. A stolen username/password is insufficient to successfully authenticate.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.h, B-3.4.h, B-3.5.h, B-6.1.h, B-6.4.h, B-6.5.h</p></td>
+<td><p>Real Request Fail, Hostile Request remains authenticated</p></td>
+<td><p>N/A</p></td>
+<td><p>Due to security of MaaS360 certificate storage, we were unable to copy the credentials and produce a successful Hostile authentication. A stolen username/password is insufficient to successfully authenticate.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.i, B-3.4.i, B-3.5.i, B-6.1.i, B-6.4.i, B-6.5.i</p></td>
+<td><p>Real Req Success</p></td>
+<td><p>Real Req Success</p></td>
+<td><p>Success: User is able to successfully authenticate after new credentials are provisioned.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.j, B-3.4.j, B-3.5.j, B-6.1.j, B-6.4.j, B-6.5.j</p></td>
+<td><p>Real Request remains authenticated, Hostile Request Fail</p></td>
+<td><p>N/A</p></td>
+<td><p>Due to security of MaaS360 certificate storage, we were unable to copy the credentials and produce a Hostile authentication. A stolen username/password is insufficient to successfully authenticate.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.k, B-3.4.k, B-3.5.k, B-6.1.k, B-6.4.k, B-6.5.k</p></td>
+<td><p>Hostile Request Fail</p></td>
+<td><p>Hostile Request Fail</p></td>
+<td><p>Success: Stolen credentials are wiped from device using stolen credentials due to administrative action.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.l, B-3.4.l, B-3.5.l, B-6.1.l, B-6.4.l, B-6.5.l</p></td>
+<td><p>Real Request Access Successful</p></td>
+<td><p>Real Requet Access Successful</p></td>
+<td><p>Success: User is able to successfully reauthenticate after new credentials are provisioned.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.m, B-3.4.m, B-3.5.m, B-6.1.m, B-6.4.m, B-6.5.m</p></td>
+<td><p>Hostile Request Access Denied</p></td>
+<td><p>Hostile Request Access Denied</p></td>
+<td><p>Success: Hostile User is unable to successfully reauthenticate after stolen credentials are wiped and new credentials are provisioned to the user.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-3.1.n, B-3.4.n, B-3.5.n, B-6.1.n, B-6.4.n, B-6.5.n</p></td>
+<td><p>All sessions terminated</p></td>
+<td><p>All sessions terminated</p></td>
+<td><p>Success: All user sessions for GitLab RSS were terminated.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-3.1.o, B-3.4.o, B-3.5.o, B-6.1.o, B-6.4.o, B-6.5.o</p></td>
+<td><p>All sessions terminated</p></td>
+<td><p>All sessions terminated</p></td>
+<td><p>Success: All user sessions for GitLab RSS were terminated.</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-7</p></td>
+<td><p>Success</p></td>
+<td><p>Partial Success</p></td>
+<td><p>Partial Success: Just-in-time privileges can be manually completed to allow a user to access a resource. However, just-in-time access privileges with automation are not tested and require integration with other zero trust tools which have the capabilities to manage access for users.</p></td>
+</tr>
+<tr class="row-even"><td><p>B-8</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Not demonstrated in this build, as the ability to prompt for reauthentication in the middle of an active session is not included in Ent 4.</p></td>
+</tr>
+<tr class="row-odd"><td><p>All C Use Cases</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Use Case C is out of scope for this phase.</p></td>
+</tr>
+<tr class="row-even"><td><p>All E Use Cases</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>IBM considers this out of scope for their products. Other technologies should be used to perform this function.</p></td>
+</tr>
+<tr class="row-odd"><td><p>F-1.1.a, F-1.3.a, F-1.4.a, F-1.6.a</p></td>
+<td><p>Access Remains</p></td>
+<td><p>Access Remains</p></td>
+<td><p>Success: User successfully reauthenticates a locked RDP session and retains access to RSS.</p></td>
+</tr>
+<tr class="row-even"><td><p>F-1.1.b, F-1.3.b, F-1.4.b, F-1.6.n</p></td>
+<td><p>Access Denied</p></td>
+<td><p>Access Denied</p></td>
+<td><p>Success: User unsuccessfully reauthenticates a locked RDP session and access is denied to RSS.</p></td>
+</tr>
+<tr class="row-odd"><td><p>F1.2.a-b, F-1.5.a-b</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Demonstration cannot be performed as branch office is not available at this time.</p></td>
+</tr>
+<tr class="row-even"><td><p>F-2</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Not demonstrated in this build. Due to security of MaaS360 certificate storage, we were unable to invalidate the credentials and produce an unsuccessful endpoint authentication.</p></td>
+</tr>
+<tr class="row-odd"><td><p>F-3</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>IBM considers resource authentication out of scope for their product. Other technologies should be used for this use case.</p></td>
+</tr>
+<tr class="row-even"><td><p>F-4.1.a, F-4.3.a, F-4.4.a, F-4.6.a</p></td>
+<td><p>Endpoint compliant, access to resource remains</p></td>
+<td><p>Endpoint compliant, access to resource remains</p></td>
+<td><p>Success: Access to the RSS remains as long as the endpoint maintains compliance.</p></td>
+</tr>
+<tr class="row-odd"><td><p>F-4.1.b, F-4.3.b, F-4.4.b, F-4.6.b</p></td>
+<td><p>Endpoint drops out of compliance, access revoked</p></td>
+<td><p>Endpoint drops out of compliance, access revoked</p></td>
+<td><p>Success: When the endpoint drops out of compliance, access to the RSS is revoked. Future access is prevented by Verify.</p></td>
+</tr>
+<tr class="row-even"><td><p>F-4.2.a-b, F-4.5.a-b</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Demonstration cannot be performed as branch office is not available at this time.</p></td>
+</tr>
+<tr class="row-odd"><td><p>F-5.1.a, F-5.3.a, F-5.4.a, F-5.6.a</p></td>
+<td><p>Endpoint not compliant, No access to resource</p></td>
+<td><p>Endpoint not compliant, No access to resource</p></td>
+<td><p>Success: Access to the GitLab resource fails if the device is not in compliance.</p></td>
+</tr>
+<tr class="row-even"><td><p>F-5.1b, F-5.3.b, F-5.4.b, F-5.6.b</p></td>
+<td><p>Endpoint compliant, Access granted to resource</p></td>
+<td><p>Endpoint compliant, Access granted to resource</p></td>
+<td><p>Success: Once the endpoint is brought back into compliance, access to the GitLab RSS is granted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>F-5.2a-b, F-5.5.a-b</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Demonstration cannot be performed as branch office is not available at this time.</p></td>
+</tr>
+<tr class="row-even"><td><p>F-6.1.a, F-6.1.d, F-6.1.f, F-6.2.a, F-6.2.d, F-6.2.f</p></td>
+<td><p>Access revoked from resource, account disabled</p></td>
+<td><p>Access revoked from resource, account disabled</p></td>
+<td><p>Success: Access to SQL database RSS is revoked when sensitive data is accessed and events are logged in QRadar. Offenses are created in QRadar and remediation is completed with CloudPak 4 Security to disable the offending account in Verify.</p></td>
+</tr>
+<tr class="row-odd"><td><p>F-6.1.b-c, F-6.1.e, F6.1.g-l, F-6.2.b-c, F-6.2.e, F-6.2.g-l</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>PaaS and SaaS services were not available for this build.</p></td>
+</tr>
+<tr class="row-even"><td><p>F-7</p></td>
+<td><p>Access revoked from resource</p></td>
+<td><p>Violation logged, Access not revoked</p></td>
+<td><p>All demonstrations here are the same as F-6.</p></td>
+</tr>
+<tr class="row-odd"><td><p>F-8.1.a, F-8.1.c-d, F-8.1.f, F-8.2.a, F-8.2.c-d, F-8.2.f,</p></td>
+<td><p>Access to resource revoked</p></td>
+<td><p>Access to resource revoked</p></td>
+<td><p>Success: On accessing a known bad URL with the MaaS360 Secure Browser on a mobile device, access to a GitLab resource is revoked via CloudPak for Security and Verify disabled the user’s account.</p></td>
+</tr>
+<tr class="row-even"><td><p>F-8.1.b, F-8.1.e, F-8.1.h, F-8.1.k, F-8.2.b, F-8.2.e, F-8.2.h, F-8.2.k</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Demonstration cannot be performed as branch office is not available at this time.</p></td>
+</tr>
+<tr class="row-odd"><td><p>F-8.1.g, F-8.1.i-j, F-8.1.l, F-8.2.g, F-8.2.i-j, F-8.2.l</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>PaaS and SaaS services were not available for this build.</p></td>
+</tr>
+<tr class="row-even"><td><p>F-8.3.a-l</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>IBM considers guest network access out of scope for their product. Other technologies should be used for this use case.</p></td>
+</tr>
+<tr class="row-odd"><td><p>F-9 (all use cases)</p></td>
+<td></td>
+<td></td>
+<td><p>All demonstrations here are the same as F-8 since the device is both authenticated and compliant.</p></td>
+</tr>
+<tr class="row-even"><td><p>F-10.1.a-b, F-10.1.i-j, F-10.1.m-n, F-10.1.u-v, F-10.2.a-b, F-10.2.i-j, F-10.2.m-n, F-10.2.u-v</p></td>
+<td><p>Access not successful, access revoked to current resource, access revoked to all future resources</p></td>
+<td><p>Access not successful, access revoked to current resource, access revoked to all future resources</p></td>
+<td><p>Success: If the user attempts to access an unauthorized resource, their access to their current GitLab active session is revoked and their account is disabled in Verify.</p></td>
+</tr>
+<tr class="row-odd"><td><p>F-10.1.c-h, F-10.1.k-l, F-10.1.o-t, F-10.1.w-av, F-10.2.c-h, F-10.2.k-l, F-10.2.o-t, F-10.2.w-av</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Branch, PaaS, and SaaS services were not available for this build</p></td>
+</tr>
+<tr class="row-even"><td><p>F-10.3.a-av</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>IBM considers guest network access out of scope for their product. Other technologies should be used for this use case.</p></td>
+</tr>
+<tr class="row-odd"><td><p>F-11.1.a-b, F-11.1.i-j, F-11.1.m-n, F-11.1.u-v, F-11.2.a-b, F-11.2.i-j, F-11.2.m-n, F-11.2.u-v</p></td>
+<td><p>Bad URL detected, active session revoked, User account disabled in Verify</p></td>
+<td><p>Bad URL detected, active session revoked, User account disabled in Verify</p></td>
+<td><p>Success: Once the bad URL was detected, the user session from GitLab was revoked and the user’s account was disabled in Verify.</p>
+<p>NOTE: This scenario was only tested with mobile devices running IBM MaaS360 Secure Browser to detect the bad URL.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>F-11.1.c-h, F-11.1.k-l, F-11.1-t, F-11.1.w-av, F-11.2.c-h, F-11.2.k-l, F-11.2.o-t, F-11.2.w-av</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Branch, PaaS, and SaaS services were not configured for this build</p></td>
+</tr>
+<tr class="row-odd"><td><p>F-11.3.a-av</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>IBM considers guest network access out of scope for their product. Other technologies should be used for this use case.</p></td>
+</tr>
+<tr class="row-even"><td><p>F-12 (all use cases)</p></td>
+<td></td>
+<td></td>
+<td><p>All demonstrations here are the same as F-10 since the device is both authenticated and compliant.</p></td>
+</tr>
+<tr class="row-odd"><td><p>F-13 (all use cases)</p></td>
+<td></td>
+<td></td>
+<td><p>All demonstrations here are the same as F-11 since the device is both authenticated and compliant.</p></td>
+</tr>
+<tr class="row-even"><td><p>F-14, F-15, F-16, F-17</p></td>
+<td></td>
+<td></td>
+<td><p>IBM considers suspicious activity/network monitoring out of scope for their product. Other technologies should be used for these scenarios.</p></td>
+</tr>
+<tr class="row-odd"><td><p>All G Use Cases</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>IBM considers service-to-service use cases out of scope for their product. Other technologies should be used for this use case.</p></td>
+</tr>
+<tr class="row-even"><td><p>H-1.1.a, H.1.1.b, H-1.2.c, H-1.5.i, H-1.5.j, H-1.6.k, H-1.9.q, H-1.9.r, H-1.10.s</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Access Successful</p></td>
+<td><p>Success: Access granted in accordance with applied policy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>H-1.2.d, H-1.6.l, H-1.10.t</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Access Not Successful</p></td>
+<td><p>Success: Access to sensitive data was blocked in accordance with applied policy.</p></td>
+</tr>
+<tr class="row-even"><td><p>H-1.3, H-1.4, H-1.7, H-1.8</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Branch services were not configured for this build.</p></td>
+</tr>
+<tr class="row-odd"><td><p>H-2, H-3, H-4, H-5, H-6, H-7</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>IBM considers these use cases to be out of scope for their product. Other technologies should be used for these use cases.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="EIGCrawlResults.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">EIG Crawl Phase Demonstration Results</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="SDPMicroResults.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">SDP, Microsegmentation, and SASE Phase Demonstration Results</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-1-build-2-e1b2-eig-run-zscaler-zpa-central-authority-ca-as-pe-detailed-demonstration-results">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Detailed Demonstration Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-3-build-2-e3b2-eig-run-microsoft-azure-ad-conditional-access-later-renamed-entra-conditional-access-microsoft-intune-forescout-eyecontrol-and-forescout-eyeextend-as-pes-detailed-demonstration-results">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Detailed Demonstration Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-4-build-3-e4b3-eig-run-ibm-security-verify-as-pe-detailed-demonstration-results">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Detailed Demonstration Results</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<p>
+  
+    By NIST<br/>
+  
+</p>
+
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> Certain commercial equipment, instruments, or
+          materials are identified in this documentation to foster understanding. Such
+          identification does not imply recommendation or endorsement by the National
+          Institute of Standards and Technology, nor does it imply that the materials
+          or equipment identified are necessarily the best available for the purpose.
+        </div>
+      </p>
+    </div>
+</footer>
+  </body>
+</html>

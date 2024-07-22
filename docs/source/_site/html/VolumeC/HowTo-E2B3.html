@@ -1,0 +1,961 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Product Guides &#8212; Implementing a Zero Trust Architecture Project  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/content.css?v=59cd0ab0" />
+    <link rel="stylesheet" type="text/css" href="../_static/breadcrumbs.css?v=83cea8a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeC/HowTo-E2B3';</script>
+    <script src="../_static/jquery.visible.js?v=5b129ffc"></script>
+    <script src="../_static/jquery.leaveNotice-nist.js?v=7cf1efa2"></script>
+    <script src="../_static/applyLeaveNotice.js?v=38741b1c"></script>
+    <script src="../_static/smoothNavScroll.js?v=2ce98a12"></script>
+    <link rel="icon" href="../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides" href="HowTo-E3B3.html" />
+    <link rel="prev" title="Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Product Guides" href="HowTo-E1B3.html" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
+    <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+    <link rel="stylesheet" type="text/css" href="https://pages.nist.gov/leaveNotice/css/jquery.leaveNotice.css" />
+    <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJSMY46M5C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RJSMY46M5C');
+    </script>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="width: max-content;">
+    <ul class="wy-breadcrumbs">
+        <li><a href="../index.html" aria-label="Home"><i class="fa fa-home"></i></a></li>
+            <li class="breadcrumb-item">&ensp;<a href="index.html">Build Implementation Instructions</a></li>
+        <li class="breadcrumb-item active">&ensp;Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Product Guides</li>
+    </ul>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+  </div>
+  
+  
+
+  
+    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Implementing a Zero Trust Architecture Project  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture" title="Main Project Page" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/MainProjectLogo.jpg" class="icon-link-image" alt="Main Project Page"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Implementing a Zero Trust Architecture
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ExecutiveSummary.html">Executive Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/Introduction.html">Introduction to the Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ProjectOverview.html">Project Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeB/architecture.html">Architecture and Builds</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeB/BuildsImplemented.html">Builds Implemented</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../VolumeB/appendices/index.html">Build Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B3.html">Enterprise 2 Build 3 (E2B3) — Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Build Implementation Instructions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Product Guides</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardening.html">Hardening Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/GeneralFindings.html">General Findings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/FutureBuildConsiderations.html">Future Build Considerations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeD/index.html">Functional Demonstrations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/FunctionalLabDemonstration.html">Demonstration Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseA.html">Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseB.html">Use Case B: Enterprise-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseC.html">Use Case C: Collaboration: Federated-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseD.html">Use Case D: Other-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseE.html">Use Case E: Guest: No-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseF.html">Use Case F: Confidence Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseG.html">Use Case G: Service-Service Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseH.html">Use Case H: Data Level Security Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/FunctionalDemonstrationResultSummaries.html">Functional Demonstration Result Summaries</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../VolumeD/results/index.html">Functional Demonstration Results</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/EIGCrawlResults.html">EIG Crawl Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/EIGRunResults.html">EIG Run Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/SDPMicroResults.html">SDP, Microsegmentation, and SASE Phase Demonstration Results</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeE/index.html">Risk and Compliance Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/RisksAddressed.html">Risks Addressed by the ZTA Reference Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/ArchitectureSecurityMappings.html">ZTA Security Mapping Context and Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/Mappings.html">Mappings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acronyms.html">Acronyms</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/VolumeC/HowTo-E2B3.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Product Guides</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ping-identity-pingone">Ping Identity PingOne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-pingone-and-pingfederate">Configuration: PingOne and PingFederate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integrations">Integrations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiant-logic-radiantone">Radiant Logic RadiantOne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-and-configuration">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Integrations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sailpoint-identityiq">SailPoint IdentityIQ</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-radiant-logic">Integration with Radiant Logic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-ad">Integration with AD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-ping-identity">Integration with Ping Identity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-workspace-one">VMware Workspace ONE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-workspace-one-access">VMware Workspace ONE Access</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-radiantone">Integration with RadiantOne</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-pingfederate">Integration with PingFederate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-workspace-one-uem">VMware Workspace ONE UEM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-certificate-authority">Integration with Certificate Authority</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cisco-duo">Cisco Duo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration">Integration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#palo-alto-networks-next-generation-firewall">Palo Alto Networks Next Generation Firewall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-security-qradar-xdr">IBM Security QRadar XDR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-io">Tenable.io</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-ad">Tenable.ad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-nnm">Tenable NNM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mandiant-security-validation-msv">Mandiant Security Validation (MSV)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digicert-certcentral">DigiCert CertCentral</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cisco-identity-services-engine-ise">Cisco Identity Services Engine (ISE)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Integrations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cisco-secure-workload-csw-formerly-tetration">Cisco Secure Workload (CSW - Formerly Tetration)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Configuration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cisco-secure-network-analytics-sna-formerly-stealthwatch">Cisco Secure Network Analytics (SNA - Formerly Stealthwatch)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Integration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cisco-secure-endpoint-cse-formerly-amp">Cisco Secure Endpoint (CSE - Formerly AMP)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Integrations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#palo-alto-networks-panorama">Palo Alto Networks - Panorama</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-cisco-ise">Integration with Cisco ISE</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="enterprise-2-build-3-e2b3-microsegmentation-cisco-ise-cisco-secure-workload-and-ping-identity-ping-federate-as-pes-product-guides">
+<h1>Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Product Guides<a class="headerlink" href="#enterprise-2-build-3-e2b3-microsegmentation-cisco-ise-cisco-secure-workload-and-ping-identity-ping-federate-as-pes-product-guides" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is supplementary material for the <a class="reference external" href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf">NIST SP 1800-35 publication</a>.</p>
+</div>
+<p>This section of the practice guide contains detailed instructions for installing, configuring, and integrating all of the products used to implement Microsegmentation (Network) E2B3. For additional details on E2B3’s logical and physical architectures, please refer to <a class="reference internal" href="../VolumeB/architecture.html#architecture-and-builds"><span class="std std-ref">Architecture and Builds</span></a>.</p>
+<section id="ping-identity-pingone">
+<h2>Ping Identity PingOne<a class="headerlink" href="#ping-identity-pingone" title="Link to this heading">#</a></h2>
+<p>Ping Identity PingOne is a SaaS solution that provides ICAM capabilities to an enterprise. The following sections describe the setup of PingOne and its PingFederate service, and various integrations to other products. Ping Identity integrates with Radiant Logic for identity information, and with Cisco Duo to delegate the second authentication factor for users accessing resources.</p>
+<section id="configuration-pingone-and-pingfederate">
+<h3>Configuration: PingOne and PingFederate<a class="headerlink" href="#configuration-pingone-and-pingfederate" title="Link to this heading">#</a></h3>
+<p>Refer to <a class="reference internal" href="HowTo-E2B1.html#ping-one-config"><span class="std std-ref">PingOne and PingFederate Configuration</span></a>.</p>
+</section>
+<section id="integrations">
+<h3>Integrations<a class="headerlink" href="#integrations" title="Link to this heading">#</a></h3>
+<p>Refer to <a class="reference internal" href="HowTo-E2B1.html#ping-one-integration"><span class="std std-ref">Ping Identity Integrations</span></a> for integrations of Ping Identity with Radiant Logic and Cisco Duo.</p>
+<p>VMware Workspace ONE Access’s Integration with PingFederate was achieved using a SAML redirect (Workspace ONE Access is configured as a third-party SAML IdP in PING). When users on mobile devices attempt to authenticate through PingFederate, they will be redirected to Workspace ONE Access. Workspace ONE Access performs seamless passwordless user and device authentication using certificates, as well as checking the device’s compliance status in Workspace ONE UEM. The result of the compliance check and authentication is passed back to PING as a SAML Assertion.</p>
+<ol class="arabic simple">
+<li><p>To integrate with VMware Workspace ONE Access, navigate to the <strong>Authentication -&gt; IdP Connections</strong> menu and click <strong>Create Connection</strong> to create an IdP connection. The steps below describe the information needed to configure this IdP connection.</p></li>
+<li><p>For the IDP Connection settings, the connection role is <strong>IdP using SAML 2.0</strong>. General information needed is <strong>Partner’s Entity ID, Connection Name,</strong> and <strong>Base URL</strong>. All this information is provided by Workspace ONE Access.</p></li>
+<li><p><strong>Browser SSO</strong> properties include <strong>IdP-Initiated SSO</strong> and <strong>SP-Initiated SSO</strong>.</p></li>
+<li><p>For <strong>User-Session Creation</strong> information, leverage the contract that was created in <a class="reference internal" href="HowTo-E2B1.html#ping-one-config"><span class="std std-ref">PingOne and PingFederate Configuration</span></a>.</p></li>
+<li><p>For <strong>Protocol Settings, SSO Service URLs</strong> need to include a Redirect URL and a POST URL.</p></li>
+<li><p>Lastly, a certificate that is provided by Workspace ONE Access is needed for <strong>Credentials.</strong></p></li>
+</ol>
+<p>Refer to the <a class="reference external" href="https://docs.pingidentity.com/r/en-us/pingfederate-110/help_dependencyerrormanagementtasklet_dependencyerrormanagementstate">PingFederate Administrator’s Reference Guide</a> for detailed configuration steps.</p>
+</section>
+</section>
+<section id="radiant-logic-radiantone">
+<h2>Radiant Logic RadiantOne<a class="headerlink" href="#radiant-logic-radiantone" title="Link to this heading">#</a></h2>
+<section id="installation-and-configuration">
+<h3>Installation and Configuration<a class="headerlink" href="#installation-and-configuration" title="Link to this heading">#</a></h3>
+<p>Refer to <a class="reference internal" href="HowTo-E1B1.html#radiant-install"><span class="std std-ref">Radiant Logic RadiantOne Installation and Configuration</span></a>.</p>
+<p>Additional attributes were added to the RadiantOne solution. These attributes allow other ZT tools to create more granular policies for access. Within the Directory Namespace, we created namespaces (HDAP) for Clearance, Data Governance, Risk, and Training. Information pertaining to these categories was imported via flat files for the purpose of this build. For configuration instructions, refer to RadiantOne v7.4.4 Namespace Configuration Guide. We also updated RadiantOne’s configuration with a <a class="reference external" href="https://developer.radiantlogic.com/v7.4/global-identity-viewer-guide/01-introduction/">global Identity view</a> of users combining these attributes with the AD directory and HR database. We leveraged the <a class="reference external" href="https://developer.radiantlogic.com/v7.4/global-identity-builder-guide/introduction/">Global Identity Builder</a> to perform this.</p>
+</section>
+<section id="id1">
+<h3>Integrations<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Refer to <a class="reference internal" href="HowTo-E1B1.html#radiant-integration"><span class="std std-ref">Radiant Logic RadiantOne Integration</span></a> for integration of Radiant Logic with SailPoint.</p>
+<p>To integrate with Cisco ISE and VMware Workspace ONE Access, follow the instructions in the Integration sub-section of <a class="reference internal" href="HowTo-E1B1.html#radiant-integration"><span class="std std-ref">Radiant Logic RadiantOne Integration</span></a> to create unique service accounts for the integration.</p>
+</section>
+</section>
+<section id="sailpoint-identityiq">
+<h2>SailPoint IdentityIQ<a class="headerlink" href="#sailpoint-identityiq" title="Link to this heading">#</a></h2>
+<section id="id2">
+<h3>Installation and Configuration<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Refer to <a class="reference internal" href="HowTo-E1B1.html#sailpoint-install"><span class="std std-ref">SailPoint IdentityIQ Installation and Configuration</span></a>.</p>
+</section>
+<section id="integration-with-radiant-logic">
+<h3>Integration with Radiant Logic<a class="headerlink" href="#integration-with-radiant-logic" title="Link to this heading">#</a></h3>
+<p>Refer to <a class="reference internal" href="HowTo-E1B1.html#sailpoint-integration-radiant"><span class="std std-ref">SailPoint IdentityIQ Integration with Radiant Logic</span></a>.</p>
+</section>
+<section id="integration-with-ad">
+<h3>Integration with AD<a class="headerlink" href="#integration-with-ad" title="Link to this heading">#</a></h3>
+<p>Refer to <a class="reference internal" href="HowTo-E1B1.html#sailpoint-integration-ad"><span class="std std-ref">SailPoint IdentityIQ Integration with AD</span></a>.</p>
+</section>
+<section id="integration-with-ping-identity">
+<h3>Integration with Ping Identity<a class="headerlink" href="#integration-with-ping-identity" title="Link to this heading">#</a></h3>
+<p>There is no integration with Ping Identity. For this build, SailPoint provides AD user information and Duo pulls from AD.</p>
+</section>
+</section>
+<section id="vmware-workspace-one">
+<h2>VMware Workspace ONE<a class="headerlink" href="#vmware-workspace-one" title="Link to this heading">#</a></h2>
+<p id="id3">VMware Workspace ONE Access is a cloud-based service that provides a variety of management functions to support enterprise operations. For this build, two VMware services were utilized to support endpoint management functionality: Workspace ONE Access and Workspace ONE UEM.</p>
+<section id="vmware-workspace-one-access">
+<h3>VMware Workspace ONE Access<a class="headerlink" href="#vmware-workspace-one-access" title="Link to this heading">#</a></h3>
+<p>Workspace ONE Access can serve as an IdP and integrate with a large range of enterprise identity components. For this build, Workspace ONE Access was integrated with PingFederate and RadiantOne to provide certificate-based authentication for endpoints.</p>
+</section>
+<section id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h3>
+<p>Each instance of Workspace ONE Access must be provisioned by VMware. After this has been completed, VMware provides access and setup instructions.</p>
+</section>
+<section id="integration-with-radiantone">
+<h3>Integration with RadiantOne<a class="headerlink" href="#integration-with-radiantone" title="Link to this heading">#</a></h3>
+<p>To integrate with RadiantOne, an on-premises agent was installed on a Microsoft Windows Server 2019 system and connected to Workspace ONE Access. After this, Workspace ONE Access was configured to pull user, group, and attribute information.</p>
+<ol class="arabic simple">
+<li><p>The step-by-step guide to adding the on-prem connector can be triggered in the Workspace ONE Access console by navigating to <strong>Integrations -&gt; Connectors</strong> and clicking <strong>New</strong>.</p></li>
+<li><p>After the on-prem agent is installed and connected to Workspace ONE Access, follow the <a class="reference external" href="https://docs.vmware.com/en/VMware-Workspace-ONE-Access/services/ws1_access_directory/GUID-9DB02A30-DE2E-4FDE-9AD6-32CCAD5FFA0B.html">official VMware documentation</a> to add a new LDAP Directory and point Workspace ONE Access to your RadiantOne installation.</p></li>
+</ol>
+<p>Once these two steps are completed, RadiantOne’s users, groups, and attributes are available for use within Workspace ONE.</p>
+</section>
+<section id="integration-with-pingfederate">
+<h3>Integration with PingFederate<a class="headerlink" href="#integration-with-pingfederate" title="Link to this heading">#</a></h3>
+<p>Integration with PingFederate was achieved using a SAML redirect. When users with mobile devices attempt to authenticate through PingFederate, they will be redirected to Workspace ONE Access if certificate authentication is available.</p>
+<ol class="arabic simple">
+<li><p>In the Workspace ONE Access console, navigate to <strong>Integrations -&gt; Identity Providers</strong> and click <strong>Add -&gt; SAML IdP</strong>.</p></li>
+<li><p>Fill out details in the form pertaining to your installation. For the binding protocol, select <strong>HTTP Redirect</strong>.</p></li>
+<li><p>Under <strong>Users</strong>, select the directory that you created in your previous integration with RadiantOne.</p></li>
+<li><p>Under <strong>Authentication Methods</strong>, add a new authentication method name and select <strong>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</strong> for the SAML Context.</p></li>
+<li><p>Click <strong>Save</strong> in the bottom right corner.</p></li>
+</ol>
+<p>Now that the configuration on the Workspace ONE Access side has been completed, navigate to the PingFederate console.</p>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Authentication -&gt; IdP Connections</strong> and click <strong>Create Connection</strong>.</p></li>
+<li><p>Check the <strong>BROWSER SSO Profiles</strong> checkbox and select <strong>SAML 2.0</strong> from the dropdown menu that appears. Click <strong>Next</strong>.</p></li>
+<li><p>Select the <strong>Browser SSO</strong> checkbox and click <strong>Next</strong>.</p></li>
+<li><p>On the <strong>Metadata URL</strong> page, click <strong>Next</strong>.</p></li>
+<li><p>Under the <strong>Partner’s Entity ID (Connection ID)</strong> section, paste your Workspace ONE Access metadata URL. It should look something like <code class="docutils literal notranslate"><span class="pre">https://&lt;WorkspaceONEAccessURL&gt;/SAAS/API/1.0/GET/metadata/idp.xml</span></code>.</p></li>
+<li><p>Under <strong>BASE URL</strong>, add the base URL for your Workspace ONE Access instance. Click <strong>Save</strong>.</p></li>
+</ol>
+<p>Workspace ONE Access can also be configured as a Service Provider (SP) for PingFederate. This process is very similar to the IdP configuration.</p>
+<ol class="arabic simple">
+<li><p>In the PingFederate console, navigate to <strong>Applications</strong> <strong>-&gt; SP Connections</strong> and click <strong>Create Connection</strong>.</p></li>
+<li><p>Check the <strong>BROWSER SSO Profiles</strong> checkbox and select <strong>SAML 2.0</strong> from the dropdown menu that appears. Click <strong>Next</strong>.</p></li>
+<li><p>Select the <strong>Browser SSO</strong> checkbox and click <strong>Next</strong>.</p></li>
+<li><p>On the Metadata URL page, click <strong>Next</strong>.</p></li>
+<li><p>Under the <strong>Partner’s Entity ID (Connection ID)</strong> section, paste your Workspace ONE Access metadata URL. It should look something like <code class="docutils literal notranslate"><span class="pre">https://&lt;WorkspaceONEAccessURL&gt;/SAAS/API/1.0/GET/metadata/idp.xml</span></code>.</p></li>
+<li><p>Under <strong>BASE URL</strong>, add the base URL for your Workspace ONE Access instance. Click <strong>Next</strong>.</p></li>
+<li><p>Under <strong>Browser SSO,</strong> select the checkboxes next to <strong>IdP-Initiated SSO</strong> and <strong>SP-Initiated SSO</strong>.</p></li>
+<li><p>For <strong>Assertion Creation</strong>, select the checkbox next to <strong>Enable Standard Identifier</strong>. Select the PingFederate contract to use for this connection.</p></li>
+<li><p>Under <strong>Protocol Settings,</strong> set the <strong>Assertion Consumer Service URL</strong> to <strong>/SAAS/auth/saml/response</strong>. Click <strong>Save.</strong></p></li>
+</ol>
+<p>Initial setup for this integration has now been completed. To utilize this integration, you can set policies on either Workspace ONE Access or PingFederate to point to the other IdP or SP. In PingFederate, this can be found under <strong>Authentication -&gt; Policies</strong>. In Workspace ONE Access, this can be found under <strong>Resources -&gt; Policies</strong>.</p>
+</section>
+<section id="vmware-workspace-one-uem">
+<h3>VMware Workspace ONE UEM<a class="headerlink" href="#vmware-workspace-one-uem" title="Link to this heading">#</a></h3>
+<p>Workspace ONE UEM provides endpoint management capabilities for this build and allows certificates to be provisioned for user authentication.</p>
+</section>
+<section id="id4">
+<h3>Setup<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>The cloud-based Workspace ONE UEM instance must be provisioned by VMware. After this has been completed, follow the <a class="reference external" href="https://docs.vmware.com/en/VMware-Workspace-ONE-UEM/services/rn/WorkspaceONEUEMDocumentation.html">official Workspace ONE UEM documentation</a> to deploy agents to each of your managed endpoints. Instructions for deploying profiles and compliance requirements to devices can also be found in the link above.</p>
+</section>
+<section id="integration-with-certificate-authority">
+<h3>Integration with Certificate Authority<a class="headerlink" href="#integration-with-certificate-authority" title="Link to this heading">#</a></h3>
+<p>To provide certificates with custom attributes, Workspace ONE UEM was integrated with the on-prem Certificate Authority hosted in Enterprise 4. Instructions on how to complete this process can be found in the <a class="reference external" href="https://docs.vmware.com/en/VMware-Workspace-ONE-UEM/services/Certificate_Authority_Integrations/GUID-AD_CS_Via_DCOM.html">official Workspace ONE UEM documentation</a>.</p>
+</section>
+</section>
+<section id="cisco-duo">
+<h2>Cisco Duo<a class="headerlink" href="#cisco-duo" title="Link to this heading">#</a></h2>
+<p>Cisco Duo is a SaaS solution that implements and enforces security policies and processes, using strong authentication to reduce the risk of data breaches due to compromised credentials and access from unauthorized devices. For this build, we use Cisco Duo as the second authentication factor for resources.</p>
+<section id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h3>
+<p>Refer to <a class="reference internal" href="HowTo-E2B1.html#cisco-duo-config"><span class="std std-ref">Cisco Duo Configuration</span></a>.</p>
+</section>
+<section id="integration">
+<h3>Integration<a class="headerlink" href="#integration" title="Link to this heading">#</a></h3>
+<p>Refer to <a class="reference internal" href="HowTo-E2B1.html#cisco-duo-integration"><span class="std std-ref">Cisco Duo Integration</span></a>.</p>
+</section>
+</section>
+<section id="palo-alto-networks-next-generation-firewall">
+<h2>Palo Alto Networks Next Generation Firewall<a class="headerlink" href="#palo-alto-networks-next-generation-firewall" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E2B1.html#palo-alto-ngfw"><span class="std std-ref">Palo Alto Networks Next Generation Firewall</span></a>.</p>
+</section>
+<section id="ibm-security-qradar-xdr">
+<h2>IBM Security QRadar XDR<a class="headerlink" href="#ibm-security-qradar-xdr" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#ibm-qradar"><span class="std std-ref">IBM Security QRadar XDR</span></a>.</p>
+</section>
+<section id="tenable-io">
+<h2>Tenable.io<a class="headerlink" href="#tenable-io" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id8"><span class="std std-ref">Tenable.io</span></a>.</p>
+</section>
+<section id="tenable-ad">
+<h2>Tenable.ad<a class="headerlink" href="#tenable-ad" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id11"><span class="std std-ref">Tenable.ad</span></a>.</p>
+</section>
+<section id="tenable-nnm">
+<h2>Tenable NNM<a class="headerlink" href="#tenable-nnm" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id12"><span class="std std-ref">Tenable NNM</span></a>.</p>
+</section>
+<section id="mandiant-security-validation-msv">
+<h2>Mandiant Security Validation (MSV)<a class="headerlink" href="#mandiant-security-validation-msv" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#mandiant-msv"><span class="std std-ref">Mandiant Security Validation (MSV)</span></a>.</p>
+</section>
+<section id="digicert-certcentral">
+<h2>DigiCert CertCentral<a class="headerlink" href="#digicert-certcentral" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id13"><span class="std std-ref">DigiCert CertCentral</span></a>.</p>
+</section>
+<section id="cisco-identity-services-engine-ise">
+<h2>Cisco Identity Services Engine (ISE)<a class="headerlink" href="#cisco-identity-services-engine-ise" title="Link to this heading">#</a></h2>
+<p>Cisco ISE is a network central PDP that includes both PE and PA to help organizations provide secure access to users, their devices, and the other resources in their network environment. It simplifies the delivery of consistent and secure access control to PEPs across wired and wireless multi-vendor networks, as well as remote VPN connections.</p>
+<p>To deploy ISE, use the following steps:</p>
+<ol class="arabic">
+<li><p>Install Cisco ISE ADE-OS-Version 3.1.0.010 Patch 5 using <a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/ise/3-1/install_guide/b_ise_InstallationGuide31/b_ise_InstallationGuide31_chapter_3.html">Cisco ISE Installation Guide</a>.</p></li>
+<li><p>Continue configuration using <a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/ise/3-1/admin_guide/b_ise_admin_3_1.html">Cisco ISE configuration information</a>.</p></li>
+<li><p>Key configuration features used at the NCCoE lab are as follows:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Basic setup: Cisco ISE Deployment model used is the “Stand Alone” as shown <a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/ise/3-1/admin_guide/b_ise_admin_3_1/b_ISE_admin_31_basic_setup.html">here</a>.</p></li>
+<li><p>Maintain and Monitor: System recovery, syslog settings, backups/recovery, advance filtering, and reporting, including endpoint purging and quarantining used as shown <a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/ise/3-1/admin_guide/b_ise_admin_3_1/b_ISE_admin_31_maintain_monitor.html">here</a>.</p></li>
+<li><p>Secure Access: Cisco ISE User Identity is supported by Integration with Microsoft Active Directory as the user identity source as shown <a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/ise/3-1/admin_guide/b_ise_admin_3_1/b_ISE_admin_31_secure_wired_access.html">here</a>.</p></li>
+<li><p>Profiling and Compliance: Configuration of posture policies to mandate allowance of specific applications is shown <a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/ise/3-1/admin_guide/b_ise_admin_3_1/b_ISE_admin_31_compliance.html">here</a>. For NCCoE lab configuration, AnyConnect is enabled on endpoints in order to achieve accurate posture on enterprise-supplied endpoints.</p></li>
+<li><p>Segmentation: Cisco ISE supports configuration for segmentations as shown <a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/ise/3-1/admin_guide/b_ise_admin_3_1/b_ISE_admin_31_segmentation.html">here</a>.</p></li>
+<li><p>BYOD: Cisco ISE is used as a tool that allow employees to securely use either employer-provided or personal devices on the enterprise network. Cisco ISE is used to protect network services and enterprise data by authenticating and authorizing users (employees and contractors) and their devices. The BYOD configuration is shown <a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/ise/3-1/admin_guide/b_ise_admin_3_1/b_ISE_admin_31_byod.html">here</a>.</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+<section id="id5">
+<h3>Integrations<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>Cisco ISE was provisioned with a service account to pull user and device attributes from Workspace ONE UEM for use in policy decisions. Configure this integration in <strong>Administration/Network Resources/External MDM</strong> using the <a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/ise/2-4/admin_guide/b_ISE_admin_guide_24/m_ise_interoperability_mdm.html">ISE Admin Guide</a>.</p>
+<p>Cisco ISE and Cisco Secure Network Analytics (SNA) are integrated to allow SNA to provide network visibility information to ISE to enforce policies. Integration configuration was completed by creating a client for SNA under <strong>Administration/pxGrid Services/Client Management</strong>.</p>
+</section>
+</section>
+<section id="cisco-secure-workload-csw-formerly-tetration">
+<h2>Cisco Secure Workload (CSW - Formerly Tetration)<a class="headerlink" href="#cisco-secure-workload-csw-formerly-tetration" title="Link to this heading">#</a></h2>
+<p>Cisco Secure Workload (formerly known as Cisco Tetration) is designed to address application security challenges by providing comprehensive workload protection and bringing security closer to applications and tailoring the security posture based on the application behavior. For configuration, this document references specific sections of the <a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/workload_security/secure_workload/user-guide/3_7/cisco-secure-workload-user-guide-v37.html">Cisco Secure Workload User Guide</a>.</p>
+<section id="id6">
+<h3>Configuration<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>For this build, the NCCoE used the SaaS-based version of CSW. To start, contact a Cisco representative to procure an instance of CSW.</p>
+<ol class="arabic simple">
+<li><p>A prerequisite for CSW is to gather and document the organizational layout of your enterprise in the form of security boundaries. Leverage the <a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/workload_security/secure_workload/onboarding-quick-start/3_7/cisco-secure-workload-quick-start-guide-3_7.html">Cisco Secure Workload Quick Start Guide</a> to familiarize the CSW design using scopes and labels.</p></li>
+<li><p>Once a basic understanding of CSW is achieved, a CSW administrator can leverage <a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/workload_security/secure_workload/user-guide/3_7/cisco-secure-workload-user-guide/inventory.html#concept_328269">labels</a> to develop the scope tree. These labels can be uploaded to CSW so that CSW maintains these additional metadata tags within the inventory database in CSW.</p></li>
+<li><p>Once logged into CSW, leverage the first-time user-experience (FTUE) <a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/workload_security/secure_workload/user-guide/3_7/cisco-secure-workload-user-guide/overview.html#Cisco_Concept.dita_bef74fed-b38f-4442-99d1-02e0938fd5bc">wizard</a> to define the scope and inventory. Note: This step was not necessary, but it was leveraged to have a baseline understanding of how scopes and inventory function.</p></li>
+<li><p>In parallel to a scope tree being defined in CSW, users can begin installing <a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/workload_security/secure_workload/user-guide/3_7/cisco-secure-workload-user-guide/software-agents.html">software agents</a> on all workloads (resources) to be managed by CSW. Once in the “Software Agents Installer” page, the user will be guided through the process of selecting the OS platform to download. See the <a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/workload_security/secure_workload/user-guide/3_7/cisco-secure-workload-user-guide/software-agents.html#concept_265832">Deploying Software Agents</a> page for support platforms, requirements, and install instructions.</p></li>
+<li><p>With agent installations completed on the workloads, CSW will begin collecting network flow data along with OS information about these resources. Ensure a minimum of at least a week or so if you want to take advantage of CSW’s ability to auto-generate microsegmentation policies using the solution’s built-in machine learning algorithms.</p></li>
+<li><p>Once agents are installed and your scope tree is set up properly, <a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/workload_security/secure_workload/user-guide/3_7/cisco-secure-workload-user-guide-v37/segmentation.html">create policies</a>. The policy analysis phase is intended to be an iterative process that allows a CSW user to adjust policies as necessary.</p></li>
+<li><p>Once you feel the policies are good enough to enforce, <a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/workload_security/secure_workload/user-guide/3_7/cisco-secure-workload-user-guide-v37/segmentation.html#concept_364082">enable enforcement</a> of those policies. Alerts should be created for escaped policies. CSW can, at a minimum, generate internal alerts, but best practice suggests that these alerts should also be sent to a northbound platform like a SIEM.</p></li>
+</ol>
+</section>
+</section>
+<section id="cisco-secure-network-analytics-sna-formerly-stealthwatch">
+<h2>Cisco Secure Network Analytics (SNA - Formerly Stealthwatch)<a class="headerlink" href="#cisco-secure-network-analytics-sna-formerly-stealthwatch" title="Link to this heading">#</a></h2>
+<p>Cisco Secure Network Analytics (SNA) uses machine learning, behavioral modeling, and threat intelligence to provide network visibility. For this build, we mainly leverage NetFlow data collected from network devices to feed to SNA.</p>
+<section id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
+<p>The components of SNA are installed on-premises in the virtual environment for Enterprise 2. Installation is completed using the <a class="reference external" href="https://www.cisco.com/c/dam/en/us/td/docs/security/stealthwatch/system_installation_configuration/7_4_1_VE_Appliance_Installation_Guide_DV_2_3.pdf">Virtual Edition Appliance Installation Guide 7.4.1</a>. Specific sections from that guide are noted below.</p>
+<ol class="arabic simple">
+<li><p>Prior to installing SNA, check all resource requirements and prerequisites (General Deployment Requirements and Section 1).</p></li>
+<li><p>Install the virtual edition for VMware vCenter (Section 3a).</p></li>
+<li><p>Configure the SNA manager and the Flow Sensor (Section 4).</p></li>
+</ol>
+</section>
+<section id="id7">
+<h3>Configuration<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>Use the <a class="reference external" href="https://www.cisco.com/c/dam/en/us/td/docs/security/stealthwatch/system_installation_configuration/7_4_2_System_Configuration_Guide_DV_1_2.pdf">Cisco Secure Network Analytics System Configuration Guide</a> to configure the SNA.</p>
+<ol class="arabic simple">
+<li><p>Configure SNA to retrieve information for network appliances. This is performed by the Flow Sensor, which is a separate appliance managed by the SNA manager.</p></li>
+<li><p>Configure network components to send NetFlow data to the SNA Flow Sensor. Note: There are tools that can build the configuration for network devices.</p></li>
+<li><p>Configure hosts and host groups to be used by policies and response management.</p></li>
+<li><p>Configure policies to monitor various host groups.</p></li>
+<li><p>Configure response management to perform specific actions based on policies. Response management configuration provides information to Cisco ISE to act on those policies.</p></li>
+</ol>
+</section>
+<section id="id8">
+<h3>Integration<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>Integrate with Cisco ISE to inform ISE of actions it needs to take to allow or deny communications based on the policies. To integrate with ISE, follow the configuration instructions shown <a class="reference external" href="https://www.cisco.com/c/dam/en/us/td/docs/security/stealthwatch/ISE/7_4_2_ISE_Configuration_Guide_DV_1_0.pdf">here</a>.</p>
+</section>
+</section>
+<section id="cisco-secure-endpoint-cse-formerly-amp">
+<h2>Cisco Secure Endpoint (CSE - Formerly AMP)<a class="headerlink" href="#cisco-secure-endpoint-cse-formerly-amp" title="Link to this heading">#</a></h2>
+<p>Cisco Secure Endpoint (CSE) is a cloud-based solution that leverages connectors that are deployed on endpoints to protect against vulnerabilities. The configuration steps below leverage the <a class="reference external" href="https://docs.amp.cisco.com/en/SecureEndpoint/Secure%20Endpoint%20User%20Guide.pdf">Cisco Secure Endpoint User Guide</a>.</p>
+<ol class="arabic simple">
+<li><p>Work with your Cisco representative to procure an instance of Cisco Secure Endpoint.</p></li>
+<li><p>Ensure administrator accounts are created and users have access to the AMP portal.</p></li>
+<li><p>Develop policies for all your different endpoints. For this build, endpoints include Windows, macOS, Linux, iOS, and Android devices. By default, CSE has various default policies that can be applied to endpoints once these endpoints are configured. For this build, we began by leveraging the Audit mode to allow CSE to gather information and learn about the endpoints. After several weeks, we enabled the Enforce mode to block malicious traffic. Refer to Chapter 5 of the User Guide.</p></li>
+<li><p>Note that Groups can be configured to apply policies for different types of endpoints. Refer to Chapter 6.</p></li>
+<li><p>Exclusions for the types of applications that you want to exclude from policies can be configured. You can create custom exclusions or view the Cisco-maintained exclusions list. Refer to Chapter 4.</p></li>
+<li><p>Download connectors from CSE and deploy them to endpoints. Once in the Management/Download Connector page, links will be available for download or for a URL for the various endpoints that CSE supports. The URL can be provided to the user to download, or it can be downloaded and deployed via an enterprise tool. Refer to Chapters 8-12 for connector installation.</p></li>
+</ol>
+<section id="id9">
+<h3>Integrations<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>CSE integrates with ISE to provide endpoint threat detection information to ISE to act on. The process for integration begins with Cisco ISE. From the <strong>ISE Administration</strong> menu, click on the <strong>Third Party Vendors</strong> link. Click <strong>Add</strong> and click <strong>Cisco AMP</strong> as the vendor. Input all information. Once added, there will be a status link stating “Ready to configure.” Click on it and follow instructions to configure CSE.</p>
+</section>
+</section>
+<section id="palo-alto-networks-panorama">
+<h2>Palo Alto Networks - Panorama<a class="headerlink" href="#palo-alto-networks-panorama" title="Link to this heading">#</a></h2>
+<p>Palo Alto Networks’ Panorama provides centralized management and monitoring of the Palo Alto Networks NGFWs. For this build, it was leveraged to integrate with Cisco ISE in addition to managing the NGFWs.</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://docs.paloaltonetworks.com/panorama/10-2/panorama-admin/panorama-overview/deploy-panorama-task-overview#id5310d3cb-21f5-4ef3-b019-873d024cb505">Deploy Panorama</a> in the virtual environment using <a class="reference external" href="https://docs.paloaltonetworks.com/panorama/10-2/panorama-admin/set-up-panorama/set-up-the-panorama-virtual-appliance/setup-prerequisites-for-the-panorama-virtual-appliance#id4430de3f-a44c-4b24-b9c3-52cef1f0bc96">Palo Alto Networks’ prerequisite recommendations</a>. Follow each step of the deployment to install the VM, register Panorama and install licenses, perform updates, add firewalls as managed devices, and create templates and device groups.</p></li>
+<li><p>Complete all configuration of the firewalls on Panorama’s console.</p></li>
+<li><p>For remote access, the NGFW is leveraged to check compliance of user devices. <a class="reference external" href="https://docs.paloaltonetworks.com/globalprotect/10-1/globalprotect-admin/host-information/configure-hip-based-policy-enforcement">Create the configuration</a> for compliance checks and add it to the VPN policy created for users. Note: Integration with ISE needs to be completed prior to this step.</p></li>
+</ol>
+<section id="integration-with-cisco-ise">
+<h3>Integration with Cisco ISE<a class="headerlink" href="#integration-with-cisco-ise" title="Link to this heading">#</a></h3>
+<p>For this integration, the user logging onto the Palo Alto Networks VPN will leverage ISE for authentication. The Palo Alto Networks NGFW will perform device compliance checks prior to completing the authentication. To integrate with Cisco ISE, leverage the instructions to <a class="reference external" href="https://docs.paloaltonetworks.com/globalprotect/10-1/globalprotect-admin/globalprotect-user-authentication/enable-delivery-of-globalprotect-endpoint-vsas-to-a-radius-server">enable delivery of vendor-specific attributes to RADIUS server</a>.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="HowTo-E1B3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Product Guides</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="HowTo-E3B3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ping-identity-pingone">Ping Identity PingOne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-pingone-and-pingfederate">Configuration: PingOne and PingFederate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integrations">Integrations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiant-logic-radiantone">Radiant Logic RadiantOne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-and-configuration">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Integrations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sailpoint-identityiq">SailPoint IdentityIQ</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-radiant-logic">Integration with Radiant Logic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-ad">Integration with AD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-ping-identity">Integration with Ping Identity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-workspace-one">VMware Workspace ONE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-workspace-one-access">VMware Workspace ONE Access</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-radiantone">Integration with RadiantOne</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-pingfederate">Integration with PingFederate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-workspace-one-uem">VMware Workspace ONE UEM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-certificate-authority">Integration with Certificate Authority</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cisco-duo">Cisco Duo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration">Integration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#palo-alto-networks-next-generation-firewall">Palo Alto Networks Next Generation Firewall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-security-qradar-xdr">IBM Security QRadar XDR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-io">Tenable.io</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-ad">Tenable.ad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-nnm">Tenable NNM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mandiant-security-validation-msv">Mandiant Security Validation (MSV)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digicert-certcentral">DigiCert CertCentral</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cisco-identity-services-engine-ise">Cisco Identity Services Engine (ISE)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Integrations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cisco-secure-workload-csw-formerly-tetration">Cisco Secure Workload (CSW - Formerly Tetration)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Configuration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cisco-secure-network-analytics-sna-formerly-stealthwatch">Cisco Secure Network Analytics (SNA - Formerly Stealthwatch)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Integration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cisco-secure-endpoint-cse-formerly-amp">Cisco Secure Endpoint (CSE - Formerly AMP)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Integrations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#palo-alto-networks-panorama">Palo Alto Networks - Panorama</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-cisco-ise">Integration with Cisco ISE</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<p>
+  
+    By NIST<br/>
+  
+</p>
+
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> Certain commercial equipment, instruments, or
+          materials are identified in this documentation to foster understanding. Such
+          identification does not imply recommendation or endorsement by the National
+          Institute of Standards and Technology, nor does it imply that the materials
+          or equipment identified are necessarily the best available for the purpose.
+        </div>
+      </p>
+    </div>
+</footer>
+  </body>
+</html>

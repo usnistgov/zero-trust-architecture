@@ -1,0 +1,1585 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides &#8212; Implementing a Zero Trust Architecture Project  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/content.css?v=59cd0ab0" />
+    <link rel="stylesheet" type="text/css" href="../_static/breadcrumbs.css?v=83cea8a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeC/HowTo-E1B1';</script>
+    <script src="../_static/jquery.visible.js?v=5b129ffc"></script>
+    <script src="../_static/jquery.leaveNotice-nist.js?v=7cf1efa2"></script>
+    <script src="../_static/applyLeaveNotice.js?v=38741b1c"></script>
+    <script src="../_static/smoothNavScroll.js?v=2ce98a12"></script>
+    <link rel="icon" href="../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides" href="HowTo-E2B1.html" />
+    <link rel="prev" title="Build Implementation Instructions" href="index.html" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
+    <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+    <link rel="stylesheet" type="text/css" href="https://pages.nist.gov/leaveNotice/css/jquery.leaveNotice.css" />
+    <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJSMY46M5C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RJSMY46M5C');
+    </script>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="width: max-content;">
+    <ul class="wy-breadcrumbs">
+        <li><a href="../index.html" aria-label="Home"><i class="fa fa-home"></i></a></li>
+            <li class="breadcrumb-item">&ensp;<a href="index.html">Build Implementation Instructions</a></li>
+        <li class="breadcrumb-item active">&ensp;Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides</li>
+    </ul>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+  </div>
+  
+  
+
+  
+    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Implementing a Zero Trust Architecture Project  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture" title="Main Project Page" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/MainProjectLogo.jpg" class="icon-link-image" alt="Main Project Page"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Implementing a Zero Trust Architecture
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ExecutiveSummary.html">Executive Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/Introduction.html">Introduction to the Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ProjectOverview.html">Project Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeB/architecture.html">Architecture and Builds</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeB/BuildsImplemented.html">Builds Implemented</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../VolumeB/appendices/index.html">Build Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B3.html">Enterprise 2 Build 3 (E2B3) — Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Build Implementation Instructions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B3.html">Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardening.html">Hardening Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/GeneralFindings.html">General Findings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/FutureBuildConsiderations.html">Future Build Considerations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeD/index.html">Functional Demonstrations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/FunctionalLabDemonstration.html">Demonstration Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseA.html">Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseB.html">Use Case B: Enterprise-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseC.html">Use Case C: Collaboration: Federated-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseD.html">Use Case D: Other-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseE.html">Use Case E: Guest: No-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseF.html">Use Case F: Confidence Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseG.html">Use Case G: Service-Service Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseH.html">Use Case H: Data Level Security Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/FunctionalDemonstrationResultSummaries.html">Functional Demonstration Result Summaries</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../VolumeD/results/index.html">Functional Demonstration Results</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/EIGCrawlResults.html">EIG Crawl Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/EIGRunResults.html">EIG Run Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/SDPMicroResults.html">SDP, Microsegmentation, and SASE Phase Demonstration Results</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeE/index.html">Risk and Compliance Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/RisksAddressed.html">Risks Addressed by the ZTA Reference Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/ArchitectureSecurityMappings.html">ZTA Security Mapping Context and Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/Mappings.html">Mappings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acronyms.html">Acronyms</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/VolumeC/HowTo-E1B1.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#okta-identity-cloud">Okta Identity Cloud</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-and-integration">Configuration and Integration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#okta-verify-app">Okta Verify App</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#okta-access-gateway">Okta Access Gateway</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiant-logic-radiantone">Radiant Logic RadiantOne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sync-with-an-ldap-server">Sync with an LDAP server</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-namespace-to-bring-in-users">Create a namespace to bring in users</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration">Integration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sailpoint-identityiq">SailPoint IdentityIQ</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-and-configuration">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-radiant-logic">Integration with Radiant Logic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-ad">Integration with AD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-okta">Integration with Okta</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ivanti-neurons-for-uem">Ivanti Neurons for UEM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Installation and Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-an-mdm-certificate-for-apple-devices">Install an MDM certificate for Apple devices</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-android-enterprise">Configure Android Enterprise</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-certificate-authority">Add a certificate authority</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-user-settings">Configure user settings</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-policy">Add a policy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-configuration-for-managed-devices">Add a configuration for managed devices</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-ivanti-connector">Integration with Ivanti Connector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-okta-1">Integration with Okta</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#idp-setup">IdP setup</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#okta-verify-app-configuration-preparation">Okta Verify app configuration preparation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#okta-verify-app-configuration-android">Okta Verify app configuration - Android</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#okta-verify-app-configuration-ios">Okta Verify app configuration - iOS</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-qradar">Integration with QRadar</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ivanti-log-transfer-setup">Ivanti log transfer setup</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#qradar-setup">QRadar setup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ivanti-sentry">Ivanti Sentry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ivanti-tunnel-configuration-and-deployment">Ivanti Tunnel Configuration and Deployment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ivanti-access-zso">Ivanti Access ZSO</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-ivanti-neurons-for-uem">Integration with Ivanti Neurons for UEM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-okta-2">Integration with Okta</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zimperium-mobile-threat-defense-mtd">Zimperium Mobile Threat Defense (MTD)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-configuration-and-integration">Installation, Configuration, and Integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-api-user">Create an API user</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#assign-roles-to-the-api-user">Assign roles to the API user</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-an-mdm-server-to-the-zimperium-console">Add an MDM server to the Zimperium console</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-mtd-on-ivanti-neurons-for-uem">Activate MTD on Ivanti Neurons for UEM</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-custom-attributes-in-ivanti-neurons-for-uem">Add custom attributes in Ivanti Neurons for UEM</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-compliance-policy">Create compliance policy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-device-groups-and-match-with-custom-policies-and-custom-device-attributes-created-above">Create device groups and match with custom policies and custom device attributes created above</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-zimperium-mtd-management-console">Configure Zimperium MTD management console</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-cloud-pak-for-security">IBM Cloud Pak for Security</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-security-qradar-xdr">IBM Security QRadar XDR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-io">Tenable.io</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Installation and Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-an-agent">Deploy an agent</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-a-scanner">Deploy a scanner</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Integration with QRadar</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-ad">Tenable.ad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-nnm">Tenable NNM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-a-tenable-nnm-instance">Deploy a Tenable NNM instance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mandiant-security-validation-msv">Mandiant Security Validation (MSV)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#msv-director-installation-configuration">MSV Director Installation/Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#msv-network-actor-installation-configuration">MSV Network Actor Installation/Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#msv-endpoint-actor-installation-configuration">MSV Endpoint Actor Installation/Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#msv-evaluation-configuration">MSV Evaluation Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#msv-evaluation-execution">MSV Evaluation Execution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digicert-certcentral">DigiCert CertCentral</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#requesting-a-certificate">Requesting a certificate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obtaining-and-implementing-a-certificate">Obtaining and implementing a certificate</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="enterprise-1-build-1-e1b1-eig-crawl-okta-identity-cloud-and-ivanti-access-zso-as-pes-product-guides">
+<h1>Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides<a class="headerlink" href="#enterprise-1-build-1-e1b1-eig-crawl-okta-identity-cloud-and-ivanti-access-zso-as-pes-product-guides" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is supplementary material for the <a class="reference external" href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf">NIST SP 1800-35 publication</a>.</p>
+</div>
+<p>This section of the practice guide contains detailed instructions for installing, configuring, and integrating all of the products used to implement E1B1. For additional details on E1B1’s logical and physical architectures, please refer to <a class="reference internal" href="../VolumeB/architecture.html#architecture-and-builds"><span class="std std-ref">Architecture and Builds</span></a>.</p>
+<section id="okta-identity-cloud">
+<h2>Okta Identity Cloud<a class="headerlink" href="#okta-identity-cloud" title="Link to this heading">#</a></h2>
+<p id="id1">The Okta Identity Cloud is a SaaS solution that provides ICAM capabilities to an enterprise. The following sections describe the setup of the Okta Identity Cloud, the Okta Access Gateway, and the Okta Verify application. Okta integrates with Radiant Logic for identity information, SailPoint to receive governance information, and Ivanti to delegate authentication for users accessing resources using mobile devices.</p>
+<section id="configuration-and-integration">
+<h3>Configuration and Integration<a class="headerlink" href="#configuration-and-integration" title="Link to this heading">#</a></h3>
+<p>The purpose of this subsection is to set up NCCoE’s own instance of the Okta cloud so it can integrate with other ICAM tools and enable Okta to manage authentication and authorization of users accessing resources. Most configurations are completed within this instance of the Okta cloud.</p>
+<ol class="arabic simple">
+<li><p>Sign up for an account with Okta (okta.com) and follow steps to set up an admin account, along with configuring Okta Verify for the admin account. This will allow the admin to start configuring integrations and services.</p></li>
+<li><p>Set up directory integration with Radiant Logic. User identity information is pulled from Radiant Logic into Okta for authentication and authorization. An Okta Lightweight Directory Access Protocol (LDAP) agent is installed on the Radiant Logic server for integration. Note: This step should be completed after Radiant Logic is configured.</p></li>
+<li><p>Create Groups for Okta to apply a specific set of users to specific services or applications. This allows for automation of user governance at a large scale rather than manual configuration of individual users.</p></li>
+<li><p><a class="reference external" href="https://help.okta.com/oie/en-us/Content/Topics/Security/API.htm?cshid=Security_API#create-okta-api-token">Create application programming interface (API) tokens to be used by SailPoint and Radiant Logic</a> for communication. These tokens will allow Okta to give specific read/write privileges to other applications.</p></li>
+<li><p><a class="reference external" href="https://help.okta.com/oie/en-us/Content/Topics/Security/Security_Authentication.htm">Create a delegated authentication for Okta to be able to import users from Radiant Logic via LDAP.</a> This allows Okta to delegate the actual authentication to Radiant Logic. Okta does not store or know the password of the user. Note that a service account, created in the <a class="reference internal" href="#radiant-integration"><span class="std std-ref">Radiant Logic Integration</span></a>, needs to be created and used in this configuration.</p></li>
+<li><p>Create application integration via Security Assertion Markup Language (SAML). We have Ivanti Neurons for UEM and 2 GitLab instances in Enterprise 1. Okta Access Gateway (AG) needs to be installed in order to configure on-premises applications. The Okta AG gives the Okta Identity Cloud visibility to the resources inside the enterprise. See <a class="reference internal" href="#id3"><span class="std std-ref">Okta Access Gateway</span></a> for installation instructions, which include information on configuring on-premises applications.</p></li>
+<li><p>Create Identity Provider integration for Ivanti Access ZSO. This will allow delegated authentication for Ivanti for mobile devices. This involves <a class="reference external" href="https://help.okta.com/oie/en-us/Content/Topics/Apps/Apps_App_Integration_Wizard_SAML.htm">creating a custom application using SAML</a> and then <a class="reference external" href="https://help.okta.com/en-us/Content/Topics/Security/idp-add-saml.htm">creating a SAML Identity Provider</a>.</p></li>
+<li><p><a class="reference external" href="https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/config-mobile.htm">Configure Device Trust on iOS and Android devices to create device integrations.</a></p></li>
+<li><p><a class="reference external" href="https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-auth-policy.htm">Create authentication policies.</a> These policies define how users will authenticate. By default, a “Catch All” policy is created when an application is created. We are creating an authentication policy that will allow Okta to trust Ivanti Access ZSO to be the delegated Identity Provider (IdP). To do this, when Okta checks that Okta Verify is a managed application on a device, it will delegate authentication to Ivanti Access ZSO.</p></li>
+</ol>
+</section>
+<section id="okta-verify-app">
+<h3>Okta Verify App<a class="headerlink" href="#okta-verify-app" title="Link to this heading">#</a></h3>
+<p id="id2">The Okta Verify app is installed, usually on a mobile device, when a new user is onboarded. It serves as a tool to provide a second factor for authentication. The user can log in to the Okta Identity Cloud for the first time. For this setup, the user will be asked to change their password and perform setup. After the password update, the user can set up Okta Verify. <a class="reference external" href="https://help.okta.com/eu/en-us/Content/Topics/end-user/ov-overview.htm">Follow the instructions for Android or iOS devices to install Okta Verify and complete the process.</a></p>
+</section>
+<section id="okta-access-gateway">
+<h3>Okta Access Gateway<a class="headerlink" href="#okta-access-gateway" title="Link to this heading">#</a></h3>
+<p id="id3">The Okta Access Gateway (AG) is part of the Okta Identity Cloud. It can be leveraged to integrate legacy, on-prem applications into the Okta Identity Cloud. Since the Okta Identity Cloud cannot communicate with Enterprise 1 resources directly, the Okta AG acts as a proxy to facilitate that communication. <a class="reference external" href="https://help.okta.com/en-us/Content/Topics/Access-Gateway/install-workflow.htm">More information on installing and configuring the Okta AG is available online.</a></p>
+</section>
+</section>
+<section id="radiant-logic-radiantone">
+<h2>Radiant Logic RadiantOne<a class="headerlink" href="#radiant-logic-radiantone" title="Link to this heading">#</a></h2>
+<p id="radiant-one">Radiant Logic RadiantOne is an ICAM solution that unifies identity data, making access reusable and scalable for the enterprise.</p>
+<section id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
+<p id="radiant-install">RadiantOne is to be installed on a Microsoft Windows 2019 server. See the RadiantOne v7.4.1 documentation from the <a class="reference external" href="https://www.radiantlogic.com/">Radiant Logic website</a> for system specifications. Prerequisites are in Chapter 1 of the <em>RadiantOne Installation Guide</em>. Note: You need to create an account within the Radiant Logic website in order to access the installation and configuration documentation.</p>
+<p>Once you download and launch the executable for a Windows server installation, follow the step-by-step instructions provided on the screen. We used default settings unless specified below. Instructions can also be found in Chapter 2 of the <em>RadiantOne Installation Guide</em>.</p>
+<ul class="simple">
+<li><p>Choose <strong>RadiantOne Federated Identity Suite New Cluster/Standalone</strong> for the <strong>Install Set.</strong></p></li>
+<li><p>Provide a name and password for the <strong>Cluster settings.</strong></p></li>
+<li><p>For the <strong>Server Configuration</strong> step, use the following ports: LDAP = 389, LDAPS = 636, and Scheduler Port = 1099.</p></li>
+</ul>
+</section>
+<section id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h3>
+<section id="sync-with-an-ldap-server">
+<h4>Sync with an LDAP server<a class="headerlink" href="#sync-with-an-ldap-server" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Once installation is complete, log in to RadiantOne from a web browser on the Radiant Logic server, <a class="reference external" href="https://localhost:7171">https://localhost:7171</a>. Note: ensure the proper SSL certificate is on the server for HTTPS.</p></li>
+<li><p>Initial configuration is to sync up with an LDAP server. Go to <strong>Settings &gt; Server Backend &gt; LDAP Data Sources.</strong> The screenshot below shows the information created for Enterprise 1 AD. See the <em>RadiantOne Namespace Configuration Guide</em> Chapter 3 for details.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This is a screenshot showing LDAP data source information created for Enterprise 1 AD." src="../_images/E1B1-Figure1.png" /></p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Once the connection is tested and successful, the integration is completed.</p></li>
+<li><p>Next, create a Directory Namespace by going to <strong>Directory Namespace</strong> and selecting <strong>Create New Naming Context.</strong> Click <strong>Next</strong> and click <strong>OK.</strong></p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot is an example of creating a new naming context." src="../_images/E1B1-Figure2.png" /></p>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li><p>Find <strong>DC=NCCOE,DC=ORG</strong> under <strong>Root Naming Contexts</strong> on the left side of the screen. Click the <strong>New Level</strong> button. Enter <strong>ent1</strong> as the name for the <strong>OU</strong> and click <strong>OK.</strong></p></li>
+<li><p>Click on <strong>ou=ent1</strong> on the left side and click the <strong>New Level</strong> button on the right to create a sub-ou called <strong>groups.</strong></p></li>
+<li><p>Click on <strong>ou=ent1</strong> on the left side and click the <strong>New Level</strong> button on the right to create a sub-ou called <strong>users.</strong></p></li>
+<li><p>Once configured and saved, click on <strong>ou=users</strong> and click on <strong>Backend Mapping</strong> on the right. Select <strong>LDAP Backend.</strong> Click <strong>Next</strong> and <strong>Browse</strong> for the proper <strong>Remote Base DN.</strong> Then click <strong>OK.</strong> The screenshot is the completed configuration for the sub-ou users Proxy Backend.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This is a screenshot of the settings for the Proxy Backend." src="../_images/E1B1-Figure3.png" /></p>
+</div></blockquote>
+<ol class="arabic simple" start="9">
+<li><p>Go to <strong>Objects</strong> and create a primary object and Join Profile by clicking <strong>Add</strong> on each object. Click <strong>Save.</strong> Now we have data sources from LDAP and our database.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot shows an example of having data sources configured from LDAP and a database." src="../_images/E1B1-Figure4.png" /></p>
+</div></blockquote>
+</section>
+<section id="create-a-namespace-to-bring-in-users">
+<h4>Create a namespace to bring in users<a class="headerlink" href="#create-a-namespace-to-bring-in-users" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>In <strong>Directory Namespace</strong>, click the <strong>+</strong> sign. Create a naming context: <strong>ou=hr,ou=lab,ou=nccoe,ou=org</strong> and select <strong>Virtual Tree</strong> for the naming context type, then click <strong>Next.</strong></p></li>
+<li><p>Configure the Virtual Tree by choosing <strong>Create a new view (.dvx),</strong> setting the <strong>Directory View</strong> to <strong>dv=ou_hr_ou_lab_ou_nccoe_ou_org</strong> and clicking <strong>OK</strong>.</p></li>
+<li><p>Next, create a sub-Namespace by clicking the <strong>+ New level</strong> button and entering the information depicted below.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot shows an example of creating a sub-Namespace." src="../_images/E1B1-Figure5.png" /></p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>Click on the sub-Namespace that was just created and click on <strong>Backend Mapping</strong>. Specify <strong>ou=east,ou=hr,ou=lab,ou=nccoe,ou=org</strong> as the naming context and select <strong>HDAP Store</strong> as the type, then click <strong>Next</strong>. Note: Instead of having an actual HR database, we are importing sample users from a text file.</p></li>
+<li><p>Click on <strong>ou=east</strong> to edit properties. Scroll down to the bottom of the screen and click on the <strong>Initialize</strong> button. Then select a file with database users to import for initializing the High-Availability Directory Access Protocol (HDAP) store. Note: We are emulating an HR database with this file.</p></li>
+<li><p>Go to the <strong>Directory Browser</strong> tab and refresh the data by clicking the <strong>Refresh Tree</strong> button.</p></li>
+<li><p>Go to the OU that you just configured and expand it. The new users should now be available.</p></li>
+<li><p>Go to <strong>Directory Namespace</strong> and click the <strong>+</strong> button to add new naming context (in our build, we used <strong>ou=testing</strong>). This is used to map to the LDAP backend the database information that was imported.</p></li>
+<li><p>Click on the OU that was created. Click <strong>OK</strong> and <strong>Save</strong>.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot shows an example of configuring an LDAP backend." src="../_images/E1B1-Figure6.png" /></p>
+</div></blockquote>
+<ol class="arabic simple" start="10">
+<li><p>Go to <strong>Directory Browser</strong> and hit the <strong>Refresh</strong> button.</p></li>
+<li><p>Go to <strong>Settings &gt; Configuration &gt; ORX Schema</strong>, and find <strong>OU=Testing</strong> and check it. Click on <strong>Generate LDAP Schema</strong> at the bottom of the screen and click <strong>OK</strong>.</p></li>
+</ol>
+</section>
+</section>
+<section id="integration">
+<h3>Integration<a class="headerlink" href="#integration" title="Link to this heading">#</a></h3>
+<p id="radiant-integration">Other applications, including SailPoint and Okta, will need the following information in order to integrate with Radiant Logic and pull information from it:</p>
+<ul class="simple">
+<li><p>Hostname: radiant1.lab.nccoe.org (hostname of the Radiant Logic server)</p></li>
+<li><p>Port: 389 (LDAP) and 636 (LDAPS)</p></li>
+</ul>
+<p>Also, a service account and password need to be created on Radiant Logic for each application to be integrated. The service account is in the form of: uid=sailpointadmin,ou=globalusers,cn=config. Follow these steps to create each service account for SailPoint, Okta, and any other desired applications:</p>
+<ol class="arabic simple">
+<li><p>Go to <strong>Directory Browser.</strong></p></li>
+<li><p>On the left, go to <strong>cn=config,</strong> then <strong>ou=globalusers</strong> underneath it. Right-click on <strong>ou=globalusers,</strong> click <strong>Add,</strong> then click <strong>New InetOrgPerson.</strong></p></li>
+<li><p>Fill in the necessary entries. Click <strong>Confirm</strong> to save the configuration.</p></li>
+</ol>
+</section>
+</section>
+<section id="sailpoint-identityiq">
+<h2>SailPoint IdentityIQ<a class="headerlink" href="#sailpoint-identityiq" title="Link to this heading">#</a></h2>
+<p id="sailpoint">SailPoint IdentityIQ is the identity and access management software platform for governing the lifecycle of the enterprise user’s identity.</p>
+<section id="installation-and-configuration">
+<h3>Installation and Configuration<a class="headerlink" href="#installation-and-configuration" title="Link to this heading">#</a></h3>
+<p id="sailpoint-install">The steps below explain the installation of the IdentityIQ server, initial configuration to import users from the Radiant Logic identity store, and configuration to manage the lifecycle of users.</p>
+<ol class="arabic">
+<li><p>To install IdentityIQ, first identify the platform and prerequisites. For this build, we used Windows 2019 with Apache Tomcat 9.0 and MS SQL Server 2019 as recommended requirements for release 8.2. Download the installation file from the SailPoint website and <a class="reference external" href="https://community.sailpoint.com/t5/IdentityIQ-Product-Guides/8-2-IdentityIQ-Installation-Guide/ta-p/196441">follow the installation instructions</a>.</p></li>
+<li><p>Login into IdentityIQ from a web browser (<a class="reference external" href="http://localhost:8080">http://localhost:8080</a>) using the default login and password identified in the IdentityIQ Installation Guide. Make sure to change the default password by following the instructions provided in the Guide.</p></li>
+<li><p><a class="reference external" href="https://documentation.sailpoint.com/connectors/iqservice/help/integrating_iqservice_admin/install_register.html">Configure IQService.</a> This is needed in order to set up integration with AD.</p></li>
+<li><p>Govern permissions by pushing employee and contractor users and groups to AD and Okta. Note: This step should be completed after the integration with AD and Okta is completed. Steps to configure integration are in <a class="reference internal" href="#sailpoint-integration-ad"><span class="std std-ref">Integration with AD</span></a> and <a class="reference internal" href="#sailpoint-integration-radiant"><span class="std std-ref">Integration with Radiant Logic</span></a>. After integration with AD and Okta is completed, navigate to the <strong>Setup</strong> drop-down menu and select <strong>Roles</strong>. Here we will create a birthright role and access profile for employees and contractors.</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Select the <strong>New Role</strong> drop-down button and select <strong>Role</strong>. The screenshot lists the four roles that are created for this build.</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot lists the four roles that were created for this build." src="../_images/E1B1-Figure7.png" /></p>
+<ol class="loweralpha simple" start="2">
+<li><p>For the <strong>Employee Birthright Role</strong>, use the configuration shown in the next two screenshots. Note that the <strong>Assignment Rule</strong> is where the value of <strong>employee</strong> is used to identify the users. This will push users into AD as a birthright. Once that role is configured, configure the corresponding contractor role the same way. Note that the <strong>Assignment Rule</strong> should be different for the contractor based on user information in SailPoint.</p></li>
+</ol>
+</div></blockquote>
+<blockquote>
+<div><p><img alt="This screenshot shows the interface of the Role Editor." src="../_images/E1B1-Figure8.png" /></p>
+<p><img alt="This screenshot shows an example of an Assignment Rule." src="../_images/E1B1-Figure9.png" /></p>
+<ol class="loweralpha simple" start="3">
+<li><p>For the <strong>Employee Access Profile</strong> role, add the groups that the employees belong to. This means that these users will have access to these groups as a birthright. Perform the same for the corresponding contractor role. Note that the <strong>Entitlements</strong> should be different for the contractor based on group information in Okta and AD.</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic" start="5">
+<li><p>The next step is to synchronize users and groups. To begin, navigate to the <strong>Setup</strong> tab and select <strong>Tasks</strong>.</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>To create user aggregation, select the <strong>New Task</strong> drop down button and select <strong>Account Aggregation</strong>. The screenshot below depicts the aggregation configuration for Radiant Logic. This allows SailPoint to sync with Radiant Logic on any updates made to users. Repeat this step for AD and Okta accounts. Note that the <strong>Account Aggregation Options</strong> section is where the AD and Okta applications need to be selected to create the proper account aggregation.</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot depicts the aggregation configuration for Radiant Logic." src="../_images/E1B1-Figure10.png" /></p>
+<ol class="loweralpha simple" start="2">
+<li><p>To create group aggregation, select the <strong>New Task</strong> drop down button and select <strong>Account Aggregation</strong>. This allows SailPoint to sync with AD on any updates made to users in the groups. Repeat this step for the Okta account. Note that the <strong>Account Group Aggregation Options</strong> section is where the Okta applications need to be selected to create the proper account aggregation.</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic" start="6">
+<li><p>Configure lifecycle processes through Rapid Setup Configuration. Click on the <strong>Setup</strong> cog and select <strong>Rapid Setup</strong> to begin. The Rapid Setup Configuration process allows onboarding of applications and manage functions such as joiner, mover, and leaver of identities. Use the “Using Rapid Setup” section of the <a class="reference external" href="https://community.sailpoint.com/t5/IdentityIQ-Product-Guides/8-2-IdentityIQ-Rapid-Setup-Guide/ta-p/196225">IdentityIQ Rapid Setup Guide</a> to guide the configuration.</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Configure <strong>Joiner</strong>, <strong>Mover,</strong> and <strong>Leaver.</strong></p></li>
+<li><p>Configure <strong>Identity Operations</strong>.</p></li>
+<li><p>Configure Rapid Setup specific to AD users: Aggregation, Joiner, Mover, and Leaver.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Govern user permissions to applications on an individual basis. Configure procedures to provision and approve user access to resources. For Enterprise 1, the process is for an administrator or user to request approval to access an application. That request goes to the user’s manager for review and approval. Once the manager approves the request, SailPoint kicks off an API call to Okta to configure access for that user.</p></li>
+</ol>
+</section>
+<section id="integration-with-radiant-logic">
+<h3>Integration with Radiant Logic<a class="headerlink" href="#integration-with-radiant-logic" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" id="sailpoint-integration-radiant">
+<li><p>In the <strong>Applications</strong> tab, select <strong>Application Definition.</strong> When the screen comes up, click on the <strong>Add New Application</strong> button.</p></li>
+<li><p>Enter values for the <strong>Name</strong> (e.g., “Ent1-HR”) and <strong>Owner</strong> (e.g., “The Administrator”) fields. Select <strong>LDAP</strong> as the <strong>Application Type</strong> and ensure that <strong>Authoritative Application</strong> is enabled.</p></li>
+<li><p>Click on the <strong>Configuration</strong> tab next to the current tab. The credentials that were created in Radiant Logic will need to be added.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot shows the LDAP configuration for integration with Radiant Logic." src="../_images/E1B1-Figure11.png" /></p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>Scroll down the screen and under the <strong>Account</strong> tab, add the Search DN, which is the one created from Radiant Logic.</p></li>
+<li><p>Click on <strong>Test Connection</strong> to make sure that SailPoint is able to connect to Radiant Logic. Click <strong>Save.</strong></p></li>
+<li><p>You can go back into the <strong>Configuration</strong> tab and <strong>Schema</strong> sub-tab. Toward the bottom of the screen, there is a <strong>Preview</strong> button. You can click on that to preview the imported attributes. Note: We manually added schema attributes. This can be completed from Radiant Logic and imported. Please ensure that you have the correct attributes to integrate this.</p></li>
+<li><p>To complete the setup, click <strong>Save</strong> to finish and import users from Radiant Logic.</p></li>
+<li><p>Go to the <strong>Setup</strong> tab and click <strong>Tasks.</strong> Once in the new tab, click on the <strong>New Task</strong> button at the top right corner to create the account aggregation for Radiant Logic.</p></li>
+<li><p>Perform identity attribute mapping. The screenshot shows mappings specific to this build only.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot shows identity attribute mappings specific to this build." src="../_images/E1B1-Figure12.png" /></p>
+</div></blockquote>
+</section>
+<section id="integration-with-ad">
+<h3>Integration with AD<a class="headerlink" href="#integration-with-ad" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" id="sailpoint-integration-ad">
+<li><p>Navigate to the <strong>Applications</strong> tab, click on <strong>Application Definition</strong>, then click the <strong>Add New Application</strong> button. Fill out the <strong>Name</strong> (e.g., “Ent1-AD-Ent-Users”), <strong>Owner</strong> (e.g., “The Administrator”), and <strong>Application Type</strong> (“Active Directory - Direct”).</p></li>
+<li><p>Navigate to the <strong>Configuration</strong> tab. From here, input information for the IQ Service Host. The IP address is this server, the IdentityIQ server. IQ Service User is a user that was created in AD for this integration.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot shows the configuration for the IQ Service host." src="../_images/E1B1-Figure13.png" /></p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Scroll down to the <strong>Domain Configuration</strong> section. Input the domain information for where the users will be provisioned.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot shows the domain configuration." src="../_images/E1B1-Figure14.png" /></p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>Scroll down to the <strong>User Search Scope</strong> section and input the Search DN information. This should be the AD domain location for your enterprise.</p></li>
+<li><p>Navigate to the <strong>Schema</strong> and <strong>Provisioning Policies</strong> sub-tabs, and update information as necessary.</p></li>
+<li><p>Then navigate to the <strong>Correlation</strong> tab to configure the correlation for application and identity attributes between SailPoint and AD.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot shows the configuration for the Correlation tab." src="../_images/E1B1-Figure15.png" /></p>
+</div></blockquote>
+<ol class="arabic simple" start="7">
+<li><p>Click <strong>Save</strong> to complete the configuration.</p></li>
+<li><p>Go to <strong>Setup</strong> tab and click <strong>Tasks</strong>. Once in the new tab, click on the <strong>New Task</strong> button at the top right corner to create the account aggregation for AD.</p></li>
+</ol>
+</section>
+<section id="integration-with-okta">
+<h3>Integration with Okta<a class="headerlink" href="#integration-with-okta" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Go into the <strong>Applications</strong> tab and select <strong>Application Definition.</strong> When the screen comes up, click on the <strong>Add New Application</strong> button.</p></li>
+<li><p>Fill out the <strong>Name</strong> (e.g., “Ent1-Okta”) and <strong>Owner</strong> (“The Administrator”), select <strong>Okta</strong> as the <strong>Application Type,</strong> and enable the <strong>Authoritative Application</strong> option.</p></li>
+<li><p>In the <strong>Configuration</strong> settings tab, the Okta URL and API token are needed. Note that the API token is created in Okta. Click <strong>Save</strong> to finish the setup.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot shows the configuration for integration with Okta." src="../_images/E1B1-Figure16.png" /></p>
+</div></blockquote>
+</section>
+</section>
+<section id="ivanti-neurons-for-uem">
+<h2>Ivanti Neurons for UEM<a class="headerlink" href="#ivanti-neurons-for-uem" title="Link to this heading">#</a></h2>
+<p id="ivanti-neurons">Ivanti Neurons for UEM is a unified endpoint management (UEM) solution which is used to provision endpoints, grant access to enterprise resources, protect data, distribute applications, and enforce measures as required.</p>
+<section id="id4">
+<h3>Installation and Configuration<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="install-an-mdm-certificate-for-apple-devices">
+<h4>Install an MDM certificate for Apple devices<a class="headerlink" href="#install-an-mdm-certificate-for-apple-devices" title="Link to this heading">#</a></h4>
+<p>The Apple Push Notification service (APNs) certificate needs to be installed in Ivanti Neurons for UEM to communicate with Apple devices. Apple devices use an APNs certificate to learn about updates, MDM policies, and incoming messages.</p>
+<p>To acquire and install the MDM certificate:</p>
+<ol class="arabic simple">
+<li><p>Open the Ivanti Neurons for UEM console and go to <strong>Admin &gt; Apple &gt; MDM Certificate</strong> page to download a certificate signing request (CSR).</p></li>
+<li><p>Upload the CSR to the <a class="reference external" href="https://identity.apple.com/pushcert/">Apple Push Certificates Portal</a> to create a new certificate.</p></li>
+<li><p>Save the resulting certificate.</p></li>
+<li><p>Install the certificate for the Ivanti Neurons for UEM tenant.</p></li>
+</ol>
+</section>
+<section id="configure-android-enterprise">
+<h4>Configure Android Enterprise<a class="headerlink" href="#configure-android-enterprise" title="Link to this heading">#</a></h4>
+<p>Android Enterprise allows personal and corporate applications on the same Android device. Android Enterprise configuration depends on the type of Google subscription. Please follow Ivanti documentation to <a class="reference external" href="http://mi.extendedhelp.mobileiron.com/82/all/en/Setting_up_Android_enterprise.htm?Highlight=android%20enterprise">set up the integration</a>.</p>
+<p>The Android Enterprise Work Profile configuration defines which features and apps are allowed, and which are restricted on Android enterprise devices. Do the following to configure the profile:</p>
+<ol class="arabic simple">
+<li><p>In the Cloud portal, go to <strong>Configurations</strong> and click <strong>Add.</strong></p></li>
+<li><p>Select the <strong>Lockdown &amp; Kiosk: Android Enterprise</strong> configuration.</p></li>
+<li><p>Enter a configuration name and description.</p></li>
+<li><p>Click the <strong>Work Profile</strong> lockdown type.</p></li>
+<li><p>Select the lockdown settings for Android devices.</p></li>
+</ol>
+</section>
+<section id="add-a-certificate-authority">
+<h4>Add a certificate authority<a class="headerlink" href="#add-a-certificate-authority" title="Link to this heading">#</a></h4>
+<p>A certificate authority (CA) generates self-signed certificates to be used by the devices that Ivanti Neurons for UEM manages. For this implementation we used an external certificate authority (DigiCert) and a Connector to access it. Ivanti Cloud Connector provides access from the Ivanti Neurons for UEM service to corporate resources, such as an LDAP server or CA.</p>
+<ol class="arabic simple">
+<li><p>Install and configure a Connector (<strong>Admin &gt; Connector</strong>).</p></li>
+<li><p>In the <strong>Certificate Management</strong> page, click <strong>Add</strong> under the <strong>Certificate Authority</strong> section.</p></li>
+<li><p>Choose <strong>Connect to a publicly-trusted Cloud Certificate Authority.</strong></p></li>
+<li><p>Enter a name for the CA.</p></li>
+<li><p>Download the certificate from DigiCert and upload it to Ivanti Neurons for UEM.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot shows the Download Certificate interface." src="../_images/E1B1-Figure17.png" /></p>
+</div></blockquote>
+</section>
+<section id="configure-user-settings">
+<h4>Configure user settings<a class="headerlink" href="#configure-user-settings" title="Link to this heading">#</a></h4>
+<p>User settings define device registration options. Access them by opening Ivanti Neurons for UEM and going to <strong>Users</strong> &gt; <strong>User Settings</strong>. Configure device and password settings there.</p>
+</section>
+<section id="add-a-policy">
+<h4>Add a policy<a class="headerlink" href="#add-a-policy" title="Link to this heading">#</a></h4>
+<p>Policies define requirements for devices and compliance actions (what happens if the rule is violated). To add a policy:</p>
+<ol class="arabic simple">
+<li><p>Go to <strong>Policies</strong> and click <strong>+Add</strong> (upper right).</p></li>
+<li><p>Select a policy type and complete the settings. Policy types include Compromised Devices, Data Protection/Encryption Disabled, MDM/Device Administration Disabled, Out of Contact, and Allowed Apps.</p></li>
+<li><p>Select the device groups that will receive this policy.</p></li>
+</ol>
+<p>The following screenshots show an example of a Data Protection policy to be distributed to a custom group of devices.</p>
+<p><img alt="This screenshot shows the first part of a Data Protection policy." src="../_images/E1B1-Figure18.png" /></p>
+<p><img alt="This screenshot shows the second part of a Data Protection policy." src="../_images/E1B1-Figure19.png" /></p>
+</section>
+<section id="add-a-configuration-for-managed-devices">
+<h4>Add a configuration for managed devices<a class="headerlink" href="#add-a-configuration-for-managed-devices" title="Link to this heading">#</a></h4>
+<p>Configurations are collections of settings that Ivanti Neurons for UEM sends to devices. To add a configuration:</p>
+<ol class="arabic simple">
+<li><p>Click <strong>Add.</strong></p></li>
+<li><p>Select the type of configuration. There are numerous types of configurations available, including Privacy, Certificate, Default App Runtime Permissions, Passcode, Exchange, Wi-Fi, VPN, iOS/macOS/Windows Restrictions, and Software Updates.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot shows examples of types of configurations." src="../_images/E1B1-Figure20.png" /></p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Click <strong>Next.</strong></p></li>
+<li><p>Select a distribution level for the configuration.</p></li>
+</ol>
+<p>Here is an example of a Privacy configuration:</p>
+<p><img alt="This screenshot shows an example of a Privacy configuration." src="../_images/E1B1-Figure21.png" /></p>
+<p>This is an example of an iOS AppConnect configuration:</p>
+<p><img alt="This screenshot shows an example of an iOS AppConnect configuration." src="../_images/E1B1-Figure22.png" /></p>
+<p>This screenshot shows a list of configurations pushed to a device:</p>
+<p><img alt="This screenshot shows a list of configurations pushed to a device." src="../_images/E1B1-Figure23.png" /></p>
+</section>
+</section>
+<section id="integration-with-ivanti-connector">
+<h3>Integration with Ivanti Connector<a class="headerlink" href="#integration-with-ivanti-connector" title="Link to this heading">#</a></h3>
+<p>Ivanti Connector provides access from Ivanti Neurons for UEM to corporate resources, such as an LDAP server. For the latest Connector installation instructions, select the appropriate version of the <a class="reference external" href="https://help.ivanti.com/mi/help/en_us/cld/8x/inst/LandingPage.htm">Cloud Connector Guide</a>.</p>
+<ol class="arabic simple">
+<li><p>Once the Ivanti Connector has been set up and configured, navigate to the Ivanti Neurons for UEM console.</p></li>
+<li><p>Connect to an LDAP Server to import users and groups. Navigate to <strong>Admin &gt; Infrastructure &gt; LDAP &gt; Add Server.</strong> Complete configurations and save. Users can now be imported from the LDAP server.</p></li>
+</ol>
+</section>
+<section id="integration-with-okta-1">
+<span id="id5"></span><h3>Integration with Okta<a class="headerlink" href="#integration-with-okta-1" title="Link to this heading">#</a></h3>
+<section id="idp-setup">
+<h4>IdP setup<a class="headerlink" href="#idp-setup" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Go to <strong>Admin &gt; Infrastructure &gt; Identity &gt; Add IdP.</strong></p></li>
+<li><p>Generate a key for uploading to Okta IdP.</p></li>
+<li><p>Log in to Okta IdP. Search IdP for the <strong>MobileIron Cloud App</strong> and add it to the IdP account.</p></li>
+<li><p>Configure the <strong>MobileIron Cloud App</strong> on the IdP by pasting the above-generated key and the host information.</p></li>
+<li><p>Export metadata from Okta to the Ivanti Neurons for UEM console.</p></li>
+<li><p>In <strong>Admin &gt; Infrastructure &gt; Identity &gt; Add IdP,</strong> select <strong>Choose File</strong> to import the downloaded metadata file to Ivanti Neurons for UEM and complete the setup.</p></li>
+<li><p>When an IdP is added, user authentication automatically switches from LDAP to IdP.</p></li>
+</ol>
+</section>
+<section id="okta-verify-app-configuration-preparation">
+<h4>Okta Verify app configuration preparation<a class="headerlink" href="#okta-verify-app-configuration-preparation" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>In the Okta Admin console, navigate to <strong>Security &gt; Device Integrations</strong> and click <strong>Add Platform.</strong></p></li>
+<li><p>Select platform and click <strong>Next.</strong></p></li>
+<li><p>Copy the <strong>Secret Key</strong> for later usage and enter Device Management Provider and Enrollment Link settings.</p></li>
+<li><p>Repeat for any other device platforms.</p></li>
+</ol>
+</section>
+<section id="okta-verify-app-configuration-android">
+<h4>Okta Verify app configuration - Android<a class="headerlink" href="#okta-verify-app-configuration-android" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>In the Ivanti Neurons for UEM console, navigate to <strong>Apps &gt; App Catalog.</strong> Click <strong>Add.</strong></p></li>
+<li><p>Select the Google Play Store and search for <strong>Okta Verify.</strong> Select the official <strong>Okta Verify</strong> app.</p></li>
+<li><p>Continue through the wizard until you reach the App Configurations page. Click the <strong>+</strong> button in the Managed Configurations for Android section.</p></li>
+<li><p>Add desired settings. Under <strong>Managed Configurations,</strong> add the <strong>Org URL</strong> and <strong>Management Hint</strong> from the Okta Admin console. The Management hint will be the <strong>Secret Key</strong> you saved from the Okta console during preparation.</p></li>
+<li><p>Click <strong>Next,</strong> then click <strong>Done.</strong></p></li>
+</ol>
+</section>
+<section id="okta-verify-app-configuration-ios">
+<h4>Okta Verify app configuration - iOS<a class="headerlink" href="#okta-verify-app-configuration-ios" title="Link to this heading">#</a></h4>
+<ol class="arabic">
+<li><p>In the Ivanti Neurons for UEM console, navigate to <strong>Apps &gt; App Catalog</strong>. Click <strong>Add</strong>.</p></li>
+<li><p>Select the iOS Store and search for <strong>Okta Verify</strong>. Select the official <strong>Okta Verify</strong> app.</p></li>
+<li><p>Continue through the wizard until you reach the App Configurations page. Click the <strong>+</strong> button in the Apple Managed App Configuration section.</p></li>
+<li><p>Add desired settings. Under <strong>Apple Managed App Settings</strong>, click <strong>Add</strong> and add two items.</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>For the first item, the key will be <strong>domainName</strong>, the value will be your Org URL, and the type will be STRING.</p></li>
+<li><p>For the second item, the key will be <strong>managementHint</strong>, the value will be the <strong>Secret Key</strong> you saved from the Okta console during preparation, and the type will be STRING.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Click <strong>Next,</strong> then click <strong>Done</strong>.</p></li>
+</ol>
+</section>
+</section>
+<section id="integration-with-qradar">
+<h3>Integration with QRadar<a class="headerlink" href="#integration-with-qradar" title="Link to this heading">#</a></h3>
+<section id="ivanti-log-transfer-setup">
+<h4>Ivanti log transfer setup<a class="headerlink" href="#ivanti-log-transfer-setup" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Set up an SSH server to host log files. Create a user account that can be used to host/transfer Ivanti Log Files.</p></li>
+<li><p>In the Ivanti Neurons for UEM console, navigate to <strong>Admin &gt; Infrastructure &gt; Audit Trails</strong>.</p></li>
+<li><p>Turn on <strong>Audit Trails Export</strong> and <strong>Device Check-in Trails.</strong></p></li>
+<li><p>Under Export Format, select <strong>CEF</strong> (Common Event Format).</p></li>
+<li><p>Enter the IP address or hostname for the SSH server you set up previously.</p></li>
+<li><p>Enter the username and password for the user you set up previously.</p></li>
+<li><p>Enter the server path for where you would like the Ivanti log files to be stored on the SSH server.</p></li>
+<li><p>Click <strong>Test Connection and Save</strong>. Ivanti log files will now be transferred to the SSH server on a regular basis.</p></li>
+</ol>
+</section>
+<section id="qradar-setup">
+<h4>QRadar setup<a class="headerlink" href="#qradar-setup" title="Link to this heading">#</a></h4>
+<ol class="arabic">
+<li><p>In the QRadar console, navigate to <strong>Admin &gt; Extensions Management</strong>. Click <strong>Add</strong>.</p></li>
+<li><p>Select the Ivanti extension file provided by IBM. Click <strong>Add</strong>.</p></li>
+<li><p>Continue through the wizard until you completed the extension installation.</p></li>
+<li><p>In the QRadar console, navigate to <strong>Admin &gt; Log Sources.</strong> Click +<strong>New Log Source.</strong></p></li>
+<li><p>In the search box, type <strong>Ivanti</strong>. Make sure <strong>Ivanti</strong> is selected in the menu and click <strong>Step 2: Select Protocol Type</strong>.</p></li>
+<li><p>In the search box, type <strong>Log File</strong>. Make sure <strong>Log File</strong> is selected in the menu and click <strong>Step 3: Configure Log Source Parameters</strong>.</p></li>
+<li><p>Enter a name for the log source and turn off <strong>Coalescing Events</strong>. Click <strong>Step 4: Configure Protocol Parameters</strong>. The settings are as follows:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Log Source Identifier: <strong>MobileIron Cloud</strong></p></li>
+<li><p>Service Type: SFTP</p></li>
+<li><p>Remote IP or Hostname: &lt;Log server you set up previously&gt;</p></li>
+<li><p>Remote port: 22</p></li>
+<li><p>Remote User/Password: &lt;Credentials created earlier, if not using key file authentication&gt;</p></li>
+<li><p>SSH Key File: &lt;Credentials created earlier, if not using password authentication&gt;</p></li>
+<li><p>Remote directory: Directory where Ivanti logs are being stored</p></li>
+<li><p>Recursive: On</p></li>
+<li><p>FTP File Type Pattern (Regex for Ivanti log files): ^.*\.(zip|ZIP)$</p></li>
+<li><p>Processor: ZIP</p></li>
+<li><p>All other settings can be left as default</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Click <strong>Step 5: Test Protocol Parameters</strong>. Run the tests and ensure the configuration is valid.</p></li>
+<li><p>From the QRadar console, navigate to the <strong>Admin</strong> tab. Click <strong>Deploy Changes</strong>.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="ivanti-sentry">
+<h2>Ivanti Sentry<a class="headerlink" href="#ivanti-sentry" title="Link to this heading">#</a></h2>
+<p>Ivanti Sentry is an inline gateway that manages, encrypts, and secures traffic between the mobile device and back-end enterprise systems. In this build, Ivanti Sentry acts as a PEP that controls access to enterprise resources.</p>
+<section id="id6">
+<h3>Installation and Configuration<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>For this implementation we used a Standalone Sentry installation on-premises. For the latest Sentry installation instructions, select the appropriate version of the <em>Standalone Sentry On-Premises Installation Guide</em> at <a class="reference external" href="https://www.ivanti.com/support/product-documentation">https://www.ivanti.com/support/product-documentation</a>.</p>
+<p>Next, create a profile for Standalone Sentry in the Ivanti Neurons for UEM console. For information on how to create a profile for Standalone Sentry and configure Standalone Sentry for ActiveSync and AppTunnel, see the <a class="reference external" href="https://help.ivanti.com/mi/help/en_us/SNTRY/9.x/gdcl/LandingPage.htm">Sentry Guide for Cloud</a>. For the latest Sentry installation instructions, click on Sentry, then select the appropriate version of the Standalone Sentry On-Premises Installation Guide.</p>
+</section>
+<section id="ivanti-tunnel-configuration-and-deployment">
+<h3>Ivanti Tunnel Configuration and Deployment<a class="headerlink" href="#ivanti-tunnel-configuration-and-deployment" title="Link to this heading">#</a></h3>
+<p>Ivanti Tunnel is an application that connects a mobile device to the Ivanti Sentry. The process to deploy this app is similar to the deployment of the Okta Verify app in <a class="reference internal" href="#id2"><span class="std std-ref">Okta Verify App</span></a>.</p>
+<ol class="arabic simple">
+<li><p>On the <strong>App Configurations</strong> page for the Tunnel app, create a Managed Configuration.</p></li>
+<li><p>Set the <strong>Tunnel Profile Mode</strong> to <strong>MobileIron Sentry + Access.</strong></p></li>
+<li><p>Set the <strong>Sentry Server</strong> to the Sentry instance you created previously.</p></li>
+<li><p>Set the <strong>SentryService</strong> to the name of the IP Tunnel defined on the Sentry.</p></li>
+<li><p>Set the <strong>ClientCertAlias</strong> to the Sentry certificates you defined during Sentry configuration.</p></li>
+<li><p>Set any other options as needed.</p></li>
+<li><p>Save the Managed Configuration and deploy to devices as needed.</p></li>
+</ol>
+</section>
+</section>
+<section id="ivanti-access-zso">
+<h2>Ivanti Access ZSO<a class="headerlink" href="#ivanti-access-zso" title="Link to this heading">#</a></h2>
+<p>Ivanti Access ZSO is a cloud-based service that allows access to enterprise cloud resources based on user and device posture, and whether apps are managed or not. In this build, Ivanti Access ZSO functions as a delegated IdP, with Okta passing certain responsibilities to Ivanti Access ZSO.</p>
+<section id="integration-with-ivanti-neurons-for-uem">
+<h3>Integration with Ivanti Neurons for UEM<a class="headerlink" href="#integration-with-ivanti-neurons-for-uem" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Ensure that you have the <strong>Manage MobileIron Access Integration</strong> role in Ivanti Neurons for UEM enabled at <strong>Admin &gt; System &gt; Roles Management.</strong></p></li>
+<li><p>Navigate to <strong>Users &gt; Users</strong> and click <strong>Add &gt; API User.</strong></p></li>
+<li><p>Next, navigate to <strong>Users &gt; Users</strong> and click on the username of the user you just created. Navigate to the <strong>Roles</strong> tab of that user and add the <strong>Manage MobileIron Access Integration</strong> role.</p></li>
+<li><p>In the Ivanti Neurons for UEM console, go to <strong>Admin &gt; Infrastructure &gt; Access.</strong></p></li>
+<li><p>Enter the following: <strong>Access Admin URL, Access Admin Username</strong> (username for the Access administrator account created for Access integration), and <strong>Access Admin Password.</strong></p></li>
+<li><p>Click <strong>Register.</strong></p></li>
+<li><p>When Access is registered with Ivanti Neurons for UEM, you should see the following:</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot shows what will be displayed once Access is registered with Ivanti Neurons for UEM." src="../_images/E1B1-Figure24.png" /></p>
+</div></blockquote>
+</section>
+<section id="integration-with-okta-2">
+<span id="id7"></span><h3>Integration with Okta<a class="headerlink" href="#integration-with-okta-2" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>In the Okta Admin console, navigate to <strong>Security &gt; API</strong> and generate an API token. Save this token for use in Access.</p></li>
+<li><p>In the Ivanti Access ZSO console, navigate to <strong>Profile &gt; Federation.</strong></p></li>
+<li><p>Select <strong>Add Pair &gt; Delegated IDP</strong> and choose <strong>Okta.</strong></p></li>
+<li><p>Enter the Okta Domain URL and the Okta API Token you generated in Step 1. Click <strong>Verify.</strong></p></li>
+<li><p>Once the verification is complete, select the routing rules you’d like configured and click <strong>Next.</strong></p></li>
+<li><p>Verify the Signing Certificate settings and Encryption Certificate settings are correct and click <strong>Next.</strong></p></li>
+<li><p>Choose the desired <strong>Unmanaged Device Authentication</strong> setting and click <strong>Done.</strong></p></li>
+<li><p>You will see Okta in the Delegated IDP section. Okta will route authentication requests based on your settings.</p></li>
+</ol>
+</section>
+</section>
+<section id="zimperium-mobile-threat-defense-mtd">
+<h2>Zimperium Mobile Threat Defense (MTD)<a class="headerlink" href="#zimperium-mobile-threat-defense-mtd" title="Link to this heading">#</a></h2>
+<p id="zimperium-mtd">Zimperium MTD can retrieve various device attributes, such as device name, model, OS, OS version, and owner’s email address. It then continuously monitors the device’s risk posture and reports any changes in the posture to Ivanti Neurons for UEM.</p>
+<section id="installation-configuration-and-integration">
+<h3>Installation, Configuration, and Integration<a class="headerlink" href="#installation-configuration-and-integration" title="Link to this heading">#</a></h3>
+<section id="create-an-api-user">
+<h4>Create an API user<a class="headerlink" href="#create-an-api-user" title="Link to this heading">#</a></h4>
+<p>To configure a Zimperium MTD console to work with Ivanti Neurons for UEM, an API user needs to be created and assigned a few roles.</p>
+<ol class="arabic simple">
+<li><p>In the Ivanti Neurons for UEM admin console, select <strong>Users.</strong></p></li>
+<li><p>Click <strong>+ Add &gt; API user.</strong> The Add API User dialog page opens.</p></li>
+<li><p>Enter the following details: <strong>Username, Email, First Name, Last Name, Display Name,</strong> and <strong>Password.</strong></p></li>
+<li><p>Confirm the password.</p></li>
+<li><p>Deselect the <strong>Cisco ISE Operations</strong> option.</p></li>
+<li><p>Click <strong>Done.</strong></p></li>
+</ol>
+</section>
+<section id="assign-roles-to-the-api-user">
+<h4>Assign roles to the API user<a class="headerlink" href="#assign-roles-to-the-api-user" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>From the admin console, go to <strong>Users.</strong></p></li>
+<li><p>Select the new API user created previously.</p></li>
+<li><p>Click <strong>Actions.</strong></p></li>
+<li><p>From the User details page, select <strong>Assign Roles.</strong></p></li>
+<li><p>Select the following roles: <strong>App &amp; Content Management, App &amp; Content Read Only, Common Platform Services (CPS), Device Actions, Device Management, Device Read Only, System Read Only,</strong> and <strong>User Read Only.</strong></p></li>
+</ol>
+</section>
+<section id="add-an-mdm-server-to-the-zimperium-console">
+<h4>Add an MDM server to the Zimperium console<a class="headerlink" href="#add-an-mdm-server-to-the-zimperium-console" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Log in to the Zimperium MTD console.</p></li>
+<li><p>Navigate to <strong>Manage &gt; Integrations &gt; Add MDM.</strong></p></li>
+<li><p>Select <strong>Cloud</strong> to add it to the MTD console as an MDM server.</p></li>
+<li><p>Enter the following required information: <strong>URL, Username/Password, MDM Name,</strong> and <strong>Background Sync.</strong></p></li>
+<li><p>Click <strong>Finish.</strong></p></li>
+</ol>
+</section>
+<section id="activate-mtd-on-ivanti-neurons-for-uem">
+<h4>Activate MTD on Ivanti Neurons for UEM<a class="headerlink" href="#activate-mtd-on-ivanti-neurons-for-uem" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>From the Ivanti Neurons for UEM admin console, go to <strong>Configurations.</strong></p></li>
+<li><p>Click <strong>+Add.</strong></p></li>
+<li><p>Click <strong>Mobile Threat Defense Activation.</strong></p></li>
+<li><p>In the <strong>Create Mobile Threat Defense Configuration</strong> page, enter a name for the configuration.</p></li>
+<li><p>In the Configuration Setup section, select the vendor <strong>Zimperium.</strong></p></li>
+<li><p>In the <strong>License Key</strong> field, enter a unique encrypted Mobile Threat Defense activation code.</p></li>
+<li><p>In the <strong>Wake up Intervals (mins)</strong> field, set a time.</p></li>
+<li><p>Click <strong>Next.</strong></p></li>
+<li><p>Select the <strong>Enable this configuration</strong> option.</p></li>
+<li><p>Select <strong>All Devices.</strong></p></li>
+<li><p>Click <strong>Done.</strong></p></li>
+</ol>
+</section>
+<section id="add-custom-attributes-in-ivanti-neurons-for-uem">
+<h4>Add custom attributes in Ivanti Neurons for UEM<a class="headerlink" href="#add-custom-attributes-in-ivanti-neurons-for-uem" title="Link to this heading">#</a></h4>
+<p>Custom device attributes will be applied to both Android and iOS devices based on threat severity.</p>
+<ol class="arabic simple">
+<li><p>To create custom attributes, in the Ivanti Neurons for UEM admin console go to <strong>Admin &gt; System &gt; Attributes.</strong> Enter each attribute name in lower case.</p></li>
+<li><p>Create the custom attribute <strong>mtdnotify</strong> for <strong>Low or Normal</strong> severity threats:</p>
+<ol class="loweralpha simple">
+<li><p>Click <strong>Add New.</strong> The <strong>Attribute Name</strong> and <strong>Attribute Type</strong> fields are displayed.</p></li>
+<li><p>Select <strong>Device</strong> as the attribute type.</p></li>
+<li><p>Name the custom attribute <strong>mtdnotify.</strong></p></li>
+<li><p>Click <strong>Save</strong> to monitor and notify.</p></li>
+</ol>
+</li>
+<li><p>Create the custom attribute <strong>mtdblock</strong> for <strong>Elevated</strong> or <strong>Critical</strong> severity threats:</p>
+<ol class="loweralpha simple">
+<li><p>Click <strong>Add New.</strong></p></li>
+<li><p>Select <strong>Device</strong> as the attribute type.</p></li>
+<li><p>Name the custom attribute <strong>mtdblock.</strong></p></li>
+<li><p>Click <strong>Save</strong> to monitor and notify.</p></li>
+</ol>
+</li>
+<li><p>Create the custom attribute <strong>mtdquarantine</strong> for <strong>Elevated</strong> or <strong>Critical</strong> severity threats:</p>
+<ol class="loweralpha simple">
+<li><p>Click <strong>Add New.</strong></p></li>
+<li><p>Select <strong>Device</strong> as the attribute type.</p></li>
+<li><p>Name the custom attribute <strong>mtdquarantine.</strong></p></li>
+<li><p>Click <strong>Save</strong> to monitor, notify, and quarantine.</p></li>
+</ol>
+</li>
+<li><p>Create the custom attribute <strong>mtdtiered4hours</strong> for <strong>Low, Normal, Elevated,</strong> or <strong>Critical</strong> severity threats:</p>
+<ol class="loweralpha simple">
+<li><p>Click <strong>Add New.</strong></p></li>
+<li><p>Select <strong>Device</strong> as the attribute type.</p></li>
+<li><p>Name the custom attribute <strong>mtdtiered4hours.</strong></p></li>
+<li><p>Click <strong>Save</strong> to monitor and notify, wait for four hours, block, wait for another four hours, and quarantine.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="create-compliance-policy">
+<h4>Create compliance policy<a class="headerlink" href="#create-compliance-policy" title="Link to this heading">#</a></h4>
+<p>Create compliance actions using custom policies based on the MTD custom attributes created above.</p>
+<ol class="arabic simple">
+<li><p>In Ivanti Neurons for UEM admin console, go to <strong>Policies.</strong></p></li>
+<li><p>Click <strong>+ Add.</strong></p></li>
+<li><p>Select <strong>Custom Policy.</strong></p></li>
+<li><p>Enter <strong>mtdnotify</strong> as the policy name.</p></li>
+<li><p>Under <strong>Conditions,</strong> select <strong>Custom Device Attribute.</strong></p></li>
+<li><p>Select <strong>mtdnotify</strong> from the drop-down box and set the condition <strong>is equal to</strong> 1.</p></li>
+<li><p>Under <strong>Choose Actions,</strong> select <strong>Monitor</strong> and <strong>Send Email and Push Notification.</strong></p></li>
+<li><p>Under <strong>Email Message</strong> fields, enter the subject and body text.</p></li>
+<li><p>Under <strong>Push Notification,</strong> enter message text.</p></li>
+<li><p>Click <strong>Yes, Next,</strong> and <strong>Done.</strong></p></li>
+<li><p>Repeat this procedure to add the following policies: <strong>mtdblock, mtdquarantine, mtdtiered4hours.</strong></p></li>
+<li><p>Add other policies if needed.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot shows a list of policies." src="../_images/E1B1-Figure25.png" /></p>
+</div></blockquote>
+</section>
+<section id="create-device-groups-and-match-with-custom-policies-and-custom-device-attributes-created-above">
+<h4>Create device groups and match with custom policies and custom device attributes created above<a class="headerlink" href="#create-device-groups-and-match-with-custom-policies-and-custom-device-attributes-created-above" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>In Ivanti Neurons for UEM admin console, go to <strong>Devices &gt; Device Groups.</strong></p></li>
+<li><p>Click <strong>+ Add.</strong></p></li>
+<li><p>Enter <strong>mtdNotify</strong> as the device group name.</p></li>
+<li><p>Under Dynamically Managed groups, select <strong>Custom Device Attribute.</strong></p></li>
+<li><p>Select <strong>mtdnotify</strong> from the drop-down box and set the condition <strong>is equal to</strong> 1.</p></li>
+<li><p>Click <strong>Save.</strong></p></li>
+<li><p>Repeat this procedure to add the following groups: <strong>mtdBlock, mtdQuarantine, mtdTiered4hours.</strong></p></li>
+</ol>
+</section>
+<section id="configure-zimperium-mtd-management-console">
+<h4>Configure Zimperium MTD management console<a class="headerlink" href="#configure-zimperium-mtd-management-console" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://help.ivanti.com/mi/help/en_us/mtd/8x/gdcl/Content/MTD_all/mtd_using_zConsole_intro.htm">Set up, configure, and use the MTD console for supported MTD activities.</a> When configuring policies in the Zimperium admin console, use the available MDM actions and mitigation actions.</p>
+<p><img alt="This is a screenshot of the Zimperium admin console." src="../_images/E1B1-Figure26.png" /></p>
+</section>
+</section>
+</section>
+<section id="ibm-cloud-pak-for-security">
+<h2>IBM Cloud Pak for Security<a class="headerlink" href="#ibm-cloud-pak-for-security" title="Link to this heading">#</a></h2>
+<p id="ibm-cp4s">IBM Cloud Pak for Security platform enables the integration of existing security tools and provides understanding and management of threats in the environment.</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://www.ibm.com/docs/en/cloud-paks/1.0?topic=installing-openshift-container-platform-clusters">Deploy an OpenShift cluster.</a> OpenShift needs to be in place before Cloud Pak for Security can be installed.</p></li>
+<li><p><a class="reference external" href="https://www.ibm.com/docs/en/cloud-paks/cp-security/1.10?topic=installing">Install Cloud Pak for Security</a>.</p></li>
+<li><p><a class="reference external" href="https://www.ibm.com/docs/en/cloud-paks/cp-security/1.10?topic=providers-configuring-ldap-authentication">Configure LDAP authentication</a> so Cloud Pak for Security can leverage an existing LDAP directory server for authentication.</p></li>
+</ol>
+<p>Once those steps are complete, open a web browser and navigate to the DNS name for Cloud Pak for Security. Additional documentation can be found at <a class="reference external" href="https://www.ibm.com/docs/en/cloud-paks/cp-security/1.10">Cloud Pak for Security Documentation</a>.</p>
+</section>
+<section id="ibm-security-qradar-xdr">
+<h2>IBM Security QRadar XDR<a class="headerlink" href="#ibm-security-qradar-xdr" title="Link to this heading">#</a></h2>
+<p id="ibm-qradar">IBM Security QRadar platform provides various security capabilities including threat detection and response, security information and event management (SIEM), and security orchestration, automation, and response (SOAR).</p>
+<p>Install and configure QRadar following IBM’s <a class="reference external" href="https://www.ibm.com/docs/en/qsip/7.4?topic=SS42VS_7.4/com.ibm.qradar.doc/c_qradar_pdfs.html">QRadar Installation and Configuration Guide</a>.</p>
+<p>Once that is complete, open a web browser and navigate to the QRadar server web interface by using its IP address or DNS name.</p>
+</section>
+<section id="tenable-io">
+<h2>Tenable.io<a class="headerlink" href="#tenable-io" title="Link to this heading">#</a></h2>
+<p id="id8">Tenable.io is a cloud-based platform that is used in this build to provide network discovery, vulnerability, and scanning capabilities for enterprise components.</p>
+<section id="id9">
+<h3>Installation and Configuration<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>As a cloud-based platform, a license must first be obtained, and a cloud instance deployed by Tenable. Once that is completed, Tenable.io can be accessed through the web interface located at <a class="reference external" href="https://cloud.tenable.com">https://cloud.tenable.com</a>.</p>
+<section id="deploy-an-agent">
+<h4>Deploy an agent<a class="headerlink" href="#deploy-an-agent" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>In Tenable.io, click the hamburger menu (☰) in the top left corner and navigate to <strong>Settings &gt; Sensors &gt; Nessus Agents.</strong></p></li>
+<li><p>Click <strong>Add Nessus Agent</strong> and save the Linking Key.</p></li>
+<li><p>On the target endpoint, download the agent from <a class="reference external" href="https://downloads.tenable.com">https://downloads.tenable.com</a>. When the download completes, run the executable file.</p></li>
+<li><p>In the setup window, fill in the key from step 2, the server (in our case, cloud.tenable.com:443), and the agent groups that this agent will be part of (in our case, Default). Click <strong>Next.</strong></p></li>
+<li><p>Click <strong>Install</strong> and approve the request if User Account Control (UAC) comes up.</p></li>
+<li><p>When installation completes, updates will continue running in the background. The update and connection process may take some time. The endpoint will then be shown in the cloud tenant.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This is a screenshot listing the linked agents." src="../_images/E1B1-Figure27.png" /></p>
+</div></blockquote>
+</section>
+<section id="deploy-a-scanner">
+<h4>Deploy a scanner<a class="headerlink" href="#deploy-a-scanner" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>In Tenable.io, navigate to <strong>Settings &gt; Sensors &gt; Cloud Scanners.</strong></p></li>
+<li><p>Click <strong>Add Nessus Scanner</strong> and save the Linking Key.</p></li>
+<li><p>Download the Nessus Scanner .ova file from <a class="reference external" href="https://downloads.tenable.com">https://downloads.tenable.com</a>.</p></li>
+<li><p>Deploy the .ova file in your virtual environment.</p></li>
+<li><p>Once the scanner is running, navigate to the IP address shown in the console in a web browser.</p></li>
+<li><p>Login with the default username <em>wizard</em> and default password <em>admin</em>.</p></li>
+<li><p>Enter new administrator credentials and click <strong>Create Account.</strong></p></li>
+<li><p>Click <strong>Finish Setup</strong> and authenticate with the new administrator credentials.</p></li>
+<li><p>On the left-side navigation pane, click <strong>Nessus.</strong></p></li>
+<li><p>Click the URL shown in the <em>Nessus Installation Info</em> pane.</p></li>
+<li><p>Click the radio button next to <em>Managed Scanner</em> and click <strong>Continue</strong>.</p></li>
+<li><p>Enter the Linking Key from step 2 and click <strong>Continue.</strong></p></li>
+<li><p>Enter credentials for a new administrator account and click <strong>Submit.</strong></p></li>
+<li><p>The scanner will initialize and be visible on tenable.io. Scans can now be scheduled.</p></li>
+</ol>
+</section>
+</section>
+<section id="id10">
+<h3>Integration with QRadar<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>For Tenable.io and QRadar integration, follow the <a class="reference external" href="https://docs.tenable.com/integrations/IBM/QRadar/Content/PDF/Tenable_and_IBM_QRadar_SIEM_Integration_Guide.pdf">Tenable and IBM QRadar SIEM Integration Guide</a>.</p>
+</section>
+</section>
+<section id="tenable-ad">
+<h2>Tenable.ad<a class="headerlink" href="#tenable-ad" title="Link to this heading">#</a></h2>
+<p id="id11">Tenable.ad provides AD monitoring to detect attacks and identify vulnerabilities. In this build, Tenable.ad is integrated with the on-premises AD installation and configured to forward alerts to the IBM QRadar SIEM.</p>
+<p>For Tenable.ad installation and configuration, follow the <a class="reference external" href="https://docs.tenable.com/identity-exposure/Installation/Content/03_Install/install_tenablead.htm">Tenable.ad On-Premise Installation Guide.</a></p>
+<p>For Tenable.ad and QRadar integration, follow the <a class="reference external" href="https://docs.tenable.com/integrations/IBM/QRadar/Content/PDF/Tenable_and_IBM_QRadar_SIEM_Integration_Guide.pdf">Tenable and IBM QRadar SIEM Integration Guide</a>.</p>
+</section>
+<section id="tenable-nnm">
+<h2>Tenable NNM<a class="headerlink" href="#tenable-nnm" title="Link to this heading">#</a></h2>
+<p id="id12">Tenable Nessus Network Monitoring (NNM) monitors network traffic at the packet level to provide visibility into both server and client-side vulnerabilities. In this build, NNM was set to Asset Discovery mode and linked to Tenable.io in order to provide visibility into all network actors.</p>
+<p>For Tenable.ad installation and configuration, follow the <a class="reference external" href="https://docs.tenable.com/nnm/Content/GetStarted.htm">Tenable NNM Documentation</a>.</p>
+<section id="deploy-a-tenable-nnm-instance">
+<h3>Deploy a Tenable NNM instance<a class="headerlink" href="#deploy-a-tenable-nnm-instance" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>In Tenable.io, navigate to <strong>Settings &gt; Sensors &gt; Nessus Network Monitors.</strong></p></li>
+<li><p>Click <strong>Add Nessus Network Monitor</strong> and save the Linking Key.</p></li>
+<li><p>Download the NNM .ova file from <a class="reference external" href="https://downloads.tenable.com">https://downloads.tenable.com</a>.</p></li>
+<li><p>Deploy the .ova file in your virtual environment.</p></li>
+<li><p>Once the NNM instance is running, navigate to the IP address shown in the console in a web browser on port 8835.</p></li>
+<li><p>Enter credentials for a new administrator account and click <strong>Submit.</strong></p></li>
+<li><p>Enter the Linking Key from step 2 and click <strong>Continue.</strong></p></li>
+<li><p>The NNM instance will initialize and be visible on Tenable.io. Additional NNM configuration can now occur if needed.</p></li>
+</ol>
+</section>
+</section>
+<section id="mandiant-security-validation-msv">
+<h2>Mandiant Security Validation (MSV)<a class="headerlink" href="#mandiant-security-validation-msv" title="Link to this heading">#</a></h2>
+<p id="mandiant-msv">Mandiant Security Validation (MSV) allows organizations to continuously validate the effectiveness of their cybersecurity controls by running actions that may conflict with the organization’s policy and determining if those actions are detected and/or blocked. In this build, MSV is configured to regularly test the build’s zero trust policies and report on the results.</p>
+<section id="msv-director-installation-configuration">
+<h3>MSV Director Installation/Configuration<a class="headerlink" href="#msv-director-installation-configuration" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Download the MSV Director software from the Mandiant web portal and deploy it in a virtual environment.</p></li>
+<li><p>Log into the MSV command line interface using credentials provided by Mandiant.</p></li>
+<li><p>Run the command <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">vsetnet</span></code> to apply network configuration.</p></li>
+<li><p>Run the command <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">vsetdb</span> <span class="pre">--password</span> <span class="pre">new_password</span></code> to set a new password for the Director database.</p></li>
+<li><p>Use a web browser to access the MSV Director web interface at <code class="docutils literal notranslate"><span class="pre">https://Director_IP/</span></code>.</p></li>
+<li><p>Sign into the web interface using credentials provided by Mandiant.</p></li>
+<li><p>Review and accept the End User Licensing Agreement, and apply the license provide by Mandiant.</p></li>
+<li><p>Configure the DNS settings by navigating to <strong>Settings &gt; Director Settings &gt; DNS Servers.</strong></p></li>
+<li><p>Configure the NTP settings by navigating to <strong>Settings &gt; Director Settings &gt; NTP Servers.</strong></p></li>
+<li><p>Add Security Zones corresponding with the enterprise’s network segments by navigating to <strong>Environment &gt; Security Zones.</strong></p></li>
+<li><p>Download security content from the Mandiant web portal.</p></li>
+<li><p>Navigate to <strong>Settings &gt; Director Settings &gt; Content.</strong></p></li>
+<li><p>Select <strong>Import,</strong> browse to the downloaded security content, and select the content files.</p></li>
+<li><p>Click <strong>Upload Import</strong> and upload the files into the MSV Director web interface.</p></li>
+<li><p>Once the upload is complete, click <strong>Apply Import</strong> to import the content files into MSV.</p></li>
+</ol>
+</section>
+<section id="msv-network-actor-installation-configuration">
+<h3>MSV Network Actor Installation/Configuration<a class="headerlink" href="#msv-network-actor-installation-configuration" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Download the MSV Network Actor software from the Mandiant web portal and deploy it in a virtual environment.</p></li>
+<li><p>Log into the MSV command line interface using credentials provided by Mandiant.</p></li>
+<li><p>Run the command <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">vsetnet</span></code> to apply network configuration.</p></li>
+<li><p>In the MSV Director web interface, navigate to <strong>Environment &gt; Actors.</strong></p></li>
+<li><p>Click <strong>Add Network Actors</strong> and fill out the new <strong>Actor</strong> form.</p></li>
+<li><p>Identify the Actor you just created in the <strong>Pending Actors</strong> table, expand the <strong>Actions</strong> menu, and click <strong>Connect</strong> to initiate a Director-to-Actor registration.</p></li>
+<li><p>Enter the Actor’s fully qualified domain name (FQDN) or IP address.</p></li>
+</ol>
+</section>
+<section id="msv-endpoint-actor-installation-configuration">
+<h3>MSV Endpoint Actor Installation/Configuration<a class="headerlink" href="#msv-endpoint-actor-installation-configuration" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Deploy an endpoint machine running Windows, macOS, or Linux.</p></li>
+<li><p>In the MSV Director web interface, navigate to <strong>Library &gt; Actor Installer Files</strong> and download the relevant installer onto the endpoint.</p></li>
+<li><p>Navigate to <strong>Environment &gt; Actors,</strong> click <strong>Add Endpoint Actors,</strong> and fill out the new Actor form.</p></li>
+<li><p>Execute the Actor installer on the endpoint and proceed through the install process.</p></li>
+<li><p>At the end of the install process, identify the actor you just created in the <strong>Pending Actors</strong> table and enter the value from the <strong>Code</strong> field into the Actor configuration field.</p></li>
+</ol>
+<p><img alt="This is a screenshot showing a list of the Pending Actors." src="../_images/E1B1-Figure28.png" /></p>
+<ol class="arabic simple" start="6">
+<li><p>The endpoint will register itself with the MSV Director, and setup will be complete.</p></li>
+</ol>
+</section>
+<section id="msv-evaluation-configuration">
+<h3>MSV Evaluation Configuration<a class="headerlink" href="#msv-evaluation-configuration" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Once the MSV Director and Actors have been configured, evaluations can be created to test security controls and policies. In the MSV Director web interface, navigate to <strong>Library &gt; Actions.</strong></p></li>
+<li><p>Find the action(s) you would like to use for the evaluation and select the <strong>+Queue</strong> button to add the action to the Queue. Repeat this process until you have added all needed actions to the Queue.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This is a screenshot showing a sample of an action in the library." src="../_images/E1B1-Figure29.png" /></p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>After actions have been added to the Queue, click the <strong>Queue</strong> button in the upper right side of the web interface.</p></li>
+<li><p>Select each of the actions in the <strong>Unassigned</strong> section and drag them to the <strong>Current Actions</strong> section.</p></li>
+<li><p>Scroll up to the top of the page and click the <strong>Save</strong> button.</p></li>
+<li><p>Under the <strong>Test Type</strong> dropdown, choose <strong>Evaluation.</strong></p></li>
+<li><p>Enter a name and a description, then select the <strong>Save</strong> button to save the evaluation.</p></li>
+<li><p>Your new evaluation can be found by navigating to <strong>Library &gt; Evaluations</strong> and filtering on <strong>User Created.</strong></p></li>
+</ol>
+</section>
+<section id="msv-evaluation-execution">
+<h3>MSV Evaluation Execution<a class="headerlink" href="#msv-evaluation-execution" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Library &gt; Evaluations</strong> and select the evaluation you’d like to run. Click the <strong>Run</strong> button.</p></li>
+<li><p>From the Evaluation screen, press the <strong>Run Evaluation</strong> button.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This is a screenshot of the Test Evaluation screen from MSV." src="../_images/E1B1-Figure30.png" /></p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Select the <strong>Source Actor</strong> and <strong>Destination Actor</strong> from the dropdown menus. Click <strong>Run Now.</strong></p></li>
+<li><p>The evaluation will run, providing results once the actions have been attempted/completed.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This is a screenshot of example results from running an MSV evaluation." src="../_images/E1B1-Figure31.png" /></p>
+</div></blockquote>
+</section>
+</section>
+<section id="digicert-certcentral">
+<h2>DigiCert CertCentral<a class="headerlink" href="#digicert-certcentral" title="Link to this heading">#</a></h2>
+<p id="id13">CertCentral simplifies digital trust and automates certificate management by consolidating tasks for issuing, installing, inspecting, remediating, and renewing TLS/SSL certificates in one place. In this build, CertCentral provided TLS/SSL certificates to any system needing those services.</p>
+<p>For the latest CertCentral setup and usage instructions, see <a class="reference external" href="https://docs.digicert.com/get-started/">https://docs.digicert.com/get-started/</a>.</p>
+<section id="requesting-a-certificate">
+<h3>Requesting a certificate<a class="headerlink" href="#requesting-a-certificate" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Generate a Certificate Signing Request. This can be done with OpenSSL or DigiCert’s Certificate Utility. Save the private key for later use.</p></li>
+<li><p>In the DigiCert CertCentral dashboard, navigate to <strong>Certificates &gt; Requests</strong> and click <strong>Request a Certificate</strong>. Select the certificate type.</p></li>
+<li><p>Upload or paste the Certificate Signing Request in the provided field.</p></li>
+<li><p>Select the coverage length, and add any other additional options as needed.</p></li>
+<li><p>Click <strong>Submit Request</strong>.</p></li>
+</ol>
+</section>
+<section id="obtaining-and-implementing-a-certificate">
+<h3>Obtaining and implementing a certificate<a class="headerlink" href="#obtaining-and-implementing-a-certificate" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>In the DigiCert CertCentral dashboard, navigate to <strong>Certificates &gt; Orders</strong> and select the request that you previously created.</p></li>
+<li><p>Click <strong>Download certificate as</strong> and select <strong>More Options…</strong></p></li>
+<li><p>You will be presented with a list of certificate format options. Select the option/format that best pertains to the platform you will be using the certificate on. Click <strong>Download</strong>.</p></li>
+<li><p>Obtain the private key that was originally generated with your Certificate Signing Request. If using DigiCert’s Certificate Utility, this can be found using the Export function.</p></li>
+<li><p>The certificate and private key can now be imported/installed and used on the intended platform.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Build Implementation Instructions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="HowTo-E2B1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#okta-identity-cloud">Okta Identity Cloud</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-and-integration">Configuration and Integration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#okta-verify-app">Okta Verify App</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#okta-access-gateway">Okta Access Gateway</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiant-logic-radiantone">Radiant Logic RadiantOne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sync-with-an-ldap-server">Sync with an LDAP server</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-namespace-to-bring-in-users">Create a namespace to bring in users</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration">Integration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sailpoint-identityiq">SailPoint IdentityIQ</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-and-configuration">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-radiant-logic">Integration with Radiant Logic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-ad">Integration with AD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-okta">Integration with Okta</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ivanti-neurons-for-uem">Ivanti Neurons for UEM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Installation and Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-an-mdm-certificate-for-apple-devices">Install an MDM certificate for Apple devices</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-android-enterprise">Configure Android Enterprise</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-certificate-authority">Add a certificate authority</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-user-settings">Configure user settings</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-policy">Add a policy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-configuration-for-managed-devices">Add a configuration for managed devices</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-ivanti-connector">Integration with Ivanti Connector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-okta-1">Integration with Okta</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#idp-setup">IdP setup</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#okta-verify-app-configuration-preparation">Okta Verify app configuration preparation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#okta-verify-app-configuration-android">Okta Verify app configuration - Android</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#okta-verify-app-configuration-ios">Okta Verify app configuration - iOS</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-qradar">Integration with QRadar</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ivanti-log-transfer-setup">Ivanti log transfer setup</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#qradar-setup">QRadar setup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ivanti-sentry">Ivanti Sentry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ivanti-tunnel-configuration-and-deployment">Ivanti Tunnel Configuration and Deployment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ivanti-access-zso">Ivanti Access ZSO</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-ivanti-neurons-for-uem">Integration with Ivanti Neurons for UEM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-okta-2">Integration with Okta</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zimperium-mobile-threat-defense-mtd">Zimperium Mobile Threat Defense (MTD)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-configuration-and-integration">Installation, Configuration, and Integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-api-user">Create an API user</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#assign-roles-to-the-api-user">Assign roles to the API user</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-an-mdm-server-to-the-zimperium-console">Add an MDM server to the Zimperium console</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-mtd-on-ivanti-neurons-for-uem">Activate MTD on Ivanti Neurons for UEM</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-custom-attributes-in-ivanti-neurons-for-uem">Add custom attributes in Ivanti Neurons for UEM</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-compliance-policy">Create compliance policy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-device-groups-and-match-with-custom-policies-and-custom-device-attributes-created-above">Create device groups and match with custom policies and custom device attributes created above</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-zimperium-mtd-management-console">Configure Zimperium MTD management console</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-cloud-pak-for-security">IBM Cloud Pak for Security</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-security-qradar-xdr">IBM Security QRadar XDR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-io">Tenable.io</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Installation and Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-an-agent">Deploy an agent</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-a-scanner">Deploy a scanner</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Integration with QRadar</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-ad">Tenable.ad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-nnm">Tenable NNM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-a-tenable-nnm-instance">Deploy a Tenable NNM instance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mandiant-security-validation-msv">Mandiant Security Validation (MSV)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#msv-director-installation-configuration">MSV Director Installation/Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#msv-network-actor-installation-configuration">MSV Network Actor Installation/Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#msv-endpoint-actor-installation-configuration">MSV Endpoint Actor Installation/Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#msv-evaluation-configuration">MSV Evaluation Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#msv-evaluation-execution">MSV Evaluation Execution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digicert-certcentral">DigiCert CertCentral</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#requesting-a-certificate">Requesting a certificate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obtaining-and-implementing-a-certificate">Obtaining and implementing a certificate</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<p>
+  
+    By NIST<br/>
+  
+</p>
+
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> Certain commercial equipment, instruments, or
+          materials are identified in this documentation to foster understanding. Such
+          identification does not imply recommendation or endorsement by the National
+          Institute of Standards and Technology, nor does it imply that the materials
+          or equipment identified are necessarily the best available for the purpose.
+        </div>
+      </p>
+    </div>
+</footer>
+  </body>
+</html>

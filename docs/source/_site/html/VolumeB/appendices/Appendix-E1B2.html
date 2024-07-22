@@ -1,0 +1,809 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE &#8212; Implementing a Zero Trust Architecture Project  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/content.css?v=59cd0ab0" />
+    <link rel="stylesheet" type="text/css" href="../../_static/breadcrumbs.css?v=83cea8a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeB/appendices/Appendix-E1B2';</script>
+    <script src="../../_static/jquery.visible.js?v=5b129ffc"></script>
+    <script src="../../_static/jquery.leaveNotice-nist.js?v=7cf1efa2"></script>
+    <script src="../../_static/applyLeaveNotice.js?v=38741b1c"></script>
+    <script src="../../_static/smoothNavScroll.js?v=2ce98a12"></script>
+    <link rel="icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs" href="Appendix-E3B2.html" />
+    <link rel="prev" title="Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE" href="Appendix-E3B1.html" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
+    <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+    <link rel="stylesheet" type="text/css" href="https://pages.nist.gov/leaveNotice/css/jquery.leaveNotice.css" />
+    <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJSMY46M5C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RJSMY46M5C');
+    </script>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="width: max-content;">
+    <ul class="wy-breadcrumbs">
+        <li><a href="../../index.html" aria-label="Home"><i class="fa fa-home"></i></a></li>
+            <li class="breadcrumb-item">&ensp;<a href="../architecture.html">Architecture and Builds</a></li>
+            <li class="breadcrumb-item">&ensp;<a href="index.html">Build Architecture Details</a></li>
+        <li class="breadcrumb-item active">&ensp;Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE</li>
+    </ul>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+  </div>
+  
+  
+
+  
+    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Implementing a Zero Trust Architecture Project  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture" title="Main Project Page" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/MainProjectLogo.jpg" class="icon-link-image" alt="Main Project Page"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Implementing a Zero Trust Architecture
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../VolumeA/ExecutiveSummary.html">Executive Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VolumeA/Introduction.html">Introduction to the Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VolumeA/ProjectOverview.html">Project Overview</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../architecture.html">Architecture and Builds</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../BuildsImplemented.html">Builds Implemented</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Build Architecture Details</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>) as PE</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E2B3.html">Enterprise 2 Build 3 (E2B3) — Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../VolumeC/index.html">Build Implementation Instructions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E2B3.html">Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/Hardening.html">Hardening Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../GeneralFindings.html">General Findings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FutureBuildConsiderations.html">Future Build Considerations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../VolumeD/index.html">Functional Demonstrations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeD/FunctionalLabDemonstration.html">Demonstration Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeD/UseCaseA.html">Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeD/UseCaseB.html">Use Case B: Enterprise-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeD/UseCaseC.html">Use Case C: Collaboration: Federated-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeD/UseCaseD.html">Use Case D: Other-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeD/UseCaseE.html">Use Case E: Guest: No-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeD/UseCaseF.html">Use Case F: Confidence Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeD/UseCaseG.html">Use Case G: Service-Service Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeD/UseCaseH.html">Use Case H: Data Level Security Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeD/FunctionalDemonstrationResultSummaries.html">Functional Demonstration Result Summaries</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../VolumeD/results/index.html">Functional Demonstration Results</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeD/results/EIGCrawlResults.html">EIG Crawl Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeD/results/EIGRunResults.html">EIG Run Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VolumeD/results/SDPMicroResults.html">SDP, Microsegmentation, and SASE Phase Demonstration Results</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../VolumeE/index.html">Risk and Compliance Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeE/RisksAddressed.html">Risks Addressed by the ZTA Reference Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeE/ArchitectureSecurityMappings.html">ZTA Security Mapping Context and Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeE/Mappings.html">Mappings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../acronyms.html">Acronyms</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/VolumeB/appendices/Appendix-E1B2.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technologies">Technologies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-architecture">Build Architecture</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-architecture">Logical Architecture</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#icam-information-architecture">ICAM Information Architecture</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-architecture">Physical Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#message-flows-for-successful-resource-access-requests">Message Flows for Successful Resource Access Requests</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-in-which-access-to-an-internal-resource-is-protected-using-zpa">Use Case in which Access to an Internal Resource is Protected Using ZPA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-in-which-access-to-an-externally-facing-resource-is-protected-using-zia">Use Case in which Access to an Externally Facing Resource is Protected Using ZIA</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="enterprise-1-build-2-e1b2-eig-run-zscaler-zpa-central-authority-ca-as-pe">
+<h1>Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE<a class="headerlink" href="#enterprise-1-build-2-e1b2-eig-run-zscaler-zpa-central-authority-ca-as-pe" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is supplementary material for the <a class="reference external" href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf">NIST SP 1800-35 publication</a>.</p>
+</div>
+<section id="technologies">
+<h2>Technologies<a class="headerlink" href="#technologies" title="Link to this heading">#</a></h2>
+<p>E1B2 uses products from Amazon Web Services, IBM, Ivanti, Mandiant, Okta, Radiant Logic, SailPoint, Tenable, and Zscaler. Certificates from DigiCert are also used. For more information on these collaborators and the products and technologies that they contributed to this project overall, see <a class="reference internal" href="../../VolumeA/Introduction.html#collaborators-and-their-contributions"><span class="std std-ref">Collaborators and Their Contributions</span></a>.</p>
+<p>E1B2 components consist of Zscaler Admin Portal, Zscaler Central Authority, Zscaler Internet Access (ZIA) Public Service Edges, Zscaler Private Access (ZPA) Public Service Edges, Okta Identity Cloud, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, Okta Verify App, Zscaler Client Connector, IBM Security QRadar XDR, Tenable.io, Tenable.ad, Tenable NNM, IBM Cloud Pak for Security, Mandiant Security Validation (MSV), Zscaler Application Connector, DigiCert CertCentral, and AWS IaaS.</p>
+<p><em>Table 1</em> lists all of the technologies used in E1B2. It lists the products used to instantiate each ZTA component and the security function that each component provides.</p>
+<p><strong>Table 1 - E1B2 Products and Technologies</strong></p>
+<div class="pst-scrollable-table-container"><table class="table" id="id1">
+<caption><span class="caption-text">E1B2 Products and Technologies</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 30.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Product</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PE</p></td>
+<td><p>Zscaler ZPA Central Authority (CA)</p></td>
+<td><p>Decides whether to grant, deny, or revoke access to a resource based on enterprise policy, information from supporting components, and a trust algorithm.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PA</p></td>
+<td><p>Zscaler ZPA Admin Portal and ZPA CA</p></td>
+<td><p>Executes the PE’s policy decision by sending commands to a PEP that establishes and shuts down the communication path between subject and resource.</p></td>
+</tr>
+<tr class="row-even"><td><p>PEP</p></td>
+<td><p>Zscaler Public Service Edges</p></td>
+<td><p>Guards the trust zone that hosts one or more enterprise resources; establishes, monitors, and terminates the connection between subject and resource as directed by the PA; forwards requests to and receives commands from the PA.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ICAM - Identity Management</p></td>
+<td><p>Okta Identity Cloud</p></td>
+<td><p>Creates and manages enterprise user and device accounts, identity records, role information, and access attributes that form the basis of access decisions within an organization to ensure the correct subjects have the appropriate access to the correct resources at the appropriate time.</p></td>
+</tr>
+<tr class="row-even"><td><p>ICAM - Access &amp; Credential Management</p></td>
+<td><p>Okta Identity Cloud</p></td>
+<td><p>Manages access to resources by performing user and device authentication (e.g., SSO and MFA) and using identity, role, and access attributes to determine which access requests are authorized.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ICAM - Federated Identity</p></td>
+<td><p>Radiant Logic RadiantOne Intelligent Identity Data Platform</p></td>
+<td><p>Aggregates and correlates all attributes relating to an identity or object that is being authorized by a ZTA. It enables users of one domain to securely access data or systems of another domain seamlessly, and without the need for completely redundant user administration. Federated identity encompasses the traditional ICAM data, supports identities that may be part of a larger federated ICAM community, and may include non-enterprise employees.</p></td>
+</tr>
+<tr class="row-even"><td><p>ICAM - Identity Governance</p></td>
+<td><p>SailPoint IdentityIQ</p></td>
+<td><p>Provides policy-based, centralized, automated processes to manage user identity and access control functions (e.g., ensuring segregation of duties, role management, logging, access reviews, analytics, reporting) to ensure compliance with requirements and regulations.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ICAM - MFA</p></td>
+<td><p>Okta Verify app</p></td>
+<td><p>Supports MFA of a user identity by requiring the user to provide not only something they know (e.g., a password), but also something they have (e.g., a token).</p></td>
+</tr>
+<tr class="row-even"><td><p>Endpoint Security - UEM/MDM</p></td>
+<td><p>Ivanti Neurons for Unified Endpoint Management (UEM) Platform</p></td>
+<td><p>Manages and secures enterprise desktop computers, laptops, and/or mobile devices in accordance with enterprise policy to protect applications and data; ensure device compliance; mitigate and remediate vulnerabilities and threats; monitor for suspicious activity to prevent and detect intrusions; prevent, detect, and disable malware and other malicious or unauthorized traffic; repair infected files when possible; provide alerts and recommend remediation actions; and encrypt data. Pushes enterprise applications and updates to devices, enables users to download enterprise applications that they are authorized to access, remotely deletes all applications and data from devices if needed, tracks user activity on devices, and detects and addresses security issues on the device.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Endpoint Security - EPP</p></td>
+<td><p>None</p></td>
+<td><p>Detects and stops threats to endpoints through an integrated suite of endpoint protection technologies including antivirus, data encryption, intrusion prevention, EDR, and DLP. May include mechanisms that are designed to protect applications and data; ensure device compliance with policies regarding hardware, firmware, software, and configuration; monitor endpoints for vulnerabilities, suspicious activity, intrusion, infection, and malware; block unauthorized traffic; disable malware and repair infections; manage and administer software and updates; monitor behavior and critical data; and enable endpoints to be tracked, troubleshooted, and wiped, if necessary.</p></td>
+</tr>
+<tr class="row-even"><td><p>Endpoint Security - Endpoint Compliance</p></td>
+<td><p>Zscaler Client Connector</p></td>
+<td><p>Can enforce policies based on a defined set of endpoint compliance checks to allow or deny user/endpoint access to a resource, but does not perform the functions of an EPP solution to automatically remediate an endpoint.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Security Analytics - SIEM</p></td>
+<td><p>IBM Security QRadar XDR</p></td>
+<td><p>Collects and consolidates security information and security event data from many sources; correlates and analyzes the data to help detect anomalies and recognize potential threats and vulnerabilities; and logs the data to adhere to data compliance requirements.</p></td>
+</tr>
+<tr class="row-even"><td><p>Security Analytics - Endpoint Monitoring</p></td>
+<td><p>Tenable.io</p></td>
+<td><p>Discovers all IP-connected endpoints and performs continuous collection, examination, and analysis of software versions, configurations, and other information regarding hosts (devices or VMs) that are connected to the network.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Security Analytics - Vulnerability Scanning and Assessment</p></td>
+<td><p>Tenable.io and Tenable.ad</p></td>
+<td><p>Scans and assesses the enterprise infrastructure and resources for security risks, identifies vulnerabilities and misconfigurations, and provides remediation guidance regarding investigating and prioritizing responses to incidents.</p></td>
+</tr>
+<tr class="row-even"><td><p>Security Analytics - Traffic Inspection</p></td>
+<td><p>Tenable NNM</p></td>
+<td><p>Intercepts, examines, and records relevant traffic transmitted on the network.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Security Analytics - Network Discovery</p></td>
+<td><p>Tenable NNM</p></td>
+<td><p>Discovers, classifies, and assesses the risk posed by devices and users on the network.</p></td>
+</tr>
+<tr class="row-even"><td><p>Security Analytics - SOAR</p></td>
+<td><p>IBM Cloud Pak for Security</p></td>
+<td><p>Integrates the SIEM and other security tools into a single pane of glass to support generation of insights into threats and help track, manage, and resolve cybersecurity incidents. Executes predefined incident response workflows to automatically analyze information and orchestrate the operations required to respond.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Security Analytics - Security Validation</p></td>
+<td><p>Mandiant Security Validation</p></td>
+<td><p>Provides visibility and evidence on the status of the security controls’ effectiveness in the ZTA. Enables security capabilities of the enterprise to be monitored and verified by continuously validating and measuring the cybersecurity controls; also used to automate the demonstrations that were performed to showcase ZTA capabilities. Deployed throughout the project’s laboratory environment to enable monitoring and verification of various security aspects of the builds. VMs that are intended to operate as actors are deployed on each of the subnetworks in each of the enterprises. These actors can be used to initiate various actions for the purpose of verifying that security controls are working to support the objectives of zero trust.</p></td>
+</tr>
+<tr class="row-even"><td><p>General - Remote Connectivity</p></td>
+<td><p>Zscaler ZPA and Zscaler ZIA</p></td>
+<td><p>ZPA is used to provide remote users’ connectivity to on-premises resources. To support remote users’ connectivity to resources in IaaS, ZPA is used for private applications and ZIA is used for public-facing applications.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Resource Protection - Application Connector</p></td>
+<td><p>Zscaler Application Connector</p></td>
+<td><p>Component that is deployed to be the front-end for an internal resource (whether located on-premises or in the cloud) and act as a proxy for it. Requests to access the resource are directed to the connector, which responds by initiating a secure connection to the PEP. A connector enables access to a resource to be controlled without requiring the resource to be visible on the network.</p></td>
+</tr>
+<tr class="row-even"><td><p>General - Certificate Management</p></td>
+<td><p>DigiCert CertCentral TLS Manager</p></td>
+<td><p>Provides automated capabilities to issue, install, inspect, revoke, renew, and otherwise manage TLS certificates.</p></td>
+</tr>
+<tr class="row-odd"><td><p>General - Cloud IaaS</p></td>
+<td><p>AWS - GitLab, WordPress</p></td>
+<td><p>Provides computing resources, complemented by storage and networking capabilities, hosted by a cloud service provider, offered to customers on demand, and exposed through a GUI and an API. An IPsec tunnel is used to provide a secure connection from the enterprise to the cloud.</p></td>
+</tr>
+<tr class="row-even"><td><p>General - Cloud SaaS</p></td>
+<td><p>DigiCert CertCentral, Ivanti Neurons for UEM, Okta Identity Cloud, Tenable.io, Zscaler ZPA, and Zscaler ZIA</p></td>
+<td><p>Cloud-based software delivered for use by the enterprise.</p></td>
+</tr>
+<tr class="row-odd"><td><p>General - Application</p></td>
+<td><p>On-premises - GitLab</p></td>
+<td><p>Example enterprise resource to be protected. (In this build, GitLab is integrated with Okta using SAML, and IBM Security QRadar XDR pulls logs from GitLab.)</p></td>
+</tr>
+<tr class="row-even"><td><p>General - Enterprise-Managed Device</p></td>
+<td><p>Mobile devices (iOS and Android) and desktops/laptops (Windows and Mac)</p></td>
+<td><p>Example endpoints to be protected. All enterprise-managed mobile devices are running an Ivanti Neurons for UEM agent and also have the Okta Verify App installed. If Ivanti Neurons for UEM agent is used to push Zscaler Client Connector (ZCC) to the endpoint, that endpoint is considered to be a managed device.</p></td>
+</tr>
+<tr class="row-odd"><td><p>General - BYOD</p></td>
+<td><p>Mobile devices (iOS and Android) and desktops/laptops (Windows and Mac)</p></td>
+<td><p>Example endpoints to be protected.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="build-architecture">
+<h2>Build Architecture<a class="headerlink" href="#build-architecture" title="Link to this heading">#</a></h2>
+<p>In this section we present the logical architecture of E1B2. We also describe E1B2’s physical architecture and present message flow diagrams for some of its processes.</p>
+<section id="logical-architecture">
+<h3>Logical Architecture<a class="headerlink" href="#logical-architecture" title="Link to this heading">#</a></h3>
+<p><a class="reference internal" href="#appendix-e1b2-figure1"><span class="std std-ref">Figure 1</span></a> depicts the logical architecture of E1B2. <a class="reference internal" href="#appendix-e1b2-figure1"><span class="std std-ref">Figure 1</span></a> uses numbered arrows to depict the general flow of messages needed for a subject to request access to a resource and have that access request evaluated based on subject identity (both requesting user and requesting endpoint identity), user authorizations, and requesting endpoint health. It also depicts the flow of messages supporting periodic reauthentication of the requesting user and the requesting endpoint and periodic verification of requesting endpoint health, all of which must be performed to continually reevaluate access. The labeled steps in <a class="reference internal" href="#appendix-e1b2-figure1"><span class="std std-ref">Figure 1</span></a> have the same meanings as they do in <a class="reference internal" href="../architecture.html#architecturefigure1"><span class="std std-ref">Architecture - Figure 1</span></a>. However, <a class="reference internal" href="#appendix-e1b2-figure1"><span class="std std-ref">Figure 1</span></a> includes the specific products that instantiate the architecture of E1B2. <em>Figure 1</em> also does not depict any of the resource management steps found in <a class="reference internal" href="../architecture.html#architecturefigure1"><span class="std std-ref">Architecture - Figure 1</span></a> because the ZTA technologies deployed in E1B2 do not support the ability to perform authentication and reauthentication of the resource or periodic verification of resource health.</p>
+<p>E1B2 was designed with Zscaler components that serve as the PE, PA, and PEP, and Okta Identity Cloud that serves as the identity, access, and credential manager. Radiant Logic acts as a PIP for the PDP as it responds to inquiries and provides identity information on demand in order for Okta to make near-real-time access decisions. A more detailed depiction of the messages that flow among components to support a user access request can be found in <a class="reference internal" href="#appendix-e1b2-messageflows"><span class="std std-ref">Message Flows for Successful Resource Access Requests</span></a>.</p>
+<p><strong>Figure 1 - Logical Architecture of E1B2</strong></p>
+<p><img alt="This figure depicts the logical architecture of E1B2. It uses numbered arrows to depict the general flow of messages needed for a subject to request access to a resource and have that access request evaluated based on subject identity, user authorizations, and requesting endpoint health. It also depicts the flow of messages supporting periodic reauthentication of the requesting user and the requesting endpoint and periodic verification of requesting endpoint health." src="../../_images/AppendixG-Figure1.png" /></p>
+<section id="icam-information-architecture">
+<span id="appendix-e1b2-figure1"></span><h4>ICAM Information Architecture<a class="headerlink" href="#icam-information-architecture" title="Link to this heading">#</a></h4>
+<p>How ICAM information is provisioned, distributed, updated, shared, correlated, governed, and used among ZTA components is fundamental to the operation of the ZTA. The ICAM information architecture ensures that when a subject requests access to a resource, the aggregated set of identity information and attributes necessary to identify, authenticate, and authorize the subject is available to be used as a basis on which to make the access decision.</p>
+<p>In E1B2, Okta, Radiant Logic, and SailPoint integrate with each other as well as with other components of the ZTA to support the ICAM information architecture. The ways that these components work together to correlate identity information and to support actions such as users joining, changing roles, and leaving the enterprise are the same in E1B2 as they are in E1B1. These interactions are described in <a class="reference internal" href="Appendix-E1B1.html#e1b1icam"><span class="std std-ref">E1B1 - ICAM Information Architecture</span></a>.</p>
+</section>
+</section>
+<section id="physical-architecture">
+<h3>Physical Architecture<a class="headerlink" href="#physical-architecture" title="Link to this heading">#</a></h3>
+<p><a class="reference internal" href="../architecture.html#enterprise-1"><span class="std std-ref">Enterprise 1</span></a> and <a class="reference internal" href="../architecture.html#enterprise-1-branch-office"><span class="std std-ref">Enterprise 1 Branch Office</span></a> describe and depict the physical architecture of the E1B2 headquarters network and the E1B2 branch office network, respectively. In addition to what is represented in <a class="reference internal" href="../../VolumeA/Introduction.html#collaborators-and-their-contributions"><span class="std std-ref">Collaborators and Their Contributions</span></a>, E1B2 has Zscaler App Connector in the shared services VLAN.</p>
+</section>
+<section id="message-flows-for-successful-resource-access-requests">
+<h3>Message Flows for Successful Resource Access Requests<a class="headerlink" href="#message-flows-for-successful-resource-access-requests" title="Link to this heading">#</a></h3>
+<p id="appendix-e1b2-messageflows">Below are two high-level message flows, both of which support the use case in which a user who has an enterprise ID and who is authorized to access a resource requests and receives access to that resource. The user may be located either on-premises or at a remote location, such as a coffee shop.</p>
+<p>In both use cases depicted below, Zscaler platform components are serving as the PDP and PEPs, and Okta Identity Cloud provides a database of users, groups, permissions, and other identity and authorization information that Zscaler consumes. The Zscaler platform and Okta have a SAML federation that provides real-time synchronization of user identity information (to support user authentication) as well as a SCIM federation that provides real-time synchronization of role and group information (to support user authorization). These SAML and SCIM integrations are required because Zscaler relies on Okta to authenticate the identity of users making access requests as well as to help ensure that the user is authorized to access the requested resource.</p>
+<p>The Zscaler Central Authority (CA) is the PDP. A Zscaler Client Connector (ZCC) application is assumed to have been installed on the endpoint that the user is using to request access. The ZCC enforces policies that have been configured and applied to the device. When the user requests access to a resource, the ZCC intercepts the request and sends it to either the Zscaler Private Access (ZPA) Service Edge (PEP) or the Zscaler Internet Access (ZIA) Service Edge (PEP). Both the ZPA Service Edge and the ZIA Service Edge perform policy enforcement based on policies that the resource owner is assumed to have already configured. The choice of which PEP to send the request to depends on whether the resource being protected is an internal, private resource (e.g., an enterprise application located on the organization’s internal infrastructure–either in an on-premises data center or in the organization’s virtual private cloud (VPC) portion of a public cloud infrastructure such as AWS IaaS) or an externally-facing, public resource (e.g., a Microsoft 365 application located in a SaaS cloud or a web server on the internet). ZPA is used to broker access to an enterprise’s internal resources, while ZIA is used to inspect and secure traffic sent to and from externally facing and public resources.</p>
+<section id="use-case-in-which-access-to-an-internal-resource-is-protected-using-zpa">
+<h4>Use Case in which Access to an Internal Resource is Protected Using ZPA<a class="headerlink" href="#use-case-in-which-access-to-an-internal-resource-is-protected-using-zpa" title="Link to this heading">#</a></h4>
+<p><a class="reference internal" href="#appendix-e1b2-figure2"><span class="std std-ref">Figure 2</span></a> depicts the message flow for the case in which ZPA acts as the PEP/PDP. In this use case, the resource being accessed is an internal, private resource that does not have a public-facing IP address and may be located either on-premises or in the organization’s VPC of AWS IaaS. To support this use case, domains (wildcard or exact) are configured as application segments and context-based access policies must also be configured in the ZPA Administrator Portal (Policy Administrator). ZCC, which is installed on the user’s endpoint, validates if a domain accessed is internal based on the Application Segments in the ZPA Administrator Portal. Once ZCC determines the domain is internal, the ZPA Service Edge (PEP) will use the access policies as the basis for deciding whether to broker access to the internal resource. To broker the connection between the ZPA PEP and the internal applications, a ZPA application connector must have been installed near the resource (either on-premises or in the enterprise’s VPC in the cloud) and an application segment must have been linked to that connector so that the connector that is near the resources acts as a proxy to the resource(s) on the application segment. ZCC provides a secure, authenticated interface between the endpoint and the ZPA service edge, and the ZPA Application Connector provides a secure, authenticated interface between the resource(s) and the ZPA service edge.</p>
+<p>Once the user has logged into the ZCC on his endpoint, all traffic destined for internal resources (e.g., resources within an organization’s domain, which may be physically located either on-premises or in a VPC) will be sent to the ZPA PEP in the ZPA cloud that is closest to the user. The ZCC authenticates to the ZPA PEP and then establishes a secure tunnel to it. As a result, user endpoints never connect directly to internal resources. Instead, requests are sent to the ZPA PEP and if they are permitted by ZPA policy (i.e., if the user is authenticated, their access to the resource is authorized, and the requesting endpoint is compliant), then the ZPA PEP brokers access between the user and the application connector for the resource.</p>
+<p>Assuming the access request is permitted by policy, another secure tunnel is created between the ZPA PEP and the application connector for the resource. For security reasons, connectors do not accept inbound connections, so the connection that is established between the application connector for the resource and the ZPA PEP is outbound, from the application connector to the ZPA PEP. The ZPA PEP uses the TLS control channel (the reverse TLS tunnel) to signal the application connector to build a data tunnel from the application connector to the ZPA PEP. Then the ZPA PEP stitches together the two TLS tunnels in the cloud, enabling traffic to be exchanged securely between the user endpoint’s ZCC and the application connector. If a user connects to multiple resources that are being protected by a single application connector, there will be one TLS/Datagram Transport Layer Security (DTLS) tunnel created per resource.</p>
+<p>When a user requests access to an internal resource, ZCC intercepts DNS lookup queries for these domains and dynamically assigns the domains IP addresses within the 100.64.0.0/16 carrier-grade NAT subnet. Browsers and applications attempting to access the internal resource(s) will route the traffic to the IP addresses set up by ZCC. Due to this, the user accessing the resource never knows the real IP address of the resource, only the address of the temporary IP address assigned by ZCC. The user is not on the network, so connecting to the network via ZPA provides no presumption of access. The only connection that the user’s endpoint has is with the ZPA PEP. Logically, the ZPA PEP is positioned between the user endpoint connector and the resource’s connector.</p>
+<p>All traffic that is sent between a user and an internal resource must be directed through the application connector for that resource. So, for optimal performance, if an enterprise has internal resources in multiple locations (e.g., both on-premises and in a VPC on AWS), it should deploy application connectors in each location. Then it should link the respective Application Segment(s) to each location where the application exists so that the traffic sent from the user to the application can traverse an optimal path rather than having to be hairpinned through a connector that is not located close to the resource.</p>
+<p><strong>Figure 2 - Access to an Internal Resource is Enforced by Zscaler ZPA and Okta Identity Cloud</strong></p>
+<p><img alt="This figure depicts the message flow for the case in which ZPA acts as the PEP/PDP." src="../../_images/AppendixG-Figure2.png" /></p>
+<p id="appendix-e1b2-figure2">The message flow depicted in Figure 2 consists of two parts: steps 1-6 depict the high-level message flow that occurs when a user logs into Zscaler, and steps 7-14 depict the high-level message flow that occurs when an authenticated user attempts to access an internal resource. The steps are as follows:</p>
+<ol class="arabic simple">
+<li><p>The user uses the ZCC to try to log into ZPA, and the access request is received at the ZPA PEP.</p></li>
+<li><p>ZPA PEP provides ZCC with a SAML Request redirect to the Identity Provider.</p></li>
+<li><p>The ZCC relays the SAML request to Okta, which is the enterprise’s identity provider.</p></li>
+<li><p>Okta requests and receives the user’s credentials (and MFA, if configured) and uses these to authenticate the user and ensure that the user is authorized to use ZPA.</p></li>
+<li><p>Okta generates a SAML assertion and sends it back to ZCC.</p></li>
+<li><p>ZCC relays the SAML assertion back to ZPA PEP. The user is authenticated and is now successfully logged in and able to use ZPA.</p></li>
+<li><p>A user requests to access an internal resource by typing the resource URL into their browser.</p></li>
+<li><p>The ZCC intercepts this request, determines if it is an internal resource, and sends it to the ZPA Service Edge (PEP) if it is. (In this use case, the resource is internal.)</p></li>
+<li><p>The ZPA PEP consults access policy to determine if the user is authorized to access the resource. The ZPA PEP performs a device health check to determine if the endpoint requesting access is compliant according to endpoint compliance polices that have been configured in the Zscaler CA (PDP). Information such as device OS version, patch level, anti-virus version, and whether the firewall is running has been collected from the device by the ZCC and provided to ZPA. The ZPA PEP determines if the user is authorized based on username and/or user group.</p></li>
+<li><p>Assuming the user is authorized, the ZPA PEP will broker access to the resource. This is accomplished by building one TLS tunnel from the ZCC to the ZPA PEP and a second TLS tunnel from the resource connector to the ZPA PEP. The ZPA PEP then stitches these two tunnels together in the Zscaler cloud.</p></li>
+<li><p>The ZPA PEP sends the user’s original request to access the resource to the resource connector.</p></li>
+<li><p>The resource connector sends the access request to the resource (GitLab).</p></li>
+<li><p>At this point, the user must still complete their login to the GitLab application, so they will select “login via Okta” on the GitLab login screen. The user is then redirected to an Okta screen for login credentials. Okta authenticates the user, verifies that they are authorized to access GitLab, and provides the user with a SAML assertion for the user to send to GitLab. Upon receipt of this SAML assertion, GitLab grants the user access. (These interactions with Okta are not shown in the flow diagram.)</p></li>
+<li><p>Once the user has logged into GitLab, the access session begins. Throughout the course of the user’s access session with GitLab, the ZPA PEP brokers the connection between the user’s endpoint and the resource. The ZPA PEP receives traffic from the user on the tunnel it has with the ZCC and stitches this traffic to the tunnel it has with the GitLab connector. Similarly, it receives traffic from GitLab on the tunnel it has with the GitLab connector and stitches this traffic to the tunnel it has with the ZCC.</p></li>
+</ol>
+</section>
+<section id="use-case-in-which-access-to-an-externally-facing-resource-is-protected-using-zia">
+<h4>Use Case in which Access to an Externally Facing Resource is Protected Using ZIA<a class="headerlink" href="#use-case-in-which-access-to-an-externally-facing-resource-is-protected-using-zia" title="Link to this heading">#</a></h4>
+<p><em>Figure 3</em> depicts the message flow for the case in which the ZIA Service Edge acts as the PEP. In this use case, the resource being accessed is externally facing and would typically be located external to the enterprise—e.g., either in a SaaS cloud or on the internet. Once the user has logged into the ZCC on his endpoint, traffic from the user that is destined for external, public resources will be sent to the ZIA Service Edge (PEP) that is closest to the user. A secure TLS tunnel will be established from the ZCC to this ZIA PEP and the traffic destined for this externally facing resource will be forwarded through the tunnel so the ZIA PEP can apply enterprise policies to it.</p>
+<p>ZIA PEP is used to determine if access to the resource is permitted at all and, if so, to inspect and secure traffic sent between the requesting endpoint and this external resource. To support this use case, ZIA is typically configured with policies which permit or block access to resources. ZIA can also be configured with traffic inspection policies. The ZIA PEP can inspect all traffic sent between the user and the resource bidirectionally. For example, it can inspect traffic for malware and enforce security, firewall, and web compliance policies (e.g., it may be configured to block PDFs from being sent from the enterprise, or block documents that contain social security numbers). Based on policy, ZIA will either forward the traffic to its destination or drop it. In either case, all traffic is logged and can be reviewed by an administrator.</p>
+<p>Unlike ZPA, ZIA does not make use of connectors. The ZIA PEP is used to broker the connection between the user and an externally facing resource. ZIA access policies can be configured based on URLs, URL categories, cloud applications, user location, time, usernames, and/or groups. Providing that the requested resource is permitted based on policy, ZIA enables traffic to be sent directly from the endpoint to the resource (not via a resource connector).</p>
+<p><strong>Figure 3 - Access to an Externally-Facing Resource is Enforced by Zscaler ZIA and Okta Identity Cloud</strong></p>
+<p><img alt="This figure depicts the message flow for the case in which the ZIA Service Edge acts as the PEP." src="../../_images/AppendixG-Figure3.png" /></p>
+<p>The message flow depicted in Figure 3 depicts the message flow for the case in which the ZIA Service Edge acts as the PEP. In this use case, the resource being accessed is externally facing and would typically be located external to the enterprise—e.g., either in a SaaS cloud or on the internet. Once the user has logged into the ZCC on his endpoint, traffic from the user that is destined for external, public resources will be sent to the ZIA Service Edge (PEP) that is closest to the user. A secure TLS tunnel will be established from the ZCC to this ZIA PEP and the traffic destined for this externally facing resource will be forwarded through the tunnel so the ZIA PEP can apply enterprise policies to it.</p>
+<p>ZIA PEP is used to determine if access to the resource is permitted at all and, if so, to inspect and secure traffic sent between the requesting endpoint and this external resource. To support this use case, ZIA is typically configured with policies which permit or block access to resources. ZIA can also be configured with traffic inspection policies. The ZIA PEP can inspect all traffic sent between the user and the resource bidirectionally. For example, it can inspect traffic for malware and enforce security, firewall, and web compliance policies (e.g., it may be configured to block PDFs from being sent from the enterprise, or block documents that contain social security numbers). Based on policy, ZIA will either forward the traffic to its destination or drop it. In either case, all traffic is logged and can be reviewed by an administrator.</p>
+<p>Unlike ZPA, ZIA does not make use of connectors. The ZIA PEP is used to broker the connection between the user and an externally facing resource. ZIA access policies can be configured based on URLs, URL categories, cloud applications, user location, time, usernames, and/or groups. Providing that the requested resource is permitted based on policy, ZIA enables traffic to be sent directly from the endpoint to the resource (not via a resource connector.</p>
+<p><em>Figure 3</em> assumes that the user has already logged into ZCC on their endpoint. The message flow consists of the following steps:</p>
+<ol class="arabic simple">
+<li><p>A user requests access to an externally facing resource (GitLab) by typing the resource URL into their browser.</p></li>
+<li><p>The ZCC intercepts this request, establishes a TLS connection with the ZIA Service Edge (PEP), and forwards the request to the ZIA PEP through this tunnel.</p></li>
+<li><p>ZIA PEP checks configured policies to determine whether the access is permissible and, if permissible, determines what traffic inspection may be required, if any.</p></li>
+<li><p>If permitted, ZIA PEP sends the user’s access request to the resource (GitLab)</p></li>
+<li><p>At this point, the user must still complete their login to the GitLab application, so they will select “login via Okta” on the GitLab login screen. The user is then redirected to an Okta screen for login credentials. Okta authenticates the user, verifies that they are authorized to access GitLab, and provides the user with a SAML assertion for the user to send to GitLab. Upon receipt of this SAML assertion, GitLab grants the user access. (These interactions with Okta are not shown in the flow diagram.) A protected connection between the user’s endpoint and GitLab is established.</p></li>
+<li><p>Throughout the course of the user’s access session with GitLab, the ZIA PEP can inspect the traffic being transmitted between GitLab and the user’s endpoint and either forward or drop the traffic depending upon whether the traffic conforms to the firewall, web, and other security policies that have been defined.</p></li>
+</ol>
+<p>Although ZIA is typically used to protect access to an externally facing resource that is located either in a SaaS cloud or on the internet, NCCoE demonstrated the use of ZIA to protect access to an externally facing resource that is in the NCCoE VPC of AWS IaaS. This resource, GitLab, was placed on a public subnetwork that was segmented from the private subnetwork within that VPC on which internal applications reside. Even though the resource was publicly accessible, access to GitLab was still protected by an identity provider, which in this case is Okta.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Appendix-E3B1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>) as PE</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Appendix-E3B2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technologies">Technologies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-architecture">Build Architecture</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-architecture">Logical Architecture</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#icam-information-architecture">ICAM Information Architecture</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-architecture">Physical Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#message-flows-for-successful-resource-access-requests">Message Flows for Successful Resource Access Requests</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-in-which-access-to-an-internal-resource-is-protected-using-zpa">Use Case in which Access to an Internal Resource is Protected Using ZPA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-in-which-access-to-an-externally-facing-resource-is-protected-using-zia">Use Case in which Access to an Externally Facing Resource is Protected Using ZIA</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<p>
+  
+    By NIST<br/>
+  
+</p>
+
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> Certain commercial equipment, instruments, or
+          materials are identified in this documentation to foster understanding. Such
+          identification does not imply recommendation or endorsement by the National
+          Institute of Standards and Technology, nor does it imply that the materials
+          or equipment identified are necessarily the best available for the purpose.
+        </div>
+      </p>
+    </div>
+</footer>
+  </body>
+</html>
