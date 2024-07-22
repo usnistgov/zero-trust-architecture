@@ -1,0 +1,625 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Zero Trust Journey Takeaways &#8212; Implementing a Zero Trust Architecture Project  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/content.css?v=59cd0ab0" />
+    <link rel="stylesheet" type="text/css" href="../_static/breadcrumbs.css?v=ddd885d8" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeB/ZeroTrustTakeaways';</script>
+    <script src="../_static/jquery.visible.js?v=5b129ffc"></script>
+    <script src="../_static/jquery.leaveNotice-nist.js?v=7cf1efa2"></script>
+    <script src="../_static/applyLeaveNotice.js?v=38741b1c"></script>
+    <script src="../_static/smoothNavScroll.js?v=2ce98a12"></script>
+    <link rel="icon" href="../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Glossary" href="../glossary.html" />
+    <link rel="prev" title="Mappings" href="../VolumeE/Mappings.html" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
+    <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+    <link rel="stylesheet" type="text/css" href="https://pages.nist.gov/leaveNotice/css/jquery.leaveNotice.css" />
+    <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJSMY46M5C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RJSMY46M5C');
+    </script>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="width: max-content;">
+    <ul class="wy-breadcrumbs">
+        <li style="list-style: none;"><a href="../index.html" aria-label="Home"><i class="fa fa-home"></i></a></li>
+        <li class="breadcrumb-item active">&ensp;Zero Trust Journey Takeaways</li>
+    </ul>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Implementing a Zero Trust Architecture Project  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture" title="Main Project Page" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/MainProjectLogo.jpg" class="icon-link-image" alt="Main Project Page"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Implementing a Zero Trust Architecture
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ExecutiveSummary.html">Executive Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/Introduction.html">Introduction to the Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ProjectOverview.html">Project Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="architecture.html">Architecture and Builds</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="BuildsImplemented.html">Builds Implemented</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="appendices/index.html">Build Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E2B3.html">Enterprise 2 Build 3 (E2B3) — Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeC/index.html">Build Implementation Instructions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E2B3.html">Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/Hardening.html">Hardening Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="GeneralFindings.html">General Findings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeD/index.html">Functional Demonstrations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/FunctionalLabDemonstration.html">Demonstration Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseA.html">Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseB.html">Use Case B: Enterprise-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseC.html">Use Case C: Collaboration: Federated-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseD.html">Use Case D: Other-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseE.html">Use Case E: Guest: No-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseF.html">Use Case F: Confidence Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseG.html">Use Case G: Service-Service Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseH.html">Use Case H: Data Level Security Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/FunctionalDemonstrationResultSummaries.html">Functional Demonstration Result Summaries</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../VolumeD/results/index.html">Functional Demonstration Results</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/EIGCrawlResults.html">EIG Crawl Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/EIGRunResults.html">EIG Run Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/SDPMicroResults.html">SDP, Microsegmentation, and SASE Phase Demonstration Results</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeE/index.html">Risk and Compliance Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/RisksAddressed.html">Risks Addressed by the ZTA Reference Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/ArchitectureSecurityMappings.html">ZTA Security Mapping Context and Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/Mappings.html">Mappings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Zero Trust Journey Takeaways</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acronyms.html">Acronyms</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/VolumeB/ZeroTrustTakeaways.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Zero Trust Journey Takeaways</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discover-and-inventory-the-existing-environment">Discover and inventory the existing environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulate-access-policy-to-support-the-mission-and-business-use-cases">Formulate access policy to support the mission and business use cases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-existing-security-capabilities-and-technology">Identify existing security capabilities and technology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminate-gaps-in-zero-trust-policy-and-processes-by-applying-a-risk-based-approach-based-on-the-value-of-data">Eliminate Gaps in Zero Trust Policy and Processes by Applying a Risk-Based Approach Based on the Value of Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-zta-components-people-process-and-technology-and-incrementally-leverage-deployed-security-solutions">Implement ZTA components (people, process, and technology) and incrementally leverage deployed security solutions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-the-implementation-to-support-zero-trust-outcomes">Verify the implementation to support zero trust outcomes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuously-improve-and-evolve-due-to-changes-in-threat-landscape-mission-technology-and-regulations">Continuously improve and evolve due to changes in threat landscape, mission, technology, and regulations</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="zero-trust-journey-takeaways">
+<h1>Zero Trust Journey Takeaways<a class="headerlink" href="#zero-trust-journey-takeaways" title="Link to this heading">#</a></h1>
+<p>Based on our experience building example implementations in the lab, we recommend that an organization that wants to deploy and implement zero trust embark on a journey that includes the steps listed as subsection headings below.</p>
+<section id="discover-and-inventory-the-existing-environment">
+<h2>Discover and inventory the existing environment<a class="headerlink" href="#discover-and-inventory-the-existing-environment" title="Link to this heading">#</a></h2>
+<p>The first step any organization should take on its zero trust journey is to identify all of its assets by determining what resources it has in its existing environment (hardware, software, applications, data, and services). This may involve deploying tools that monitor traffic to discover what resources are active and being accessed and used. It is necessary to have a complete understanding and inventory of the organization’s resources because these are the entities that the zero trust architecture will be designed to protect. If resources are overlooked, it’s likely that they won’t be appropriately protected by the ZTA. They could be vulnerable to exfiltration, modification, deletion, denial-of-service, or other types of attack. It is imperative that all of the organization’s resources, whether on-premises or cloud-based, be identified and inventoried.</p>
+<p>Discovery tools that are used to identify organization resources may do so, for example, by monitoring transaction flows and communication patterns. These tools may also be useful in helping the organization identify the business and access rules that are currently being enforced, and in identifying access patterns that business operations require. Understanding how resources are accessed, by whom, and in what context will help the organization formulate its access policies. In addition, once the organization has begun deploying a ZTA, continuing to use the discovery tools to observe the environment can be helpful to the organization as it audits and validates the ZTA on an ongoing basis.</p>
+</section>
+<section id="formulate-access-policy-to-support-the-mission-and-business-use-cases">
+<h2>Formulate access policy to support the mission and business use cases<a class="headerlink" href="#formulate-access-policy-to-support-the-mission-and-business-use-cases" title="Link to this heading">#</a></h2>
+<p>Once the organization has identified all the resources that it needs to protect and where they are, it may formulate the policies that the ZTA will enforce to specify who is allowed to access each resource and under what conditions. The access policies should be designed to ensure that permissions and authorizations to access each resource conform with the principles of least privilege and separation of duties. Typically, access to each resource will be denied by default, and access policies should be formulated to authorize subjects with the least privileges required in order to perform their assigned task on a resource that they are permitted to access. This requires understanding the types of users that will be accessing resources, their access requirements, work locations, employment arrangements, device types, and ownership models (e.g., BYOD and corporate-owned) because these will all influence policy creation. Access authorizations may be constrained according to the location of the individual requesting access, time of day, or other parameters that can further limit access without interfering with organizational operations. All access policies should be informed by the criticality of the resource being protected.</p>
+<p>Initially, an organization may not have a clear sense of what resources each employee needs to access. They may not be aware of which employees are accessing which resources or whether or not such access conforms to the principles of least privilege and separation of duties. Information provided by the tools that were used to discover resources can be useful in this regard. They can monitor access patterns and produce a list of access flows and patterns that are observed. For the remote access example, an organization transitioning from a full device VPN to per-app tunneling could first set up a full device tunnel and observe traffic, then begin enabling only the traffic that is required for the user profile. The organization’s security team can then examine this list to determine which access flows should be permitted and then formulate access rules that permit them. Any observed access flows that should not be permitted may be denied by default or explicitly prohibited in the access policy. By basing access policy on observed access patterns, an organization reduces the chances that it will create overly restrictive policies that interfere with its ability to conduct normal operations. By taking into consideration the criticality of the data being protected when formulating the access policy, an organization can help ensure that the protections being provided to a resource are commensurate with its value.</p>
+<p>One challenge that organizations may have when formulating policy is that their ZTA may consist of numerous components that each perform policy engine and policy administration roles. As a result, access policy may not be centralized; rules may be distributed across numerous products, i.e., with some rules configured in an endpoint protection component; some configured in identity, credential, and access management components; other rules configured in a network security component; and still other rules configured in a data security or other components. The lack of a single location where all policy rules can be centralized may make it challenging for an organization to maintain an organized, complete, consistent understanding of its access policy. To help organizations manage their access policies, they should explicitly keep track of not only what their access rules are, but where each of the rules is configured.</p>
+</section>
+<section id="identify-existing-security-capabilities-and-technology">
+<h2>Identify existing security capabilities and technology<a class="headerlink" href="#identify-existing-security-capabilities-and-technology" title="Link to this heading">#</a></h2>
+<p>If an organization is planning to install a ZTA into a greenfield environment, meaning that it will not have any existing IT equipment or security capabilities that it will want to use or accommodate, this step would not be needed. Most organizations embarking on a zero trust journey, however, will not be starting from scratch. Instead, they will have an existing infrastructure and technology systems that already perform security functions. Organizations will typically have at least network firewalls and intrusion detection systems to help provide perimeter security, and identity and credential access management systems that enable them to authenticate users and enforce authorized access based on identity and role. They may have endpoint security systems protecting their laptops and/or mobile devices to provide firewall protections and ensure that they are running required antivirus or other security software. They may have tools for vulnerability and configuration management, log management, and, and other security-related functions. They also likely have some sort of security operations center.</p>
+<p>An organization should identify and inventory its existing security technology components and capabilities to understand what protections they already provide, then determine whether these components should continue to provide these protections as part of the deployed ZTA or should be repurposed. To save money, an organization will want to continue to use or repurpose as much of its existing technology as possible without sacrificing security. Continuing to use existing technology will require the organization to understand what potential zero trust components and products its existing security technology will integrate with. Any additional components that are purchased specifically for deployment in the ZTA should, ideally, integrate with the security technology components that the organization already has and plans to continue to use.</p>
+</section>
+<section id="eliminate-gaps-in-zero-trust-policy-and-processes-by-applying-a-risk-based-approach-based-on-the-value-of-data">
+<h2>Eliminate Gaps in Zero Trust Policy and Processes by Applying a Risk-Based Approach Based on the Value of Data<a class="headerlink" href="#eliminate-gaps-in-zero-trust-policy-and-processes-by-applying-a-risk-based-approach-based-on-the-value-of-data" title="Link to this heading">#</a></h2>
+<p>Once an organization has inventories of the resources it needs to protect and the security capabilities it already has, the organization is ready to begin planning its access protection topology, in terms of whether and where its infrastructure will be segmented and at what level of granularity each resource will be protected. The access topology should be designed using a risk-based approach, isolating critical resources in their own trust zones protected by a PEP but permitting multiple lower-value resources to share a trust zone. In designing its access protection topology, the organization will identify which PEP is responsible for protecting each resource as well as what supporting technologies will be involved in providing input to resource access decisions. Initially, the organization’s network may not be well segmented. In fact, before zero trust is implemented, when the organization is still relying on perimeter-based protections, such a topology can be thought of as the organization protecting all of its resources behind a single PEP, i.e., the perimeter firewall. As the organization implements ZTA, it should segment its infrastructure into smaller parts. Such segmentation will enable it to limit the potential impact of a breach or attack and make it easier to monitor network traffic. In designing its access protection topology, the organization should apply access control enforcement at multiple levels: application, host, and network.</p>
+</section>
+<section id="implement-zta-components-people-process-and-technology-and-incrementally-leverage-deployed-security-solutions">
+<h2>Implement ZTA components (people, process, and technology) and incrementally leverage deployed security solutions<a class="headerlink" href="#implement-zta-components-people-process-and-technology-and-incrementally-leverage-deployed-security-solutions" title="Link to this heading">#</a></h2>
+<p>Once an organization has: 1) a good understanding of its current environment in terms of the resources it needs to protect and the security capabilities that it already has deployed; 2) formulated the access policies that are appropriate to support its mission and business use cases; and 3) designed its access protection topology to identify the granularity at which access to various resources will be protected and the supporting technologies that will provide input to the PDP, the organization is ready to begin incrementally implementing ZTA. Given the importance of discovery to the successful implementation of a ZTA, the organization may begin by deploying tools to continuously monitor the environment, if it has not done so already. The organization can use these observations to audit and validate the ZTA on an ongoing basis.</p>
+<p>In addition to discovery tools, the organization should ensure that any other baseline security tools such as SIEMs, vulnerability scanning and assessment tools, and security validation tools are operational and configured to log, scan, assess, and validate the ZTA components that will be deployed. Having security baseline tools in place before the organization begins deploying new ZTA components helps ensure that the ZTA rollout will be well-monitored, enabling the organization to proceed with high confidence that it will understand the security ramifications of the incremental deployment as it proceeds.</p>
+<p>Identity, authentication, and authorization are critical to making resource access decisions. Given that making and enforcing access decisions are the two main responsibilities of a ZTA, the organization will want to use its existing or a new ICAM solution as a foundational building block of its initial ZTA implementation. The organization should strongly consider implementing MFA in a risk-based manner for its users. An endpoint protection or similar solution that can assess device health and that integrates with the ICAM solution may also be another foundational component of an initial ZTA deployment. An initial ZTA based on these two main components will be able to use the identity and authorizations of subjects and the health and compliance of requesting endpoints as the basis for making access decisions. Additional supporting components and features can then be deployed to address an increasing number of ZTA requirements. Which types of components are deployed and in what order will depend on the organization’s mission and business use cases. If data security is essential, then data security components will be prioritized; if behavior-based anomaly detection is essential, then monitoring and AI-based analytics may be installed. The ZTA can be built incrementally, adding and integrating more supporting components, features, and capabilities to gradually evolve to a more comprehensive ZTA.</p>
+</section>
+<section id="verify-the-implementation-to-support-zero-trust-outcomes">
+<h2>Verify the implementation to support zero trust outcomes<a class="headerlink" href="#verify-the-implementation-to-support-zero-trust-outcomes" title="Link to this heading">#</a></h2>
+<p>The organization should continue to monitor all network traffic in real time for suspicious activity, both to look for known attack signatures and patterns and to apply behavioral analytics to try to detect anomalies or other activity that may be attack indicators. The organization should use deployed discovery and other baseline security tools to audit and validate the access enforcement decision of the ZTA it has provisioned, correlating known data with information reported by the tools. The organization should perform ongoing verification that the policies that are being enforced, as revealed by the observed network flows, are in fact the policies that the organization has defined. Periodic testing should be performed across a variety of use case scenarios, including those in which the resource is located on-premises and in the cloud, the requesting endpoint is located on-premises and on the internet, the requesting subject is and is not authorized to access the requested resource, the requesting endpoint is and is not managed, and the requesting resource is and is not compliant. In addition, service-to-service requests, both authorized and unauthorized, should also be tested. The use cases selected for testing should reflect those which most closely mirror how the organization’s users access the organization’s resources on a day-to-day basis. Ideally, the organization can create a suite of tests that it can use to validate the ZTA not only before deploying each new ZTA capability in the incremental rollout process, but also on a periodic basis once the ZTA rollout is considered complete.</p>
+</section>
+<section id="continuously-improve-and-evolve-due-to-changes-in-threat-landscape-mission-technology-and-regulations">
+<h2>Continuously improve and evolve due to changes in threat landscape, mission, technology, and regulations<a class="headerlink" href="#continuously-improve-and-evolve-due-to-changes-in-threat-landscape-mission-technology-and-regulations" title="Link to this heading">#</a></h2>
+<p>Once rolled out, the ZTA must continue to adapt to changing conditions. If technology components used in the ZTA are upgraded or obsoleted by their manufacturer, they should be replaced. If innovative new technologies become available, the organization should consider whether they could be integrated into the existing ZTA to take advantage of new defensive tactics, techniques, and procedures that might improve the organization’s security posture. If the organization’s security goals change, either as a result of a shifting mission or changes in regulations, the ZTA’s policies and the ZTA itself may need to evolve to best address these new goals.</p>
+<p>In addition, the ZTA may need to adapt to a changing threat landscape. As new types of adversary attacks become known and prevalent, the ZTA will need to add the threat signatures for these attacks to the list of things it monitors for. Ideally the ZTA will also perform behavior-based monitoring that enables it to detect anomalies that may signal zero-day attacks for which threat signatures are not yet know. Behavior-based monitoring tools provide the ZTA with some degree of agility and readiness with respect to its ability to detect attacks by adversaries who are constantly changing their tactics and techniques. In any case, as the threat landscape changes, the organization’s CISO and security team need to continually assess the ZTA’s topology, components, and policies to ensure that they are best designed to address newly emerging threats. If the value of one or more of an organization’s resources increases substantially, the organization may want to change how that resource is protected by the ZTA, as well as what its access policies are.</p>
+<p>As input to this ongoing process of validation and improvement, organizations should continuously monitor their network and other infrastructure and update policies, technologies, and network segmentation topologies to ensure that they remain effective. Creating a ZTA is not a one-time project but an ongoing process. The organization’s CISO or other security team members should perform ongoing validation of their ZTA access policies to ensure that they continue to be defined in a manner that supports the organization’s mission and business use cases while conforming with the principles of least privilege and separation of duties.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../VolumeE/Mappings.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Mappings</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../glossary.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Glossary</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discover-and-inventory-the-existing-environment">Discover and inventory the existing environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulate-access-policy-to-support-the-mission-and-business-use-cases">Formulate access policy to support the mission and business use cases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-existing-security-capabilities-and-technology">Identify existing security capabilities and technology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminate-gaps-in-zero-trust-policy-and-processes-by-applying-a-risk-based-approach-based-on-the-value-of-data">Eliminate Gaps in Zero Trust Policy and Processes by Applying a Risk-Based Approach Based on the Value of Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-zta-components-people-process-and-technology-and-incrementally-leverage-deployed-security-solutions">Implement ZTA components (people, process, and technology) and incrementally leverage deployed security solutions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-the-implementation-to-support-zero-trust-outcomes">Verify the implementation to support zero trust outcomes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuously-improve-and-evolve-due-to-changes-in-threat-landscape-mission-technology-and-regulations">Continuously improve and evolve due to changes in threat landscape, mission, technology, and regulations</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<p>
+  
+    By NIST<br/>
+  
+</p>
+
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> Certain commercial equipment, instruments, or
+          materials are identified in this documentation to foster understanding. Such
+          identification does not imply recommendation or endorsement by the National
+          Institute of Standards and Technology, nor does it imply that the materials
+          or equipment identified are necessarily the best available for the purpose.
+        </div>
+      </p>
+    </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,954 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Demonstration Terminology &#8212; Implementing a Zero Trust Architecture Project  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/content.css?v=59cd0ab0" />
+    <link rel="stylesheet" type="text/css" href="../_static/breadcrumbs.css?v=ddd885d8" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeD/FunctionalLabDemonstration';</script>
+    <script src="../_static/jquery.visible.js?v=5b129ffc"></script>
+    <script src="../_static/jquery.leaveNotice-nist.js?v=7cf1efa2"></script>
+    <script src="../_static/applyLeaveNotice.js?v=38741b1c"></script>
+    <script src="../_static/smoothNavScroll.js?v=2ce98a12"></script>
+    <link rel="icon" href="../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Use Case A: Discovery and Identification of IDs, Assets, and Data Flows" href="UseCaseA.html" />
+    <link rel="prev" title="Functional Demonstrations" href="index.html" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
+    <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+    <link rel="stylesheet" type="text/css" href="https://pages.nist.gov/leaveNotice/css/jquery.leaveNotice.css" />
+    <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJSMY46M5C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RJSMY46M5C');
+    </script>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="width: max-content;">
+    <ul class="wy-breadcrumbs">
+        <li style="list-style: none;"><a href="../index.html" aria-label="Home"><i class="fa fa-home"></i></a></li>
+            <li class="breadcrumb-item">&ensp;<a href="index.html">Functional Demonstrations</a></li>
+        <li class="breadcrumb-item active">&ensp;Demonstration Terminology</li>
+    </ul>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Implementing a Zero Trust Architecture Project  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture" title="Main Project Page" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/MainProjectLogo.jpg" class="icon-link-image" alt="Main Project Page"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Implementing a Zero Trust Architecture
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ExecutiveSummary.html">Executive Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/Introduction.html">Introduction to the Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ProjectOverview.html">Project Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeB/architecture.html">Architecture and Builds</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeB/BuildsImplemented.html">Builds Implemented</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../VolumeB/appendices/index.html">Build Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B3.html">Enterprise 2 Build 3 (E2B3) — Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeC/index.html">Build Implementation Instructions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E2B3.html">Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/Hardening.html">Hardening Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/GeneralFindings.html">General Findings</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Functional Demonstrations</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Demonstration Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseCaseA.html">Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseCaseB.html">Use Case B: Enterprise-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseCaseC.html">Use Case C: Collaboration: Federated-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseCaseD.html">Use Case D: Other-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseCaseE.html">Use Case E: Guest: No-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseCaseF.html">Use Case F: Confidence Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseCaseG.html">Use Case G: Service-Service Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseCaseH.html">Use Case H: Data Level Security Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FunctionalDemonstrationResultSummaries.html">Functional Demonstration Result Summaries</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="results/index.html">Functional Demonstration Results</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="results/EIGCrawlResults.html">EIG Crawl Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="results/EIGRunResults.html">EIG Run Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="results/SDPMicroResults.html">SDP, Microsegmentation, and SASE Phase Demonstration Results</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeE/index.html">Risk and Compliance Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/RisksAddressed.html">Risks Addressed by the ZTA Reference Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/ArchitectureSecurityMappings.html">ZTA Security Mapping Context and Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/Mappings.html">Mappings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acronyms.html">Acronyms</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/VolumeD/FunctionalLabDemonstration.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Demonstration Terminology</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Definitions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network-ids">Network IDs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subject-and-requested-resource-types">Subject and Requested Resource Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resource-and-querying-endpoint-compliance-classification">Resource and Querying Endpoint Compliance Classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desired-outcomes">Desired Outcomes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-status">Authentication Status</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-configurations">General Configurations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-level">Access Level</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-profiles">Access Profiles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-and-capabilities">Resources and Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-profiles">User Profiles</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demonstration-methodology">Demonstration Methodology</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="demonstration-terminology">
+<h1>Demonstration Terminology<a class="headerlink" href="#demonstration-terminology" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is supplementary material for the <a class="reference external" href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf">NIST SP 1800-35 publication</a>.</p>
+</div>
+<section id="definitions">
+<h2>Definitions<a class="headerlink" href="#definitions" title="Link to this heading">#</a></h2>
+<section id="network-ids">
+<h3>Network IDs<a class="headerlink" href="#network-ids" title="Link to this heading">#</a></h3>
+<p>As defined in NIST SP 800-63, an <em>identity</em> is an attribute or set of attributes that uniquely identifies a subject. Here, a <em>network identity</em> is used simply as an identity that allows the subject to identify itself to all (network) connected enterprise resources. The following definitions are used for network IDs:</p>
+<ul class="simple">
+<li><p><strong>Enterprise-ID:</strong> An ID issued and maintained by the enterprise. It is stored in one (or more) identity stores maintained by the enterprise.</p></li>
+<li><p><strong>Federated-ID:</strong> An ID issued and maintained by another enterprise in a community of interest, and partner enterprises have a trusted means to authenticate the ID. This could include things such as a common PKI, etc.</p></li>
+<li><p><strong>Other-ID:</strong> An ID issued and maintained by another enterprise but known or registered by the first enterprise. Examples include contractors and customers. The other enterprise can authenticate to the first enterprise, but the first enterprise may have limited visibility to all attributes/roles associated with the identity. For example, the first enterprise may be able to verify only that the Other-ID is still considered valid, but no other information from the other enterprise (employee ID number, other PII, etc.).</p></li>
+<li><p><strong>No-ID:</strong> An anonymous ID unknown to the enterprise that the enterprise would be unable to authenticate. This may also be referred to as a “guest” to the enterprise. No-ID will also be used to indicate an anonymous subject that does not present any ID.</p></li>
+</ul>
+</section>
+<section id="subject-and-requested-resource-types">
+<h3>Subject and Requested Resource Types<a class="headerlink" href="#subject-and-requested-resource-types" title="Link to this heading">#</a></h3>
+<p>In zero trust, all enterprise data, assets, etc. are considered resources. To clarify the actors (subject and requested resource) in the following scenarios, the following more detailed definitions are used:</p>
+<ul class="simple">
+<li><p><strong>Enterprise endpoint (EP):</strong> Owned and fully managed by the enterprise. The enterprise can inspect and modify any data on the endpoint. An EP is usually acting as the requesting subject but can be the target of a management utility. An EP could be physical (e.g., a laptop) or virtual (e.g., virtual machine or container). Each EP should be able to be uniquely identified by the enterprise.</p></li>
+<li><p><strong>Enterprise resource (RSS):</strong> Fully managed by the enterprise. The enterprise can inspect and modify the resource. An RSS is usually acting as the target of a request. Like EP above, each RSS should be uniquely identified by the enterprise.</p></li>
+<li><p><strong>Bring your own device (BYOD):</strong> Not owned by the enterprise and not managed by the enterprise. The enterprise can inspect the device but cannot directly manage or wipe the device. User agents, certificates, etc. may be pre-installed by the device’s owner, but the endpoint is not managed by the enterprise. A BYOD is usually acting on behalf of the requesting subject or as the target of a management utility. A BYOD device may be uniquely identified by the enterprise.</p></li>
+<li><p><strong>Guest device:</strong> Not owned or managed by the enterprise and is opaque to the enterprise. The enterprise can only see what is emitted and received by its enterprise managed infrastructure. Examples include browser user agents and DNS queries. A guest device is usually acting as the requesting subject or as the target of a management utility. Guest devices are not assumed to be uniquely identified by the enterprise.</p></li>
+</ul>
+</section>
+<section id="resource-and-querying-endpoint-compliance-classification">
+<h3>Resource and Querying Endpoint Compliance Classification<a class="headerlink" href="#resource-and-querying-endpoint-compliance-classification" title="Link to this heading">#</a></h3>
+<p>The following definitions are used for endpoint and resource security compliance policies:</p>
+<ul class="simple">
+<li><p><strong>(EIG) Endpoint Compliance:</strong> Policy that requires the endpoint device to be uniquely identified and to conform to the enterprise security policy for the device. An endpoint is considered to be in compliance if both of the above are true.</p></li>
+<li><p><strong>(EIG) Resource Compliance:</strong> Policy that requires the enterprise-managed resource to be identified and to conform to the enterprise security policy for the resource. A resource is considered to be in compliance if both of the above are true.</p></li>
+</ul>
+</section>
+<section id="desired-outcomes">
+<h3>Desired Outcomes<a class="headerlink" href="#desired-outcomes" title="Link to this heading">#</a></h3>
+<p>The following definitions are used for desired outcomes:</p>
+<ul class="simple">
+<li><p><strong>Access to Network:</strong> Endpoint is allocated an address on enterprise infrastructure and enrolled/updated into any monitoring system in place for the enterprise. This result is only applicable to select on-premises (or branch) demonstrations. This does not grant the endpoint any privileges beyond the ability to send traffic on the network.</p></li>
+<li><p><strong>Access to Public Network:</strong> Endpoint is allocated an address, but only allowed access to the (public) internet; cannot reach/access non-public enterprise resources. This result is only applicable to select on-premises (or branch) demonstrations. This does not grant the endpoint any privileges beyond the ability to send traffic on the network. Traffic bound for external Internet connected resources may be further screened or monitored.</p></li>
+<li><p><strong>Limited Access to Network:</strong> Endpoint is allocated an address with strict traffic restrictions. This may include a quarantine state with only access to update/patch management system. This result is only applicable to select on-premises (or branch) demonstrations. This does not grant the endpoint any privileges beyond the ability to send traffic on the network that may be restricted to only provide reachability to a select set of services.</p></li>
+<li><p><strong>No Access to Network:</strong> Endpoint is not allocated an address and cannot send or receive communication. This result is only applicable to select on-premises (or branch) demonstrations. This means the endpoint cannot send queries to any resource.</p></li>
+<li><p><strong>Access (to Resource) Successful:</strong> Access to the resources that are specified in the profile is achieved. The subject initiates a session with the authorized privileges.</p></li>
+<li><p><strong>Access (to Resource) Limited:</strong> Access to a subset, but not all, of the resources that are specified in the profile is achieved. The subject initiates a session with a restricted subset of the authorized privileges.</p></li>
+<li><p><strong>Access (to Resource) Not Successful:</strong> No access to the requested resource is achieved.</p></li>
+<li><p><strong>Keep Access (to Resource):</strong> Access remains at the previous state.</p></li>
+<li><p><strong>Max. Limited Access to Network:</strong> This outcome is specific for device-based assets that will be authenticated. This means that portions of the network or some RSS will not be available to be accessed by this subject. This is similar to Limited Access to Network (above), but may allow the endpoint to access a set of resources beyond enterprise endpoint management/update services.</p></li>
+<li><p><strong>Terminate Access (to X):</strong> The session is terminated or all access to the network is terminated (i.e., no longer allowed to send/receive communications).</p></li>
+<li><p><strong>Other Outcome:</strong> Some demonstrations use explicit text that informs of a desired action. Examples: <em>“Terminate all sessions”</em> or <em>“Log API call.”</em></p></li>
+</ul>
+</section>
+<section id="authentication-status">
+<h3>Authentication Status<a class="headerlink" href="#authentication-status" title="Link to this heading">#</a></h3>
+<p>Table 1 explains the authentication status codes used in the demonstration use case tables below.</p>
+<p><strong>Table 1 - Authentication Status Codes</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Activity</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A+</p></td>
+<td><p>Authentication successful</p></td>
+<td><p>All provided credentials matched and verified</p></td>
+</tr>
+<tr class="row-odd"><td><p>A-</p></td>
+<td><p>Authentication not successful</p></td>
+<td><p>One or more credentials were not verified such as password failure, multifactor authentication (MFA) failure, account does not exist, account blocked, suspicions raised</p></td>
+</tr>
+<tr class="row-even"><td><p>RA+</p></td>
+<td><p>Successful re-authentication of a previously successful authentication</p></td>
+<td><p>All provided credentials matched</p></td>
+</tr>
+<tr class="row-odd"><td><p>RA-</p></td>
+<td><p>Failed re-authentication of a previously successful authentication</p></td>
+<td><p>One or more credentials were not verified such as password failure, MFA failure, account was deleted and is no longer valid, account blocked, suspicious activity</p></td>
+</tr>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>Actively authenticated</p></td>
+<td><p>Previously authenticated and no need for re-authentication yet</p></td>
+</tr>
+<tr class="row-odd"><td><p>—</p></td>
+<td><p>Not authenticated yet</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="general-configurations">
+<h2>General Configurations<a class="headerlink" href="#general-configurations" title="Link to this heading">#</a></h2>
+<p>This section focuses on the configurations and specifications used within the demonstration use cases.</p>
+<section id="access-level">
+<h3>Access Level<a class="headerlink" href="#access-level" title="Link to this heading">#</a></h3>
+<p>Table 2 defines the access levels used in the demonstration scenarios. An <em>access level</em> specifies a set of available actions or access allowed to a subject. Downgrading an access level means the access level will be replaced by the new downgraded access level. For example, if a subject with access level “Full Access” gets downgraded to access level “Limited Access,” this means the subject only has access to resources and/or functions that require at least “Limited Access.” Similarly, if a subject with access level “Limited Access” gets downgraded, the subject will have no further access to anything. Downgraded access levels can be reversed to their original state.</p>
+<p><strong>Table 2 - Access Levels</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Access Level</p></th>
+<th class="head"><p>Can Downgrade to</p></th>
+<th class="head"><p>Description of Access Level</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Full Access</p></td>
+<td><p>Limited Access</p></td>
+<td><p>This allows the subject to use <strong>all functions</strong> available on the selected resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Limited Access</p></td>
+<td><p>None</p></td>
+<td><p>This allows the subject to use <strong>a subset of functions</strong> available on the selected resource.</p></td>
+</tr>
+<tr class="row-even"><td><p>None</p></td>
+<td><p>None</p></td>
+<td><p>No access</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="access-profiles">
+<h3>Access Profiles<a class="headerlink" href="#access-profiles" title="Link to this heading">#</a></h3>
+<p>Table 3 defines the access levels used in the demonstration scenarios. Access profiles provide the configuration and maximum access level that can be used. Access levels within the profile can be downgraded to the next lower level when the demonstration directs the operator to limit the access.</p>
+<p><strong>Table 3 - Access Profiles</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Access Profile</p></th>
+<th class="head"><p>Maximum Access Level</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>P_FULL</p></td>
+<td><p>Full Access</p></td>
+<td><p>This provides the capability to access all capabilities of each available resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>P_LIMITED</p></td>
+<td><p>Limited Access</p></td>
+<td><p>This provides the capability to select a limited set of capabilities by the available resources.</p></td>
+</tr>
+<tr class="row-even"><td><p>P_NONE</p></td>
+<td><p>none</p></td>
+<td><p>No access</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="resources-and-capabilities">
+<h3>Resources and Capabilities<a class="headerlink" href="#resources-and-capabilities" title="Link to this heading">#</a></h3>
+<p>Table 4 defines the resources and capabilities used in the demonstration scenarios. Resources (RSS) and capabilities (CAP) specify items and actions used within the demonstrations. Access to them requires a minimum access level. For convenience, the <em>Access Profile</em> column lists the access profiles that will provide access to the given resource or capability. The <em>Example</em> column provides suggestions regarding resources and capabilities that the access level could be representing.</p>
+<p><strong>Table 4 - Resources and Capabilities</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Minimum
+Access Level</p></th>
+<th class="head"><p>Access Profile</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RSS1</p></td>
+<td><p>Resource</p></td>
+<td><p>Full Access</p></td>
+<td><p>P_FULL</p></td>
+<td><p>GitLab only accessible by P_FULL</p></td>
+</tr>
+<tr class="row-odd"><td><p>RSS2</p></td>
+<td><p>Resource</p></td>
+<td><p>Limited Access</p></td>
+<td><p>P_FULL, P_LIMITED</p></td>
+<td><p>File server</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CAP1-RSS1</p></td>
+<td><p>Capability</p></td>
+<td><p>Full Access</p></td>
+<td><p>P_FULL</p></td>
+<td><p>Create and access repositories</p></td>
+</tr>
+<tr class="row-even"><td><p>CAP2-RSS1</p></td>
+<td><p>Capability</p></td>
+<td><p>Full Access</p></td>
+<td><p>P_FULL</p></td>
+<td><p>Access repositories</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CAP1-RSS2</p></td>
+<td><p>Capability</p></td>
+<td><p>Full Access</p></td>
+<td><p>P_FULL</p></td>
+<td><p>Read and write access</p></td>
+</tr>
+<tr class="row-odd"><td><p>CAP2-RSS2</p></td>
+<td><p>Capability</p></td>
+<td><p>Limited Access</p></td>
+<td><p>P_FULL, P_LIMITED</p></td>
+<td><p>Read-only access to all or limited part of resource</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>URL1</p></td>
+<td><p>Resource</p></td>
+<td><p>Full Access</p></td>
+<td><p>P_FULL</p></td>
+<td><p><a class="reference external" href="https://www.nccoe.nist.gov">https://www.nccoe.nist.gov</a></p></td>
+</tr>
+<tr class="row-even"><td><p>URL2</p></td>
+<td><p>Resource</p></td>
+<td><p>Limited Access</p></td>
+<td><p>P_FULL, P_LIMITED</p></td>
+<td><p><a class="reference external" href="https://www.nist.gov">https://www.nist.gov</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="user-profiles">
+<h3>User Profiles<a class="headerlink" href="#user-profiles" title="Link to this heading">#</a></h3>
+<p>Table 5 contains the different user profiles (UP) used with an enterprise-ID (UP-E) or other-ID (UP-O) for the demonstrations. Some profiles might be redundant (e.g., UP-E1 and UP-E4). This is done to help keep the profile configuration simple because the demonstrations that the redundant profiles are used in utilize different resources. The Downgrade Trigger Examples are situations where the access would be restricted from the original Access Profile to remove some of the capabilities. For example, moving UP-E1 from P_FULL to a temporary P_LIMITED for the scenario.</p>
+<p><strong>Table 5 - User Profiles</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>User Profile</p></th>
+<th class="head"><p>Access Profile</p></th>
+<th class="head"><p>Resource</p></th>
+<th class="head"><p>Status</p></th>
+<th class="head"><p>Downgrade Trigger Examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>UP-E1</p>
+<p>UP-O1</p>
+</td>
+<td><p>P_FULL</p></td>
+<td><p>RSS1</p>
+<p>RSS2</p>
+</td>
+<td><p>Active</p></td>
+<td><p>Endpoint falls out of compliance</p></td>
+</tr>
+<tr class="row-odd"><td><p>UP-E2</p>
+<p>UP-O2</p>
+</td>
+<td><p>P_LIMITED</p></td>
+<td><p>RSS2</p></td>
+<td><p>Active</p></td>
+<td><p>Endpoint falls out of compliance</p></td>
+</tr>
+<tr class="row-even"><td><p>UP-E3</p>
+<p>UP-O3</p>
+</td>
+<td><p>none</p></td>
+<td><p>none</p></td>
+<td><p>Deactivated or deleted</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>UP-E4</p>
+<p>UP-O4</p>
+</td>
+<td><p>P_FULL</p></td>
+<td><p>URL1</p>
+<p>URL2</p>
+</td>
+<td><p>Active</p></td>
+<td><p>Endpoint falls out of compliance</p></td>
+</tr>
+<tr class="row-odd"><td><p>UP-E5</p>
+<p>UP-O5</p>
+</td>
+<td><p>P_LIMITED</p></td>
+<td><p>URL1</p>
+<p>URL2</p>
+</td>
+<td><p>Active</p></td>
+<td><p>Endpoint falls out of compliance</p>
+<p>Internet access only during specific times</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>UP-E6</p>
+<p>UP-O6</p>
+</td>
+<td><p>P_FULL</p></td>
+<td><p>RSS1</p></td>
+<td><p>Active</p></td>
+<td><p>Detection of multiple logins from different locations</p>
+<p>Detection of second login from enterprise-owned device not assigned to user</p>
+<p>Detection of login from location outside of the country</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>UP-E7</p>
+<p>UP-O7</p>
+</td>
+<td><p>P_FULL</p></td>
+<td><p>RSS1</p></td>
+<td><p>Active</p></td>
+<td><p>Account reported compromised</p>
+<p>Using old MFA method (stolen PIV card)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="demonstration-methodology">
+<h2>Demonstration Methodology<a class="headerlink" href="#demonstration-methodology" title="Link to this heading">#</a></h2>
+<p>We are leveraging two types of demonstration methodologies: manual and automated. Demonstrations that require human interaction (e.g., user performs MFA) must be performed manually. Demonstrations that do not require human interaction can be performed either manually or automated, or both. It is also possible to perform demonstrations in a hybrid manner in which the early part of a demonstration that requires user authentication is performed manually, followed by an automated portion of the demonstration. This approach can be helpful for demonstrations that are complicated, yet nevertheless require human interaction.</p>
+<p>We deployed Mandiant Security Validation (MSV) throughout the project’s laboratory environment to enable us to monitor and verify various security characteristics of the builds. MSV automates a testing program that provides visibility and evidence of how security controls are performing by emulating attackers to safely process advanced cyberattack security content within production environments. It is designed so defenses respond to it as if an attack is taking place within the enterprise. Virtual machines (VMs) that are intended to operate as actors are deployed on each of the subnetworks in each of the enterprises. These actors can be used to initiate various actions for the purpose of verifying that security controls are working to support the objectives of zero trust. We also deployed three VMs that operate as directors, two of which function as applications within enterprise 1 and enterprise 3 that are used by those enterprises to monitor and audit their own traffic, and one of which is an overarching director that is located within the management and orchestration domain and used by the project team to demonstrate and audit operations that span multiple enterprises. (See <a class="reference internal" href="../VolumeB/architecture.html#zta-laboratory-physical-architecture"><span class="std std-ref">ZTA Laboratory Physical Architecture</span></a>.)</p>
+<p>This setup enabled the following dual-purpose MSV deployment:</p>
+<ol class="arabic simple">
+<li><p><strong>A typical MSV deployment, in which each enterprise deploys MSV as an application within its own enterprise and uses it for self-auditing and testing.</strong> Each enterprise deploys a director and multiple actors that function as applications within the enterprise, enabling the enterprise to monitor and test its own enterprise security capabilities, verifying the protections it receives from the ZTA and its ability to operate as expected. In this capacity, MSV is treated just like any other application deployed within that enterprise. The components may be protected by PEPs according to enterprise policies, and directors and actors exchange traffic over the same data communications paths as other enterprise applications. Firewalls and policies within the ZTA must be configured to permit the communications that the MSV components send and receive, including traffic that is sent between actors and the director to control the actions that are performed to test various security controls.</p></li>
+<li><p><strong>The NCCoE project team, as testers, use MSV to monitor and audit enterprise and inter-enterprise actions.</strong> The project team deploys an overarching director and a management backchannel connecting that director to all actors throughout the laboratory environment. This overarching director is used as a tool to verify the security controls provided by each of the ZTAs in the various enterprises and to monitor and audit inter-enterprise interactions. In this capacity, MSV is not functioning as an application deployed or controlled by the enterprises, but rather as a tool being used to monitor and audit enterprise and inter-enterprise activity. Communications between the actors and this overarching director occur on a management channel that is separate from the data networks in each of the enterprises. Using a separate backchannel ensures that the tool being used to monitor and verify the various ZTA architectures is not itself impacting those architectures. Enabling the overarching MSV director to control the actor VMs via a backchannel requires each of the actor VMs to have two network interface cards (NICs), one for enterprise data and one for MSV tool interoperation. Use of a separate backchannel ensures that enterprise ZTA policies and firewalls don’t need to be modified to accommodate the overarching MSV testing by permitting traffic between the overarching director and the actors that would not normally be expected to transit any of the enterprise networks. Such policy and firewall modification would have been undesirable and would, in effect, have amounted to unauthorized channels into the enterprise networks.</p></li>
+</ol>
+<p>An MSV protective theater was also created in the lab. This is a virtualized system that allows destructive actions to be tested without adversely impacting the enterprise deployments themselves. For example, to understand the effects that malware might have on a specific system in one of the enterprises, that system could be imported into the protective theater and infected with malware to test what the destructive effects of the malware might be.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Functional Demonstrations</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="UseCaseA.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Definitions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network-ids">Network IDs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subject-and-requested-resource-types">Subject and Requested Resource Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resource-and-querying-endpoint-compliance-classification">Resource and Querying Endpoint Compliance Classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desired-outcomes">Desired Outcomes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-status">Authentication Status</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-configurations">General Configurations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-level">Access Level</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-profiles">Access Profiles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-and-capabilities">Resources and Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-profiles">User Profiles</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demonstration-methodology">Demonstration Methodology</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<p>
+  
+    By NIST<br/>
+  
+</p>
+
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> Certain commercial equipment, instruments, or
+          materials are identified in this documentation to foster understanding. Such
+          identification does not imply recommendation or endorsement by the National
+          Institute of Standards and Technology, nor does it imply that the materials
+          or equipment identified are necessarily the best available for the purpose.
+        </div>
+      </p>
+    </div>
+</footer>
+  </body>
+</html>

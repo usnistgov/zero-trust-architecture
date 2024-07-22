@@ -1,0 +1,2215 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Functional Demonstration Result Summaries &#8212; Implementing a Zero Trust Architecture Project  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/content.css?v=59cd0ab0" />
+    <link rel="stylesheet" type="text/css" href="../_static/breadcrumbs.css?v=ddd885d8" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeD/FunctionalDemonstrationResultSummaries';</script>
+    <script src="../_static/jquery.visible.js?v=5b129ffc"></script>
+    <script src="../_static/jquery.leaveNotice-nist.js?v=7cf1efa2"></script>
+    <script src="../_static/applyLeaveNotice.js?v=38741b1c"></script>
+    <script src="../_static/smoothNavScroll.js?v=2ce98a12"></script>
+    <link rel="icon" href="../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Functional Demonstration Results" href="results/index.html" />
+    <link rel="prev" title="Use Case H: Data Level Security Scenarios" href="UseCaseH.html" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
+    <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+    <link rel="stylesheet" type="text/css" href="https://pages.nist.gov/leaveNotice/css/jquery.leaveNotice.css" />
+    <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJSMY46M5C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RJSMY46M5C');
+    </script>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="width: max-content;">
+    <ul class="wy-breadcrumbs">
+        <li style="list-style: none;"><a href="../index.html" aria-label="Home"><i class="fa fa-home"></i></a></li>
+            <li class="breadcrumb-item">&ensp;<a href="index.html">Functional Demonstrations</a></li>
+        <li class="breadcrumb-item active">&ensp;Functional Demonstration Result Summaries</li>
+    </ul>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Implementing a Zero Trust Architecture Project  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture" title="Main Project Page" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/MainProjectLogo.jpg" class="icon-link-image" alt="Main Project Page"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Implementing a Zero Trust Architecture
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ExecutiveSummary.html">Executive Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/Introduction.html">Introduction to the Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ProjectOverview.html">Project Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeB/architecture.html">Architecture and Builds</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeB/BuildsImplemented.html">Builds Implemented</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../VolumeB/appendices/index.html">Build Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B3.html">Enterprise 2 Build 3 (E2B3) — Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeC/index.html">Build Implementation Instructions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E2B3.html">Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/Hardening.html">Hardening Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/GeneralFindings.html">General Findings</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Functional Demonstrations</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="FunctionalLabDemonstration.html">Demonstration Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseCaseA.html">Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseCaseB.html">Use Case B: Enterprise-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseCaseC.html">Use Case C: Collaboration: Federated-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseCaseD.html">Use Case D: Other-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseCaseE.html">Use Case E: Guest: No-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseCaseF.html">Use Case F: Confidence Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseCaseG.html">Use Case G: Service-Service Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseCaseH.html">Use Case H: Data Level Security Scenarios</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Functional Demonstration Result Summaries</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="results/index.html">Functional Demonstration Results</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="results/EIGCrawlResults.html">EIG Crawl Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="results/EIGRunResults.html">EIG Run Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="results/SDPMicroResults.html">SDP, Microsegmentation, and SASE Phase Demonstration Results</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeE/index.html">Risk and Compliance Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/RisksAddressed.html">Risks Addressed by the ZTA Reference Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/ArchitectureSecurityMappings.html">ZTA Security Mapping Context and Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/Mappings.html">Mappings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acronyms.html">Acronyms</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/VolumeD/FunctionalDemonstrationResultSummaries.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Functional Demonstration Result Summaries</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eig-crawl-phase-summary-demonstration-results">EIG Crawl Phase Summary Demonstration Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-1-build-1-e1b1-eig-crawl-okta-identity-cloud-and-ivanti-access-zso-as-pes-summary-demonstration-results">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-2-build-1-e2b1-eig-crawl-ping-identity-ping-federate-as-pe-summary-demonstration-results">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-3-build-1-e3b1-eig-crawl-azure-ad-conditional-access-later-renamed-entra-conditional-access-as-pe-summary-demonstration-results">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>) as PE Summary Demonstration Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eig-run-phase-summary-demonstration-results">EIG Run Phase Summary Demonstration Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-1-build-2-e1b2-eig-run-zscaler-zpa-central-authority-ca-as-pe-summary-demonstration-results">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-3-build-2-e3b2-eig-run-microsoft-azure-ad-conditional-access-later-renamed-entra-conditional-access-microsoft-intune-forescout-eyecontrol-and-forescout-eyeextend-as-pes-summary-demonstration-results">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-4-build-3-e4b3-eig-run-ibm-security-verify-as-pe-summary-demonstration-results">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Summary Demonstration Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sdp-microsegmentation-and-sase-phase-summary-demonstration-results">SDP, Microsegmentation, and SASE Phase Summary Demonstration Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-1-build-3-e1b3-sdp-zscaler-zpa-ca-as-pe-summary-demonstration-results">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-2-build-3-e2b3-microsegmentation-cisco-ise-cisco-secure-workload-and-ping-identity-ping-federate-as-pes-summary-demonstration-results">Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-3-build-3-e3b3-sdp-and-microsegmentation-microsoft-azure-ad-conditional-access-later-renamed-entra-conditional-access-microsoft-intune-microsoft-sentinel-forescout-eyecontrol-and-forescout-eyeextend-as-pes-summary-demonstration-results">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-1-build-4-e1b4-sdp-appgate-sdp-controller-as-pe-summary-demonstration-results">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-2-build-4-e2b4-sdp-and-sase-symantec-cloud-secure-web-gateway-symantec-ztna-and-symantec-cloud-access-security-broker-as-pes-summary-demonstration-results">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-3-build-4-e3b4-sdp-f5-big-ip-f5-nginx-plus-forescout-eyecontrol-and-forescout-eyeextend-as-pes-summary-demonstration-results">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-4-build-4-e4b4-sdp-microsegmentation-and-eig-vmware-workspace-one-access-vmware-unified-access-gateway-and-vmware-nsx-t-as-pes-summary-demonstration-results">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-1-build-5-e1b5-sase-and-microsegmentation-pan-ngfw-and-pan-prisma-access-as-pes-summary-demonstration-results">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-2-build-5-e2b5-sdp-and-sase-lookout-sse-and-okta-identity-cloud-as-pes-summary-demonstration-results">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-3-build-5-e3b5-sdp-and-sase-microsoft-entra-conditional-access-formerly-called-azure-ad-conditional-access-and-microsoft-security-service-edge-as-pes-summary-demonstration-results">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-1-build-6-e1b6-sdp-and-microsegmentation-ivanti-neurons-for-zero-trust-access-as-pes-summary-demonstration-results">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Summary Demonstration Results</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="functional-demonstration-result-summaries">
+<h1>Functional Demonstration Result Summaries<a class="headerlink" href="#functional-demonstration-result-summaries" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is supplementary material for the <a class="reference external" href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf">NIST SP 1800-35 publication</a>.</p>
+</div>
+<p>This section provides a summary of the demonstration results for each of the builds that was implemented as part of this project. The summary results are organized according to the build phases that were defined in <a class="reference internal" href="../VolumeB/architecture.html#architecture-and-builds"><span class="std std-ref">Architecture and Builds</span></a>. The ZTA functionality demonstrated in each build performed as expected. Detailed results for each of the builds are provided in <a class="reference internal" href="results/EIGCrawlResults.html#eig-crawl-phase-demonstration-results"><span class="std std-ref">EIG Crawl Phase Demonstration Results</span></a>, <a class="reference internal" href="results/EIGRunResults.html#eig-run-phase-demonstration-results"><span class="std std-ref">EIG Run Phase Demonstration Results</span></a>, and <a class="reference internal" href="results/SDPMicroResults.html#sdp-microsegmentation-and-sase-phase-demonstration-results"><span class="std std-ref">SDP, Microsegmentation, and SASE Phase Demonstration Results</span></a>. For each build, summary results for use cases A-H are provided.</p>
+<section id="eig-crawl-phase-summary-demonstration-results">
+<h2>EIG Crawl Phase Summary Demonstration Results<a class="headerlink" href="#eig-crawl-phase-summary-demonstration-results" title="Link to this heading">#</a></h2>
+<p>This section lists the summary demonstration results for each of the builds that was implemented as part of the EIG crawl phase: E1B1, E2B1, and E3B1. Cloud-based scenarios, and more sophisticated scenarios such as Stolen Credential, Just-in-Time Access Privileges, Enterprise-ID Step-Up Authentication, Federated-ID Access, Confidence Level, and Service-Service Interactions scenarios were decided to be out of scope for the EIG crawl phase. Only E1B1 has a branch office; E2B1 and E3B1 do not.</p>
+<section id="enterprise-1-build-1-e1b1-eig-crawl-okta-identity-cloud-and-ivanti-access-zso-as-pes-summary-demonstration-results">
+<h3>Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Summary Demonstration Results<a class="headerlink" href="#enterprise-1-build-1-e1b1-eig-crawl-okta-identity-cloud-and-ivanti-access-zso-as-pes-summary-demonstration-results" title="Link to this heading">#</a></h3>
+<p>This build does not have IaaS, PaaS, or SaaS resources. Its summary results are as follows:</p>
+<p><strong>Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</strong></p>
+<p><strong>Description</strong>: This use case demonstrates the ability of the enterprise to discover network assets, authenticate devices, and demonstrate network connectivity.</p>
+<ul class="simple">
+<li><p>Discovery and authentication of endpoint assets  - Not demonstrated due to lack of capability. There is no network-level enforcement present in this build.</p></li>
+<li><p>Reauthentication of identified assets  - Not demonstrated due to lack of capability.</p></li>
+<li><p>Discovery of transaction flows  - Demonstrated visibility of authentication and resource access attempts via Okta logs.</p></li>
+</ul>
+<p><strong>Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access</strong></p>
+<p><strong>Description:</strong> This use case demonstrates user access to enterprise resources based on successfully achieving user and device security preconditions.</p>
+<ul class="simple">
+<li><p>For this build, we successfully demonstrated access using mobile device iOS and Android endpoints.</p></li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to enterprise resources (on-prem) in accordance with policy via Okta Identity Cloud.</p>
+<ul>
+<li><p>The policy engine can differentiate between employees and contractors and provide different access permissions to each user type.</p></li>
+</ul>
+</li>
+<li><p>Internet access enforcement for Enterprise and Contractor Users on an enterprise endpoint or BYOD  - Out of scope for EIG crawl phase.</p></li>
+<li><p>Stolen credential using an enterprise endpoint or BYOD  - Out of scope for EIG crawl phase.</p></li>
+<li><p>Just-in-Time Access Privileges  - Out of scope for EIG crawl phase.</p></li>
+<li><p>Enterprise-ID Step-Up Authentication  - Out of scope for EIG crawl phase.</p></li>
+<li><p>This build did not have the capability to verify resource compliance with policy.</p></li>
+</ul>
+<p><strong>Use Case C: Federated-ID Access</strong>  - Out of scope for EIG crawl phase.</p>
+<p><strong>Use Case D: Other-ID Access</strong>  - Results are the same as for use case B. Users with Other-ID Access (e.g., a contractor) have authorized access to resources based on need, so results for these users are no different than the results for users with Enterprise-ID Access.</p>
+<p><strong>Use Case E: Guest: No-ID Access</strong>  - Out of scope for EIG crawl phase.</p>
+<p><strong>Use Case F: Confidence Level</strong>  - Out of scope for EIG crawl phase.</p>
+<p><strong>Use Case G: Service-Service Interactions</strong>  - Out of scope for EIG crawl phase.</p>
+<p><strong>Use Case H: Data Level Security</strong>  - Out of scope for EIG crawl phase.</p>
+</section>
+<section id="enterprise-2-build-1-e2b1-eig-crawl-ping-identity-ping-federate-as-pe-summary-demonstration-results">
+<h3>Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Summary Demonstration Results<a class="headerlink" href="#enterprise-2-build-1-e2b1-eig-crawl-ping-identity-ping-federate-as-pe-summary-demonstration-results" title="Link to this heading">#</a></h3>
+<p>This build does not have IaaS, PaaS, or SaaS resources. Its summary results are as follows:</p>
+<p><strong>Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</strong></p>
+<p><strong>Description</strong>: This use case demonstrates the ability of the enterprise to discover network assets, authenticate devices, and demonstrate network connectivity</p>
+<ul class="simple">
+<li><p>Discovery and authentication of endpoint assets  - Not demonstrated due to lack of capability. There is no network-level enforcement present in this build.</p></li>
+<li><p>Reauthentication of identified assets  - Not demonstrated due to lack of capability.</p></li>
+<li><p>Discovery of transaction flows  - Demonstrated visibility of authentication and resource access attempts via Ping Federate and Cisco Duo.</p></li>
+</ul>
+<p><strong>Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access</strong></p>
+<p><strong>Description:</strong> This use case demonstrates user access to enterprise resources based on successfully achieving user and device security preconditions.</p>
+<ul class="simple">
+<li><p>For this build, we successfully demonstrated access using Windows, macOS, and mobile device iOS and Android endpoints.</p></li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to enterprise resources (on-prem) in accordance with policy via Ping Federate.</p>
+<ul>
+<li><p>The policy engine can differentiate between employees and contractors and provide different access permissions to each user type.</p></li>
+</ul>
+</li>
+<li><p>Internet access enforcement for Enterprise and Contractor users on an enterprise endpoint or BYOD  - Out of scope for EIG crawl phase.</p></li>
+<li><p>Stolen credential using an enterprise endpoint or BYOD  - Out of scope for EIG crawl phase.</p></li>
+<li><p>Just-in-Time Access Privileges  - Out of scope for EIG crawl phase.</p></li>
+<li><p>Enterprise-ID Step-Up Authentication  - Out of scope for EIG crawl phase.</p></li>
+<li><p>This build did not have the capability to verify resource compliance with policy.</p></li>
+</ul>
+<p><strong>Use Case C: Federated-ID Access</strong>  - Out of scope for EIG crawl phase.</p>
+<p><strong>Use Case D: Other-ID Access</strong>  - Results are the same as for use case B. Users with Other-ID Access (e.g., a contractor) have authorized access to resources based on need, so results for these users are no different than the results for users with Enterprise-ID Access.</p>
+<p><strong>Use Case E: Guest: No-ID Access</strong>  - Out of scope for EIG crawl phase.</p>
+<p><strong>Use Case F: Confidence Level</strong>  - Out of scope for EIG crawl phase.</p>
+<p><strong>Use Case G: Service-Service Interactions</strong>  - Out of scope for EIG crawl phase.</p>
+<p><strong>Use Case H: Data Level Security</strong>  - Out of scope for EIG crawl phase.</p>
+</section>
+<section id="enterprise-3-build-1-e3b1-eig-crawl-azure-ad-conditional-access-later-renamed-entra-conditional-access-as-pe-summary-demonstration-results">
+<h3>Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>) as PE Summary Demonstration Results<a class="headerlink" href="#enterprise-3-build-1-e3b1-eig-crawl-azure-ad-conditional-access-later-renamed-entra-conditional-access-as-pe-summary-demonstration-results" title="Link to this heading">#</a></h3>
+<p>This build does not have IaaS or PaaS resources. Its summary results are as follows:</p>
+<p><strong>Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</strong></p>
+<p><strong>Description</strong>: This use case demonstrates the ability of the enterprise to discover network assets, authenticate devices, and demonstrate network connectivity.</p>
+<ul class="simple">
+<li><p>Discovery and authentication of endpoint assets  - Not demonstrated due to lack of capability. There is no network-level enforcement present in this build.</p></li>
+<li><p>Reauthentication of identified assets  - Not demonstrated due to lack of capability.</p></li>
+<li><p>Discovery of transaction flows  - Demonstrated visibility of authentication and resource access attempts using Azure AD. Also, Azure AD audit logs that show activities were captured.</p></li>
+</ul>
+<p><strong>Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access</strong></p>
+<p><strong>Description:</strong> This use case demonstrates user access to enterprise resources based on successfully achieving user and device security preconditions.</p>
+<ul class="simple">
+<li><p>For this build, we successfully demonstrated access using Windows, macOS, and mobile device iOS and Android endpoints.</p></li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to enterprise resources (on-prem) in accordance with policy via Azure AD Conditional Access.</p>
+<ul>
+<li><p>The policy engine can differentiate between employees and contractors and provide different access permissions to each user type.</p></li>
+</ul>
+</li>
+<li><p>Internet access enforcement for Enterprise and Contractor Users on an enterprise endpoint or BYOD  - Out of scope for EIG crawl phase.</p></li>
+<li><p>Stolen credential using an enterprise endpoint or BYOD  - Out of scope for EIG crawl phase.</p></li>
+<li><p>Just-in-Time Access Privileges  - Out of scope for EIG crawl phase.</p></li>
+<li><p>Enterprise-ID Step-Up Authentication  - Out of scope for EIG crawl phase.</p></li>
+<li><p>This build did not have the capability to verify resource compliance with policy.</p></li>
+</ul>
+<p><strong>Use Case C: Federated-ID Access</strong>  - Out of scope for EIG crawl phase.</p>
+<p><strong>Use Case D: Other-ID Access</strong>  - Results are the same as for use case B. Users with Other-ID Access (e.g., a contractor) have authorized access to resources based on need, so results for these users are no different than the results for users with Enterprise-ID Access.</p>
+<p><strong>Use Case E: Guest: No-ID Access</strong>  - Out of scope for EIG crawl phase.</p>
+<p><strong>Use Case F: Confidence Level</strong>  - Out of scope for EIG crawl phase.</p>
+<p><strong>Use Case G: Service-Service Interactions</strong>  - Out of scope for EIG crawl phase.</p>
+<p><strong>Use Case H: Data Level Security</strong>  - Out of scope for EIG crawl phase.</p>
+</section>
+</section>
+<section id="eig-run-phase-summary-demonstration-results">
+<h2>EIG Run Phase Summary Demonstration Results<a class="headerlink" href="#eig-run-phase-summary-demonstration-results" title="Link to this heading">#</a></h2>
+<p>This section lists the summary demonstration results for each of the builds that was implemented as part of the EIG run phase: E1B2, E3B2, and E4B3. Only E1B2 has a branch office; E3B2 and E4B3 do not. More sophisticated scenarios such as Just-in-Time Access Privileges, Enterprise-ID Step-Up Authentication, Federated-ID Access, Confidence Level, and Service-Service Interactions scenarios were decided to be out of scope for the EIG run phase for E1B2 and E3B2.</p>
+<section id="enterprise-1-build-2-e1b2-eig-run-zscaler-zpa-central-authority-ca-as-pe-summary-demonstration-results">
+<h3>Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Summary Demonstration Results<a class="headerlink" href="#enterprise-1-build-2-e1b2-eig-run-zscaler-zpa-central-authority-ca-as-pe-summary-demonstration-results" title="Link to this heading">#</a></h3>
+<p>This build does not have SaaS resources. Its summary results are as follows:</p>
+<p><strong>Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</strong></p>
+<p><strong>Description</strong>: This use case demonstrates the ability of the enterprise to discover network assets, authenticate devices, and demonstrate network connectivity.</p>
+<ul class="simple">
+<li><p>Discovery and authentication of endpoint assets  - Not demonstrated due to lack of capability. There is no network-level enforcement present in this build.</p></li>
+<li><p>Reauthentication of identified assets  - Not demonstrated due to lack of capability.</p></li>
+<li><p>Discovery of transaction flows  - Demonstrated visibility of authentication and resource access attempts via Okta logs and Zscaler Private Access (ZPA).</p></li>
+</ul>
+<p><strong>Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access</strong></p>
+<p><strong>Description:</strong> This use case demonstrates user access to enterprise resources based on successfully achieving user and device security preconditions.</p>
+<ul class="simple">
+<li><p>For this build, we successfully demonstrated access using Windows, macOS, Linux, and mobile device iOS and Android endpoints.</p></li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to enterprise resources (on-prem and cloud) in accordance with policy via ZPA.</p>
+<ul>
+<li><p>The policy engine can differentiate between employees and contractors and provide different access permissions to each user type.</p></li>
+</ul>
+</li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to internet resources accordance with policy via ZIA.</p></li>
+<li><p>Stolen credential using an enterprise endpoint or BYOD  - Zscaler does not detect a hostile request if all credentials are correct.</p></li>
+<li><p>Just-in-Time Access Privileges  - Out of scope for EIG run phase.</p></li>
+<li><p>Enterprise-ID Step-Up Authentication  - Out of scope for EIG run phase.</p></li>
+<li><p>This build did not have the capability to verify resource compliance with policy.</p></li>
+</ul>
+<p><strong>Use Case C: Federated-ID Access</strong>  - Out of scope for EIG run phase.</p>
+<p><strong>Use Case D: Other-ID Access</strong>  - Results are the same as for use case B. Users with Other-ID Access (e.g., a contractor) have authorized access to resources based on need, so results for these users are no different than the results for users with Enterprise-ID Access.</p>
+<p><strong>Use Case E: Guest: No-ID Access</strong>  - Guest requests public internet access. Zscaler Internet Access (ZIA) is configured to allow access to the internet if the device is unmanaged (i.e., No-ID).</p>
+<p><strong>Use Case F: Confidence Level</strong>  - Out of scope for EIG run phase. This use case was demonstrated in a later iteration of this build, E1B3.</p>
+<p><strong>Use Case G: Service-Service Interactions</strong>  - Out of scope for EIG run phase.</p>
+<p><strong>Use Case H: Data Level Security</strong>  - Out of scope for EIG run phase.</p>
+</section>
+<section id="enterprise-3-build-2-e3b2-eig-run-microsoft-azure-ad-conditional-access-later-renamed-entra-conditional-access-microsoft-intune-forescout-eyecontrol-and-forescout-eyeextend-as-pes-summary-demonstration-results">
+<h3>Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Summary Demonstration Results<a class="headerlink" href="#enterprise-3-build-2-e3b2-eig-run-microsoft-azure-ad-conditional-access-later-renamed-entra-conditional-access-microsoft-intune-forescout-eyecontrol-and-forescout-eyeextend-as-pes-summary-demonstration-results" title="Link to this heading">#</a></h3>
+<p>This build’s summary results are as follows:</p>
+<p><strong>Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</strong></p>
+<p><strong>Description</strong>: This use case demonstrates the ability of the enterprise to discover network assets, authenticate devices, and demonstrate network connectivity</p>
+<ul class="simple">
+<li><p>Discovery and authentication of endpoint assets was successfully demonstrated. Resources and endpoints were granted access to the network and if applicable, limited to a specific subnet or resource set based on Forescout policy. These policies were enforced by a Palo Alto Next-Generation Firewall (NGFW) and Cisco switch. Due to the location of these policy enforcement points (PEPs), unauthenticated endpoints were restricted to the local subnet in accordance with Forescout policy.</p>
+<ul>
+<li><p>Network assets were discovered by Forescout via both passive and active detection.</p></li>
+</ul>
+</li>
+<li><p>Reauthentication of identified assets was also successfully demonstrated using Forescout and Microsoft Intune.</p></li>
+<li><p>Discovery of transaction flows  - Visibility of authentication and resource access attempts was demonstrated.</p>
+<ul>
+<li><p>Azure AD captures sign-in logs to SaaS applications, PaaS, IaaS resources, and on-prem applications.</p></li>
+<li><p>Azure AD audit logs are captured that show activity including changes to cloud resources in the Azure tenant.</p></li>
+<li><p>Forescout captures sign-in and audit logs and network traffic for on-premises components.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access</strong></p>
+<p><strong>Description:</strong> This use case demonstrates user access to enterprise resources based on successfully achieving user and device security preconditions.</p>
+<ul class="simple">
+<li><p>For this build, we successfully demonstrated access using Windows, macOS, and mobile device iOS and Android endpoints.</p></li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to enterprise resources (on-prem and cloud) in accordance with policy via Azure AD Conditional Access.</p>
+<ul>
+<li><p>The policy engine can differentiate between employees and contractors and provide different access permissions to each user type.</p></li>
+</ul>
+</li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to internet resources in accordance with policy via Defender for Cloud Apps and Defender for Endpoint. Note that the product name <em>Defender for Cloud Apps</em> was later changed to <em>Defender for Apps</em>)</p>
+<ul>
+<li><p>Policies within Defender for Cloud Apps were set up to allow, block, or limit access to resources.</p></li>
+<li><p>The build demonstrated that documents with sensitive data such as credit cards could be viewed but not downloaded.</p></li>
+</ul>
+</li>
+<li><p>Stolen credential using an enterprise endpoint or BYOD  - Azure AD does not detect a hostile request if all credentials are correct.</p></li>
+<li><p>Just-in-Time Access Privileges  - Out of scope for EIG run phase.</p></li>
+<li><p>Enterprise-ID Step-Up Authentication  - Out of scope for EIG run phase.</p></li>
+<li><p>This build did not have the capability to verify chosen resource (e.g., GitLab) compliance with policy.</p></li>
+</ul>
+<p><strong>Use Case C: Federated-ID Access</strong>  - Out of scope for EIG run phase.</p>
+<p><strong>Use Case D: Other-ID Access</strong>  - Results are the same as for use case B. Users with Other-ID Access (e.g., a contractor) have authorized access to resources based on need, so results for these users are no different than the results for users with Enterprise-ID Access.</p>
+<p><strong>Use Case E: Guest: No-ID Access</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow unmanaged guest devices to have access to public Internet resources.</p>
+<ul class="simple">
+<li><p>Forescout was able to provide Internet access to unauthenticated guest devices connecting to a segmented portion of the enterprise network.</p></li>
+</ul>
+<p><strong>Use Case F: Confidence Level</strong>  - Out of scope for EIG run phase. This use case was demonstrated in a later iteration of this build, E3B3.</p>
+<p><strong>Use Case G: Service-Service Interactions</strong>  - Out of scope for EIG run phase. This use case was demonstrated in a later iteration of this build, E3B3.</p>
+<p><strong>Use Case H: Data Level Security</strong>  - Out of scope for EIG run phase.</p>
+</section>
+<section id="enterprise-4-build-3-e4b3-eig-run-ibm-security-verify-as-pe-summary-demonstration-results">
+<h3>Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Summary Demonstration Results<a class="headerlink" href="#enterprise-4-build-3-e4b3-eig-run-ibm-security-verify-as-pe-summary-demonstration-results" title="Link to this heading">#</a></h3>
+<p>This build does not have SaaS or PaaS resources. Its summary results are as follows:</p>
+<p><strong>Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</strong></p>
+<p><strong>Description</strong>: This use case demonstrates the ability of the enterprise to discover network assets, authenticate devices, and demonstrate network connectivity.</p>
+<ul class="simple">
+<li><p>Discovery and authentication of managed endpoint assets were successfully demonstrated, based on IBM Security MaaS360 policy configuration.</p>
+<ul>
+<li><p>This build also demonstrated the capability to limit or reduce user access levels in certain scenarios.</p></li>
+<li><p>Resource authentication and limited access to the network were not demonstrated because IBM considers them out of scope for their products. Other technologies should be used to perform these functions.</p></li>
+</ul>
+</li>
+<li><p>Reauthentication of identified assets was also successfully demonstrated using IBM Security MaaS360.</p></li>
+<li><p>Discovery of transaction flows  - Visibility of authentication and resource access attempts was demonstrated.</p>
+<ul>
+<li><p>IBM Verify captures sign-in logs to cloud resources and on-prem applications.</p></li>
+<li><p>IBM QRadar receives and parses sign-in logs for visibility.</p></li>
+<li><p>IBM considers API call visibility out of scope for their products. Other technologies should be used to perform this function.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access</strong></p>
+<p><strong>Description:</strong> This use case demonstrates user access to enterprise resources based on successfully achieving user and device security preconditions.</p>
+<ul class="simple">
+<li><p>For this build, we successfully demonstrated access using Windows and mobile device iOS and Android endpoints.</p></li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to enterprise resources (on-prem and cloud) in accordance with policy via IBM Verify.</p>
+<ul>
+<li><p>The policy engine can differentiate between employees and contractors and provide different access permissions to each user type.</p></li>
+<li><p>We were unable to invalidate MaaS360 certificates to complete some scenarios, including scenarios that require the endpoint to fail authentication.</p></li>
+</ul>
+</li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to internet resources in accordance with policy via the IBM Secure Browser.</p>
+<ul>
+<li><p>Policies within IBM MaaS360 were set up to allow, block, or limit access to resources.</p></li>
+<li><p>MaaS360 disables resources like the Secure Browser outside of policy hours, and some scenarios related to this were not completed.</p></li>
+<li><p>The IBM Secure Browser is only available on mobile devices.</p></li>
+</ul>
+</li>
+<li><p>Stolen credential scenarios using an enterprise endpoint or BYOD were completed successfully.</p>
+<ul>
+<li><p>We were unable to invalidate MaaS360 certificates or duplicate MaaS360 certificates to another mobile device to complete some scenarios, including stolen credential scenarios and scenarios that require the endpoint to fail authentication. IBM Security MaaS360 does not detect a hostile request if all credentials are correct.</p></li>
+</ul>
+</li>
+<li><p>Just-in-Time (JIT) Access Privileges  - Users are allowed to request and elevate privileges required to perform a given task for a limited period.</p></li>
+<li><p>Administrators can manually add/revoke these JIT access privileges for users.</p></li>
+<li><p>JIT access privileges with automation were not tested and require integration with other zero trust tools that have the capabilities to manage access for users.</p>
+<ul>
+<li><p>Enterprise-ID Step-Up Authentication  - The build did not include the capability to prompt for re-authentication in the middle of an active session with the chosen resources (e.g., GitLab).</p></li>
+<li><p>This build did not have the capability to verify resource compliance with policy.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case C: Federated-ID Access</strong>  - Out of scope for EIG run phase.</p>
+<p><strong>Use Case D: Other-ID Access</strong>  - Results are the same as for use case B. Users with Other-ID Access (e.g., a contractor) have authorized access to resources based on need, so results for these users are no different than the results for users with Enterprise-ID Access.</p>
+<p><strong>Use Case E: Guest: No-ID Access</strong>  - IBM considers Guest (No-ID) access out of scope for their products. Other technologies should be used to perform this function.</p>
+<p><strong>Use Case F: Confidence Level</strong></p>
+<p><strong>Description</strong>: This use case demonstrates the ability of the enterprise to allow, prevent, or terminate sessions to resources based on the continuous evaluation of user and device risk.</p>
+<ul class="simple">
+<li><p>Users that fail re-authentication lose access to resources. With successful re-authentication, access is maintained.</p>
+<ul>
+<li><p>Users that are not able to reauthenticate successfully to IBM Verify immediately lose access to resources.</p></li>
+</ul>
+</li>
+<li><p>Requesting endpoint reauthentication failure during active session use case was not demonstrated.</p>
+<ul>
+<li><p>Due to security of MaaS360 certificate storage, we were unable to invalidate the endpoint’s credentials to produce an unsuccessful endpoint authentication.</p></li>
+</ul>
+</li>
+<li><p>Resource authentication is out of scope for IBM; other technologies should be used.</p></li>
+<li><p>Compliant devices maintain or regain access to resources. Noncompliant devices or users with noncompliant devices lose access to resources.</p>
+<ul>
+<li><p>MaaS360 determines the compliance state of devices that it manages.</p></li>
+<li><p>Devices lose access to resources and internet sites defined in policy once QRadar and CloudPak 4 Security are made aware of their noncompliant status.</p></li>
+<li><p>Devices that return to a compliant state have their access restored.</p></li>
+</ul>
+</li>
+<li><p>User sessions violating data use policies are blocked or terminated.</p>
+<ul>
+<li><p>IBM Guardium Data Security was configured to alert QRadar of access to sensitive database tables and successfully terminated active sessions to a monitored database.</p></li>
+<li><p>QRadar and CloudPak 4 Security were configured to remove previously authorized user access to authorized resources after receiving alerts from IBM Guardium Data Security.</p></li>
+</ul>
+</li>
+<li><p>User access for accounts violating internet use policy was terminated and blocked.</p>
+<ul>
+<li><p>On accessing a known bad URL with MaaS360 Secure Browser on a mobile device, access to GitLab was revoked via CloudPak for Security, and IBM Verify disabled the user’s account.</p></li>
+</ul>
+</li>
+<li><p>User sessions and devices attempting to access unauthorized resources or bad URLs were blocked or terminated.</p>
+<ul>
+<li><p>IBM Verify was configured to alert QRadar of unauthorized access requests.</p></li>
+<li><p>QRadar and CloudPak 4 Security were configured to remove previously authorized user access to authorized resources after receiving alerts from IBM Verify.</p></li>
+<li><p>User’s follow-up access requests for authorized resources were denied.</p></li>
+</ul>
+</li>
+<li><p>ID denied/terminated access due to suspicious endpoint use case was not demonstrated.</p>
+<ul>
+<li><p>IBM considers suspicious activity/network monitoring out of scope for their product. Other technologies should be used for this use case.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case G: Service-Service Interactions</strong>  - Out of scope for EIG run phase. IBM considers service-to-service use cases out of scope for their product. Other technologies should be used for this use case.</p>
+<p><strong>Use Case H: Data Level Security</strong></p>
+<p>Description: This use case covers subject access requests to data with different levels of classification.</p>
+<ul class="simple">
+<li><p>Access to data based on identity attributes  - Users accessing data resources are allowed or denied access to sensitive data (on-prem and cloud) based on user identity/attributes in accordance with policy via IBM Guardium.</p></li>
+<li><p>Access to data based on requesting endpoint  - Capability was not included in this build.</p></li>
+<li><p>Internet access restricted when accessing data with high classification  - Capability was not included in this build.</p></li>
+<li><p>Requestor challenged to re-authenticate when accessing data with high classification  - Capability was not included in this build.</p></li>
+<li><p>User temporarily granted access privileges to data with high classification  - Capability was not included in this build.</p></li>
+<li><p>Certain operations can be prevented based on subject endpoint, location, or another factor  - Capability was not included in this build.</p></li>
+<li><p>Extra protection for highly classified data when stored on an endpoint  - Capability was not included in this build.</p></li>
+</ul>
+</section>
+</section>
+<section id="sdp-microsegmentation-and-sase-phase-summary-demonstration-results">
+<h2>SDP, Microsegmentation, and SASE Phase Summary Demonstration Results<a class="headerlink" href="#sdp-microsegmentation-and-sase-phase-summary-demonstration-results" title="Link to this heading">#</a></h2>
+<p>This section lists the summary demonstration results for each of the builds that was implemented as part of the Software-Defined Perimeter (SDP), Microsegmentation, and SASE phase.</p>
+<section id="enterprise-1-build-3-e1b3-sdp-zscaler-zpa-ca-as-pe-summary-demonstration-results">
+<h3>Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Summary Demonstration Results<a class="headerlink" href="#enterprise-1-build-3-e1b3-sdp-zscaler-zpa-ca-as-pe-summary-demonstration-results" title="Link to this heading">#</a></h3>
+<p>E1B3 is very similar to E1B2. They use the same products and technologies and have the same architecture, but are configured differently with respect to timeouts and policies. Consequently, the results of use Cases A, B (1-6), C, D (1-6), and E were the same for build E1B3 as they were for E1B2. Summary results for other use cases demonstrated with E1B3 are as follows:</p>
+<p><strong>Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access</strong></p>
+<p><strong>Description:</strong> This use case demonstrates user access to enterprise resources based on successfully achieving user and device security preconditions.</p>
+<ul class="simple">
+<li><p>Just-in-Time Access Privileges  - Users are allowed to request and elevate privileges required to perform a given task for a limited period.</p>
+<ul>
+<li><p>A manual process was used to demonstrate providing users with additional privileges to resources.</p></li>
+<li><p>Integration with other products can be used to automate just-in-time privileges. However, those products were not part of this build.</p></li>
+</ul>
+</li>
+<li><p>Enterprise-ID Step-Up Authentication  - Both Enterprise and Contractor Users are prompted for additional factor authentication when attempting to access sensitive resources.</p>
+<ul>
+<li><p>Step-up authentication is available through an enhancement request to upgrade ZPA. However, this enhancement was not available during the time of this build.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case F: Confidence Level</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow, prevent, or terminate sessions to resources based on the continuous evaluation of user and device risk.</p>
+<ul class="simple">
+<li><p>Users successfully authenticate and reauthenticate to Zscaler. Once authenticated, access to resources is available based on policies.</p>
+<ul>
+<li><p>Once the authentication time period expires, user cannot access resources. If reauthentication fails, the user loses access to resources.</p></li>
+</ul>
+</li>
+<li><p>Resource authentication is out of scope for Zscaler; other technologies should be used to perform this function.</p></li>
+<li><p>Compliant devices maintain or regain access to resources. Noncompliant devices or users with noncompliant devices lose access to resources.</p>
+<ul>
+<li><p>Zscaler checks endpoint compliance prior to allowing access. Endpoint compliance is checked periodically.</p></li>
+</ul>
+</li>
+<li><p>The ability to monitor and detect violations of data use policies was not demonstrated.</p>
+<ul>
+<li><p>This build was not used to demonstrate that user sessions violating data use policies are blocked or terminated because the tool that can provide this capability, Cloud Browser Isolation (CBI), was not available during the time of this build.</p></li>
+</ul>
+</li>
+<li><p>User sessions and devices attempting to access malicious sites were blocked.</p>
+<ul>
+<li><p>Internet use policy: ZIA policies denied access to malicious internet resources and ZIA displayed the access denied message on the browser.</p></li>
+</ul>
+</li>
+<li><p>User sessions and devices attempting to access unauthorized resources were blocked.</p>
+<ul>
+<li><p>Policies configured in ZPA and ZIA dictated what resources a user could access. User access to resources were evaluated on an individual basis based on ZIA and ZPA policies.</p></li>
+</ul>
+</li>
+<li><p>This build was not used to demonstrate that an ID is denied/terminated access due to suspicious endpoint because the tool that can provide this capability, Zscaler Deception, was not available during the time of this build.</p></li>
+</ul>
+<p><strong>Use Case G: Service-to-Service Interactions</strong></p>
+<p><strong>Description:</strong> This use case covers API calls between services and the ability of the policy engine to allow or deny calls to services based on properly assigned authorizations.</p>
+<ul class="simple">
+<li><p>Service-to-Service use cases were not demonstrated because the tool that can provide this capability, Zscaler for Workloads, was not available during the time of this build.</p></li>
+</ul>
+<p><strong>Use Case H: Data Level Security</strong>  - Out of scope for this phase.</p>
+</section>
+<section id="enterprise-2-build-3-e2b3-microsegmentation-cisco-ise-cisco-secure-workload-and-ping-identity-ping-federate-as-pes-summary-demonstration-results">
+<h3>Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Summary Demonstration Results<a class="headerlink" href="#enterprise-2-build-3-e2b3-microsegmentation-cisco-ise-cisco-secure-workload-and-ping-identity-ping-federate-as-pes-summary-demonstration-results" title="Link to this heading">#</a></h3>
+<p>This build does not have IaaS, SaaS, or PaaS resources. Its summary results are as follows:</p>
+<p><strong>Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to discover network assets, authenticate devices, and demonstrate network connectivity.</p>
+<ul class="simple">
+<li><p>Discovery and authentication of endpoint assets were successfully demonstrated.</p>
+<ul>
+<li><p>Resources and endpoints were discovered, authenticated, granted access to the network and, if applicable, limited to a specific subnet or resource set based on Cisco Identity Services Engine (ISE) policy. These policies were enforced by a Palo Alto NGFW, Cisco Switch, or Cisco Access Point.</p></li>
+<li><p>Cisco Secure Workload (CSW) enforces resource access policies. CSW does not verify resource compliance.</p></li>
+</ul>
+</li>
+<li><p>Reauthentication of identified assets was also successfully demonstrated using Cisco ISE policy configuration.</p></li>
+<li><p>Discovery of transaction flows  - Visibility of authentication and resource access attempts was demonstrated.</p>
+<ul>
+<li><p>Cisco ISE captured sign-in logs to on-prem applications.</p></li>
+<li><p>Logs for resources are provided by CSW.</p></li>
+<li><p>IBM QRadar received logs from ISE as well as other components in the build.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access</strong></p>
+<p><strong>Description</strong>: This use case demonstrates user access to enterprise resources based on successfully achieving user and device security preconditions.</p>
+<ul class="simple">
+<li><p>For this build, we successfully demonstrated access using Windows, macOS, Linux, and mobile device iOS and Android endpoints.</p></li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to enterprise resources (on-prem) in accordance with policy via Cisco ISE and Ping Federate.</p>
+<ul>
+<li><p>The policy engines can differentiate between employees and contractors and provide different access permissions to each user type.</p></li>
+</ul>
+</li>
+<li><p>For this build, although Cisco ISE can be leveraged to deny-list URLs, Cisco recommends using a web filtering tool to control access to internet resources.</p></li>
+<li><p>Stolen credential using an enterprise endpoint or BYOD  - Cisco ISE does not detect a hostile request if all credentials are correct.</p></li>
+<li><p>Just-in-Time Access Privileges  - Users are allowed to request and elevate privileges required to perform a given task for a limited period.</p>
+<ul>
+<li><p>Policies are updated within ISE to allow specific access.</p></li>
+</ul>
+</li>
+<li><p>Enterprise-ID Step-Up Authentication  - Both Enterprise and Contractor Users are prompted for additional factor authentication when attempting to access sensitive resources.</p>
+<ul>
+<li><p>Cisco ISE does not provide an authentication mechanism to authenticate to the resource. However, a policy must be updated to allow the user and endpoint to reach the resource via the specific protocol that the resource is using. Therefore, we updated an ISE policy to allow that specific protocol for the user. The user then got reauthenticated and was allowed access.</p></li>
+</ul>
+</li>
+<li><p>This build did not have the capability to verify resource compliance with policy. CSW information is not relayed to Cisco ISE.</p></li>
+</ul>
+<p><strong>Use Case C: Federated-ID Access</strong>  - Out of scope for this phase.</p>
+<p><strong>Use Case D: Other-ID Access</strong>  - Results are the same as for use case B. Users with Other-ID Access (e.g., a contractor) have authorized access to resources based on need, so results for these users are no different than the results for users with Enterprise-ID Access.</p>
+<p><strong>Use Case E: Guest: No-ID Access</strong></p>
+<p><strong>Description:</strong> This use demonstrates the ability of the enterprise to allow unmanaged guest devices to have access to public Internet resources.</p>
+<ul class="simple">
+<li><p>Access to the internet is allowed for all guest users.</p></li>
+</ul>
+<p><strong>Use Case F: Confidence Level</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow, prevent, or terminate sessions to resources based on the continuous evaluation of user and device risk.</p>
+<ul class="simple">
+<li><p>Users or devices that fail reauthentication lose access to resources. With successful reauthentication, access is maintained.</p>
+<ul>
+<li><p>Devices that are not able to reauthenticate successfully to Cisco ISE will immediately lose access to resources.</p></li>
+<li><p>Initial authentication with Cisco ISE provides user with access to resources per ISE policy. Periodic reauthentication is required, which verifies compliance as well.</p></li>
+</ul>
+</li>
+<li><p>Resource authentication was not demonstrated. Currently, CSW does not provide information to Cisco ISE.</p></li>
+<li><p>Compliant devices maintain or regain access to resources. Noncompliant devices or users with noncompliant devices lose access to resources.</p>
+<ul>
+<li><p>Upon login to endpoint device, compliance information is sent to the Cisco ISE and validated before the endpoint gains access to the network. Device compliance is checked periodically.</p></li>
+<li><p>Devices lose access to resources once the Cisco ISE is made aware of a noncompliant state.</p></li>
+</ul>
+</li>
+<li><p>The ability to monitor and detect violations for data use policy was demonstrated in the following ways:</p>
+<ul>
+<li><p>Cisco Secure Network Analytics (SNA) was leveraged to create policies to monitor violations of data use. Cisco Secure Endpoint also informed ISE of threats to the endpoints.</p></li>
+<li><p>Information from SNA was relayed to Cisco ISE to revoke user access.</p></li>
+</ul>
+</li>
+<li><p>User sessions and devices attempting to access unauthorized resources and malicious sites are blocked.</p>
+<ul>
+<li><p>Cisco SNA has native policies to detect malicious traffic such as command and control, Tor, bogon sites, etc. Specific URLs can be blocked, but Cisco recommends using a web filtering tool instead of SNA or ISE.</p></li>
+<li><p>User sessions and devices attempting to access unauthorized resources were blocked by Cisco ISE once the access attempt information was detected by SNA and relayed to ISE.</p></li>
+</ul>
+</li>
+<li><p>Enterprise can detect malicious behavior on enterprise endpoints and BYOD but not on unmanaged endpoints.</p>
+<ul>
+<li><p>Cisco Secure Endpoint detects threats and malicious behavior on endpoints and passes the information to Cisco ISE. Cisco ISE applies policies to quarantine the endpoints until malicious behavior is remediated.</p></li>
+</ul>
+</li>
+<li><p>Enterprise can deny access to resources when users are attempting access from suspicious endpoints.</p>
+<ul>
+<li><p>SNA policies were able to detect suspicious activities by endpoints. That information was passed to Cisco ISE, which quarantined the endpoint.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case G: Service-to-Service Interactions</strong></p>
+<p><strong>Description:</strong> This use case covers API calls between services and the ability of the policy engine to allow or deny calls to services based on properly assigned authorizations.</p>
+<ul class="simple">
+<li><p>Cisco CSW agents were deployed on resources and policies were applied to the resource to allow or deny API calls. A resource without the right authorizations to communicate with another resource was denied.</p>
+<ul>
+<li><p>CSW continuously monitors the communications in and out of a subject and develops policies based on that information.</p></li>
+</ul>
+</li>
+<li><p>Service-to-endpoint communications were demonstrated by using the CSW agents on resources.</p></li>
+<li><p>Communication was successful by applying policy to allow access from the service to the endpoint.</p></li>
+</ul>
+<p><strong>Use Case H: Data Level Security</strong>  - Out of scope for this phase.</p>
+</section>
+<section id="enterprise-3-build-3-e3b3-sdp-and-microsegmentation-microsoft-azure-ad-conditional-access-later-renamed-entra-conditional-access-microsoft-intune-microsoft-sentinel-forescout-eyecontrol-and-forescout-eyeextend-as-pes-summary-demonstration-results">
+<h3>Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs Summary Demonstration Results<a class="headerlink" href="#enterprise-3-build-3-e3b3-sdp-and-microsegmentation-microsoft-azure-ad-conditional-access-later-renamed-entra-conditional-access-microsoft-intune-microsoft-sentinel-forescout-eyecontrol-and-forescout-eyeextend-as-pes-summary-demonstration-results" title="Link to this heading">#</a></h3>
+<p>A summary of this build’s results are as follows:</p>
+<p><strong>Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to discover network assets, authenticate devices, and demonstrate network connectivity.</p>
+<ul class="simple">
+<li><p>Discovery and authentication of endpoint assets were successfully demonstrated. Resources and endpoints were granted access to the network and if applicable, limited to a specific subnet or resource set based on Forescout policy. These policies were enforced by a Palo Alto NGFW and Cisco Switch. Due to the location of these PEPs, unauthenticated endpoints were restricted to the local subnet in accordance with Forescout policy.</p>
+<ul>
+<li><p>Network assets were discovered by Forescout via both passive and active detection.</p></li>
+</ul>
+</li>
+<li><p>Reauthentication of identified assets was also successfully demonstrated using Forescout and Microsoft Intune.</p></li>
+<li><p>Discovery of transaction flows  - Visibility of authentication and resource access attempts was demonstrated.</p>
+<ul>
+<li><p>Azure AD captures sign-in logs to SaaS applications, PaaS, IaaS resources, and on-prem applications.</p></li>
+<li><p>Azure AD audit logs are captured that show activity including changes to cloud resources in the Azure tenant.</p></li>
+<li><p>Forescout captures sign-in and audit logs and network traffic for on-premises components.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access</strong></p>
+<p><strong>Description:</strong> This use case demonstrates user access to enterprise resources based on successfully achieving user and device security preconditions.</p>
+<ul class="simple">
+<li><p>For this build, we successfully demonstrated access using Windows, macOS, and mobile device iOS and Android endpoints.</p></li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to enterprise resources (on-prem and cloud) in accordance with policy via Azure AD Conditional Access.</p>
+<ul>
+<li><p>The policy engine can differentiate between employees and contractors and provide different access permissions to each user type.</p></li>
+</ul>
+</li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to internet resources (on-prem and cloud) in accordance with policy via Defender for Cloud Apps and Defender for Endpoint. Note that the product name <em>Defender for Cloud Apps</em> was later changed to <em>Defender for Apps</em>).</p>
+<ul>
+<li><p>Policies within Defender for Cloud Apps were set up to allow, block, or limit access to resources.</p></li>
+<li><p>The build demonstrated that documents with sensitive data such as credit cards could be viewed but not downloaded.</p></li>
+</ul>
+</li>
+<li><p>Stolen credential using an enterprise endpoint or BYOD  - Azure AD does not detect a hostile request if all credentials are correct.</p></li>
+<li><p>Just-in-Time (JIT) Access Privileges  - Users are allowed to request and elevate privileges required to perform a given task for a limited period.</p>
+<ul>
+<li><p>JIT for VM Access</p>
+<ul>
+<li><p>Azure has a just-in-time feature capability for VM access that enables a user to access an Azure VM with SSH or RDP for a limited time when requested.</p></li>
+<li><p>Defender for Cloud checks that the user has the appropriate Azure role, then inserts allow rules from a specific user’s IP address into the network security groups and Azure Firewall.</p></li>
+<li><p>This only occurs at the time that the user requests access to the VMs.</p></li>
+</ul>
+</li>
+<li><p>JIT with Privileged Identity Management (PIM)</p>
+<ul>
+<li><p>PIM is used to provide an additional layer of authentication and authorization before requesting users are granted access to privileged Azure AD roles for a limited time.</p></li>
+<li><p>Once granted, a user gains elevated Azure AD administration privileges for a limited time.</p></li>
+<li><p>For this build, PIM only works within the Azure environment and does not extend to the on-prem infrastructure.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Enterprise-ID Step-Up Authentication  - Both Enterprise and Contractor Users are prompted for additional factor authentication when attempting to access sensitive resources.</p>
+<ul>
+<li><p>Azure AD Conditional Access provides additional authentication when a user attempts to access a portion of a site or a document with a sensitive label.</p></li>
+<li><p>An example of a sensitive site is a SharePoint site with a sensitive label.</p></li>
+<li><p>Conditional Access would prompt the user for additional authentication prior to allowing access.</p></li>
+</ul>
+</li>
+<li><p>This build did not have the capability to verify chosen resource (e.g., GitLab) compliance with policy.</p></li>
+</ul>
+<p><strong>Use Case C: Federated-ID Access</strong></p>
+<p><strong>Description:</strong> These use cases demonstrate federated user-id access to enterprise 1 resources and the internet based on successfully achieving user and device security preconditions. For this demonstration, enterprise 3 users access enterprise 1 resources and the internet using enterprise 1 devices or BYOD.</p>
+<ul class="simple">
+<li><p>An enterprise 3 federated user using an enterprise 1 laptop can access resources in enterprise 1 when on-premises, at the branch office, or remote.</p>
+<ul>
+<li><p>Users are authenticated using enterprise 3 credentials via the integration of the enterprise 1 and enterprise 3 identity providers (IdPs).</p></li>
+<li><p>Policies are applied to users and endpoints to allow or deny access to enterprise resources.</p></li>
+<li><p>Limited resource access can be achieved by applying policies to a specific set of users from enterprise 3.</p></li>
+</ul>
+</li>
+<li><p>An enterprise 3 federated user using an enterprise 1 laptop can access the internet when on-premises, at the branch office, or remote.</p>
+<ul>
+<li><p>Web filtering policies are enforced by the enterprise 1 PEPs when a federated user accesses the internet using an enterprise 1 device.</p></li>
+</ul>
+</li>
+<li><p>An enterprise 3 federated user using a BYOD laptop can access the internet when on-premises or at the branch office. When the user is remote, enterprise 1 policies do not apply.</p>
+<ul>
+<li><p>Web filtering policies are enforced by the enterprise 1 PEPs when a federated user accesses the internet using a BYOD device.</p></li>
+</ul>
+</li>
+<li><p>Stolen credentials are treated the same way for federated users and enterprise users.</p>
+<ul>
+<li><p>If user credentials are stolen and not reported, a malicious user will have access.</p></li>
+<li><p>Once user credentials/device is reported stolen, policies are applied to deny those users and devices. Users will need to update their credentials to regain access.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case E: Guest: No-ID Access</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow unmanaged guest devices to have access to public Internet resources.</p>
+<ul class="simple">
+<li><p>Forescout was able to provide Internet access to unauthenticated guest devices connecting to a segmented portion of the enterprise network.</p></li>
+</ul>
+<p><strong>Use Case F: Confidence Level</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow, prevent, or terminate sessions to resources based on the continuous evaluation of user and device risk.</p>
+<ul class="simple">
+<li><p>Users or devices that fail reauthentication lose access to resources. With successful re-authentication, access is maintained.</p>
+<ul>
+<li><p>Devices that are not able to reauthenticate successfully to Microsoft Intune Mobile Device Management (MDM) will be offboarded and immediately lose access to resources. Periodic reauthentication is required.</p></li>
+<li><p>Azure AD Conditional Access was configured to only allow connections from Intune compliant devices.</p></li>
+</ul>
+</li>
+<li><p>Resource authentication was not demonstrated. It could not be performed by the products in this build.</p></li>
+<li><p>Compliant devices maintain or regain access to resources. Noncompliant devices or users with noncompliant devices lose access to resources.</p>
+<ul>
+<li><p>Microsoft Intune determines, and then reports to Azure AD, the compliance state of devices that it manages. Endpoint compliance must be validated prior to allowing access. Endpoint compliance is checked periodically.</p></li>
+<li><p>Devices lose access to resources once Azure AD is made aware of a noncompliant state.</p></li>
+</ul>
+</li>
+<li><p>The ability to monitor and detect violations of data use policies was not demonstrated due to time limitations.</p></li>
+<li><p>User sessions and devices attempting to access unauthorized resources and malicious sites were blocked or the sessions were terminated.</p>
+<ul>
+<li><p>Defender for Cloud Apps was configured to label sites as trusted or untrusted.</p></li>
+<li><p>If a site was untrusted, Defender for Endpoint enforced Defender for Cloud Apps Policy and prevented the user from visiting the site by blocking it.</p></li>
+<li><p>Additionally, Azure AD Conditional Access was configured to block users from accessing resources without proper authorization.</p></li>
+<li><p>Microsoft Sentinel was successfully configured to send API requests to Azure AD to terminate active sessions and disable user accounts when alerts indicating malicious events (e.g., attempts to access known bad internet sites) were received. Session termination was successfully tested for Office SaaS apps.</p></li>
+<li><p>The build did not have the capability to terminate sessions for the chosen on-premises/IaaS resource (e.g., GitLab).</p></li>
+</ul>
+</li>
+<li><p>Enterprise can detect malicious behavior on enterprise endpoints and BYOD but not on unmanaged endpoints.</p>
+<ul>
+<li><p>Defender for Endpoint was configured as the Endpoint Detection and Response solution to detect and block threats and inform Azure AD via Intune.</p></li>
+<li><p>Defender for Endpoint has built-in sensors in the Windows platform and utilizes Windows Defender Firewall and Windows Anti-Virus to detect threats.</p></li>
+</ul>
+</li>
+<li><p>Enterprise can deny access to resources when users are accessing from suspicious endpoints.</p>
+<ul>
+<li><p>Once onboarded, devices with Defender for Endpoint detected threats that included malicious script execution, network reconnaissance, and Active Directory reconnaissance.</p></li>
+<li><p>Defender for Endpoint categorized the threats, forwarded the alerts to Microsoft 365 Defender, and forwarded the risk information to Intune.</p></li>
+<li><p>Depending on the risk threshold set, Microsoft Intune changed the endpoint status to noncompliant.</p></li>
+<li><p>Azure AD received the noncompliant status information and blocked the devices from accessing resources.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case G: Service-Service Interactions</strong></p>
+<p><strong>Description:</strong> This use case covers API calls between services and the ability of the policy engine to allow or deny calls to services based on properly assigned authorizations.</p>
+<ul class="simple">
+<li><p>Client apps were able to utilize either Azure roles or Azure AD authorizations to make successful API calls to Azure IaaS, PaaS, and Microsoft SaaS apps. Client apps without the right authorizations were denied.</p>
+<ul>
+<li><p>Client applications made API calls to manage an Azure VM, retrieve data managed by Azure AD, and retrieve data from Office365 mail and Microsoft Sentinel.</p></li>
+<li><p>Client apps without the right API permissions were denied.</p></li>
+</ul>
+</li>
+<li><p>Client apps hosted in Azure IaaS or Azure PaaS were able to make successful API calls to Azure IaaS, Azure PaaS, and Microsoft SaaS apps. Apps without the right authorizations were denied.</p>
+<ul>
+<li><p>A client application hosted/stored in an Azure VM or an Azure function was used to make successful API calls to manage an Azure VM, retrieve Azure AD-managed data, and retrieve data from Microsoft Sentinel and Office365 mail.</p></li>
+</ul>
+</li>
+<li><p>Client applications were not able to make API calls to the chosen on-prem/IaaS application (e.g., GitLab) because the API authorization was issued by an external authorization provider.</p></li>
+<li><p>For Service to Endpoint use cases:</p>
+<ul>
+<li><p>Intune was used to instruct the endpoint to take certain actions, such as to update itself and restart.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case H: Data Level Security</strong></p>
+<p><strong>Description</strong>: This use case covers subject access requests to data with different levels of classification.</p>
+<ul class="simple">
+<li><p>Access to data based on identity attributes  - Leveraging Azure AD Conditional Access, differing levels of access were assigned to users depending on the classification of data in the cloud.</p></li>
+<li><p>Access to data based on requesting endpoint  - Leveraging Azure AD Conditional Access and Microsoft Intune compliance feeds, differing levels of access were assigned to subjects based on the compliance status of their endpoints. This was only applicable to data resident in the cloud.</p></li>
+<li><p>Internet access restricted when accessing data with high classification  - Leveraging Azure AD Conditional Access, allowed and excluded subject locations were specified. Data was differentiated based on which folder an object resided in. Controls were applicable to data in the cloud.</p></li>
+<li><p>Requestor challenged to re-authenticate when accessing data with high classification  - Azure AD Conditional Access using the authentication context feature triggers MFA for sensitive data in the cloud.</p></li>
+<li><p>User temporarily granted access privileges to data with high classification  - Azure AD Privileged Access Management was used to temporarily elevate subject privileges for a limited time so as to provide access to sensitive data and resources in the cloud.</p></li>
+<li><p>Certain operations can be prevented based on subject endpoint, location, or another factor  - Access controls were applied in SharePoint that prevented the modification and downloading of files.</p></li>
+<li><p>Extra protection for highly classified data when stored on an endpoint  - Encryption was applied to data that was downloaded and required a password for decryption.</p></li>
+<li><p>Although data classification was out of scope for this project, the products used had the ability to classify data. Instead, for these use cases, sensitive data was differentiated from non-sensitive data by having them use different folders.</p></li>
+</ul>
+</section>
+<section id="enterprise-1-build-4-e1b4-sdp-appgate-sdp-controller-as-pe-summary-demonstration-results">
+<h3>Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE Summary Demonstration Results<a class="headerlink" href="#enterprise-1-build-4-e1b4-sdp-appgate-sdp-controller-as-pe-summary-demonstration-results" title="Link to this heading">#</a></h3>
+<p>This build does not have SaaS resources. Its summary results are as follows:</p>
+<p><strong>Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to discover network assets, authenticate devices, and demonstrate network connectivity.</p>
+<ul class="simple">
+<li><p>Discovery and authentication of endpoint assets</p>
+<ul>
+<li><p>Appgate was not configured to discover network assets in this build, but can use network/cloud metadata APIs and DNS to discover network assets. For this build, endpoints used the Appgate Client in order to communicate with the Appgate Controller and be authenticated by it.</p></li>
+</ul>
+</li>
+<li><p>Reauthentication of identified assets  - Appgate requires reauthentication after a configurable period of time.</p>
+<ul>
+<li><p>User must reauthenticate once the authentication period is over. If reauthentication fails, the user does not have access to any resources.</p></li>
+</ul>
+</li>
+<li><p>Discovery of transaction flows  - Visibility of authentication and resource access attempts was demonstrated.</p>
+<ul>
+<li><p>Appgate captures sign-in events, changes in user/device attributes, and traffic flow logs to on-prem and IaaS resources.</p></li>
+<li><p>Appgate logs are sent to IBM QRadar.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access</strong></p>
+<p><strong>Description:</strong> This use case demonstrates user access to enterprise resources based on successfully achieving user and device security preconditions.</p>
+<ul class="simple">
+<li><p>For this build, we successfully demonstrated access using Windows, macOS, Linux, and mobile device iOS and Android endpoints.</p></li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, were allowed or denied access to enterprise resources (on-prem and cloud) in accordance with policies enforced by the Appgate Gateway. Policies were configured with the Appgate Controller.</p>
+<ul>
+<li><p>The policy engine can differentiate between employees and contractors and provide different access permissions to each user type.</p></li>
+<li><p>Appgate Gateways were deployed on-prem and in the AWS IaaS cloud to protect resources.</p></li>
+<li><p>Compliance of both the endpoint and resource were checked prior to allowing a user to access that resource.</p></li>
+</ul>
+</li>
+<li><p>For this build, Appgate did not manage access to internet resources. Appgate can enforce device proxy configuration and route Internet traffic through a web filtering tool to manage internet access, which was not implemented as part of this build.</p></li>
+<li><p>Stolen credential using an enterprise endpoint or BYOD  - Appgate does not detect a hostile request if all credentials are correct.</p>
+<ul>
+<li><p>Appgate can limit the location (by city, state, or country), number of allowed devices per user, and number of simultaneous logins by a user to prevent use of stolen credentials.</p></li>
+</ul>
+</li>
+<li><p>Just-in-Time Access Privileges  - Users are allowed to request and elevate privileges required to perform a given task for a limited period.</p>
+<ul>
+<li><p>A manual process was used to demonstrate providing users with additional privileges to resources.</p></li>
+<li><p>Integration with other products can be used to automate just-in-time privileges. However, those products were not part of this build.</p></li>
+</ul>
+</li>
+<li><p>Enterprise-ID Step-Up Authentication  - Both Enterprise and Contractor Users were prompted for additional factor authentication when attempting to access sensitive resources.</p>
+<ul>
+<li><p>A policy was created within the Appgate Controller to require additional authentication to specific resources that are considered sensitive and need additional protection.</p></li>
+</ul>
+</li>
+<li><p>When accessing a resource, resource compliance is checked. An Appgate headless client is installed on the resource to provide information to the PE. If resource is not compliant, Appgate client will deny endpoint access to resource.</p></li>
+</ul>
+<p><strong>Use Case C: Federated-ID Access</strong>  - Out of scope for this phase.</p>
+<p><strong>Use Case E: Guest: No-ID Access</strong></p>
+<p><strong>Description</strong>: This use case demonstrates the ability of the enterprise to allow unmanaged guest devices to have access to public Internet resources.</p>
+<ul class="simple">
+<li><p>Appgate SDP considers this out of scope for their products. Other technologies should be used to perform guest access enforcement.</p></li>
+</ul>
+<p><strong>Use Case F: Confidence Level</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow, prevent, or terminate sessions to resources based on the continuous evaluation of user and device risk.</p>
+<ul class="simple">
+<li><p>Users or devices that fail reauthentication lose access to resources. With successful reauthentication, access is maintained.</p>
+<ul>
+<li><p>Devices that are not able to reauthenticate successfully to the Appgate Controller will immediately lose access to resources. Device risk and condition-based access is reevaluated every five minutes.</p></li>
+<li><p>Initial authentication with Appgate controller provides user with access to resources assigned to that user. Periodic reauthentication and MFA or step-up authentication for access to critical resources is required, which verifies compliance as well.</p></li>
+</ul>
+</li>
+<li><p>Resource reauthentication failed during an active session.</p>
+<ul>
+<li><p>Once Appgate’s headless client is authenticated, it periodically reauthenticates automatically using PKI or stored credentials. Compliance checks are also performed periodically per policy. If compliance fails on the resource, a user will lose access within five minutes to the resource. If compliance fails on the endpoint, the user will lose access to all resources.</p></li>
+</ul>
+</li>
+<li><p>Compliant devices maintain or regain access to resources. Noncompliant devices or users with noncompliant devices lose access to resources.</p>
+<ul>
+<li><p>Upon login to the Appgate client, compliance information is sent to the Appgate controller and validated before the user can access any resources. Device compliance is checked every five minutes.</p></li>
+<li><p>Devices lose access to resources immediately when a noncompliant state is detected.</p></li>
+</ul>
+</li>
+<li><p>The ability to monitor and detect violations of data use policies was not demonstrated. Appgate does not have capabilities to manage data use policies.</p></li>
+<li><p>User sessions and devices attempting to access unauthorized resources are blocked.</p>
+<ul>
+<li><p>Appgate policies determine if a user has access to a resource or not. If there is no policy to allow a user to access a resource and the user requests to reach that resource, the request will not be able to leave the end device or it will be denied by the Appgate Gateway. Appgate will not terminate the user’s connection to the Gateway, but it will block access to the unauthorized resource.</p></li>
+<li><p>Appgate does not control access to internet websites and recommends leveraging a web filtering tool to perform this function.</p></li>
+</ul>
+</li>
+<li><p>Enterprise can detect malicious behavior on enterprise endpoints and BYOD but not on unmanaged endpoints.</p>
+<ul>
+<li><p>Appgate SDP clients perform compliance checks periodically and denies access to resources if compliances fails.</p></li>
+</ul>
+</li>
+<li><p>Enterprise can deny access to resources when users are accessing from suspicious endpoints.</p>
+<ul>
+<li><p>Appgate does not allow any traffic past the Appgate Gateway if there is no policy to allow that specific access from the user. Logs of these attempts are provided to the SIEM. Note: The SIEM can trigger a security event, which Appgate can consume to further restrict that user’s access by deeming the user riskier.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case G: Service-Service Interactions</strong></p>
+<p><strong>Description:</strong> This use case covers API calls between services and the ability of the policy engine to allow or deny calls to services based on properly assigned authorizations.</p>
+<ul class="simple">
+<li><p>Appgate headless clients are deployed on resources to make successful API calls to other resources (e.g., GitLab). A resource without the correct authorizations to communicate with another resource was denied.</p>
+<ul>
+<li><p>Headless clients were deployed to on-prem and AWS resources to validate successful service-to-service communications.</p></li>
+<li><p>Use cases for on-prem and AWS IaaS and PaaS were successfully performed.</p></li>
+<li><p>A SaaS solution was not available for this build.</p></li>
+</ul>
+</li>
+<li><p>Service-to-service communication between resources located on separate containers was successfully performed.</p>
+<ul>
+<li><p>A Kubernetes cluster was deployed with Appgate sidecar, which enforced policies applied at the namespace level.</p></li>
+</ul>
+</li>
+<li><p>Service-to-endpoint communications were demonstrated using headless clients installed on resources.</p>
+<ul>
+<li><p>Communication was successful by applying policy to allow access from service to the endpoint.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case H: Data Level Security</strong>  - Out of scope for this phase.</p>
+</section>
+<section id="enterprise-2-build-4-e2b4-sdp-and-sase-symantec-cloud-secure-web-gateway-symantec-ztna-and-symantec-cloud-access-security-broker-as-pes-summary-demonstration-results">
+<h3>Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Summary Demonstration Results<a class="headerlink" href="#enterprise-2-build-4-e2b4-sdp-and-sase-symantec-cloud-secure-web-gateway-symantec-ztna-and-symantec-cloud-access-security-broker-as-pes-summary-demonstration-results" title="Link to this heading">#</a></h3>
+<p>This build does not have SaaS target resources. A summary of this build’s results are as follows:</p>
+<p><strong>Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to discover network assets, authenticate devices, and demonstrate network connectivity.</p>
+<ul class="simple">
+<li><p>Discovery and authentication of endpoint assets were successfully demonstrated.</p>
+<ul>
+<li><p>Resources and endpoints were granted access to the network and if applicable, limited to a specific subnet or resource set based on Symantec Endpoint Protection and Symantec Zero Trust Network Access (ZTNA) policy. These policies were enforced by an agent placed on the endpoint and cloud-based services including Symantec ZTNA and Symantec Cloud Secure Web Gateway.</p></li>
+</ul>
+</li>
+<li><p>Reauthentication of identified assets was successfully demonstrated using the Symantec endpoint agent’s connection to the Symantec Cloud Secure Web Gateway.</p></li>
+<li><p>Discovery of transaction flows - Visibility of authentication and resource access attempts was demonstrated.</p>
+<ul>
+<li><p>Symantec ZTNA captures sign-in and individual user action logs to SaaS applications, IaaS resources, and on-prem applications.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access</strong></p>
+<p><strong>Description:</strong> These two use cases demonstrate user access to enterprise resources based on successfully achieving user and device security preconditions.</p>
+<ul class="simple">
+<li><p>For this build, we successfully demonstrated access using Windows, macOS, Linux and mobile device (iOS and Android) endpoints.</p>
+<ul>
+<li><p>Demonstration capability varied between the different platforms. The agent-based approach on Windows successfully completed all scenarios. The agent-based approach on MacOS successfully completed all scenarios with the exception of those involving device compliance. The Linux agent-based approach successfully completed all scenarios with the exception of those involving compliance and internet access, as the Linux agent does not possess the capability to connect to the Symantec Cloud Secure Web Gateway at this time. The mobile devices successfully completed all scenarios with the exception of those involving device compliance.</p></li>
+<li><p>An agent-less approach was also demonstrated on all of the above platforms using Symantec ZTNA. This method completed all scenarios with the exception of those involving device compliance.</p></li>
+</ul>
+</li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to enterprise resources (on-prem and cloud) in accordance with policy via Symantec ZTNA.</p>
+<ul>
+<li><p>The policy engine can differentiate between employees and contractors and provide different access permissions to each user type. This is accomplished through integration with the ICAM (Okta).</p></li>
+<li><p>The build demonstrated that sensitive data such as credit card information could have access controlled based on policy within Symantec DLP.</p></li>
+</ul>
+</li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to internet resources in accordance with policy via Symantec Cloud Secure Web Gateway.</p>
+<ul>
+<li><p>Policies within Symantec Cloud Secure Web Gateway were set up to allow, block, or limit access to internet resources.</p></li>
+</ul>
+</li>
+<li><p>Stolen credential using an enterprise endpoint or BYOD  - Symantec by Broadcom does not detect a hostile request if all credentials are correct. Symantec by Broadcom is able to revoke unauthorized access once credentials have been reported stolen, and stolen credentials have been revoked. Concurrent session controls are available, and can terminate existing access sessions upon the creation of a new access session.</p></li>
+<li><p>Just-in-Time (JIT) Access Privileges  - Users are allowed to request and elevate privileges required to perform a given task for a limited period.</p>
+<ul>
+<li><p>In this build, Just-in-Time privileges can be manually completed to allow a user to access a resource. These policies can be temporary, giving the user access for a limited period of time. Symantec ZTNA provides an API to allow automated just-in-time provisioning, which can be integrated with other tools. One example is their integration with Slack, which allows automated just-in-time provisioning of access to resources in Symantec ZTNA.</p></li>
+</ul>
+</li>
+<li><p>Enterprise-ID Step-Up Authentication  - Step-up authentication capabilities are not included in this build. However, Symantec CloudSOC can provide step-up authentication when users access SaaS applications.</p></li>
+<li><p>This build did not have the capability to verify chosen resource (e.g., GitLab) compliance with policy.</p></li>
+</ul>
+<p><strong>Use Case C: Federated-ID Access</strong>  - Out of scope for this phase.</p>
+<p><strong>Use Case E: Guest: No-ID Access</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow unmanaged guest devices to have access to public Internet resources.</p>
+<ul class="simple">
+<li><p>Unmanaged/guest device management capabilities are not included in this build. To control network access for unmanaged/guest devices, unauthenticated network traffic can be forwarded to the Symantec Cloud Secure Web Gateway for policy enforcement.</p></li>
+</ul>
+<p><strong>Use Case F: Confidence Level</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow, prevent, or terminate sessions to resources based on the continuous evaluation of user and device risk.</p>
+<ul class="simple">
+<li><p>Users or devices that fail reauthentication lose access to resources. With successful re-authentication, access is maintained.</p>
+<ul>
+<li><p>Devices that are not able to reauthenticate successfully to Symantec Endpoint Protection immediately lose access to resources. Periodic reauthentication is required.</p></li>
+</ul>
+</li>
+<li><p>Resource authentication was not demonstrated. It could not be performed by the products included in this build.</p></li>
+<li><p>Compliant devices maintain or regain access to resources. Non-compliant devices or users with non-compliant devices lose access to resources.</p>
+<ul>
+<li><p>Symantec Endpoint Protection determines, and then reports to the Symantec Security Cloud, the compliance state of devices that it manages. Endpoint compliance must be validated prior to allowing access. Endpoint compliance is checked periodically.</p></li>
+<li><p>Devices lose access to resources once Symantec Security Cloud is made aware of a non-compliant state.</p></li>
+</ul>
+</li>
+<li><p>The ability to monitor, detect, and block violations of data use policies was demonstrated using Symantec DLP.</p>
+<ul>
+<li><p>However, the capability to fully terminate resource access was not demonstrated. The individual actions described can be detected and blocked, but an additional SOAR capability would need to be integrated to complete the full scenario.</p></li>
+</ul>
+</li>
+<li><p>User sessions and devices attempting to access unauthorized resources and malicious sites were blocked.</p>
+<ul>
+<li><p>The user’s access sessions were not fully terminated. The individual actions described can be detected and blocked, but an additional SOAR capability would need to be integrated to complete the scenarios.</p></li>
+</ul>
+</li>
+<li><p>Enterprise can detect malicious behavior on enterprise endpoints and BYOD but not on unmanaged endpoints.</p>
+<ul>
+<li><p>The individual actions described can be detected and blocked, but an additional SOAR capability would need to be integrated to complete the scenarios.</p></li>
+</ul>
+</li>
+<li><p>Enterprise denying access to resources when users are accessing from suspicious endpoints was not fully demonstrated.</p>
+<ul>
+<li><p>The capabilities to demonstrate these scenarios are not included in this build. The individual actions described can be detected and blocked, but an additional SOAR capability would need to be integrated to complete the scenarios.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case G: Service-Service Interactions</strong></p>
+<p><strong>Description:</strong> This use case covers API calls between services and the ability of the policy engine to allow or deny calls to services based on properly assigned authorizations.</p>
+<ul class="simple">
+<li><p>Use Case G was not demonstrated for this build, as the capability to manage Service-Service communications was not included in the build.</p></li>
+</ul>
+<p><strong>Use Case H: Data Level Security</strong></p>
+<p><strong>Description</strong>: This use case covers subject access requests to data with different levels of classification.</p>
+<ul class="simple">
+<li><p>Access to data based on identity attributes - Using Symantec DLP, this build is able to restrict data access and operations based on identity attributes, covering both on-prem and cloud-based resources.</p></li>
+<li><p>Access to data based on requesting endpoint - Symantec DLP is able to restrict data access and operations based on endpoint type.</p></li>
+<li><p>Internet access restricted when accessing data with high classification - Symantec DLP can prevent data classified as “high” from being uploaded to the internet or other destinations.</p></li>
+<li><p>Requestor challenged to re-authenticate when accessing data with high classification  - Capabiliity was not included in this build.</p></li>
+<li><p>User temporarily granted access privileges to data with high classification  - Capability was not included in this build.</p></li>
+<li><p>Certain operations can be prevented based on subject endpoint, location or some other factor - Symantec DLP can control data operations based on endpoint type and endpoint location.</p></li>
+<li><p>Extra protection for highly classified data when stored on an endpoint  - Capability was not included in this build.</p></li>
+</ul>
+</section>
+<section id="enterprise-3-build-4-e3b4-sdp-f5-big-ip-f5-nginx-plus-forescout-eyecontrol-and-forescout-eyeextend-as-pes-summary-demonstration-results">
+<h3>Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Summary Demonstration Results<a class="headerlink" href="#enterprise-3-build-4-e3b4-sdp-f5-big-ip-f5-nginx-plus-forescout-eyecontrol-and-forescout-eyeextend-as-pes-summary-demonstration-results" title="Link to this heading">#</a></h3>
+<p><strong>Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to discover network assets, authenticate devices, and demonstrate network connectivity.</p>
+<ul class="simple">
+<li><p>Discovery and authentication of endpoint assets were successfully demonstrated. Resources and endpoints were granted access to the network and if applicable, limited to a specific subnet or resource set based on Forescout policy. These policies were enforced by a PAN NGFW and Cisco switch. Due to the location of these PEPs, unauthenticated endpoints were restricted to the local subnet in accordance with Forescout policy.</p>
+<ul>
+<li><p>Network assets were discovered by Forescout via both passive and active detection.</p></li>
+</ul>
+</li>
+<li><p>Reauthentication of identified assets was successfully demonstrated using Forescout.</p></li>
+<li><p>Discovery of transaction flows  - Visibility of authentication and resource access attempts was demonstrated.</p>
+<ul>
+<li><p>Azure AD captures sign-in logs to SaaS applications, PaaS and IaaS resources, and on-prem applications.</p></li>
+<li><p>Azure AD audit logs show activity, including changes to cloud resources in the Azure tenant.</p></li>
+<li><p>Forescout captures sign-in and audit logs and network traffic for on-premises components.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access</strong></p>
+<p><strong>Description:</strong> These use cases demonstrate user access to enterprise resources based on successfully achieving user and device security preconditions.</p>
+<ul class="simple">
+<li><p>For this build, we successfully demonstrated access using Windows, macOS, and mobile device iOS and Android endpoints.</p></li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to enterprise resources (on-prem and cloud) in accordance with policy via BIG-IP.</p>
+<ul>
+<li><p>The policy engine can differentiate between employees and contractors and provide different access permissions to each user type.</p></li>
+</ul>
+</li>
+<li><p>This build did not implement applying restrictions on accessing Internet resources by either Enterprise or Contractor Users using either an enterprise endpoint or BYOD from an on-premises or a remote environment.</p></li>
+<li><p>Stolen credential using an enterprise endpoint or BYOD  - BIG-IP does not detect a hostile request if all credentials are correct.</p></li>
+<li><p>Just-in-Time (JIT) Access Privileges - The build did not implement just-in-time access privileges.</p></li>
+<li><p>Enterprise-ID Step-Up Authentication was not configured for this build.</p></li>
+<li><p>This build did not have the capability to verify chosen resource (e.g., GitLab) compliance with policy.</p></li>
+</ul>
+<p><strong>Use Case C: Federated-ID Access</strong>  - Out of scope for this phase.</p>
+<p><strong>Use Case E: Guest: No-ID Access</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow unmanaged guest devices to have access to public Internet resources.</p>
+<ul class="simple">
+<li><p>Forescout was able to provide Internet access to unauthenticated guest devices connecting to a segmented portion of the enterprise network.</p></li>
+</ul>
+<p><strong>Use Case F: Confidence Level</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow, prevent, or terminate sessions to resources based on the continuous evaluation of user and device risk.</p>
+<ul class="simple">
+<li><p>User or devices that fail reauthentication lose access to resources. With successful reauthentication, access is maintained.</p>
+<ul>
+<li><p>A resource access web portal was implemented that provided users with access only to resources they were authorized to access.</p></li>
+<li><p>Users that fail reauthentication lose access to the resource access web portal. With successful re-authentication, access is regained. User reauthentication was implemented in BIG-IP via user inactivity timeouts. Users that failed reauthentication could not initiate access to resources.</p></li>
+<li><p>Device re-authentication was not implemented.</p></li>
+<li><p>BIG-IP checked device compliance and allowed or maintained access if compliance was positive. Sessions to the resource access portal were terminated if device compliance failed.</p></li>
+</ul>
+</li>
+<li><p>Resource reauthentication was not demonstrated. It could not be performed by the products in this build.</p></li>
+<li><p>Compliant devices maintain or regain access to resources. Noncompliant devices or users with noncompliant devices lose access to resources.</p>
+<ul>
+<li><p>BIG-IP leveraged the F5 access app and its integration to Microsoft Intune to determine endpoint compliance.</p></li>
+</ul>
+</li>
+<li><p>The ability to monitor and detect violations of data use policies was not demonstrated.</p></li>
+<li><p>User sessions and devices attempting to block access to unauthorized resources and malicious sites was not implemented.</p></li>
+<li><p>The capability to detect malicious or suspicious behavior on enterprise endpoints and BYOD or unmanaged endpoints was not implemented.</p></li>
+</ul>
+<p><strong>Use Case G: Service-Service Interactions</strong></p>
+<p><strong>Description:</strong> This use case covers API calls between services and the ability of the policy engine to allow or deny calls to services based on properly assigned authorizations.</p>
+<ul class="simple">
+<li><p>The scenario for this build focused on securing the service-to-service call (e.g., east-west) traffic within a Kubernetes cluster.</p></li>
+<li><p>Client apps utilized access policies assigned by the NGINX Service Mesh Controller to make successful API calls to services running within the NGINX Service Mesh framework. Service requests without the correct authorization were denied.</p>
+<ul>
+<li><p>The build used a Kubernetes cluster with client and web server application pods deployed for the service-to-service demonstration.</p></li>
+<li><p>The client applications and the web server were deployed in separate pods within the cluster. Each was deployed with an injected sidecar proxy.</p></li>
+<li><p>Mutual TLS-encrypted API calls were used between services, and the policy engine used access policies, HTTP routing rules, and mutually authenticated certificates to allow or deny access.</p></li>
+<li><p>All service policy modifications took effect immediately.</p></li>
+<li><p>The Kubernetes cluster and service mesh were deployed in Azure IaaS.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case H: Data Level Security</strong></p>
+<p><strong>Description:</strong> This use case covers subject access requests to data with different levels of classification.</p>
+<ul class="simple">
+<li><p>Demonstration could not be completed; the build does not have the capability to demonstrate data level security use cases.</p></li>
+</ul>
+</section>
+<section id="enterprise-4-build-4-e4b4-sdp-microsegmentation-and-eig-vmware-workspace-one-access-vmware-unified-access-gateway-and-vmware-nsx-t-as-pes-summary-demonstration-results">
+<h3>Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Summary Demonstration Results<a class="headerlink" href="#enterprise-4-build-4-e4b4-sdp-microsegmentation-and-eig-vmware-workspace-one-access-vmware-unified-access-gateway-and-vmware-nsx-t-as-pes-summary-demonstration-results" title="Link to this heading">#</a></h3>
+<p><strong>Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</strong></p>
+<p><strong>Description</strong>: This use case demonstrates the ability of the enterprise to discover network assets, authenticate devices, and demonstrate network connectivity.</p>
+<ul class="simple">
+<li><p>Discovery and authentication of managed endpoint assets</p>
+<ul>
+<li><p>Demonstration was based on VMware Workspace One UEM policy configuration.</p></li>
+<li><p>This build also demonstrated the capability to limit or reduce user access levels in certain scenarios.</p></li>
+<li><p>Resource authentication and limited access to the network were not demonstrated because VMware considers them out of scope for their products. Other technologies should be used to perform these functions.</p></li>
+</ul>
+</li>
+<li><p>Reauthentication of identified assets  - The Workspace One UEM agent requires reauthentication after a configurable period of time.</p>
+<ul>
+<li><p>If reauthentication fails, user does not have access to resources.</p></li>
+</ul>
+</li>
+<li><p>Discovery of transaction flows  - Visibility of authentication and resource access attempts was demonstrated.</p>
+<ul>
+<li><p>Workspace One UEM and Workspace One Access capture sign-in logs to resources and on-prem applications.</p></li>
+<li><p>VMware Tunnel can be used for discovery of transaction flows as it captures network traffic and tells what destinations users are accessing.</p></li>
+<li><p>VMware considers API call visibility out of scope in this build for their participating products. Other technologies should be used to perform this function.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access</strong></p>
+<p><strong>Description:</strong> These use cases demonstrate user access to enterprise resources based on successfully achieving user and device security preconditions.</p>
+<ul class="simple">
+<li><p>For this build, we successfully demonstrated access using Windows, Mac, Linux, and mobile device iOS and Android endpoints.</p></li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to enterprise resources (on-prem and cloud) in accordance with policy via VMware Workspace One Access.</p>
+<ul>
+<li><p>The policy engine can differentiate between employees and contractors and provide different access permissions to each user type.</p></li>
+</ul>
+</li>
+<li><p>In order to complete some scenarios, including scenarios that require the endpoint to fail authentication, certificates were removed from devices, which can be done automatically upon policy violations. Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to internet resources (on-prem and cloud) in accordance with policy via VMware Mobile Threat Detection.</p>
+<ul>
+<li><p>VMware MTD services are only available on iOS, Android, and ChromeOS devices.</p></li>
+</ul>
+</li>
+<li><p>Stolen credential scenarios using an enterprise endpoint or BYOD were partially completed successfully.</p>
+<ul>
+<li><p>Since the certificates are protected, we were unable to duplicate VMware UEM certificates to another mobile device to complete some scenarios, including stolen credential scenarios. VMware Workspace ONE does not detect a hostile request if only using password authentication. Passwordless authentication is therefore the recommended method.</p></li>
+<li><p>Stolen devices can be wiped and blacklisted if reported.</p></li>
+</ul>
+</li>
+<li><p>Just-in-Time (JIT) Access Privileges  - Users are allowed to request and elevate privileges required to perform a given task for a limited period.</p>
+<ul>
+<li><p>VMware considers JIT access out of scope for their products. Other technologies should be used to perform this function.</p></li>
+</ul>
+</li>
+<li><p>Enterprise-ID Step-Up Authentication  - The build did not include the capability to prompt for re-authentication in the middle of an active session with the chosen resources (e.g., GitLab).</p></li>
+<li><p>This build did not have the capability to verify resource compliance with policy.</p></li>
+</ul>
+<p><strong>Use Case C: Federated-ID Access</strong>  - Out of scope for this phase.</p>
+<p><strong>Use Case E: Guest: No-ID Access</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow unmanaged guest devices to have access to public Internet resources.</p>
+<ul class="simple">
+<li><p>Users without managed devices are provided access to public internet resources but no access to enterprise resources. VMware NSX provided a Guest network with access to public internet resources while blocking all traffic to enterprise resources and networks.</p></li>
+</ul>
+<p><strong>Use Case F: Confidence Level</strong></p>
+<p><strong>Description</strong>: This use case demonstrates the ability of the enterprise to allow, prevent, or terminate sessions to resources based on the continuous evaluation of user and device risk.</p>
+<ul class="simple">
+<li><p>Users or devices that fail reauthentication lose access to resources. With successful reauthentication, access is maintained.</p>
+<ul>
+<li><p>Users that are not able to reauthenticate successfully to VMware Workspace One UEM immediately lose access to resources.</p></li>
+<li><p>Endpoint credentials were invalidated by removing the authentication certificate from the device.</p></li>
+</ul>
+</li>
+<li><p>Resource reauthentication is out of scope for VMware; other technologies should be used.</p></li>
+<li><p>Compliant devices maintain or regain access to resources. Noncompliant devices or users with noncompliant devices lose access to resources.</p>
+<ul>
+<li><p>VMware Workspace One UEM determines the compliance state of devices that it manages.</p></li>
+<li><p>Devices lose access to resources via VMware Tunnel when they are noncompliant per Workspace ONE UEM.</p></li>
+<li><p>Devices that return to a compliant state have their access restored via the UAG Tunnel.</p></li>
+</ul>
+</li>
+<li><p>The ability to monitor and detect violations of data use policies was not demonstrated. VMware considered data use policies out of scope for this build.</p></li>
+<li><p>User sessions and devices attempting to access unauthorized resources and malicious sites are blocked.</p>
+<ul>
+<li><p>SOAR capability was not included in this build. Individual URLs can be blocked, but user accounts cannot be terminated/blocked based on URL access.</p></li>
+</ul>
+</li>
+<li><p>Enterprise can detect malicious behavior on enterprise endpoints and BYOD but not on unmanaged endpoints.</p>
+<ul>
+<li><p>VMware MTD can detect malicious behavior on endpoints that have an MTD agent.</p></li>
+<li><p>Unmanaged endpoints have no mechanism for behavior detection.</p></li>
+</ul>
+</li>
+<li><p>Enterprise can deny access to resources when users are accessing from suspicious endpoints.</p></li>
+<li><p>Suspicious endpoint activity was monitored by VMware MTD and access to resources terminated via the UAG Tunnel.</p></li>
+</ul>
+<p><strong>Use Case G: Service-Service Interactions</strong></p>
+<p><strong>Description:</strong> This use case covers API calls between services and the ability of the policy engine to allow or deny calls to services based on properly assigned authorizations.</p>
+<ul class="simple">
+<li><p>VMware NSX controlled Service-Service communication between on-prem services.</p></li>
+<li><p>VMware NSX controlled Service-Endpoint communication where either the Service or the Endpoint was located on-prem.</p></li>
+<li><p>Branch office, PaaS, and SaaS services were unavailable for demonstration in this build.</p></li>
+</ul>
+<p><strong>Use Case H: Data Level Security</strong></p>
+<p>Description: This use case covers subject access requests to data with different levels of classification.</p>
+<ul class="simple">
+<li><p>VMware considers data level security out of scope for this project. Other products should be used for these services.</p></li>
+</ul>
+<p>Note that after this build was completed, VMware was acquired by Broadcom.</p>
+</section>
+<section id="enterprise-1-build-5-e1b5-sase-and-microsegmentation-pan-ngfw-and-pan-prisma-access-as-pes-summary-demonstration-results">
+<h3>Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Summary Demonstration Results<a class="headerlink" href="#enterprise-1-build-5-e1b5-sase-and-microsegmentation-pan-ngfw-and-pan-prisma-access-as-pes-summary-demonstration-results" title="Link to this heading">#</a></h3>
+<p>This build does not have SaaS resources. Its summary results are as follows:</p>
+<p><strong>Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to discover network assets, authenticate devices, and demonstrate network connectivity.</p>
+<ul class="simple">
+<li><p>Discovery and authentication of endpoint assets</p>
+<ul>
+<li><p>For this build, endpoints used the Palo Alto Networks (PAN) Global Protect Client in order to communicate with the PAN PEPs (Next Generation firewalls or Prisma Access) and be authenticated by them.</p></li>
+<li><p>Authentication of resources was not performed due to time constraints and availability of product (Cortex XDR).</p></li>
+</ul>
+</li>
+<li><p>Reauthentication of identified assets  - Global Protect Client requires reauthentication after a configurable period of time.</p>
+<ul>
+<li><p>User must reauthenticate once the authentication period is over. If reauthentication fails, the user does not have access to resources.</p></li>
+</ul>
+</li>
+<li><p>Discovery of transaction flows  - Visibility of authentication and resource access attempts was demonstrated.</p>
+<ul>
+<li><p>PAN PEs capture sign-in events, changes in user/device attributes, and traffic flow logs to on-prem and IaaS resources.</p></li>
+<li><p>PAN PE logs are sent to IBM QRadar.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access</strong></p>
+<p><strong>Description:</strong> These use cases demonstrate user access to enterprise resources based on successfully achieving user and device security preconditions.</p>
+<ul class="simple">
+<li><p>For this build, we successfully demonstrated access using Windows, Linux, and mobile device iOS endpoints. Other endpoints were not demonstrated due to time constraints.</p>
+<ul>
+<li><p>PAN has 3 PEs, which also act as PEPs: Users connected on-premises use the on-prem PAN PE/PEP (NGFW). Users in the branch office use the branch PAN PE/PEP (NGFW). Remote users use the cloud PE/PEP (Prisma Access).</p></li>
+</ul>
+</li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, whether on-prem, branch, or remote, were allowed or denied access to enterprise resources (on-prem and cloud) in accordance with policies enforced by the PAN PEPs. Policies were configured with the PEs.</p>
+<ul>
+<li><p>The PE can differentiate between employees and contractors and provide different access permissions to each user type.</p></li>
+<li><p>PAN PEPs (NGFWs) were deployed on-prem and in the AWS IaaS cloud to protect resources. Prisma Access is the PEP for remote users.</p></li>
+<li><p>Compliance of the endpoint was checked prior to allowing a user to access that resource. Compliance of resources was not demonstrated due to time constraints.</p></li>
+</ul>
+</li>
+<li><p>For this build, URL filtering was performed at each PEP to manage access to internet resources. The PEP that is closest to the user performs the URL filtering for that user.</p></li>
+<li><p>Stolen credential using an enterprise endpoint or BYOD  - PAN does not detect a hostile request if all credentials are correct.</p>
+<ul>
+<li><p>PAN can limit the location (by city, state, or country), number of allowed devices per user, and number of simultaneous logins by a user to prevent use of stolen credentials.</p></li>
+</ul>
+</li>
+<li><p>Just-in-Time Access Privileges  - Users are allowed to request and elevate privileges required to perform a given task for a limited period.</p>
+<ul>
+<li><p>A manual process was used to demonstrate providing users with additional privileges to resources.</p></li>
+<li><p>Integration with other products can be used to automate just-in-time privileges. However, those products were not part of this build.</p></li>
+</ul>
+</li>
+<li><p>Enterprise-ID Step-Up Authentication  - Both Enterprise and Contractor Users were prompted for additional factor authentication when attempting to access sensitive resources.</p>
+<ul>
+<li><p>An authentication policy was created within the PE to require additional authentication to specific resources that are considered sensitive and need additional protection.</p></li>
+</ul>
+</li>
+<li><p>This build did not have the capability to verify chosen resource (e.g., GitLab) compliance with policy.</p>
+<ul>
+<li><p>Due to time constraints, Cortex XDR was not available for this build.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case C: Federated-ID Access</strong></p>
+<p><strong>Description:</strong> These use cases demonstrate federated user-id access to enterprise 1 resources and the internet based on successfully achieving user and device security preconditions. For this demonstration, enterprise 3 users access enterprise 1 resources and the internet using enterprise 1 devices or BYOD.</p>
+<ul class="simple">
+<li><p>An enterprise 3 federated user using an enterprise 1 laptop can access resources in enterprise 1 when on-premises, at the branch office, or remote.</p>
+<ul>
+<li><p>Users are authenticated using enterprise 3 credentials via the integration of the enterprise 1 and enterprise 3 identity providers (IdPs).</p></li>
+<li><p>Policies are applied to users and endpoints to allow or deny access to enterprise resources.</p></li>
+<li><p>Limited resource access can be achieved by applying policies to a specific set of users from enterprise 3.</p></li>
+</ul>
+</li>
+<li><p>An enterprise 3 federated user using an enterprise 1 laptop can access the internet when on-premises, at the branch office, or remote.</p>
+<ul>
+<li><p>Web filtering policies are enforced by the enterprise 1 PEPs when a federated user accesses the internet using an enterprise 1 device.</p></li>
+</ul>
+</li>
+<li><p>An enterprise 3 federated user using a BYOD laptop can access the internet when on-premises or at the branch office. When the user is remote, enterprise 1 policies do not apply.</p>
+<ul>
+<li><p>Web filtering policies are enforced by the enterprise 1 PEPs when a federated user accesses the internet using a BYOD device.</p></li>
+</ul>
+</li>
+<li><p>Stolen credentials are treated the same way for federated users and enterprise users.</p>
+<ul>
+<li><p>If user credentials are stolen and not reported, a malicious user will have access.</p></li>
+<li><p>Once user credentials/device is reported stolen, policies are applied to deny those users and devices. Users will need to update their credentials to regain access.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case E: Guest: No-ID Access</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow unmanaged guest devices to have access to public Internet resources.</p>
+<ul class="simple">
+<li><p>Guest users are given access to the internet only via the on-prem PEP.</p></li>
+</ul>
+<p><strong>Use Case F: Confidence Level</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow, prevent, or terminate sessions to resources based on the continuous evaluation of user and device risk.</p>
+<ul class="simple">
+<li><p>Users or devices that fail reauthentication lose access to resources. With successful reauthentication, access is maintained.</p>
+<ul>
+<li><p>Devices that are not able to reauthenticate successfully via Global Protect will immediately lose access to resources.</p></li>
+<li><p>Initial authentication with the PAN PE provides user with authentication and compliance checks. Policies dictate what resources a user has access to. Periodic reauthentication and MFA or step-up authentication for access to critical resources is required, which verifies compliance as well.</p></li>
+</ul>
+</li>
+<li><p>Resource reauthentication is out of scope due to time constraints.</p></li>
+<li><p>Compliant devices maintain or regain access to resources. Noncompliant devices or users with noncompliant devices lose access to resources.</p>
+<ul>
+<li><p>Upon login to endpoint device, HIP information is sent to the PAN NGFW and validated before the endpoint gains access to the resources. Device compliance is checked periodically.</p></li>
+<li><p>Devices lose access to resources once the NGFW is made aware of a noncompliant state.</p></li>
+</ul>
+</li>
+<li><p>The ability to monitor and detect violations of data use policies was demonstrated with two methods.</p>
+<ul>
+<li><p>PAN demonstrated detecting specific types of data (e.g., bank accounts or SSN) and block access.</p></li>
+<li><p>Downloading more than a defined amount of data (e.g., more than 10MB) results in a denial of download.</p></li>
+</ul>
+</li>
+<li><p>User sessions and devices attempting to access unauthorized resources and malicious sites are blocked.</p>
+<ul>
+<li><p>PAN PE policies determine if a user has access to a resource or not. If there is no policy to allow a user to access a resource and the user requests to reach that resource, the request will be dropped by the PEP by default due to a deny policy for traffic that does not match any of the configured policies.</p></li>
+<li><p>PAN PE creates dynamic user groups which allow the PEP to deny or quarantine a user if the user attempts to access resources or URLs that are in violation of policy.</p></li>
+</ul>
+</li>
+<li><p>Enterprise can detect malicious behavior on enterprise endpoints and BYOD but not on unmanaged endpoints.</p>
+<ul>
+<li><p>Using dynamic user groups, PAN PEP detects behaviors that are considered malicious and blocks users from accessing resources once the PEP receives an update about a malicious detection.</p></li>
+</ul>
+</li>
+<li><p>Enterprise can deny access to resources when users are accessing from suspicious endpoints.</p>
+<ul>
+<li><p>Suspicious endpoint use cases were not demonstrated due to time constraints. Cortex XDR would be used to identify suspicious endpoints.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case G: Service-Service Interactions</strong></p>
+<p><strong>Description:</strong> This use case covers API calls between services and the ability of the policy engine to allow or deny calls to services based on properly assigned authorizations.</p>
+<ul class="simple">
+<li><p>Due to time constraints, only some on-prem to on-prem service-to-service communications were demonstrated. We did not have time to demonstrate service-to-service communications for resources in the cloud. Policies were created to restrict access between resources based on API communications. However, PAN Cortex XDR, which would need to be installed on resource endpoints to provide compliance and threat information to the PE for it to make access decisions, was not available for this build. Therefore, we were not able to restrict access to a resource based on endpoint compliance or threat information.</p></li>
+</ul>
+<p><strong>Use Case H: Data Level Security</strong></p>
+<p><strong>Description</strong>: This use case covers subject access requests to data with different levels of classification.</p>
+<ul class="simple">
+<li><p>Access to data based on identity attributes  - PAN PEPs can inspect and apply policy to data based on predetermined sensitive information.</p></li>
+<li><p>Access to data based on requesting endpoint  - HIPs are leveraged to make decisions about the endpoint.</p></li>
+<li><p>Internet access restricted when accessing data with high classification  - PAN leverages dynamic user groups to identify user access based on specific criteria such as accessing sensitive data.</p></li>
+<li><p>Requestor challenged to re-authenticate when accessing data with high classification  - PAN leverages authentication profiles to force users to provide MFA when accessing sensitive data.</p></li>
+<li><p>User temporarily granted access privileges to data with high classification  - Temporary updates are available to access privileges.</p></li>
+<li><p>Certain operations can be prevented based on subject endpoint, location, or another factor  - PAN can provide policies to limit access to data. PAN can allow or deny upload/download of data from a resource. PAN does not have the ability to limit read/write capabilities on a resource.</p></li>
+<li><p>Extra protection for highly classified data when stored on an endpoint  - Cortex XDR, which can be leveraged to support this feature, was not available for this build.</p></li>
+<li><p>While PAN PE/PEP can allow or deny access to specific data or applications within a resource, data classification is out of scope of this project. In order for this use case to be properly demonstrated, data must be classified. After classification, PAN PE/PEPs can develop policies to allow or deny user access to these data classes.</p></li>
+</ul>
+</section>
+<section id="enterprise-2-build-5-e2b5-sdp-and-sase-lookout-sse-and-okta-identity-cloud-as-pes-summary-demonstration-results">
+<h3>Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Summary Demonstration Results<a class="headerlink" href="#enterprise-2-build-5-e2b5-sdp-and-sase-lookout-sse-and-okta-identity-cloud-as-pes-summary-demonstration-results" title="Link to this heading">#</a></h3>
+<p><strong>Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to discover network assets, authenticate devices, and demonstrate network connectivity.</p>
+<ul class="simple">
+<li><p>Discovery and authentication of endpoint assets - Capability was not included in this build.</p></li>
+<li><p>Reauthentication of identified assets - Capability was not included in this build.</p></li>
+<li><p>Discovery of transaction flows - Visibility of authentication and resource access attempts was demonstrated.</p>
+<ul>
+<li><p>Lookout SSE captures sign-in and individual user action logs to SaaS applications, IaaS resources, and on-prem applications.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access</strong></p>
+<p><strong>Description:</strong> These two use cases demonstrate user access to enterprise resources based on successfully achieving user and device security preconditions.</p>
+<ul class="simple">
+<li><p>For this build, we successfully demonstrated access using Windows, macOS, and mobile device (iOS and Android) endpoints.</p>
+<ul>
+<li><p>Demonstration capability varied between the different platforms. The agent-based approach on Windows and macOS successfully completed all scenarios. The mobile devices successfully completed all scenarios with the exception of those involving internet access policies that are time-bound.</p></li>
+<li><p>An agentless approach was also demonstrated on all of the above platforms using Lookout SSE. This method completed all scenarios with the exception of those involving device compliance.</p></li>
+</ul>
+</li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to enterprise resources (on-prem and cloud) in accordance with policy via Lookout Private Access.</p>
+<ul>
+<li><p>The policy engine can differentiate between employees and contractors and provide different access permissions to each user type. This is accomplished through integration with the ICAM (Okta).</p></li>
+<li><p>The build demonstrated that sensitive data such as credit card information could have access controlled based on policy within Lookout SSE.</p></li>
+</ul>
+</li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to internet resources in accordance with policy via Lookout Internet Access.</p>
+<ul>
+<li><p>Policies within Lookout Internet Access were set up to allow, block, or limit access to internet resources.</p></li>
+</ul>
+</li>
+<li><p>Stolen credential using an enterprise endpoint or BYOD - Lookout does not detect a hostile request if all credentials are correct. Lookout is able to revoke unauthorized access once credentials have been reported stolen and stolen credentials have been revoked. Anomalous login policies can raise a user’s risk level if suspicious authentication attempts are made, and user access can be limited or blocked based on the user’s risk score.</p></li>
+<li><p>Just-in-Time (JIT) Access Privileges - Users are allowed to request and elevate privileges required to perform a given task for a limited period.</p>
+<ul>
+<li><p>In this build, Just-in-Time privileges can be manually completed to allow a user to access a resource. These policies can be temporary, giving the user access for a limited period of time.</p></li>
+</ul>
+</li>
+<li><p>Enterprise-ID Step-Up Authentication - Step-up authentication capabilities were demonstrated with SaaS services (Google Workspace). Users requesting to access sensitive data were prompted for additional authentication factors.</p></li>
+<li><p>This build did not have the capability to verify chosen resource (e.g., GitLab) compliance with policy. Lookout SSE can integrate with vulnerability management platforms to receive resource compliance information, but this was not demonstrated during the build.</p></li>
+</ul>
+<p><strong>Use Case C: Federated-ID Access</strong> - Out of scope for this build.</p>
+<p><strong>Use Case E: Guest: No-ID Access</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow unmanaged guest devices to have access to public Internet resources.</p>
+<ul class="simple">
+<li><p>Unmanaged/guest device management capabilities are not included in this build. To control network access for unmanaged/guest devices, unauthenticated network traffic can be forwarded to the Lookout SSE for policy enforcement.</p></li>
+</ul>
+<p><strong>Use Case F: Confidence Level</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow, prevent, or terminate sessions to resources based on the continuous evaluation of user and device risk.</p>
+<ul class="simple">
+<li><p>Users or devices that fail reauthentication lose access to resources. With successful re-authentication, access is maintained.</p>
+<ul>
+<li><p>Devices that are not able to reauthenticate successfully to Lookout SSE immediately lose access to resources. Periodic reauthentication is required.</p></li>
+</ul>
+</li>
+<li><p>Resource authentication was not demonstrated. This capability was not included in this build. Lookout SSE can integrate with vulnerability management platforms to receive resource compliance information, but this was not demonstrated during the build.</p></li>
+<li><p>Compliant devices maintain or regain access to resources. Noncompliant devices or users with noncompliant devices lose access to resources.</p>
+<ul>
+<li><p>The Lookout Client determines, and then reports to Lookout SSE, the compliance state of devices that it manages. Endpoint compliance must be validated prior to allowing access. Endpoint compliance is checked periodically.</p></li>
+<li><p>Devices lose access to resources once Lookout SSE is made aware of a noncompliant state.</p></li>
+</ul>
+</li>
+<li><p>The ability to monitor, detect, and block violations of data use policies was demonstrated using Lookout SSE.</p>
+<ul>
+<li><p>However, the capability to fully terminate resource access was not demonstrated. The individual actions described can be detected and blocked, but an additional SOAR capability would need to be integrated to complete the full scenario.</p></li>
+</ul>
+</li>
+<li><p>User sessions and devices attempting to access unauthorized resources and malicious sites were blocked.</p></li>
+<li><p>Enterprise can detect malicious behavior on enterprise endpoints and BYOD but not on unmanaged endpoints.</p>
+<ul>
+<li><p>The capabilities to demonstrate these scenarios are not included in this build. The individual actions described can be detected and blocked, but an additional SOAR capability would need to be integrated to complete the scenarios.</p></li>
+</ul>
+</li>
+<li><p>Enterprise denying access to resources when users are accessing from suspicious endpoints was not fully demonstrated.</p>
+<ul>
+<li><p>The capabilities to demonstrate these scenarios are not included in this build. The individual actions described can be detected and blocked, but an additional SOAR capability would need to be integrated to complete the scenarios.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case G: Service-Service Interactions</strong></p>
+<p><strong>Description:</strong> This use case covers API calls between services and the ability of the policy engine to allow or deny calls to services based on properly assigned authorizations.</p>
+<ul class="simple">
+<li><p>Use Case G was not demonstrated for this build, as the capability to manage Service-Service communications was not included in the build.</p></li>
+</ul>
+<p><strong>Use Case H: Data-Level Security</strong></p>
+<p><strong>Description</strong>: This use case covers subject access requests to data with different levels of classification.</p>
+<ul class="simple">
+<li><p>Access to data based on identity attributes - Using Lookout SSE, this build is able to restrict data access and operations based on identity attributes, covering both on-prem and cloud-based resources.</p></li>
+<li><p>Access to data based on requesting endpoint - Lookout SSE is able to restrict data access and operations based on endpoint type.</p></li>
+<li><p>Internet access restricted when accessing data with high classification - This capability was not included in this build. Lookout recommends that policies are put into place to prevent data exfiltration. Lookout SSE has the ability to differentiate between corporate and personal accounts and cloud services to prevent sensitive data from being exfiltrated.</p></li>
+<li><p>Requestor challenged to reauthenticate when accessing data with high classification - Lookout SSE was able to challenge for reauthentication with SaaS applications.</p></li>
+<li><p>User temporarily granted access privileges to data with high classification - Lookout SSE is able to grant Just-In-Time access to high-level data when needed.</p></li>
+<li><p>Certain operations can be prevented based on subject endpoint, location, or some other factor - Lookout SSE can control data operations based on endpoint type and endpoint location.</p></li>
+<li><p>Extra protection for highly classified data when stored on an endpoint - Lookout SSE is able to encrypt highly classified data when downloaded to a user endpoint. Classified data is labeled using data security policy in Lookout SSE.</p></li>
+</ul>
+</section>
+<section id="enterprise-3-build-5-e3b5-sdp-and-sase-microsoft-entra-conditional-access-formerly-called-azure-ad-conditional-access-and-microsoft-security-service-edge-as-pes-summary-demonstration-results">
+<h3>Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Summary Demonstration Results<a class="headerlink" href="#enterprise-3-build-5-e3b5-sdp-and-sase-microsoft-entra-conditional-access-formerly-called-azure-ad-conditional-access-and-microsoft-security-service-edge-as-pes-summary-demonstration-results" title="Link to this heading">#</a></h3>
+<p><strong>Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to discover network assets, authenticate devices, and demonstrate network connectivity.</p>
+<ul class="simple">
+<li><p>Discovery and authentication of endpoint assets</p>
+<ul>
+<li><p>Discovery and authentication of endpoint assets was successfully demonstrated. Endpoints were granted access to the network and if applicable, limited to a specific subnet or resource set based on Microsoft Security Service Edge (SSE) policy. Due to the configuration of the on-prem switch and firewall, unauthenticated endpoints were restricted to the local subnet.</p></li>
+<li><p>Network endpoints were discovered via the onboarding mechanism to Microsoft Intune.</p></li>
+</ul>
+</li>
+<li><p>Reauthentication of identified assets - Intune periodically reauthenticates each endpoint while also checking for compliance. Enforcement is done via Conditional Access policies.</p></li>
+<li><p>Discovery of transaction flows - Visibility of authentication and resource access attempts was demonstrated.</p>
+<ul>
+<li><p>Entra ID captures sign-in logs to SaaS applications, PaaS and IaaS resources, and on-prem applications.</p></li>
+<li><p>Entra ID audit logs show activity, including changes to cloud resources in the Entra ID tenant or for tenant configuration changes.</p></li>
+<li><p>Entra ID also captures sign-in and audit logs for on-prem resources and applications with the use of SSE via the SSE traffic logs.</p></li>
+<li><p>Entra ID captures network access logs and audit logs for Internet access and access to private applications (on-prem and cloud) via the traffic logs.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access</strong></p>
+<p><strong>Description:</strong> These use cases demonstrate user access to enterprise resources based on successfully achieving user and device security preconditions.</p>
+<ul class="simple">
+<li><p>For this build, we successfully demonstrated access using Windows, macOS, and mobile device iOS and Android endpoints.</p></li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to enterprise resources (on-prem and cloud) in accordance with policy via Entra Conditional Access.</p>
+<ul>
+<li><p>The policy engine can differentiate between employees and contractors and provide different access permissions to each user type.</p></li>
+<li><p>The build demonstrated that documents with sensitive data such as credit cards could be viewed but not downloaded.</p></li>
+</ul>
+</li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to internet resources in accordance with policy via Defender for Apps and Defender for Endpoint.</p>
+<ul>
+<li><p>Policies within Defender for Apps were set up to allow, block, or limit access to resources.</p></li>
+</ul>
+</li>
+<li><p>Stolen credential using an enterprise endpoint or BYOD - Entra ID does not detect a hostile request if all credentials are correct.</p></li>
+<li><p>Just-in-Time (JIT) Access Privileges - Users are allowed to request and elevate privileges required to perform a given task for a limited period.</p>
+<ul>
+<li><p>JIT for VM and Resource Access</p>
+<ul>
+<li><p>Azure and SSE working in combination can provide a JIT feature capability for resource access that enables an eligible user to access any enterprise VM with SSH, RDP, or TCP/IP protocol and IP/port combination for a limited time when requested.</p></li>
+<li><p>Defender for Cloud checks that the user has the appropriate Azure role, then inserts allow rules for a specific user’s IP address into the network security groups and Azure Firewall as well as SSE network access policies.</p></li>
+<li><p>SSE can leverage Azure JIT feature and extend JIT access to on-prem VMs and resources.</p></li>
+<li><p>This only occurs at the time that the user requests access to these resources.</p></li>
+</ul>
+</li>
+<li><p>JIT with Privileged Identity Management (PIM)</p>
+<ul>
+<li><p>PIM is used to provide an additional layer of authentication and authorization before requesting users are granted access to privileged Entra ID roles for a limited time and scope.</p></li>
+<li><p>Once granted, a user gains elevated Entra ID administration privileges for a limited time.</p></li>
+<li><p>PIM works within the Azure environment and the on-prem hosted applications that use Entra ID as an identity provider, when leveraging Entra ID Group write-back.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Enterprise-ID Step-Up Authentication - Both Enterprise and Contractor Users are prompted for additional factor authentication when attempting to access sensitive resources.</p>
+<ul>
+<li><p>Entra Conditional Access provides additional authentication when a user attempts to access a portion of a site or a document with a sensitive label. An example of a sensitive site is a SharePoint site with a sensitive label.</p></li>
+<li><p>Conditional Access would prompt the user for additional authentication prior to allowing access.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case C: Federated-ID Access</strong></p>
+<p><strong>Description:</strong> These use cases demonstrate federated user-id access to Enterprise 1 resources and the internet based on successfully achieving user and device security preconditions. For this demonstration, Enterprise 3 users access Enterprise 1 resources and the internet using Enterprise 1 devices or BYOD.</p>
+<ul class="simple">
+<li><p>An Enterprise 3 federated user using an Enterprise 1 laptop can access resources in Enterprise 1 when on-premises, at the branch office, or remote.</p>
+<ul>
+<li><p>Users are authenticated using Enterprise 3 credentials via the integration of the Enterprise 1 and Enterprise 3 IdPs.</p></li>
+<li><p>Policies are applied to users and endpoints to allow or deny access to enterprise resources.</p></li>
+<li><p>Limited resource access can be achieved by applying policies to a specific set of users from Enterprise 3.</p></li>
+</ul>
+</li>
+<li><p>An Enterprise 3 federated user using an Enterprise 1 laptop can access the internet when on-premises, at the branch office, or remote.</p>
+<ul>
+<li><p>Web filtering policies are enforced by the Enterprise 1 PEPs when a federated user accesses the internet using an Enterprise 1 device.</p></li>
+</ul>
+</li>
+<li><p>An Enterprise 3 federated user using a BYOD laptop can access the internet when on-premises or at the branch office. When the user is remote, Enterprise 1 policies do not apply.</p>
+<ul>
+<li><p>Web filtering policies are enforced by the Enterprise 1 PEPs when a federated user accesses the internet using a BYOD device.</p></li>
+</ul>
+</li>
+<li><p>Stolen credentials are treated the same way for federated users and enterprise users.</p>
+<ul>
+<li><p>If user credentials are stolen and not reported, a malicious user will have access.</p></li>
+<li><p>Once user credentials/devices are reported stolen, policies are applied to deny those users and devices. Users will need to update their credentials to regain access.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case E: Guest: No-ID Access</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow unmanaged guest devices to have access to public Internet resources.</p>
+<ul class="simple">
+<li><p>This build was able to provide internet access to unauthenticated guest devices connecting to a segmented portion of the enterprise network.</p></li>
+</ul>
+<p><strong>Use Case F: Confidence Level</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow, prevent, or terminate sessions to resources based on the continuous evaluation of user and device risk.</p>
+<ul class="simple">
+<li><p>Users or devices that fail reauthentication lose access to resources. With successful reauthentication, access is maintained.</p>
+<ul>
+<li><p>Devices that are not able to reauthenticate successfully to Microsoft Intune Mobile Device Management (MDM) will be offboarded and immediately lose access to resources. Periodic reauthentication is required.</p></li>
+<li><p>Entra Conditional Access was configured to only allow connections from Intune-compliant devices.</p></li>
+</ul>
+</li>
+<li><p>Resource authentication was not demonstrated. It could not be performed by the products in this build.</p></li>
+<li><p>Compliant devices maintain or regain access to resources. Noncompliant devices or users with noncompliant devices lose access to resources.</p>
+<ul>
+<li><p>Microsoft Intune determines, and then reports to Entra ID, the compliance state of devices that it manages. Endpoint compliance must be validated prior to allowing access. Endpoint compliance is checked periodically.</p></li>
+<li><p>Devices lose access to resources once Entra ID is made aware of a noncompliant state.</p></li>
+</ul>
+</li>
+<li><p>The ability to monitor and detect violations of data use policies was demonstrated. The downloading and attempted exfiltration of documents with sensitive data was blocked.</p></li>
+<li><p>User sessions and devices attempting to access unauthorized resources and malicious sites were blocked or the sessions were terminated.</p>
+<ul>
+<li><p>Defender for Apps was configured to label sites as trusted or untrusted.</p></li>
+<li><p>If a site was untrusted, Defender for Endpoint enforced Defender for Apps Policy and prevented the user from visiting the site by blocking it.</p></li>
+<li><p>Additionally, Entra Conditional Access was configured to block users from accessing resources without proper authorization.</p></li>
+<li><p>Microsoft Sentinel was successfully configured to send API requests to Entra ID to terminate active sessions and disable user accounts when alerts indicating malicious events (e.g., attempts to access known bad internet sites) were received. Session termination was successfully tested for Office SaaS apps and SSE-controlled IaaS and on-prem apps.</p></li>
+</ul>
+</li>
+<li><p>Enterprise can detect malicious behavior on enterprise endpoints and BYOD but not on unmanaged endpoints.</p>
+<ul>
+<li><p>Defender for Endpoint was configured as the Endpoint Detection and Response solution to detect and block threats and inform Entra ID via Intune.</p></li>
+<li><p>Defender for Endpoint has built-in sensors in the Windows platform and utilizes Windows Defender Firewall and Microsoft Defender Anti-Virus to detect threats.</p></li>
+</ul>
+</li>
+<li><p>Enterprise can deny access to resources when users are accessing from suspicious endpoints.</p>
+<ul>
+<li><p>Once onboarded, devices with Defender for Endpoint detected threats that included malicious script execution, network reconnaissance, and Active Directory reconnaissance.</p></li>
+<li><p>Defender for Endpoint categorized the threats, forwarded the alerts to Microsoft 365 Defender, and forwarded the risk information to Intune.</p></li>
+<li><p>Depending on the risk threshold set, Microsoft Intune changed the endpoint status to noncompliant.</p></li>
+<li><p>Entra Conditional Access received the noncompliant status information and blocked the devices from accessing resources.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case G: Service-Service Interactions</strong></p>
+<p><strong>Description:</strong> This use case covers API calls between services and the ability of the policy engine to allow or deny calls to services based on properly assigned authorizations.</p>
+<ul class="simple">
+<li><p>Client apps were able to utilize either Azure roles or Entra ID authorizations to make successful API calls to Azure IaaS, PaaS, and Microsoft SaaS apps. Client apps without the correct authorizations were denied.</p>
+<ul>
+<li><p>Client applications made API calls to manage an Azure VM, retrieve data managed by Entra ID, and retrieve data from Microsoft 365 mail and Microsoft Sentinel.</p></li>
+<li><p>Client apps without the right API permissions were denied.</p></li>
+</ul>
+</li>
+<li><p>Client apps hosted in Azure IaaS or Azure PaaS were able to make successful API calls to Azure IaaS, Azure PaaS, and Microsoft SaaS apps. Apps without the correct authorizations were denied.</p>
+<ul>
+<li><p>A client application hosted/stored in an Azure VM or an Azure function was used to make successful API calls to manage an Azure VM, retrieve Entra ID-managed data, and retrieve data from Microsoft Sentinel and Microsoft 365 mail.</p></li>
+</ul>
+</li>
+<li><p>Client applications were not able to make API calls to the chosen on-prem/IaaS application (e.g., GitLab) because the API authorization was issued by an external authorization provider.</p></li>
+<li><p>For Service-to-Endpoint use cases:</p>
+<ul>
+<li><p>Intune was used to instruct the endpoint to take certain actions, such as to update itself and restart.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case H: Data-Level Security</strong></p>
+<p><strong>Description</strong>: This use case covers subject access requests to data with different levels of classification.</p>
+<ul class="simple">
+<li><p>Access to data based on identity attributes - Leveraging Entra Conditional Access, differing levels of access were assigned to users depending on the classification of data in the cloud.</p></li>
+<li><p>Access to data based on requesting endpoint - Leveraging Entra Conditional Access and Microsoft Intune compliance feeds, differing levels of access were assigned to subjects based on the compliance status of their endpoints. This was only applicable to data resident in the cloud.</p></li>
+<li><p>Internet access restricted when accessing data with high classification - Leveraging Entra Conditional Access, allowed and excluded subject locations were specified. Data was differentiated based on which folder an object resided in. Controls were applicable to data in the cloud.</p></li>
+<li><p>Requestor challenged to reauthenticate when accessing data with high classification - Entra Conditional Access using the authentication context feature triggers MFA for sensitive data in the cloud.</p></li>
+<li><p>User temporarily granted access privileges to data with high classification - Entra ID Privileged Identity Management was used to temporarily elevate subject privileges for a limited time so as to provide access to sensitive data and resources in the cloud.</p></li>
+<li><p>Certain operations can be prevented based on subject endpoint, location, or another factor - Access controls were applied in SharePoint that prevented the modification and downloading of files.</p></li>
+<li><p>Extra protection for highly classified data when stored on an endpoint - Encryption was applied to data that was downloaded and required a password for decryption.</p></li>
+<li><p>Although data classification was out of scope for this project, the products used had the ability to classify data. Instead, for these use cases, sensitive data was differentiated from non-sensitive data by having them use different folders.</p></li>
+</ul>
+</section>
+<section id="enterprise-1-build-6-e1b6-sdp-and-microsegmentation-ivanti-neurons-for-zero-trust-access-as-pes-summary-demonstration-results">
+<h3>Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Summary Demonstration Results<a class="headerlink" href="#enterprise-1-build-6-e1b6-sdp-and-microsegmentation-ivanti-neurons-for-zero-trust-access-as-pes-summary-demonstration-results" title="Link to this heading">#</a></h3>
+<p><strong>Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to discover network assets, authenticate devices, and demonstrate network connectivity.</p>
+<ul class="simple">
+<li><p>Discovery and authentication of endpoint assets</p>
+<ul>
+<li><p>For this build, endpoints used the Ivanti Secure Access Client in order to communicate with the nZTA Controller and be authenticated by it. Once authenticated, the endpoint has access to resources, including networks, based on policy.</p></li>
+<li><p>Authentication of resources use cases were not included in this build. This build does not have resource authentication as Ivanti Policy Secure (IPS), was not available due to time constraints.</p></li>
+</ul>
+</li>
+<li><p>Reauthentication of identified assets - Ivanti Secure Access Client requires reauthentication after a configurable period of time.</p>
+<ul>
+<li><p>User must reauthenticate once the authentication period is over. If reauthentication fails, the user does not have access to any resources.</p></li>
+</ul>
+</li>
+<li><p>Discovery of transaction flows - Visibility of authentication and resource access attempts was demonstrated.</p>
+<ul>
+<li><p>Ivanti nZTA captures sign-in events, changes in user/device attributes, and traffic flow logs to on-prem and IaaS resources.</p></li>
+<li><p>nZTA logs are sent to IBM QRadar.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access</strong></p>
+<p><strong>Description:</strong> These use cases demonstrate user access to enterprise resources based on successfully achieving user and device security preconditions.</p>
+<ul class="simple">
+<li><p>For this build, we successfully demonstrated access using Windows, macOS, and Linux endpoints.</p></li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, were allowed or denied access to enterprise resources (on-prem and cloud) in accordance with policies enforced by the Ivanti nZTA Gateway. Policies were configured with the Ivanti nZTA Controller.</p>
+<ul>
+<li><p>The policy engine (nZTA Controller) can differentiate between employees and contractors and provide different access permissions to each user type.</p></li>
+<li><p>Ivanti nZTA Gateways were deployed on-prem and in the AWS IaaS cloud to protect resources.</p></li>
+<li><p>Compliance of the endpoint was checked prior to allowing a user to access that resource.</p></li>
+</ul>
+</li>
+<li><p>For this build, Ivanti nZTA did not manage access to internet resources. Ivanti partners with another vendor to manage device access to internet resources.</p></li>
+<li><p>Stolen credential using an enterprise endpoint or BYOD - Ivanti nZTA does not detect a hostile request if all credentials are correct.</p>
+<ul>
+<li><p>Ivanti nZTA can limit the number of allowed devices per user and number of simultaneous logins by a user to help prevent use of stolen credentials.</p></li>
+</ul>
+</li>
+<li><p>Just-in-Time Access Privileges - Users are allowed to request and elevate privileges required to perform a given task for a limited period.</p>
+<ul>
+<li><p>A manual process was used to demonstrate providing users with additional privileges to resources.</p></li>
+</ul>
+</li>
+<li><p>Enterprise-ID Step-Up Authentication - Both Enterprise and Contractor Users were prompted to reauthenticate with multifactor authentication when attempting to access sensitive resources.</p>
+<ul>
+<li><p>A policy was created within the Ivanti nZTA Controller to require multifactor authentication to specific resources that are considered sensitive and need additional protection.</p></li>
+</ul>
+</li>
+<li><p>Verification of the chosen resource (e.g., GitLab) - This build did not have the capability to verify resource compliance because the product was not available due to time constraints.</p></li>
+</ul>
+<p><strong>Use Case C: Federated-ID Access</strong></p>
+<p><strong>Description:</strong> These use cases demonstrate federated user-id access to Enterprise 1 resources and the internet based on successfully achieving user and device security preconditions. For this demonstration, Enterprise 3 users access Enterprise 1 resources and the internet using Enterprise 1 devices or BYOD.</p>
+<ul class="simple">
+<li><p>An Enterprise 3 federated user using an Enterprise 1 laptop can access resources in Enterprise 1 when on-premises, at the branch office, or remote.</p>
+<ul>
+<li><p>Users are authenticated using Enterprise 3 credentials via the integration of the Enterprise 1 and Enterprise 3 IdPs.</p></li>
+<li><p>Policies are applied to users and endpoints to allow or deny access to enterprise resources.</p></li>
+<li><p>Limited resource access can be achieved by applying policies to a specific set of users from Enterprise 3.</p></li>
+</ul>
+</li>
+<li><p>An Enterprise 3 federated user using an Enterprise 1 laptop can access the internet when on-premises, at the branch office, or remote.</p>
+<ul>
+<li><p>Web filtering policies are enforced by the Enterprise 1 PEPs when a federated user accesses the internet using an Enterprise 1 device.</p></li>
+</ul>
+</li>
+<li><p>An Enterprise 3 federated user using a BYOD laptop can access the internet when on-premises or at the branch office. When the user is remote, Enterprise 1 policies do not apply.</p>
+<ul>
+<li><p>Web filtering policies are enforced by the Enterprise 1 PEPs when a federated user accesses the internet using a BYOD device.</p></li>
+</ul>
+</li>
+<li><p>Stolen credentials are treated the same way for federated users and enterprise users.</p>
+<ul>
+<li><p>If user credentials are stolen and not reported, a malicious user will have access.</p></li>
+</ul>
+</li>
+</ul>
+<p>Once user credentials/device is reported stolen, policies are applied to deny those users and devices. Users will need to update their credentials to regain access.</p>
+<p><strong>Use Case E: Guest: No-ID Access</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow unmanaged guest devices to have access to public Internet resources.</p>
+<ul class="simple">
+<li><p>Ivanti nZTA considers this out of scope for their products. Other technologies should be used to perform guest access enforcement.</p></li>
+</ul>
+<p><strong>Use Case F: Confidence Level</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow, prevent, or terminate sessions to resources based on the continuous evaluation of user and device risk.</p>
+<ul class="simple">
+<li><p>Users or devices that fail reauthentication lose access to resources. With successful reauthentication, access is maintained.</p>
+<ul>
+<li><p>Devices that are not able to reauthenticate successfully to the Ivanti nZTA Controller will immediately lose access to resources. Device risk and condition-based access is evaluated when there are changes to the device. Ivanti Secure Access Client monitors changes in real time.</p></li>
+<li><p>Initial authentication and compliance check with Ivanti nZTA controller provides the user with access to resources assigned to that user. Periodic reauthentication and MFA or step-up authentication for access to critical resources is required, which verifies compliance as well.</p></li>
+</ul>
+</li>
+<li><p>Resource reauthentication use cases are not included in this build. This build does not have resource authentication because the product was not available at this time. Other solutions can be leveraged to perform this function.</p></li>
+<li><p>Compliant devices maintain or regain access to resources. Noncompliant devices or users with noncompliant devices lose access to resources.</p>
+<ul>
+<li><p>Upon login to the Ivanti Secure Access client, compliance information is sent to the nZTA controller and validated before the user can access any resources. Device compliance is checked when a change is detected on the endpoint.</p></li>
+<li><p>Devices lose access to resources in near-real-time when a noncompliant state is detected by the Secure Access client.</p></li>
+</ul>
+</li>
+<li><p>The ability to monitor and detect violations of data use policies was not demonstrated. Ivanti nZTA does not have capabilities to manage data use policies.</p></li>
+<li><p>User sessions and devices attempting to access unauthorized resources are blocked.</p>
+<ul>
+<li><p>Ivanti nZTA policies determine if a user has access to a resource or not. If there is no policy to allow a user to access a resource and the user requests to reach that resource, the request will not be able to leave the end device or it will be denied by the Ivanti nZTA Gateway. nZTA will not terminate the user’s connection to the Gateway, but it will block access to the unauthorized resource.</p></li>
+<li><p>Ivanti nZTA does not control access to internet websites. Ivanti recommends leveraging another vendor’s tool to perform this function.</p></li>
+</ul>
+</li>
+<li><p>Enterprise can detect malicious behavior on enterprise endpoints and BYOD but not on unmanaged endpoints.</p>
+<ul>
+<li><p>Ivanti Secure Access clients perform compliance checks upon initial login and deny access to resources if compliance fails. Any change to the endpoint is evaluated by the Secure Access client.</p></li>
+</ul>
+</li>
+<li><p>Enterprise can deny access to resources when users are accessing from suspicious endpoints.</p>
+<ul>
+<li><p>Ivanti nZTA does not allow any traffic past the nZTA Gateway if there is no policy to allow that specific access from the user. Logs of these attempts are provided to the SIEM. Note: The SIEM can trigger a security event, which Ivanti can consume to further restrict that user’s access by deeming the user riskier.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case G: Service-Service Interactions</strong> - Service-to-Service use cases are not included in this build. Ivanti does not have this capability. Integration with other vendors is necessary.</p>
+<p><strong>Use Case H: Data-Level Security</strong> - Data-level security capabilities are not included in this build. Ivanti does not have this capability. Integration with other vendors is necessary.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="UseCaseH.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Use Case H: Data Level Security Scenarios</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="results/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Functional Demonstration Results</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eig-crawl-phase-summary-demonstration-results">EIG Crawl Phase Summary Demonstration Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-1-build-1-e1b1-eig-crawl-okta-identity-cloud-and-ivanti-access-zso-as-pes-summary-demonstration-results">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-2-build-1-e2b1-eig-crawl-ping-identity-ping-federate-as-pe-summary-demonstration-results">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-3-build-1-e3b1-eig-crawl-azure-ad-conditional-access-later-renamed-entra-conditional-access-as-pe-summary-demonstration-results">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>) as PE Summary Demonstration Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eig-run-phase-summary-demonstration-results">EIG Run Phase Summary Demonstration Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-1-build-2-e1b2-eig-run-zscaler-zpa-central-authority-ca-as-pe-summary-demonstration-results">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-3-build-2-e3b2-eig-run-microsoft-azure-ad-conditional-access-later-renamed-entra-conditional-access-microsoft-intune-forescout-eyecontrol-and-forescout-eyeextend-as-pes-summary-demonstration-results">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-4-build-3-e4b3-eig-run-ibm-security-verify-as-pe-summary-demonstration-results">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Summary Demonstration Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sdp-microsegmentation-and-sase-phase-summary-demonstration-results">SDP, Microsegmentation, and SASE Phase Summary Demonstration Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-1-build-3-e1b3-sdp-zscaler-zpa-ca-as-pe-summary-demonstration-results">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-2-build-3-e2b3-microsegmentation-cisco-ise-cisco-secure-workload-and-ping-identity-ping-federate-as-pes-summary-demonstration-results">Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-3-build-3-e3b3-sdp-and-microsegmentation-microsoft-azure-ad-conditional-access-later-renamed-entra-conditional-access-microsoft-intune-microsoft-sentinel-forescout-eyecontrol-and-forescout-eyeextend-as-pes-summary-demonstration-results">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-1-build-4-e1b4-sdp-appgate-sdp-controller-as-pe-summary-demonstration-results">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-2-build-4-e2b4-sdp-and-sase-symantec-cloud-secure-web-gateway-symantec-ztna-and-symantec-cloud-access-security-broker-as-pes-summary-demonstration-results">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-3-build-4-e3b4-sdp-f5-big-ip-f5-nginx-plus-forescout-eyecontrol-and-forescout-eyeextend-as-pes-summary-demonstration-results">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-4-build-4-e4b4-sdp-microsegmentation-and-eig-vmware-workspace-one-access-vmware-unified-access-gateway-and-vmware-nsx-t-as-pes-summary-demonstration-results">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-1-build-5-e1b5-sase-and-microsegmentation-pan-ngfw-and-pan-prisma-access-as-pes-summary-demonstration-results">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-2-build-5-e2b5-sdp-and-sase-lookout-sse-and-okta-identity-cloud-as-pes-summary-demonstration-results">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-3-build-5-e3b5-sdp-and-sase-microsoft-entra-conditional-access-formerly-called-azure-ad-conditional-access-and-microsoft-security-service-edge-as-pes-summary-demonstration-results">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-1-build-6-e1b6-sdp-and-microsegmentation-ivanti-neurons-for-zero-trust-access-as-pes-summary-demonstration-results">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Summary Demonstration Results</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<p>
+  
+    By NIST<br/>
+  
+</p>
+
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> Certain commercial equipment, instruments, or
+          materials are identified in this documentation to foster understanding. Such
+          identification does not imply recommendation or endorsement by the National
+          Institute of Standards and Technology, nor does it imply that the materials
+          or equipment identified are necessarily the best available for the purpose.
+        </div>
+      </p>
+    </div>
+</footer>
+  </body>
+</html>

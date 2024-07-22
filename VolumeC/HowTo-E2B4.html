@@ -1,0 +1,823 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Product Guides &#8212; Implementing a Zero Trust Architecture Project  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/content.css?v=59cd0ab0" />
+    <link rel="stylesheet" type="text/css" href="../_static/breadcrumbs.css?v=ddd885d8" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeC/HowTo-E2B4';</script>
+    <script src="../_static/jquery.visible.js?v=5b129ffc"></script>
+    <script src="../_static/jquery.leaveNotice-nist.js?v=7cf1efa2"></script>
+    <script src="../_static/applyLeaveNotice.js?v=38741b1c"></script>
+    <script src="../_static/smoothNavScroll.js?v=2ce98a12"></script>
+    <link rel="icon" href="../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides" href="HowTo-E3B4.html" />
+    <link rel="prev" title="Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE Product Guides" href="HowTo-E1B4.html" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
+    <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+    <link rel="stylesheet" type="text/css" href="https://pages.nist.gov/leaveNotice/css/jquery.leaveNotice.css" />
+    <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJSMY46M5C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RJSMY46M5C');
+    </script>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="width: max-content;">
+    <ul class="wy-breadcrumbs">
+        <li style="list-style: none;"><a href="../index.html" aria-label="Home"><i class="fa fa-home"></i></a></li>
+            <li class="breadcrumb-item">&ensp;<a href="index.html">Build Implementation Instructions</a></li>
+        <li class="breadcrumb-item active">&ensp;Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Product Guides</li>
+    </ul>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Implementing a Zero Trust Architecture Project  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture" title="Main Project Page" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/MainProjectLogo.jpg" class="icon-link-image" alt="Main Project Page"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Implementing a Zero Trust Architecture
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ExecutiveSummary.html">Executive Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/Introduction.html">Introduction to the Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ProjectOverview.html">Project Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeB/architecture.html">Architecture and Builds</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeB/BuildsImplemented.html">Builds Implemented</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../VolumeB/appendices/index.html">Build Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B3.html">Enterprise 2 Build 3 (E2B3) — Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Build Implementation Instructions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B3.html">Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE Product Guides</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardening.html">Hardening Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/GeneralFindings.html">General Findings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeD/index.html">Functional Demonstrations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/FunctionalLabDemonstration.html">Demonstration Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseA.html">Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseB.html">Use Case B: Enterprise-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseC.html">Use Case C: Collaboration: Federated-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseD.html">Use Case D: Other-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseE.html">Use Case E: Guest: No-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseF.html">Use Case F: Confidence Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseG.html">Use Case G: Service-Service Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseH.html">Use Case H: Data Level Security Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/FunctionalDemonstrationResultSummaries.html">Functional Demonstration Result Summaries</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../VolumeD/results/index.html">Functional Demonstration Results</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/EIGCrawlResults.html">EIG Crawl Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/EIGRunResults.html">EIG Run Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/SDPMicroResults.html">SDP, Microsegmentation, and SASE Phase Demonstration Results</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeE/index.html">Risk and Compliance Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/RisksAddressed.html">Risks Addressed by the ZTA Reference Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/ArchitectureSecurityMappings.html">ZTA Security Mapping Context and Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/Mappings.html">Mappings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acronyms.html">Acronyms</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/VolumeC/HowTo-E2B4.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Product Guides</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-ztna">Symantec ZTNA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-and-configuration">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-okta-identity-cloud">Integration with Okta Identity Cloud</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-symantec-dlp">Integration with Symantec DLP</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-symantec-endpoint-security">Integration with Symantec Endpoint Security</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-symantec-cloud-secure-web-gateway-cloud-swg">Integration with Symantec Cloud Secure Web Gateway (Cloud SWG)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-ztna-connector">Symantec ZTNA Connector</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-cloud-secure-web-gateway-cloud-swg">Symantec Cloud Secure Web Gateway (Cloud SWG)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integrations">Integrations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-cloud-access-security-broker-casb">Symantec Cloud Access Security Broker (CASB)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-spanva">Integration with SpanVA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-endpoint-security">Symantec Endpoint Security</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-endpoint-security-agent">Symantec Endpoint Security Agent</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-dlp-cloud-detection-service">Symantec DLP Cloud Detection Service</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Installation and Configuration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#okta-identity-cloud">Okta Identity Cloud</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#okta-verify-app">Okta Verify App</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiant-logic-radiantone">Radiant Logic RadiantOne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Integrations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sailpoint-identityiq">SailPoint IdentityIQ</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-radiant-logic">Integration with Radiant Logic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-ad">Integration with AD</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-workspace-one">VMware Workspace ONE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-security-qradar-xdr">IBM Security QRadar XDR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-io">Tenable.io</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-ad">Tenable.ad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-nnm">Tenable NNM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mandiant-security-validation-msv">Mandiant Security Validation (MSV)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-cloud">Google Cloud</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digicert-certcentral">DigiCert CertCentral</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="enterprise-2-build-4-e2b4-sdp-and-sase-symantec-cloud-secure-web-gateway-symantec-ztna-and-symantec-cloud-access-security-broker-as-pes-product-guides">
+<h1>Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Product Guides<a class="headerlink" href="#enterprise-2-build-4-e2b4-sdp-and-sase-symantec-cloud-secure-web-gateway-symantec-ztna-and-symantec-cloud-access-security-broker-as-pes-product-guides" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is supplementary material for the <a class="reference external" href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf">NIST SP 1800-35 publication</a>.</p>
+</div>
+<p>This section of the practice guide contains detailed instructions for installing, configuring, and integrating all of the products used to implement E2B4. For additional details on E2B4’s logical and physical architectures, please refer to <a class="reference internal" href="../VolumeB/architecture.html#architecture-and-builds"><span class="std std-ref">Architecture and Builds</span></a>.</p>
+<section id="symantec-ztna">
+<h2>Symantec ZTNA<a class="headerlink" href="#symantec-ztna" title="Link to this heading">#</a></h2>
+<p>Symantec ZTNA is a cloud-based service that allows this build to control network access within the enterprise and to control access to enterprise applications and resources.</p>
+<section id="installation-and-configuration">
+<h3>Installation and Configuration<a class="headerlink" href="#installation-and-configuration" title="Link to this heading">#</a></h3>
+<p>This build’s instance of the Symantec Cloud SWG was provisioned and deployed with the help of the Symantec team. The initial configuration process is detailed in the <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/web-and-network-security/secure-access-cloud/1-0/sac-workflow.html">official documentation</a>. Symantec ZTNA was also integrated with many of the other build components, for which details can be found later in this section. Following that, policies were configured in accordance with the <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/web-and-network-security/secure-access-cloud/1-0/sac-policies.html">official Symantec ZTNA policy guidance</a>.</p>
+</section>
+<section id="integration-with-okta-identity-cloud">
+<h3>Integration with Okta Identity Cloud<a class="headerlink" href="#integration-with-okta-identity-cloud" title="Link to this heading">#</a></h3>
+<p>Integration with Okta Identity Cloud was accomplished using <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/web-and-network-security/secure-access-cloud/1-0/Integrate-Identity-Providers/Integrate-Okta-IdP.html">Symantec by Broadcom’s official documentation</a>.</p>
+</section>
+<section id="integration-with-symantec-dlp">
+<h3>Integration with Symantec DLP<a class="headerlink" href="#integration-with-symantec-dlp" title="Link to this heading">#</a></h3>
+<p>Integration with Symantec DLP was accomplished using <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/web-and-network-security/secure-access-cloud/1-0/sac-policies/Integrate-Symantec-DLP/sac-int-with-dlp.html">Symantec by Broadcom’s official documentation</a>.</p>
+</section>
+<section id="integration-with-symantec-endpoint-security">
+<h3>Integration with Symantec Endpoint Security<a class="headerlink" href="#integration-with-symantec-endpoint-security" title="Link to this heading">#</a></h3>
+<p>Integration with Symantec Endpoint Security was accomplished using <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/web-and-network-security/secure-access-cloud/1-0/sac-policies/Device-Compliance/device-comp-requirements.html">Symantec by Broadcom’s official documentation</a>.</p>
+</section>
+<section id="integration-with-symantec-cloud-secure-web-gateway-cloud-swg">
+<h3>Integration with Symantec Cloud Secure Web Gateway (Cloud SWG)<a class="headerlink" href="#integration-with-symantec-cloud-secure-web-gateway-cloud-swg" title="Link to this heading">#</a></h3>
+<p>Integration with the Symantec Cloud SWG was accomplished using guidance provided in the Symantec ZTNA web interface. Integrating these components depends on linking them together via subscription ID.</p>
+</section>
+<section id="symantec-ztna-connector">
+<h3>Symantec ZTNA Connector<a class="headerlink" href="#symantec-ztna-connector" title="Link to this heading">#</a></h3>
+<p>The Symantec ZTNA Connector provides a secure connection between the cloud-based Symantec ZTNA service and applications and resources that are being protected. The protected applications and resources can be hosted on-prem or in the cloud and can be private or public-facing. Deployment instructions can be found in the Symantec ZTNA web interface.</p>
+</section>
+</section>
+<section id="symantec-cloud-secure-web-gateway-cloud-swg">
+<h2>Symantec Cloud Secure Web Gateway (Cloud SWG)<a class="headerlink" href="#symantec-cloud-secure-web-gateway-cloud-swg" title="Link to this heading">#</a></h2>
+<p>The Symantec Cloud SWG is a cloud-based service that can apply policy to user traffic. User endpoints with the Symantec Endpoint Security agent are configured to pass network traffic through the Cloud SWG, allowing policy to be applied and enforced.</p>
+<section id="id1">
+<h3>Installation and Configuration<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>This build’s instance of the Symantec Cloud SWG was provisioned and deployed with the help of the Symantec by Broadcom team. Once deployment was complete, policies were configured in accordance with the <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/web-and-network-security/cloud-swg/help/policy-matrix.html">official Cloud SWG Policy guidance</a>.</p>
+</section>
+<section id="integrations">
+<h3>Integrations<a class="headerlink" href="#integrations" title="Link to this heading">#</a></h3>
+<p>The Symantec Cloud SWG was also integrated with the Symantec Cloud Security Access Broker (CASB) and the Symantec DLP Cloud Detection Service to better enable policy enforcement in those areas. These integrations were accomplished using the <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/web-and-network-security/cloud-swg/help/about_webapps_co/about-casb.html">official integration documentation for the Symantec CASB</a> and the <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/web-and-network-security/cloud-swg/help/symdlp_co/symdlp_int.html">official integration documentation for Symantec DLP</a>. The Cloud SWG was also integrated with Symantec Endpoint Security to allow endpoint traffic to flow through the Cloud SWG, using the <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Protection/Secure-Connection/configuring-symantec-web-security-service-integrat-v131901403-d4152e1396.html">official integration documentation</a>.</p>
+</section>
+</section>
+<section id="symantec-cloud-access-security-broker-casb">
+<h2>Symantec Cloud Access Security Broker (CASB)<a class="headerlink" href="#symantec-cloud-access-security-broker-casb" title="Link to this heading">#</a></h2>
+<p>The Symantec Cloud Access Security Broker (CASB) (also known as CloudSOC) integrates with the Symantec Cloud SWG, Symantec DLP, and Symantec ZTNA to control access to cloud-based applications and resources.</p>
+<section id="id2">
+<h3>Installation and Configuration<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>This build’s instance of the Symantec CASB was provisioned and deployed with the help of the Symantec team. Further configuration was accomplished using the <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/symantec-cloudsoc/cloud.html">official Symantec documentation</a>.</p>
+</section>
+<section id="integration-with-spanva">
+<h3>Integration with SpanVA<a class="headerlink" href="#integration-with-spanva" title="Link to this heading">#</a></h3>
+<p>SpanVA is an on-prem component of the Symantec CASB that was deployed and integrated with this build’s AD instance. This allowed the CASB to correlate user identities and events. Deployment and integration was accomplished using the <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/symantec-cloudsoc/cloud/spanva-home.html">official SpanVA documentation</a>.</p>
+</section>
+</section>
+<section id="symantec-endpoint-security">
+<h2>Symantec Endpoint Security<a class="headerlink" href="#symantec-endpoint-security" title="Link to this heading">#</a></h2>
+<p>Symantec Endpoint Security provides a wide range of endpoint protection capabilities. It functions with a cloud-based management console on the backend and applies policies to endpoints through a software agent deployed to the device.</p>
+<section id="id3">
+<h3>Installation and Configuration<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>This build’s instance of Symantec Endpoint Security was provisioned and deployed with the help of the Symantec by Broadcom team. Once deployed, policies were configured using <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Policies-and-Policy-Groups.html">Symantec’s official documentation</a>, and software agents were deployed to endpoints throughout the enterprise.</p>
+</section>
+<section id="symantec-endpoint-security-agent">
+<h3>Symantec Endpoint Security Agent<a class="headerlink" href="#symantec-endpoint-security-agent" title="Link to this heading">#</a></h3>
+<p>A software agent was deployed onto Windows, macOS, Linux, iOS, and Android endpoints within the build. This software agent provided a range of endpoint protection capabilities, including device health and posture management, and tunneling the endpoint’s network traffic to the Symantec Cloud SWG.</p>
+</section>
+</section>
+<section id="symantec-dlp-cloud-detection-service">
+<h2>Symantec DLP Cloud Detection Service<a class="headerlink" href="#symantec-dlp-cloud-detection-service" title="Link to this heading">#</a></h2>
+<p>The Symantec DLP Cloud Detection Service provided data loss prevention capabilities for this build. This deployment is primarily a cloud-based service that integrates with Symantec ZTNA, Symantec Cloud SWG, and Symantec Endpoint Security. An on-prem Symantec DLP Management Server was deployed in the build’s on-prem environment for granular policy configuration.</p>
+<section id="id4">
+<h3>Installation and Configuration<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>This build’s instance of the Symantec DLP Cloud Detection Service was provisioned and deployed with the help of the Symantec by Broadcom team. Next, the Symantec DLP Management Server was deployed in the enterprise on-prem environment, using <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0/Install-DLP.html">Symantec’s official documentation</a>. Once deployed, policies were configured through the Symantec DLP Management Server, using <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0/about-data-loss-prevention-policies-v27576413-d327e9.html">Symantec’s official documentation</a>.</p>
+</section>
+</section>
+<section id="okta-identity-cloud">
+<h2>Okta Identity Cloud<a class="headerlink" href="#okta-identity-cloud" title="Link to this heading">#</a></h2>
+<p>The Okta Identity Cloud was implemented in the same manner as Enterprise 1. No significant changes were made. Refer to <a class="reference internal" href="HowTo-E1B1.html#id1"><span class="std std-ref">Okta Identity Cloud</span></a>.</p>
+</section>
+<section id="okta-verify-app">
+<h2>Okta Verify App<a class="headerlink" href="#okta-verify-app" title="Link to this heading">#</a></h2>
+<p>The Okta Verify App was implemented in the same manner as Enterprise 1. No significant changes were made. Refer to <a class="reference internal" href="HowTo-E1B1.html#id2"><span class="std std-ref">Okta Verify App</span></a>.</p>
+</section>
+<section id="radiant-logic-radiantone">
+<h2>Radiant Logic RadiantOne<a class="headerlink" href="#radiant-logic-radiantone" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h3>Installation and Configuration<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>Refer to <a class="reference internal" href="HowTo-E1B1.html#radiant-install"><span class="std std-ref">Radiant Logic RadiantOne Installation and Configuration</span></a>.</p>
+</section>
+<section id="id6">
+<h3>Integrations<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>Refer to <a class="reference internal" href="HowTo-E1B1.html#radiant-integration"><span class="std std-ref">Radiant Logic RadiantOne Integration</span></a> for integration of Radiant Logic with SailPoint.</p>
+</section>
+</section>
+<section id="sailpoint-identityiq">
+<h2>SailPoint IdentityIQ<a class="headerlink" href="#sailpoint-identityiq" title="Link to this heading">#</a></h2>
+<section id="id7">
+<h3>Installation and Configuration<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>Refer to <a class="reference internal" href="HowTo-E1B1.html#sailpoint-install"><span class="std std-ref">SailPoint IdentityIQ Installation and Configuration</span></a>.</p>
+</section>
+<section id="integration-with-radiant-logic">
+<h3>Integration with Radiant Logic<a class="headerlink" href="#integration-with-radiant-logic" title="Link to this heading">#</a></h3>
+<p>Refer to <a class="reference internal" href="HowTo-E1B1.html#sailpoint-integration-radiant"><span class="std std-ref">SailPoint IdentityIQ Integration with Radiant Logic</span></a>.</p>
+</section>
+<section id="integration-with-ad">
+<h3>Integration with AD<a class="headerlink" href="#integration-with-ad" title="Link to this heading">#</a></h3>
+<p>Refer to <a class="reference internal" href="HowTo-E1B1.html#sailpoint-integration-ad"><span class="std std-ref">SailPoint IdentityIQ Integration with AD</span></a>.</p>
+</section>
+</section>
+<section id="vmware-workspace-one">
+<h2>VMware Workspace ONE<a class="headerlink" href="#vmware-workspace-one" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E2B3.html#id3"><span class="std std-ref">VMware Workspace ONE</span></a>.</p>
+</section>
+<section id="ibm-security-qradar-xdr">
+<h2>IBM Security QRadar XDR<a class="headerlink" href="#ibm-security-qradar-xdr" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#ibm-qradar"><span class="std std-ref">IBM Security QRadar XDR</span></a>.</p>
+</section>
+<section id="tenable-io">
+<h2>Tenable.io<a class="headerlink" href="#tenable-io" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id8"><span class="std std-ref">Tenable.io</span></a>.</p>
+</section>
+<section id="tenable-ad">
+<h2>Tenable.ad<a class="headerlink" href="#tenable-ad" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id11"><span class="std std-ref">Tenable.ad</span></a>.</p>
+</section>
+<section id="tenable-nnm">
+<h2>Tenable NNM<a class="headerlink" href="#tenable-nnm" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id12"><span class="std std-ref">Tenable NNM</span></a>.</p>
+</section>
+<section id="mandiant-security-validation-msv">
+<h2>Mandiant Security Validation (MSV)<a class="headerlink" href="#mandiant-security-validation-msv" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#mandiant-msv"><span class="std std-ref">Mandiant Security Validation (MSV)</span></a>.</p>
+</section>
+<section id="google-cloud">
+<h2>Google Cloud<a class="headerlink" href="#google-cloud" title="Link to this heading">#</a></h2>
+<p id="id8">The Google Cloud Platform is a cloud computing platform provided that includes a mixture of IaaS, PaaS, and SaaS offerings. This build utilized Google Cloud IaaS resources to serve as a public/private cloud host. This section describes the Google Cloud components that were utilized in this build.</p>
+<ol class="arabic simple">
+<li><p>A Virtual Private Cloud (VPC) network was created within the Google Cloud console, and subnets were configured. Step-by-step instructions can be found in <a class="reference external" href="https://cloud.google.com/vpc/docs/create-modify-vpc-networks">Google’s official documentation</a>.</p></li>
+<li><p>VPC firewall rules were configured to secure the environment. Step-by-step instructions can be found in <a class="reference external" href="https://cloud.google.com/firewall/docs/firewalls">Google’s official documentation</a>.</p></li>
+<li><p>VMs to host resources were created using <a class="reference external" href="https://cloud.google.com/compute/docs/instances/create-start-instance">Google’s official documentation</a>. For this build, Google Cloud hosted MSV Agents, a Symantec ZTNA Connector, and GitLab servers that served as applications/resources for demonstrations.</p></li>
+<li><p>A Google Cloud VPN was configured to connect components of the on-prem environment. This was set up using <a class="reference external" href="https://cloud.google.com/network-connectivity/docs/vpn/concepts/overview">Google’s official documentation</a>.</p></li>
+</ol>
+<p>For details on the logical architecture of the Google Cloud environment, please refer to <a class="reference internal" href="../VolumeB/architecture.html#iaas-google"><span class="std std-ref">IaaS - Google</span></a>.</p>
+</section>
+<section id="digicert-certcentral">
+<h2>DigiCert CertCentral<a class="headerlink" href="#digicert-certcentral" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id13"><span class="std std-ref">DigiCert CertCentral</span></a>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="HowTo-E1B4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE Product Guides</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="HowTo-E3B4.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-ztna">Symantec ZTNA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-and-configuration">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-okta-identity-cloud">Integration with Okta Identity Cloud</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-symantec-dlp">Integration with Symantec DLP</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-symantec-endpoint-security">Integration with Symantec Endpoint Security</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-symantec-cloud-secure-web-gateway-cloud-swg">Integration with Symantec Cloud Secure Web Gateway (Cloud SWG)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-ztna-connector">Symantec ZTNA Connector</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-cloud-secure-web-gateway-cloud-swg">Symantec Cloud Secure Web Gateway (Cloud SWG)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integrations">Integrations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-cloud-access-security-broker-casb">Symantec Cloud Access Security Broker (CASB)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-spanva">Integration with SpanVA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-endpoint-security">Symantec Endpoint Security</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-endpoint-security-agent">Symantec Endpoint Security Agent</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-dlp-cloud-detection-service">Symantec DLP Cloud Detection Service</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Installation and Configuration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#okta-identity-cloud">Okta Identity Cloud</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#okta-verify-app">Okta Verify App</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiant-logic-radiantone">Radiant Logic RadiantOne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Integrations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sailpoint-identityiq">SailPoint IdentityIQ</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Installation and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-radiant-logic">Integration with Radiant Logic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-ad">Integration with AD</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-workspace-one">VMware Workspace ONE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-security-qradar-xdr">IBM Security QRadar XDR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-io">Tenable.io</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-ad">Tenable.ad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-nnm">Tenable NNM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mandiant-security-validation-msv">Mandiant Security Validation (MSV)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-cloud">Google Cloud</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digicert-certcentral">DigiCert CertCentral</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<p>
+  
+    By NIST<br/>
+  
+</p>
+
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> Certain commercial equipment, instruments, or
+          materials are identified in this documentation to foster understanding. Such
+          identification does not imply recommendation or endorsement by the National
+          Institute of Standards and Technology, nor does it imply that the materials
+          or equipment identified are necessarily the best available for the purpose.
+        </div>
+      </p>
+    </div>
+</footer>
+  </body>
+</html>

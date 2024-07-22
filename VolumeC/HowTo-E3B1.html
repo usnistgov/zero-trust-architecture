@@ -1,0 +1,977 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides &#8212; Implementing a Zero Trust Architecture Project  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/content.css?v=59cd0ab0" />
+    <link rel="stylesheet" type="text/css" href="../_static/breadcrumbs.css?v=ddd885d8" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeC/HowTo-E3B1';</script>
+    <script src="../_static/jquery.visible.js?v=5b129ffc"></script>
+    <script src="../_static/jquery.leaveNotice-nist.js?v=7cf1efa2"></script>
+    <script src="../_static/applyLeaveNotice.js?v=38741b1c"></script>
+    <script src="../_static/smoothNavScroll.js?v=2ce98a12"></script>
+    <link rel="icon" href="../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Product Guides" href="HowTo-E1B2.html" />
+    <link rel="prev" title="Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides" href="HowTo-E2B1.html" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
+    <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+    <link rel="stylesheet" type="text/css" href="https://pages.nist.gov/leaveNotice/css/jquery.leaveNotice.css" />
+    <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJSMY46M5C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RJSMY46M5C');
+    </script>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="width: max-content;">
+    <ul class="wy-breadcrumbs">
+        <li style="list-style: none;"><a href="../index.html" aria-label="Home"><i class="fa fa-home"></i></a></li>
+            <li class="breadcrumb-item">&ensp;<a href="index.html">Build Implementation Instructions</a></li>
+        <li class="breadcrumb-item active">&ensp;Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides</li>
+    </ul>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Implementing a Zero Trust Architecture Project  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture" title="Main Project Page" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/MainProjectLogo.jpg" class="icon-link-image" alt="Main Project Page"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Implementing a Zero Trust Architecture
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ExecutiveSummary.html">Executive Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/Introduction.html">Introduction to the Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ProjectOverview.html">Project Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeB/architecture.html">Architecture and Builds</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeB/BuildsImplemented.html">Builds Implemented</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../VolumeB/appendices/index.html">Build Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B3.html">Enterprise 2 Build 3 (E2B3) — Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Build Implementation Instructions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B3.html">Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardening.html">Hardening Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/GeneralFindings.html">General Findings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeD/index.html">Functional Demonstrations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/FunctionalLabDemonstration.html">Demonstration Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseA.html">Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseB.html">Use Case B: Enterprise-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseC.html">Use Case C: Collaboration: Federated-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseD.html">Use Case D: Other-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseE.html">Use Case E: Guest: No-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseF.html">Use Case F: Confidence Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseG.html">Use Case G: Service-Service Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseH.html">Use Case H: Data Level Security Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/FunctionalDemonstrationResultSummaries.html">Functional Demonstration Result Summaries</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../VolumeD/results/index.html">Functional Demonstration Results</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/EIGCrawlResults.html">EIG Crawl Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/EIGRunResults.html">EIG Run Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/SDPMicroResults.html">SDP, Microsegmentation, and SASE Phase Demonstration Results</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeE/index.html">Risk and Compliance Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/RisksAddressed.html">Risks Addressed by the ZTA Reference Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/ArchitectureSecurityMappings.html">ZTA Security Mapping Context and Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/Mappings.html">Mappings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acronyms.html">Acronyms</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/VolumeC/HowTo-E3B1.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-azure-active-directory-ad">Microsoft Azure Active Directory (AD)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-endpoint-manager">Microsoft Endpoint Manager</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-and-integration">Configuration and Integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-and-verify-a-custom-domain">Add and verify a custom domain</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-users">Add users</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#enroll-devices-in-microsoft-intune">Enroll devices in Microsoft Intune</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-conditional-access-rules">Configure conditional access rules</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-applications">Manage applications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-defender-for-endpoint">Microsoft Defender for Endpoint</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Configuration and Integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-microsoft-defender-for-endpoint">Enable Microsoft Defender for Endpoint</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-endpoint-detection-and-response-policy-windows-10-and-later">Create Endpoint Detection and Response policy (Windows 10 and later)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-antivirus-policy">Create an antivirus policy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-defender-compliance-policy">Create Defender compliance policy</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-defender-antivirus">Microsoft Defender Antivirus</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-sentinel">Microsoft Sentinel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-365">Microsoft 365</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f5-big-ip">F5 BIG-IP</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-configuration-and-integration">Installation, Configuration, and Integration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lookout-mobile-endpoint-security-mes">Lookout Mobile Endpoint Security (MES)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Configuration and Integration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-mtd-device-compliance-policy-with-intune">Create MTD Device Compliance Policy with Intune</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pc-matic-pro">PC Matic Pro</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-io">Tenable.io</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-microsoft-sentinel">Integration with Microsoft Sentinel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-ad">Tenable.ad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-nnm">Tenable NNM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mandiant-security-validation-msv">Mandiant Security Validation (MSV)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forescout-eyesight">Forescout eyeSight</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-ad">Integration with AD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-cisco-switch">Integration with Cisco Switch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-cisco-wireless-controller">Integration with Cisco Wireless Controller</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Integration with Microsoft Sentinel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-palo-alto-networks-ngfw">Integration with Palo Alto Networks NGFW</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-tenable-io">Integration with Tenable.io</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#palo-alto-networks-next-generation-firewall">Palo Alto Networks Next Generation Firewall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digicert-certcentral">DigiCert CertCentral</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="enterprise-3-build-1-e3b1-eig-crawl-azure-ad-conditional-access-later-renamed-entra-conditional-access-as-pe-product-guides">
+<h1>Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides<a class="headerlink" href="#enterprise-3-build-1-e3b1-eig-crawl-azure-ad-conditional-access-later-renamed-entra-conditional-access-as-pe-product-guides" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is supplementary material for the <a class="reference external" href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf">NIST SP 1800-35 publication</a>.</p>
+</div>
+<p>This section of the practice guide contains detailed instructions for installing, configuring, and integrating all of the products used to implement E3B1. For additional details on E3B1’s logical and physical architectures, please refer to <a class="reference internal" href="../VolumeB/appendices/Appendix-E3B1.html#enterprise-3-build-1-e3b1-eig-crawl-azure-ad-conditional-access-later-renamed-entra-conditional-access-as-pe"><span class="std std-ref">Enterprise 3 Build 1 (E3B1)</span></a>.</p>
+<section id="microsoft-azure-active-directory-ad">
+<h2>Microsoft Azure Active Directory (AD)<a class="headerlink" href="#microsoft-azure-active-directory-ad" title="Link to this heading">#</a></h2>
+<p id="microsoftazuread">Azure AD is a SaaS identity and access management platform. No installation steps are required. You will need to create your organization’s instance of Azure AD and configure it to allow your users access to applications that use it for authentication and authorization.</p>
+<ol class="arabic simple">
+<li><p>After logging in to portal.azure.com, <a class="reference external" href="https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-access-create-new-tenant">create an Azure AD Tenant</a>.</p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-install-express">Create a connection between your on-premises AD and Azure AD</a> to replicate user, group, and authentication information from your AD to Azure AD.</p></li>
+<li><p>Configure the Azure AD Tenant to enable Single Sign-On Password Reset (SSPR). This gives users the ability to reset their passwords from <a class="reference external" href="https://aka.ms/sspr">https://aka.ms/sspr</a> or from within their profile in Azure AD. This will be effective for both their AD and Azure AD accounts.</p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/azure/active-directory/authentication/tutorial-enable-sspr-writeback">Configure password writeback</a>, which enables password changes in Azure AD to be replicated back to the on-premises AD.</p></li>
+<li><p>The conditional access feature in Azure AD specifies conditions under which a user would be given access to a resource or application that uses Azure AD for authentication. MFA was configured as a requirement for access to all applications. <a class="reference external" href="https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa">Configure MFA for all users.</a></p></li>
+<li><p>Access to resources based on device compliance was implemented as an essential feature in this solution. Access would only be granted to a user if the client device is compliant. Compliance is reported to Azure AD by Microsoft Endpoint Manager. <a class="reference external" href="https://docs.microsoft.com/en-us/mem/intune/protect/create-conditional-access-intune">Enable this feature, Conditional Access Device Compliance.</a></p></li>
+<li><p>Configure an enterprise application, GitLab, to use Azure AD for authentication:</p>
+<ol class="loweralpha simple">
+<li><p>GitLab was configured to directly authenticate to Azure AD using the SAML protocol. <a class="reference external" href="https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app">GitLab must first be registered in Azure AD</a> before Azure AD can be configured as the application’s IdP.</p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-setup-sso">Configure Azure AD as a SAML IdP for the GitLab application.</a> Once that is implemented, access attempts to the target application will be redirected to Azure AD for authentication and authorization.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="microsoft-endpoint-manager">
+<h2>Microsoft Endpoint Manager<a class="headerlink" href="#microsoft-endpoint-manager" title="Link to this heading">#</a></h2>
+<p id="microsoftendpoint">Microsoft Endpoint Manager is a cloud-based service that focuses on mobile device management (MDM) and mobile application management (MAM).</p>
+<section id="configuration-and-integration">
+<h3>Configuration and Integration<a class="headerlink" href="#configuration-and-integration" title="Link to this heading">#</a></h3>
+<section id="add-and-verify-a-custom-domain">
+<h4>Add and verify a custom domain<a class="headerlink" href="#add-and-verify-a-custom-domain" title="Link to this heading">#</a></h4>
+<p>To connect an organization’s domain name with Intune, a DNS registration needs to be configured. This gives users a familiar domain when connecting to Intune and using resources. Use the information found at the hyperlink to <a class="reference external" href="https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain">create a custom domain</a>.</p>
+</section>
+<section id="add-users">
+<h4>Add users<a class="headerlink" href="#add-users" title="Link to this heading">#</a></h4>
+<p>Use the information at the hyperlink to <a class="reference external" href="https://learn.microsoft.com/en-us/mem/intune/fundamentals/users-add">add users to Intune</a>.</p>
+</section>
+<section id="enroll-devices-in-microsoft-intune">
+<h4>Enroll devices in Microsoft Intune<a class="headerlink" href="#enroll-devices-in-microsoft-intune" title="Link to this heading">#</a></h4>
+<p>Enrolling devices allows them to receive configuration profiles and compliance policies. Configuration profiles configure features and settings on devices. Compliance policies help devices meet an organization’s rules.</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/mem/intune/enrollment/apple-mdm-push-certificate-get">Get an Apple MDM push certificate and add it to Endpoint Manager.</a> This certificate is required to enroll iOS/iPadOS devices. Then enroll iOS devices in Microsoft Intune.</p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/mem/intune/enrollment/ios-user-enrollment">Create an iOS enrollment profile.</a> An enrollment profile defines the settings applied to a group of devices during enrollment.</p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/mem/intune/enrollment/android-enroll">Enroll Android devices in Microsoft Intune.</a> To enable Android Enterprise, an administrative Google account needs to be connected to the Intune tenant.</p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/mem/intune/protect/create-compliance-policy">Create an iOS compliance policy in Microsoft Intune.</a> It will be evaluated before access is allowed from iOS devices.</p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/mem/intune/protect/create-compliance-policy">Create an Android compliance policy in Microsoft Intune.</a> It will be evaluated before access is allowed from Android devices.</p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/mem/intune/configuration/device-features-configure#create-the-profile">Create an iOS/macOS configuration profile</a> for iOS or Mac devices.</p></li>
+</ol>
+</section>
+<section id="configure-conditional-access-rules">
+<h4>Configure conditional access rules<a class="headerlink" href="#configure-conditional-access-rules" title="Link to this heading">#</a></h4>
+<p>Conditional access is used to control the devices and apps that can connect to company resources. Use the information in the hyperlink to <a class="reference external" href="https://learn.microsoft.com/en-us/mem/intune/protect/create-conditional-access-intune">create device-based conditional access policies</a>.</p>
+</section>
+<section id="manage-applications">
+<h4>Manage applications<a class="headerlink" href="#manage-applications" title="Link to this heading">#</a></h4>
+<p><strong>iOS/iPadOS:</strong> Use the instructions at <a class="reference external" href="https://docs.microsoft.com/en-us/mem/intune/apps/store-apps-ios">Add iOS Store Apps</a> to select apps from the iOS/iPadOS store that will be approved for installation on your managed iOS or iPadOS devices.</p>
+<p><strong>Android</strong>: For this build we added Managed Google Play apps. Managed Google Play is Google’s enterprise app store which serves as a source of applications for Android Enterprise in Intune. Use the instructions at <a class="reference external" href="https://docs.microsoft.com/en-us/mem/intune/apps/store-apps-android">Add Android Store Apps</a> to select apps that will be approved for installation and made available to your managed devices.</p>
+<p><strong>Windows</strong>: Use the information provided at <a class="reference external" href="https://learn.microsoft.com/en-us/mem/intune/apps/apps-add-office365">select approved apps</a> to choose which apps should be added to your Windows devices.</p>
+<p>There is more than one way to configure Windows apps in Intune. We configured the app using App suite information. For other ways, <a class="reference external" href="https://docs.microsoft.com/en-us/mem/intune/apps/apps-add-office365">refer to the Microsoft documentation</a>.</p>
+</section>
+</section>
+</section>
+<section id="microsoft-defender-for-endpoint">
+<h2>Microsoft Defender for Endpoint<a class="headerlink" href="#microsoft-defender-for-endpoint" title="Link to this heading">#</a></h2>
+<p id="microsoft-defender">Microsoft Defender for Endpoint provides endpoint protection, detection, and response to threats.</p>
+<section id="id1">
+<h3>Configuration and Integration<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<section id="enable-microsoft-defender-for-endpoint">
+<h4>Enable Microsoft Defender for Endpoint<a class="headerlink" href="#enable-microsoft-defender-for-endpoint" title="Link to this heading">#</a></h4>
+<p>Use the information at <a class="reference external" href="https://learn.microsoft.com/en-us/mem/intune/protect/advanced-threat-protection-configure">Configure Microsoft Defender for Endpoint in Microsoft Intune | Microsoft Learn</a> to enable Defender for Endpoint.</p>
+<ol class="arabic simple">
+<li><p>Use the information in the provided hyperlink to <a class="reference external" href="https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/onboard-configure?view=o365-worldwide">onboard devices</a>. Once devices are onboarded, threat signals and vulnerability information are automatically collected from them.</p></li>
+<li><p>You can optionally <a class="reference external" href="https://learn.microsoft.com/en-us/mem/intune/remote-actions/device-supervised-mode">enable supervised mode on iOS devices</a> using information at the hyperlink. Supervised mode gives administrators greater control over corporate-owned devices.</p></li>
+<li><p>Alerts and security incidents can be viewed and responded to by accessing the Defender for Endpoint cloud component. Use the information in the hyperlink to <a class="reference external" href="https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response?view=o365-worldwide">view and respond to discovered threats</a>.</p></li>
+</ol>
+</section>
+<section id="create-endpoint-detection-and-response-policy-windows-10-and-later">
+<h4>Create Endpoint Detection and Response policy (Windows 10 and later)<a class="headerlink" href="#create-endpoint-detection-and-response-policy-windows-10-and-later" title="Link to this heading">#</a></h4>
+<p>Endpoint detection and response (EDR) policies are used to detect advanced attacks in near real-time. Use the information in the hyperlink to <a class="reference external" href="https://learn.microsoft.com/en-us/mem/intune/protect/endpoint-security-edr-policy">create an EDR policy</a>.</p>
+</section>
+<section id="create-an-antivirus-policy">
+<h4>Create an antivirus policy<a class="headerlink" href="#create-an-antivirus-policy" title="Link to this heading">#</a></h4>
+<p>An antivirus policy defines the behavior of the antivirus software agent on the endpoint. Use the information in the hyperlinks to <a class="reference external" href="https://learn.microsoft.com/en-us/mem/intune/protect/endpoint-security-antivirus-policy">create an antivirus policy</a> and <a class="reference external" href="https://learn.microsoft.com/en-us/mem/intune/protect/antivirus-microsoft-defender-settings-windows">configure antivirus policy settings</a>.</p>
+</section>
+<section id="create-defender-compliance-policy">
+<h4>Create Defender compliance policy<a class="headerlink" href="#create-defender-compliance-policy" title="Link to this heading">#</a></h4>
+<p>Compliance policies can help protect organizational data by requiring users and devices to meet defined security requirements. Use the information in the hyperlink to <a class="reference external" href="https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/configure-conditional-access?view=o365-worldwide#step-3-create-the-compliance-policy-in-intune">create a Defender for Endpoint compliance policy</a>.</p>
+</section>
+</section>
+<section id="microsoft-defender-antivirus">
+<h3>Microsoft Defender Antivirus<a class="headerlink" href="#microsoft-defender-antivirus" title="Link to this heading">#</a></h3>
+<p>Microsoft Defender Antivirus is leveraged by Microsoft Defender by Endpoint. It is anti-malware software built into Windows client devices that detects threats and malware on client devices and quarantines infected files. Defender Antivirus is enabled by default.</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-security-center-antivirus?view=o365-worldwide#ensure-microsoft-defender-antivirus-is-enabled-in-the-windows-security-app">Check the status of real-time protection</a> to ensure it’s on.</p></li>
+<li><p><a class="reference external" href="https://support.microsoft.com/en-us/windows/stay-protected-with-windows-security-2ae0363d-0ada-c064-8b56-6a39afb6a963">Turn real-time protection on or off</a>.</p></li>
+</ol>
+</section>
+</section>
+<section id="microsoft-sentinel">
+<h2>Microsoft Sentinel<a class="headerlink" href="#microsoft-sentinel" title="Link to this heading">#</a></h2>
+<p id="id2">Microsoft Sentinel is a cloud-native SIEM and SOAR system. It can be used for security analytics, threat intelligence, attack detection, and threat response.</p>
+<p>There is no need to install Sentinel, as it is a managed service. Instead, it needs to be enabled and configured in your Azure environment. It also needs a workspace to store and correlate ingested data.</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard#enable-microsoft-sentinel-">Enable Sentinel and configure a workspace.</a></p></li>
+<li><p>Use the general instructions found at <a class="reference external" href="https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard#connect-data-sources">Connector to Data Sources</a> to enable log forwarding to Sentinel from various devices, systems, and services. Each data source will have to be connected independently from other data sources, so you must perform this step once per data source. In this build, Azure AD, Endpoint Manager, Defender for Endpoint, Microsoft 365, and Tenable.io were configured to send logs using this method.</p></li>
+<li><p>The Log Analytics Agent is a log forwarder that accepts syslog and Common Event Format (CEF) formatted logs and then forwards the logs to Sentinel. If you have a product or device without a native Sentinel integration, <a class="reference external" href="https://docs.microsoft.com/en-us/azure/sentinel/connect-log-forwarder?tabs=rsyslog">install and configure the Log Analytics Agent on a virtual machine.</a> Once completed, the log forwarder will be able to receive syslog data on UDP port 514. Then configure the product or device that will be the data source to send logs via syslog to the log forwarder using the product’s instructions.</p></li>
+</ol>
+</section>
+<section id="microsoft-365">
+<h2>Microsoft 365<a class="headerlink" href="#microsoft-365" title="Link to this heading">#</a></h2>
+<p id="id3">Microsoft 365 is a suite of SaaS-based productivity applications used for a variety of activities such as word processing, accounting, creating presentations, email, and others. Microsoft 365 was enabled in the environment and was used as a set of protected target applications. Use the information at <a class="reference external" href="https://support.microsoft.com/en-us/office/activate-office-5bd38f38-db92-448b-a982-ad170b1e187e#bkmk_hup">Activate Microsoft 365</a> to activate your Microsoft 365 subscription.</p>
+<p>Use the <a class="reference external" href="https://www.office.com/">Microsoft 365 Sign-in</a> link to log on to Microsoft 365. Use your email address and password. You will be required to authenticate using multi-factor authentication.</p>
+<p>Once authentication is complete, you will see the various Microsoft 365 applications, such as Word, Excel, PowerPoint, and Outlook in your dashboard.</p>
+</section>
+<section id="f5-big-ip">
+<h2>F5 BIG-IP<a class="headerlink" href="#f5-big-ip" title="Link to this heading">#</a></h2>
+<p id="f5bigip">BIG-IP is both a load balancer and an identity-aware proxy. In this phase of the build, it was primarily used as an identity-aware reverse proxy that forwarded or denied traffic to protected back-end applications.</p>
+<section id="installation-configuration-and-integration">
+<h3>Installation, Configuration, and Integration<a class="headerlink" href="#installation-configuration-and-integration" title="Link to this heading">#</a></h3>
+<p>BIG-IP was deployed into the environment using a virtual machine image or open virtual appliance (OVA) file. Once this OVA import operation is complete, log into the virtual machine console and assign an IP address to a network interface, then continue configuration by connecting to its web interface. This BIG-IP image has both the Access Policy Manager (APM) and the Local Traffic Manager modules installed.</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-8ABDB2E1-DDBF-40E3-8ED6-DC857783E3E3.html">Deploy BIG-IP OVA</a> into your VMware environment.</p></li>
+<li><p>Access the BIG-IP web interface by entering the IP address or DNS name into a web browser. Then <a class="reference external" href="https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-system-initial-configuration-11-6-0/1.html#conceptid">complete the initial setup and configuration of BIG-IP.</a></p></li>
+<li><p><a class="reference external" href="https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-system-initial-configuration-11-6-0/1.html#conceptid">Create virtual servers which map to back-end protected applications</a>—in this build, to our Guacamole application server.</p></li>
+<li><p><a class="reference external" href="https://community.f5.com/t5/technical-articles/azure-active-directory-and-big-ip-apm-integration/ta-p/286351">Configure BIG-IP to use Azure AD as the SAML IdP for external authentication to access back-end applications.</a> The instructions at <a class="reference external" href="https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/f5-big-ip-headers-easy-button">Configure BIG-IP Easy Button for Header Based SSO</a> and the video at <a class="reference external" href="https://www.youtube.com/watch?v=6NDUaDz7NQE">Azure AD and BIG-IP APM Integration Video</a> provide additional references.</p></li>
+<li><p>Once these instructions are completed, BIG-IP, leveraging Azure AD for external authentication, will only allow successfully authenticated and authorized users to access Guacamole. Access to the backend application is either done by connecting directly via the DNS name of the application or by going to <strong>myapps.microsoft.com</strong> and selecting the backend application icon, such as <strong>F5 Guacamole_SSO</strong> as shown below.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot shows application icons at myapps.microsoft.com." src="../_images/E3B1-Figure1.png" /></p>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li><p>For this build, <a class="reference external" href="https://support.f5.com/csp/article/K85539421">configure BIG-IP to send logs to Microsoft Sentinel.</a> Then you can observe BIG-IP logs in Sentinel, as shown below.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This is a screenshot showing how you can observe BIG-IP logs in Microsoft Sentinel." src="../_images/E3B1-Figure2.png" /></p>
+</div></blockquote>
+</section>
+</section>
+<section id="lookout-mobile-endpoint-security-mes">
+<h2>Lookout Mobile Endpoint Security (MES)<a class="headerlink" href="#lookout-mobile-endpoint-security-mes" title="Link to this heading">#</a></h2>
+<p id="lookout-mes">Lookout Mobile Endpoint Security (MES) solution is used to control mobile device access to corporate resources based on risk assessment. Risk is assessed based on information collected from devices by the Lookout service. Lookout then communicates this risk level to the MDM (Microsoft Endpoint Manager (Intune)) which determines whether the device is compliant or not.</p>
+<section id="id4">
+<h3>Configuration and Integration<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Before configuring Lookout, collect the following information from Azure AD: <strong>Azure AD tenant ID</strong> and <strong>Azure AD group object ID</strong>.</p>
+<ol class="arabic simple">
+<li><p>Go to <strong>Azure Active Directory</strong> &gt; <strong>Properties</strong> and locate <strong>Tenant ID</strong>. Copy and save it to the text file.</p></li>
+<li><p>Go to <strong>Azure Active Directory</strong> &gt; <strong>Groups</strong> to open the <strong>Groups | All groups</strong> pane.</p></li>
+<li><p>Select the group with full access <em>rights</em> (Lookout Admin group).</p></li>
+<li><p>Copy the (group) <strong>Object Id,</strong> and then save it in a text file.</p></li>
+</ol>
+<p>The following steps are to be completed in the Lookout Enterprise admin console and will enable a connection to Lookout’s service for Intune enrolled devices.</p>
+<ol class="arabic simple">
+<li><p>Sign in to the Lookout for Work console and go to <strong>System</strong> &gt; <strong>Integrations</strong>, and then select <strong>Choose a product to set up</strong>. Select <strong>Microsoft Azure</strong>. Copy and paste the Azure AD (AAD) tenant ID and group object ID from the text file that was created in previous steps.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot shows integration settings for Microsoft Azure." src="../_images/E3B1-Figure3.png" /></p>
+</div></blockquote>
+<ol class="arabic" start="2">
+<li><div class="line-block">
+<div class="line">Stay in <strong>System</strong> &gt; <strong>Integrations</strong>, and then select <strong>Choose a product to set up.</strong> Select Microsoft</div>
+<div class="line"><strong>Intune</strong>.</div>
+</div>
+</li>
+<li><p>Configure Intune connector settings.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot shows examples of Intune connector settings." src="../_images/E3B1-Figure4.png" /></p>
+</div></blockquote>
+<p>After Lookout MES is enabled, a connection to Lookout in Intune needs to be set up.</p>
+<ol class="arabic simple">
+<li><p>Go back to Microsoft Endpoint Manager and enable the Mobile Threat Defense connector there.</p></li>
+<li><p>Select <strong>Tenant administration &gt; Connectors and tokens &gt; Mobile Threat Defense.</strong></p></li>
+<li><p>On the <strong>Mobile Threat Defense</strong> pane, select <strong>Add.</strong></p></li>
+<li><p>For <strong>Mobile Threat Defense connector to setup,</strong> select <strong>Lookout</strong> MTD solution from the drop-down list.</p></li>
+<li><p>Configure the toggle options according to the organization’s requirements. This screenshot shows examples.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot shows examples of MDM compliance policy settings." src="../_images/E3B1-Figure5.png" /></p>
+</div></blockquote>
+<p>When Lookout is integrated with Intune MTD and the connection to Intune is enabled, Intune creates a classic conditional access policy in Azure AD. To view classic conditional access policy, go to <strong>Azure Active Directory &gt; Conditional Access &gt; Classic policies</strong>. Classic conditional access policy is used by Intune MTD to require that devices are registered in Azure AD so that they have a device ID before communicating to Lookout MTD. The ID is required so that devices can report their status to Intune.</p>
+</section>
+<section id="create-mtd-device-compliance-policy-with-intune">
+<h3>Create MTD Device Compliance Policy with Intune<a class="headerlink" href="#create-mtd-device-compliance-policy-with-intune" title="Link to this heading">#</a></h3>
+<p>Compliance policy is needed to detect threats and assess risks on mobile devices to determine if a device is compliant or not.</p>
+<ol class="arabic simple">
+<li><p>Open the Microsoft Endpoint Manager admin center.</p></li>
+<li><p>Select <strong>Endpoint security &gt; Device Compliance &gt; Create Policy.</strong></p></li>
+<li><p>Select the <strong>Platform,</strong> and then <strong>Create.</strong></p></li>
+<li><p>On <strong>Basics,</strong> provide <strong>Name</strong> and <strong>Description.</strong> Select <strong>Next</strong> to continue.</p></li>
+<li><p>On <strong>Compliance settings,</strong> expand and configure <strong>Device Health.</strong> Choose the Mobile Threat Level from the drop-down list for <strong>Require the device to be at or under the Device Threat Level.</strong> Choose the level for compliance.</p></li>
+<li><p>Select <strong>Next</strong> to go to <strong>Assignments.</strong> Select the groups or users to which this policy should be assigned.</p></li>
+</ol>
+</section>
+</section>
+<section id="pc-matic-pro">
+<h2>PC Matic Pro<a class="headerlink" href="#pc-matic-pro" title="Link to this heading">#</a></h2>
+<p>PC Matic Pro is an endpoint protection system that consists of a server for centralized management and agents installed on endpoints. In addition to scanning for malware, it uses a default-deny approach for preventing malicious and unauthorized programs and processes from executing. To configure PC Matic Pro, you will need to install the server, install the agents, and configure a list of allowed software.</p>
+<p>PC Matic Pro Server needs to be installed on a server with Windows 2019 Server and SQL Server preinstalled.</p>
+<ol class="arabic simple">
+<li><p>Obtain the <em>OnPremInstallerRun.ps1</em> installation script from the vendor and open an elevated PowerShell window.</p></li>
+<li><p>Execute the <em>OnPremInstallerRun.ps1</em> script by entering .\OnPremInstallerRun.ps1 registryUser pcmatic -registryPwd &lt;insert_password_here&gt; -localDBUser pcm-app to install docker, pull down the container images, and deploy the container instances that make up the PC Matic Pro server.</p></li>
+<li><p>Navigate to the PC Matic web server and verify that it is operational by opening a web browser and going to <em>https://&lt;pcmaticDNSName&gt;/web_portal.</em> In this build, the DNS name is nist.pcmaticfederal.com; as such, to access the server’s web interface, we would go to <a class="reference external" href="https://nist.pcmaticfederal.com/web_portal">https://nist.pcmaticfederal.com/web_portal</a>.</p></li>
+</ol>
+<p>Follow these steps to install PC Matic Endpoint Agents:</p>
+<ol class="arabic simple">
+<li><p>Open a web browser on a Windows or macOS client device. Navigate to the PC Matic Server web interface by browsing to <a class="reference external" href="https://nist.pcmaticfederal.com">https://nist.pcmaticfederal.com</a> from the client device and log on with your credentials.</p></li>
+<li><p>Click <strong>Add a Device</strong> and then click <strong>Windows Installer</strong> or <strong>Mac Installer,</strong> as appropriate, to download the PC Matic Endpoint Agent.</p></li>
+<li><p>Install the agent.</p></li>
+<li><p>Once installed, the agent will establish communications with the server and show up on the list of managed devices once you log on to the server as previously described.</p></li>
+<li><p>Devices with an agent will register and come online.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="This screenshot shows a list of online agents." src="../_images/E3B1-Figure6.png" /></p>
+</div></blockquote>
+</section>
+<section id="tenable-io">
+<h2>Tenable.io<a class="headerlink" href="#tenable-io" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id8"><span class="std std-ref">Tenable.io</span></a>.</p>
+<section id="integration-with-microsoft-sentinel">
+<h3>Integration with Microsoft Sentinel<a class="headerlink" href="#integration-with-microsoft-sentinel" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>In Tenable.io, click the hamburger menu (☰) in the top left corner and navigate to <strong>Settings &gt;
+Access Control &gt; Users.</strong></p></li>
+<li><p>(Optional) Click <strong>Create User</strong> and create a new API user for Microsoft Sentinel. In this implementation, a standard administrator account was used.</p></li>
+<li><p>Click the user who needs API keys generated. Then click <strong>API KEYS &gt; Generate &gt; Continue.</strong> Save the Access and Secret Keys, as they will not be shown again.</p></li>
+<li><p>In Microsoft Sentinel, navigate to <strong>Data Connectors.</strong> Search <em>tenable</em> and click <strong>Tenable.io Vulnerability Management (Preview) &gt; Open Connector Page.</strong></p></li>
+<li><p>Scroll down in the Instructions panel and save the Workspace ID and Primary Key.</p></li>
+<li><p>Click <strong>Deploy to Azure.</strong></p></li>
+<li><p>Select the appropriate resource group.</p></li>
+<li><p>In the Workspace ID and Workspace Key fields, enter the values obtained in step 5.</p></li>
+<li><p>In the Tenable Access Key and Tenable Secret Key fields, enter the values obtained in step 3.</p></li>
+<li><p>Click <strong>Review + create.</strong></p></li>
+<li><p>Click <strong>Create.</strong> Function deployment will begin. Once deployment is complete, it will take some time before Sentinel begins making calls to Tenable.io.</p></li>
+</ol>
+</section>
+</section>
+<section id="tenable-ad">
+<h2>Tenable.ad<a class="headerlink" href="#tenable-ad" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id11"><span class="std std-ref">Tenable.ad</span></a>.</p>
+</section>
+<section id="tenable-nnm">
+<h2>Tenable NNM<a class="headerlink" href="#tenable-nnm" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id12"><span class="std std-ref">Tenable NNM</span></a>.</p>
+</section>
+<section id="mandiant-security-validation-msv">
+<h2>Mandiant Security Validation (MSV)<a class="headerlink" href="#mandiant-security-validation-msv" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#mandiant-msv"><span class="std std-ref">Mandiant Security Validation (MSV)</span></a>.</p>
+</section>
+<section id="forescout-eyesight">
+<h2>Forescout eyeSight<a class="headerlink" href="#forescout-eyesight" title="Link to this heading">#</a></h2>
+<p id="id5">Forescout eyeSight provides asset discovery with both active and passive techniques, and through integrations with network and security infrastructure. In this build, Forescout was deployed on-premises in two virtual hosts: an Enterprise Manager and Forescout Appliance.</p>
+<p>For Forescout installation instructions, visit the <a class="reference external" href="https://docs.forescout.com/bundle/install-guide-8-3/page/install-guide-8-3.Installation-Overview.html">Forescout Installation Overview</a>.</p>
+<section id="integration-with-ad">
+<h3>Integration with AD<a class="headerlink" href="#integration-with-ad" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>In AD, create a domain administrator service account for Forescout and save the credentials.</p></li>
+<li><p>In the Forescout console, navigate to <strong>Tools &gt; Options &gt; HPS Inspection Engine.</strong></p></li>
+<li><p>In the <strong>Domain Credentials</strong> section, click the <strong>Add</strong> button.</p></li>
+<li><p>Enter the domain information and credentials you saved earlier. Click <strong>OK.</strong></p></li>
+<li><p>Click <strong>Apply.</strong> After the new configuration is saved, click <strong>Test</strong> to verify that the credentials are working as expected.</p></li>
+</ol>
+</section>
+<section id="integration-with-cisco-switch">
+<h3>Integration with Cisco Switch<a class="headerlink" href="#integration-with-cisco-switch" title="Link to this heading">#</a></h3>
+<p>For Cisco Switch integration instructions, visit the <a class="reference external" href="https://docs.forescout.com/bundle/switch-8-14-3-h/page/switch-8-14-3-h.How-to-Work-with-the-Switch-Plugin.html">Switch Plugin Configuration Guide</a>.</p>
+</section>
+<section id="integration-with-cisco-wireless-controller">
+<h3>Integration with Cisco Wireless Controller<a class="headerlink" href="#integration-with-cisco-wireless-controller" title="Link to this heading">#</a></h3>
+<p>For Cisco Wireless Controller integration instructions, visit the <a class="reference external" href="https://docs.forescout.com/bundle/wireless-2-0-1-h/page/wireless-2-0-1-h.How-to-Work-with-the-Wireless-Plugin.html">Wireless Plugin Configuration Guide</a>.</p>
+</section>
+<section id="id6">
+<h3>Integration with Microsoft Sentinel<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>In the Forescout console, navigate to <strong>Tools &gt; Options &gt; CEF.</strong></p></li>
+<li><p>Click <strong>Add.</strong></p></li>
+<li><p>In the Add Server dialog, enter a Name, select <strong>Use UDP for Connection,</strong> and enter the IP address of the Sentinel Log Forwarder. Click <strong>Next.</strong></p></li>
+<li><p>Click the <strong>Assign CounterACT Devices</strong> radio button, and check all of the checkboxes next to the listed devices.</p></li>
+<li><p>Click <strong>Finish.</strong> Verify that logs are being received by the Sentinel Log Forwarder.</p></li>
+</ol>
+</section>
+<section id="integration-with-palo-alto-networks-ngfw">
+<h3>Integration with Palo Alto Networks NGFW<a class="headerlink" href="#integration-with-palo-alto-networks-ngfw" title="Link to this heading">#</a></h3>
+<p>For Palo Alto Networks NGFW integration instructions, visit the <a class="reference external" href="https://docs.forescout.com/bundle/pan-1-3-7-h/page/pan-1-3-7-h.About-the-Palo-Alto-Networks-Next-Generation-Fir.html">eyeExtend for Palo Alto Networks Next-Generation Firewall Configuration Guide</a>.</p>
+</section>
+<section id="integration-with-tenable-io">
+<h3>Integration with Tenable.io<a class="headerlink" href="#integration-with-tenable-io" title="Link to this heading">#</a></h3>
+<p>For Tenable.io integration instructions, visit the <a class="reference external" href="https://docs.forescout.com/bundle/tenable-io-1-0-h/page/c-about-the-tenableio-vm-integration.html">eyeExtend for Tenable.io Vulnerability Management Configuration Guide</a>.</p>
+</section>
+</section>
+<section id="palo-alto-networks-next-generation-firewall">
+<h2>Palo Alto Networks Next Generation Firewall<a class="headerlink" href="#palo-alto-networks-next-generation-firewall" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E2B1.html#palo-alto-ngfw"><span class="std std-ref">Palo Alto Networks Next Generation Firewall</span></a>.</p>
+</section>
+<section id="digicert-certcentral">
+<h2>DigiCert CertCentral<a class="headerlink" href="#digicert-certcentral" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id13"><span class="std std-ref">DigiCert CertCentral</span></a>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="HowTo-E2B1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="HowTo-E1B2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Product Guides</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-azure-active-directory-ad">Microsoft Azure Active Directory (AD)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-endpoint-manager">Microsoft Endpoint Manager</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-and-integration">Configuration and Integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-and-verify-a-custom-domain">Add and verify a custom domain</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-users">Add users</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#enroll-devices-in-microsoft-intune">Enroll devices in Microsoft Intune</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-conditional-access-rules">Configure conditional access rules</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-applications">Manage applications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-defender-for-endpoint">Microsoft Defender for Endpoint</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Configuration and Integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-microsoft-defender-for-endpoint">Enable Microsoft Defender for Endpoint</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-endpoint-detection-and-response-policy-windows-10-and-later">Create Endpoint Detection and Response policy (Windows 10 and later)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-antivirus-policy">Create an antivirus policy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-defender-compliance-policy">Create Defender compliance policy</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-defender-antivirus">Microsoft Defender Antivirus</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-sentinel">Microsoft Sentinel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-365">Microsoft 365</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f5-big-ip">F5 BIG-IP</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-configuration-and-integration">Installation, Configuration, and Integration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lookout-mobile-endpoint-security-mes">Lookout Mobile Endpoint Security (MES)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Configuration and Integration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-mtd-device-compliance-policy-with-intune">Create MTD Device Compliance Policy with Intune</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pc-matic-pro">PC Matic Pro</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-io">Tenable.io</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-microsoft-sentinel">Integration with Microsoft Sentinel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-ad">Tenable.ad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-nnm">Tenable NNM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mandiant-security-validation-msv">Mandiant Security Validation (MSV)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forescout-eyesight">Forescout eyeSight</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-ad">Integration with AD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-cisco-switch">Integration with Cisco Switch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-cisco-wireless-controller">Integration with Cisco Wireless Controller</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Integration with Microsoft Sentinel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-palo-alto-networks-ngfw">Integration with Palo Alto Networks NGFW</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-tenable-io">Integration with Tenable.io</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#palo-alto-networks-next-generation-firewall">Palo Alto Networks Next Generation Firewall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digicert-certcentral">DigiCert CertCentral</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<p>
+  
+    By NIST<br/>
+  
+</p>
+
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> Certain commercial equipment, instruments, or
+          materials are identified in this documentation to foster understanding. Such
+          identification does not imply recommendation or endorsement by the National
+          Institute of Standards and Technology, nor does it imply that the materials
+          or equipment identified are necessarily the best available for the purpose.
+        </div>
+      </p>
+    </div>
+</footer>
+  </body>
+</html>

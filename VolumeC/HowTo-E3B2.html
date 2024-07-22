@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides &#8212; Implementing a Zero Trust Architecture Project  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/content.css?v=59cd0ab0" />
+    <link rel="stylesheet" type="text/css" href="../_static/breadcrumbs.css?v=ddd885d8" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeC/HowTo-E3B2';</script>
+    <script src="../_static/jquery.visible.js?v=5b129ffc"></script>
+    <script src="../_static/jquery.leaveNotice-nist.js?v=7cf1efa2"></script>
+    <script src="../_static/applyLeaveNotice.js?v=38741b1c"></script>
+    <script src="../_static/smoothNavScroll.js?v=2ce98a12"></script>
+    <link rel="icon" href="../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Product Guides" href="HowTo-E1B3.html" />
+    <link rel="prev" title="Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Product Guides" href="HowTo-E1B2.html" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
+    <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+    <link rel="stylesheet" type="text/css" href="https://pages.nist.gov/leaveNotice/css/jquery.leaveNotice.css" />
+    <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJSMY46M5C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RJSMY46M5C');
+    </script>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="width: max-content;">
+    <ul class="wy-breadcrumbs">
+        <li style="list-style: none;"><a href="../index.html" aria-label="Home"><i class="fa fa-home"></i></a></li>
+            <li class="breadcrumb-item">&ensp;<a href="index.html">Build Implementation Instructions</a></li>
+        <li class="breadcrumb-item active">&ensp;Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</li>
+    </ul>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Implementing a Zero Trust Architecture Project  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture" title="Main Project Page" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/MainProjectLogo.jpg" class="icon-link-image" alt="Main Project Page"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Implementing a Zero Trust Architecture
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ExecutiveSummary.html">Executive Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/Introduction.html">Introduction to the Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ProjectOverview.html">Project Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeB/architecture.html">Architecture and Builds</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeB/BuildsImplemented.html">Builds Implemented</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../VolumeB/appendices/index.html">Build Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B3.html">Enterprise 2 Build 3 (E2B3) — Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Build Implementation Instructions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Product Guides</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B3.html">Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardening.html">Hardening Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/GeneralFindings.html">General Findings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeD/index.html">Functional Demonstrations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/FunctionalLabDemonstration.html">Demonstration Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseA.html">Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseB.html">Use Case B: Enterprise-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseC.html">Use Case C: Collaboration: Federated-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseD.html">Use Case D: Other-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseE.html">Use Case E: Guest: No-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseF.html">Use Case F: Confidence Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseG.html">Use Case G: Service-Service Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseH.html">Use Case H: Data Level Security Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/FunctionalDemonstrationResultSummaries.html">Functional Demonstration Result Summaries</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../VolumeD/results/index.html">Functional Demonstration Results</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/EIGCrawlResults.html">EIG Crawl Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/EIGRunResults.html">EIG Run Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/SDPMicroResults.html">SDP, Microsegmentation, and SASE Phase Demonstration Results</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeE/index.html">Risk and Compliance Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/RisksAddressed.html">Risks Addressed by the ZTA Reference Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/ArchitectureSecurityMappings.html">ZTA Security Mapping Context and Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/Mappings.html">Mappings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acronyms.html">Acronyms</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/VolumeC/HowTo-E3B2.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-azure-ad-identity-protection">Microsoft Azure AD Identity Protection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-azure-ad-identity-governance">Microsoft Azure AD Identity Governance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-defender-for-cloud-apps">Microsoft Defender for Cloud Apps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-azure-ad-application-proxy">Microsoft Azure AD Application Proxy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-defender-for-cloud">Microsoft Defender for Cloud</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forescout-eyesight">Forescout eyeSight</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forescout-eyecontrol">Forescout eyeControl</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-a-policy">Configuring a policy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forescout-eyesegment">Forescout eyeSegment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-the-eyesegment-dashboard">Access the eyeSegment Dashboard</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forescout-eyeextend">Forescout eyeExtend</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-microsoft-endpoint-manager">Integration with Microsoft Endpoint Manager</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-azure-iaas">Microsoft Azure IaaS</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="enterprise-3-build-2-e3b2-eig-run-microsoft-azure-ad-conditional-access-later-renamed-entra-conditional-access-microsoft-intune-forescout-eyecontrol-and-forescout-eyeextend-as-pes-product-guides">
+<h1>Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides<a class="headerlink" href="#enterprise-3-build-2-e3b2-eig-run-microsoft-azure-ad-conditional-access-later-renamed-entra-conditional-access-microsoft-intune-forescout-eyecontrol-and-forescout-eyeextend-as-pes-product-guides" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is supplementary material for the <a class="reference external" href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf">NIST SP 1800-35 publication</a>.</p>
+</div>
+<p>This section of the practice guide contains detailed instructions for installing, configuring, and integrating all the products used to implement E3B2. For additional details on E3B2’s logical and physical architectures, please refer to <a class="reference internal" href="../VolumeB/architecture.html#architecture-and-builds"><span class="std std-ref">Architecture and Builds</span></a>. Build 2 was built on top of Build 1 and all the components in Build 1 were used in this build. For E3B1’s configuration please refer to <a class="reference internal" href="HowTo-E3B1.html#enterprise-3-build-1-e3b1-eig-crawl-azure-ad-conditional-access-later-renamed-entra-conditional-access-as-pe-product-guides"><span class="std std-ref">Enterprise 3 Build 1</span></a>. Below are the additional components added to Build 2.</p>
+<section id="microsoft-azure-ad-identity-protection">
+<h2>Microsoft Azure AD Identity Protection<a class="headerlink" href="#microsoft-azure-ad-identity-protection" title="Link to this heading">#</a></h2>
+<p id="microsoft-azure-id-protection">This section offers a guide for setting up the various components that make up Azure AD Identity Protection in your environment.</p>
+<ol class="arabic simple">
+<li><p>To ensure that all users register for multifactor authentication, configure Azure AD Multifactor Authentication registration policy using the information found at <a class="reference external" href="https://learn.microsoft.com/en-us/azure/active-directory/identity-protection/howto-identity-protection-configure-mfa-policy">Configure MFA Registration Policy</a>.</p></li>
+<li><p>Sign-in risk policy enables detection of and response to suspicious logon sessions and unusual logon activity. Use the information found at <a class="reference external" href="https://learn.microsoft.com/en-us/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa?source=recommendations#enable-sign-in-risk-policy-for-mfa">Configure Sign-in Risk Policy</a> to configure the sign-in risk policy.</p></li>
+<li><p>User-risk policy enables detection of and response to compromised user accounts. To configure this policy, use the information found at <a class="reference external" href="https://learn.microsoft.com/en-us/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa?source=recommendations#enable-sign-in-risk-policy-for-mfa">Configure User-Risk Policy</a>.</p></li>
+</ol>
+</section>
+<section id="microsoft-azure-ad-identity-governance">
+<h2>Microsoft Azure AD Identity Governance<a class="headerlink" href="#microsoft-azure-ad-identity-governance" title="Link to this heading">#</a></h2>
+<p id="microsoftazureadgov">Azure AD Identity Governance enables organizations to manage access to resources applying access request and approval workflows, access assignments and removals, access expiration, and access reviews.</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/azure/active-directory/governance/entitlement-management-access-package-first">Create an access package</a> to encapsulate the target resources in a single object.</p></li>
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/azure/active-directory/governance/entitlement-management-access-package-first">Create policies</a> to define approvers and eligible requestors.</p></li>
+<li><p>Requesting access to the access package can be done using the information found at <a class="reference external" href="https://learn.microsoft.com/en-us/azure/active-directory/governance/entitlement-management-access-package-first">Request access</a>.</p></li>
+<li><p>To approve or deny access requests, use the information found at <a class="reference external" href="https://learn.microsoft.com/en-us/azure/active-directory/governance/entitlement-management-request-approve">Approve or deny request</a>.</p></li>
+</ol>
+</section>
+<section id="microsoft-defender-for-cloud-apps">
+<h2>Microsoft Defender for Cloud Apps<a class="headerlink" href="#microsoft-defender-for-cloud-apps" title="Link to this heading">#</a></h2>
+<p id="microsoft-defender-cloud">(Note that the product name <em>Defender for Cloud Apps</em> was later changed to <em>Defender for Apps)</em></p>
+<p>Microsoft Defender for Cloud Apps is a cloud access broker solution that protects cloud applications and on-premises web applications by monitoring session activity to those applications, ensuring compliance to defined policy and mitigating detected threats.</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/defender-cloud-apps/get-started">Login to the portal and activate your Defender for Cloud Apps</a> tenant.</p></li>
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/defender-cloud-apps/get-started#step-1-set-instant-visibility-protection-and-governance-actions-for-your-apps">Connect your apps to Defender for Cloud Apps</a>. For custom web applications including on-premises web applications, use the information on <a class="reference external" href="https://docs.microsoft.com/en-us/defender-cloud-apps/proxy-deployment-any-app">connecting a custom app to Defender for Cloud Apps</a> to integrate your custom web applications.</p></li>
+<li><p>Use the information on <a class="reference external" href="https://learn.microsoft.com/en-us/defender-cloud-apps/get-started#step-3-control-cloud-apps-with-policies">creating and assigning policies</a> to provide security controls to apps, ensuring compliance and mitigating threats.</p></li>
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/defender-cloud-apps/get-started#step-5-deploy-conditional-access-app-control-for-catalog-apps">Deploy Conditional Access App Control</a>, which leverages Azure AD conditional access policies and enforcement for connected apps.</p></li>
+</ol>
+</section>
+<section id="microsoft-azure-ad-application-proxy">
+<h2>Microsoft Azure AD Application Proxy<a class="headerlink" href="#microsoft-azure-ad-application-proxy" title="Link to this heading">#</a></h2>
+<p>Azure AD Application Proxy enables users to securely connect to internal applications via the Internet. It has two components, Application Proxy service and Application Proxy connector, which work together to provide access to the internal application.</p>
+<ol class="arabic simple">
+<li><p>Configure <a class="reference external" href="https://learn.microsoft.com/en-us/azure/active-directory/app-proxy/application-proxy-add-on-premises-application?source=recommendations">Application Proxy deployment prerequisites</a>.</p></li>
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/azure/active-directory/app-proxy/application-proxy-add-on-premises-application?source=recommendations#install-and-register-a-connector">Install and register the Application Proxy connectors</a>. Once the application proxy connectors are successfully installed and registered, the Application Proxy service will be enabled automatically.</p></li>
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/azure/active-directory/app-proxy/application-proxy-add-on-premises-application#add-an-on-premises-app-to-azure-ad">Add your application</a> to Application Proxy.</p></li>
+</ol>
+</section>
+<section id="microsoft-defender-for-cloud">
+<h2>Microsoft Defender for Cloud<a class="headerlink" href="#microsoft-defender-for-cloud" title="Link to this heading">#</a></h2>
+<p>Defender for Cloud is a SaaS-based cloud security posture management and cloud workload protection platform. It enables organizations to monitor their cloud and on-premises resources, determine differences and security issues based on benchmarks and regulations, and provide recommendations to help remediate the issues. Within Defender for Cloud, benchmarks and regulations encapsulate policies that are used as baselines to measure how compliant your environment is. This leads to the generation of a secure score.</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/get-started">Enable Defender for Cloud</a> for your subscription.</p></li>
+<li><p>To receive a secure score, which provides a numeric value indicating your point-in-time security posture, you must ensure that the Azure Security Benchmark initiative or at least one other listed regulation is selected and applied to your subscription. Azure Security Benchmark should automatically apply to your subscription. Examples of regulations include PCI DSS, HIPAA, and NIST SP 800-53. Azure Security Benchmark is comprised of a set of controls that detect security misconfigurations based on best practices from common compliance frameworks.</p></li>
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/regulatory-compliance-dashboard">Apply regulations to your subscription</a>.</p></li>
+<li><p>Defender for Cloud will list recommendations for your environment to improve the security posture. <a class="reference external" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/review-security-recommendations">Apply the listed security recommendations</a>.</p></li>
+</ol>
+</section>
+<section id="forescout-eyesight">
+<h2>Forescout eyeSight<a class="headerlink" href="#forescout-eyesight" title="Link to this heading">#</a></h2>
+<p id="forescouteyesight">Forescout eyeSight provides asset discovery with both active and passive techniques, and through integrations with network and security infrastructure.</p>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E3B1.html#id5"><span class="std std-ref">Forescout eyeSight</span></a>.</p>
+</section>
+<section id="forescout-eyecontrol">
+<h2>Forescout eyeControl<a class="headerlink" href="#forescout-eyecontrol" title="Link to this heading">#</a></h2>
+<p id="forescouteyecontrol">Forescout eyeControl enforces and automates network policies across the enterprise.</p>
+<p>For Forescout eyeControl installation instructions, visit the <a class="reference external" href="https://docs.forescout.com/bundle/install-guide-8-3/page/install-guide-8-3.Installation-Overview.html">Forescout Installation Overview</a>.</p>
+<section id="configuring-a-policy">
+<h3>Configuring a policy<a class="headerlink" href="#configuring-a-policy" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>In the Forescout Console, choose a policy.</p></li>
+<li><p>Select the network segment to which the policy will be applied.</p></li>
+<li><p>Add <strong>Conditions</strong> to select the attributes of the hosts that the policy will be applied to.</p></li>
+<li><p>Add <strong>Actions</strong> that will be applied to the selected hosts.</p></li>
+<li><p>Add any additional rules that will be used in the policy.</p></li>
+<li><p>Run the policy.</p></li>
+</ol>
+</section>
+</section>
+<section id="forescout-eyesegment">
+<h2>Forescout eyeSegment<a class="headerlink" href="#forescout-eyesegment" title="Link to this heading">#</a></h2>
+<p id="forescouteyesegment">Forescout eyeSegment accelerates zero trust segmentation through visibility into traffic and transaction flows.</p>
+<p>For Forescout eyeSegment installation instructions, visit the <a class="reference external" href="https://docs.forescout.com/bundle/install-guide-8-3/page/install-guide-8-3.Installation-Overview.html">Forescout Installation Overview</a>. After installation has been completed, visit the <a class="reference external" href="https://docs.forescout.com/bundle/eyeseg-5-19-0-htg/page/eyeseg-5-19-0-htg.About-the-eyeSegment-Application.html">eyeSegment Application How-to Guide</a> to configure and use eyeSegment to analyze your network traffic from a dynamic zone perspective, simplify segmentation planning, and automate access control list (ACL)/VLAN assignment.</p>
+<section id="access-the-eyesegment-dashboard">
+<h3>Access the eyeSegment Dashboard<a class="headerlink" href="#access-the-eyesegment-dashboard" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>From the Forescout Console, click <strong>Dashboards</strong>. This will launch a web browser and authenticate to the Forescout Web Client.</p></li>
+<li><p>At the top of the Forescout Web Client, click <strong>Segmentation</strong>.</p></li>
+<li><p>The initial dashboard is the eyeSegment Matrix. This dashboard can be used to analyze traffic and transaction flows between different network hosts, segments, and groups.</p></li>
+<li><p>Open the eyeSegment Policy dashboard, which can be used to apply proposed zero trust rules. The effect of these rules can be seen in the eyeSegment Matrix.</p></li>
+<li><p>Open the eyeSegment Health dashboard, which provides information about Reporting Appliances, Traffic Sensors, Endpoint Coverage, and the connection to the eyeSegment cloud.</p></li>
+</ol>
+</section>
+</section>
+<section id="forescout-eyeextend">
+<h2>Forescout eyeExtend<a class="headerlink" href="#forescout-eyeextend" title="Link to this heading">#</a></h2>
+<p id="forescouteyeextend">Forescout eyeExtend automates security workflows across disparate products through integration with other security technologies.</p>
+<p>For Forescout eyeExtend installation instructions, visit the <a class="reference external" href="https://docs.forescout.com/bundle/install-guide-8-3/page/install-guide-8-3.Installation-Overview.html">Forescout Installation Overview</a>. Once installation has been completed, visit the <a class="reference external" href="https://docs.forescout.com/bundle/connect-1-7-1-h/page/c-about-the-connect-plugin.html">Connect Plugin Configuration Guide</a>, which provides the capability to build custom integrations with products that are not already provided. However, Forescout also provides a wide range of integrations at the official <a class="reference external" href="https://github.com/Forescout/eyeExtend-Connect/tree/master/Intune">Forescout eyeExtend repository</a>.</p>
+<section id="integration-with-microsoft-endpoint-manager">
+<h3>Integration with Microsoft Endpoint Manager<a class="headerlink" href="#integration-with-microsoft-endpoint-manager" title="Link to this heading">#</a></h3>
+<p>Integration instructions for Microsoft Endpoint Manager can be found at Forescout’s official GitHub repository: <a class="github reference external" href="https://github.com/Forescout/eyeExtend-Connect/tree/master/Intune">Forescout/eyeExtend-Connect</a>.</p>
+</section>
+</section>
+<section id="microsoft-azure-iaas">
+<h2>Microsoft Azure IaaS<a class="headerlink" href="#microsoft-azure-iaas" title="Link to this heading">#</a></h2>
+<p id="microsoftazureiaas">Azure IaaS provides compute, networking, and storage services that enable the creation of an enterprise IT infrastructure by subscribers. The following section describes the Azure IaaS components that were deployed in this build.</p>
+<ol class="arabic simple">
+<li><p>Virtual Networks (VNETs) are isolated customer networks. They contain subnets and are built in Azure. We have three VNETs: a hub VNET, which provides central connectivity for other VNETs, and a GitLab VNET and a WordPress VNET, which are both designed to protect individual apps and their associated resources. Use the information at <a class="reference external" href="https://learn.microsoft.com/en-us/azure/virtual-network/quick-create-portal?source=recommendations">Create a VNET</a> to create and configure a virtual network. To enable communication between the hub and other VNETs, <a class="reference external" href="https://learn.microsoft.com/en-us/azure/virtual-network/tutorial-connect-virtual-networks-portal?source=recommendations">establish peering</a> between them.</p></li>
+<li><p>Public VNETs are regular VNETs that have hosts with public IP addresses. The GitLab VNET is configured as a public subnet with a public IP address attached to the Application Gateway which was configured to provide load balancing and protection against common web attacks.</p></li>
+<li><p>Private VNETs are regular VNETs that have hosts with only private IP addresses and are reachable only by internal users by default. WordPress VNET was configured as a private VNET.</p></li>
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/azure/bastion/quickstart-host-portal">Configure Azure Bastion</a> to enable web-based SSH and remote desktop-based access to servers and virtual machines.</p></li>
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/azure/firewall/tutorial-hybrid-portal">Instantiate and configure Azure Firewall</a> in the hub VNET to provide protection for incoming traffic from both the Internet and the VPN traffic from on-prem clients.</p></li>
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview?source=recommendations">Use network security groups (NSGs) to filter inbound or outbound traffic</a> to or from Azure resources. Enable only ports that are necessary for appropriate access.</p></li>
+<li><p>Azure App Gateway is a web traffic load balancer that can detect and stop common web attacks. The Azure App Gateway was configured to protect the GitLab application servers, and the WordPress servers. Use the information at <a class="reference external" href="https://learn.microsoft.com/en-us/azure/application-gateway/quick-create-portal">Application Gateway Quickstart</a> to configure the Application Gateway.</p></li>
+</ol>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="HowTo-E1B2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Product Guides</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="HowTo-E1B3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Product Guides</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-azure-ad-identity-protection">Microsoft Azure AD Identity Protection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-azure-ad-identity-governance">Microsoft Azure AD Identity Governance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-defender-for-cloud-apps">Microsoft Defender for Cloud Apps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-azure-ad-application-proxy">Microsoft Azure AD Application Proxy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-defender-for-cloud">Microsoft Defender for Cloud</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forescout-eyesight">Forescout eyeSight</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forescout-eyecontrol">Forescout eyeControl</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-a-policy">Configuring a policy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forescout-eyesegment">Forescout eyeSegment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-the-eyesegment-dashboard">Access the eyeSegment Dashboard</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forescout-eyeextend">Forescout eyeExtend</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-microsoft-endpoint-manager">Integration with Microsoft Endpoint Manager</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-azure-iaas">Microsoft Azure IaaS</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<p>
+  
+    By NIST<br/>
+  
+</p>
+
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> Certain commercial equipment, instruments, or
+          materials are identified in this documentation to foster understanding. Such
+          identification does not imply recommendation or endorsement by the National
+          Institute of Standards and Technology, nor does it imply that the materials
+          or equipment identified are necessarily the best available for the purpose.
+        </div>
+      </p>
+    </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,942 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Product Guides &#8212; Implementing a Zero Trust Architecture Project  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/content.css?v=59cd0ab0" />
+    <link rel="stylesheet" type="text/css" href="../_static/breadcrumbs.css?v=ddd885d8" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeC/HowTo-E4B4';</script>
+    <script src="../_static/jquery.visible.js?v=5b129ffc"></script>
+    <script src="../_static/jquery.leaveNotice-nist.js?v=7cf1efa2"></script>
+    <script src="../_static/applyLeaveNotice.js?v=38741b1c"></script>
+    <script src="../_static/smoothNavScroll.js?v=2ce98a12"></script>
+    <link rel="icon" href="../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides" href="HowTo-E1B5.html" />
+    <link rel="prev" title="Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides" href="HowTo-E3B4.html" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
+    <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+    <link rel="stylesheet" type="text/css" href="https://pages.nist.gov/leaveNotice/css/jquery.leaveNotice.css" />
+    <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJSMY46M5C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RJSMY46M5C');
+    </script>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="width: max-content;">
+    <ul class="wy-breadcrumbs">
+        <li style="list-style: none;"><a href="../index.html" aria-label="Home"><i class="fa fa-home"></i></a></li>
+            <li class="breadcrumb-item">&ensp;<a href="index.html">Build Implementation Instructions</a></li>
+        <li class="breadcrumb-item active">&ensp;Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Product Guides</li>
+    </ul>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Implementing a Zero Trust Architecture Project  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture" title="Main Project Page" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/MainProjectLogo.jpg" class="icon-link-image" alt="Main Project Page"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Implementing a Zero Trust Architecture
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ExecutiveSummary.html">Executive Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/Introduction.html">Introduction to the Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeA/ProjectOverview.html">Project Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeB/architecture.html">Architecture and Builds</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeB/BuildsImplemented.html">Builds Implemented</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../VolumeB/appendices/index.html">Build Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B3.html">Enterprise 2 Build 3 (E2B3) — Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed <em>Entra Conditional Access</em>), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B4.html">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Build Implementation Instructions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B1.html">Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B1.html">Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B1.html">Enterprise 3 Build 1 (E3B1) - EIG Crawl - Azure AD Conditional Access (later renamed Entra Conditional Access) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B2.html">Enterprise 1 Build 2 (E1B2) - EIG Run - Zscaler ZPA Central Authority (CA) as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B2.html">Enterprise 3 Build 2 (E3B2) - EIG Run - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B3.html">Enterprise 1 Build 3 (E1B3) - SDP - Zscaler ZPA CA as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B3.html">Enterprise 2 Build 3 (E2B3) - Microsegmentation - Cisco ISE, Cisco Secure Workload, and Ping Identity Ping Federate as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B3.html">Enterprise 3 Build 3 (E3B3) - SDP and Microsegmentation - Microsoft Azure AD Conditional Access (later renamed Entra Conditional Access), Microsoft Intune, Microsoft Sentinel, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E4B3.html">Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B4.html">Enterprise 1 Build 4 (E1B4) - SDP - Appgate SDP Controller as PE Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B4.html">Enterprise 2 Build 4 (E2B4) - SDP and SASE - Symantec Cloud Secure Web Gateway, Symantec ZTNA, and Symantec Cloud Access Security Broker as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B4.html">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardening.html">Hardening Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/GeneralFindings.html">General Findings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeD/index.html">Functional Demonstrations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/FunctionalLabDemonstration.html">Demonstration Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseA.html">Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseB.html">Use Case B: Enterprise-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseC.html">Use Case C: Collaboration: Federated-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseD.html">Use Case D: Other-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseE.html">Use Case E: Guest: No-ID Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseF.html">Use Case F: Confidence Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseG.html">Use Case G: Service-Service Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/UseCaseH.html">Use Case H: Data Level Security Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeD/FunctionalDemonstrationResultSummaries.html">Functional Demonstration Result Summaries</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../VolumeD/results/index.html">Functional Demonstration Results</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/EIGCrawlResults.html">EIG Crawl Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/EIGRunResults.html">EIG Run Phase Demonstration Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeD/results/SDPMicroResults.html">SDP, Microsegmentation, and SASE Phase Demonstration Results</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../VolumeE/index.html">Risk and Compliance Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/RisksAddressed.html">Risks Addressed by the ZTA Reference Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/ArchitectureSecurityMappings.html">ZTA Security Mapping Context and Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeE/Mappings.html">Mappings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../VolumeB/ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acronyms.html">Acronyms</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/VolumeC/HowTo-E4B4.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Product Guides</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-workspace-one-access">VMware Workspace ONE Access</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-microsoft-ad">Integration with Microsoft AD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-built-in-idp">Set Up Built-In IDP</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-unified-access-gateway-uag">VMware Unified Access Gateway (UAG)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uag-setup">UAG Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uag-configuration">UAG Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-workspace-one-integration-with-uag-tunnel">Configure Workspace One Integration with UAG Tunnel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-nsx-t">VMware NSX-T</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-and-installation">Setup and Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-and-configure-identity-firewall-in-nsx-t">Enable and Configure Identity Firewall in NSX-T</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-segment-firewall-for-url-blocking">Configure Segment Firewall for URL Blocking</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-distributed-firewall-rule-for-vm-to-vm-blocking">Configure Distributed Firewall Rule for VM to VM Blocking</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-workspace-one-uem">VMware Workspace ONE UEM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-active-directory">Integration with Active Directory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#application-deployment">Application Deployment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-workspace-one-mtd">VMware Workspace ONE MTD</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workspace-one-uem-integration">Workspace One UEM Integration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-device-enrollment">Configure Device Enrollment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-and-enforce-compliance">Configure and Enforce Compliance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-carbon-black-enterprise-edr">VMware Carbon Black Enterprise EDR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carbon-black-cloud-sensor-installation">Carbon Black Cloud Sensor Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carbon-black-cloud-policies">Carbon Black Cloud Policies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-carbon-black-cloud">VMware Carbon Black Cloud</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-existing-cluster-to-carbon-black-and-install-kubernetes-sensor-on-cluster-to-enable-carbon-black-cloud">Add Existing Cluster to Carbon Black and Install Kubernetes Sensor on Cluster to Enable Carbon Black Cloud</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-kubernetes-policies">Set Kubernetes Policies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-vsphere-vcenter-and-vsan">VMware vSphere, vCenter, and vSAN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-security-qradar-xdr">IBM Security QRadar XDR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-io">Tenable.io</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-ad">Tenable.ad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-nnm">Tenable NNM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mandiant-security-validation-msv">Mandiant Security Validation (MSV)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digicert-one">DigiCert ONE</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="enterprise-4-build-4-e4b4-sdp-microsegmentation-and-eig-vmware-workspace-one-access-vmware-unified-access-gateway-and-vmware-nsx-t-as-pes-product-guides">
+<h1>Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Product Guides<a class="headerlink" href="#enterprise-4-build-4-e4b4-sdp-microsegmentation-and-eig-vmware-workspace-one-access-vmware-unified-access-gateway-and-vmware-nsx-t-as-pes-product-guides" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is supplementary material for the <a class="reference external" href="https://nccoe8fy2020dev.prod.acquia-sites.com/sites/default/files/2024-06/zta-nist-sp-1800-35-preliminary-draft-4.pdf">NIST SP 1800-35 publication</a>.</p>
+</div>
+<p>This section of the practice guide contains detailed instructions for installing, configuring, and integrating all the products used to implement E4B4. For additional details on E4B4’s logical and physical architectures, please refer to <a class="reference internal" href="../VolumeB/architecture.html#architecture-and-builds"><span class="std std-ref">Architecture and Builds</span></a>. Note that after this build was completed, VMware was acquired by Broadcom.</p>
+<section id="vmware-workspace-one-access">
+<h2>VMware Workspace ONE Access<a class="headerlink" href="#vmware-workspace-one-access" title="Link to this heading">#</a></h2>
+<p>Workspace ONE Access can serve as an IdP and integrate with a large range of enterprise identity components. For this build, Workspace ONE Access was integrated with an on-premises Active Directory to serve as an IdP.</p>
+<section id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h3>
+<p>Each cloud-based instance of Workspace ONE Access must be provisioned by VMware. After this has been completed, VMware provides access and setup instructions.</p>
+</section>
+<section id="integration-with-microsoft-ad">
+<h3>Integration with Microsoft AD<a class="headerlink" href="#integration-with-microsoft-ad" title="Link to this heading">#</a></h3>
+<p>To integrate with AD, an on-premises agent was installed on a Microsoft Windows Server 2019 system and connected to Workspace ONE Access. After this, Workspace ONE Access was configured to pull user, group, and attribute information.</p>
+<ol class="arabic simple">
+<li><p>The step-by-step guide to adding the on-prem connector can be triggered in the Workspace ONE Access console by navigating to <strong>Integrations -&gt; Connectors</strong> and clicking <strong>New</strong>.</p></li>
+<li><p>After the on-prem agent is installed and connected to Workspace ONE Access, follow the <a class="reference external" href="https://docs.vmware.com/en/VMware-Workspace-ONE-Access/services/ws1_access_directory/GUID-9DB02A30-DE2E-4FDE-9AD6-32CCAD5FFA0B.html">official VMware documentation</a> to add a new LDAP Directory and point Workspace ONE Access to your AD installation.</p></li>
+</ol>
+<p>Once these two steps are completed, AD users, groups, and attributes are available for use within Workspace ONE.</p>
+</section>
+<section id="set-up-built-in-idp">
+<h3>Set Up Built-In IDP<a class="headerlink" href="#set-up-built-in-idp" title="Link to this heading">#</a></h3>
+<p>Integration with AD was completed using the built-in IDP option. When users attempt to authenticate to resources, they will be redirected to Workspace ONE Access for user and device authentication.</p>
+<ol class="arabic simple">
+<li><p>In the Workspace ONE Access console, navigate to <strong>Integrations -&gt; Identity Providers</strong> and click <strong>Add -&gt; Built-in IDP</strong>. Choose your AD directory created in the previous section.</p></li>
+<li><p>Fill out details in the form pertaining to your installation.</p></li>
+<li><p>Under <strong>Users</strong>, select the directory that you created in your previous integration with RadiantOne.</p></li>
+<li><p>Under <strong>Authentication Methods</strong>, select Mobile SSO for both Android and iOS.</p></li>
+<li><p>Choose <strong>All Ranges</strong> as the Network option.</p></li>
+<li><p>Click <strong>Save</strong> in the bottom right corner.</p></li>
+</ol>
+</section>
+</section>
+<section id="vmware-unified-access-gateway-uag">
+<h2>VMware Unified Access Gateway (UAG)<a class="headerlink" href="#vmware-unified-access-gateway-uag" title="Link to this heading">#</a></h2>
+<p>VMware Unified Access Gateway (UAG) helps enable secure remote access for users of virtual desktops, internal sites, applications, and file repositories.</p>
+<section id="uag-setup">
+<h3>UAG Setup<a class="headerlink" href="#uag-setup" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Open firewall rules depending on the services to be utilized. For this build, inbound TCP port 443 was opened to the destination IP of the UAG appliance. Port lists can be obtained here: <a class="reference external" href="https://docs.vmware.com/en/Unified-Access-Gateway/2203/uag-deploy-config/GUID-F197EB60-3A0C-41DF-8E3E-C99CCBA6A06E.html">UAG port list</a></p></li>
+<li><p>Deploy the UAG appliance using the OVF Template Wizard from VMware. Follow instructions found in the deployment document here: <a class="reference external" href="https://docs.vmware.com/en/Unified-Access-Gateway/2203/uag-deploy-config/GUID-537BD936-73B4-4902-A15D-5723295BA29E.html">UAG Deployment Guide.</a> For this build, the following optional configuration variables were set:</p>
+<ol class="loweralpha simple">
+<li><p>Size: Large</p></li>
+<li><p>Enable SSH</p></li>
+<li><p>Allow SSH root login using password</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="uag-configuration">
+<h3>UAG Configuration<a class="headerlink" href="#uag-configuration" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Access the UAG console using the IP address specified in the previous section. Log in with the admin account. On the Welcome Screen, choose <strong>Configure Manually</strong>.</p></li>
+<li><p>If desired, change the system setting defaults by following this guide: <a class="reference external" href="https://docs.vmware.com/en/Unified-Access-Gateway/2203/uag-deploy-config/GUID-F71E6283-E24B-49F5-8AC6-D28915CD41AD.html">UAG System Configuration.</a></p></li>
+<li><p>Enable <strong>Edge Service Settings</strong> at the top of the admin page. Click the gear next to <strong>Tunnel Settings</strong> and set the following information:</p>
+<ol class="loweralpha simple">
+<li><p>API Server URL: the API URL of your tenant. VMware can provide this information.</p></li>
+<li><p>API Server username</p></li>
+<li><p>API Server password</p></li>
+<li><p>Organization Group ID (found in the UEM console)</p></li>
+<li><p>Tunnel Server Hostname: FQDN of your UAG appliance</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="configure-workspace-one-integration-with-uag-tunnel">
+<h3>Configure Workspace One Integration with UAG Tunnel<a class="headerlink" href="#configure-workspace-one-integration-with-uag-tunnel" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>From the Workspace One UEM Console, configure the UAG Tunnel Connection using the <a class="reference external" href="https://docs.vmware.com/en/VMware-Workspace-ONE-UEM/services/VMware_Tunnel/GUID-471260BA-4DDC-4BFE-B8C3-FA2DDC2116A1.html">UEM Tunnel Configuration Guide</a> as a reference. For this build, the following configuration options were set:</p>
+<ol class="loweralpha simple">
+<li><p>Deployment Type: Basic</p></li>
+<li><p>Hostname: hostname of the UAG appliance</p></li>
+<li><p>Port: 443</p></li>
+<li><p>Server Authentication: Airwatch</p></li>
+<li><p>Client Authentication: Airwatch</p></li>
+<li><p>Networking: disabled</p></li>
+<li><p>Logging: disabled</p></li>
+<li><p>No Custom Settings</p></li>
+</ol>
+</li>
+<li><p>From the Workspace One UEM Tunnel Configuration page, set up <strong>Device Traffic Rule Sets</strong> using the <a class="reference external" href="https://docs.vmware.com/en/VMware-Workspace-ONE-UEM/services/VMware_Tunnel/GUID-007E716F-59FE-4148-B7AA-5F2584E91282.html">Assign Traffic Rules Guide</a> as a reference. For this build, these settings were configured:</p>
+<ol class="loweralpha simple">
+<li><p>Tunnel Mode: Per Application</p></li>
+<li><p>Rule 1: Chrome on Android</p>
+<ol class="lowerroman simple">
+<li><p>Click on <strong>Add Rule</strong>. Under the Application dropdown, choose <strong>Google Chrome</strong>. Under the Action dropdown, select <strong>TUNNEL</strong>. For the Destination field, enter your Workspace Air Tenant URL.</p></li>
+</ol>
+</li>
+<li><p>Rule 2: Other Web Browsers</p>
+<ol class="lowerroman simple">
+<li><p>Click on <strong>Add Rule</strong>. Under the Application dropdown, choose <strong>Safari - MacOS</strong>, <strong>Chrome - iOS</strong>, <strong>Chrome - Android</strong>, <strong>Chrome - WinRT</strong>, and <strong>Chrome - MacOS</strong>. Under the Action dropdown, select <strong>TUNNEL</strong>. For the Destination field, list any URL resources that require traffic to be tunneled.</p></li>
+</ol>
+</li>
+<li><p>Rule 3: <strong>All Other Apps</strong> set to BYPASS</p></li>
+<li><p><strong>Save</strong> and <strong>Publish</strong> the rules once complete.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+</section>
+<section id="vmware-nsx-t">
+<h2>VMware NSX-T<a class="headerlink" href="#vmware-nsx-t" title="Link to this heading">#</a></h2>
+<p>VMware NSX provides an agile software-defined infrastructure to build cloud-native application environments. NSX focuses on providing networking, security, automation, and operational simplicity for emerging application frameworks and architectures that have heterogeneous endpoint environments and technology stacks.</p>
+<section id="setup-and-installation">
+<h3>Setup and Installation<a class="headerlink" href="#setup-and-installation" title="Link to this heading">#</a></h3>
+<p>NSX-T requires an existing vSphere cluster to operate with an existing vCenter server already installed. The high-level steps for installation are as follows:</p>
+<ol class="arabic simple">
+<li><p>Deploy the NSX Manager VM.</p></li>
+<li><p>Configure a vSphere Distributed Switch (VDS).</p></li>
+<li><p>Create an uplink profile and configure host transport nodes.</p></li>
+<li><p>Deploy two NSX Edge VMs to form an edge cluster.</p></li>
+<li><p>Create and configure one tier-0 gateway for north-south traffic.</p></li>
+<li><p>Create and configure a tier-1 gateway to route traffic from tenant VMs.</p></li>
+<li><p>Create and configure a segment (logical switch) for tenant VMs.</p></li>
+<li><p>Deploy a test VM to test north-south and east-west connectivity.</p></li>
+</ol>
+<p>Step-by-step instructions can be found in the <a class="reference external" href="https://docs.vmware.com/en/VMware-NSX/4.1/quick_start/GUID-78489E7A-1F6F-4317-BD8B-DDF59FEF9860.html">NSX-T Quick Start Guide here</a>.</p>
+</section>
+<section id="enable-and-configure-identity-firewall-in-nsx-t">
+<h3>Enable and Configure Identity Firewall in NSX-T<a class="headerlink" href="#enable-and-configure-identity-firewall-in-nsx-t" title="Link to this heading">#</a></h3>
+<p>Once NSX-T is configured, enable and configure Identity Firewall in NSX-T to provide ZTA features, including identity-specific network rules. The high-level procedure is as follows:</p>
+<ol class="arabic simple">
+<li><p>Enable NSX File Introspection driver and NSX Network Introspection driver (VMware Tools full installation adds these by default), or event log scraping. See <a class="reference external" href="https://docs.vmware.com/en/VMware-NSX/4.1/administration/GUID-508ED66D-FF4E-49A1-A3A7-C3150C387556.html#GUID-508ED66D-FF4E-49A1-A3A7-C3150C387556">Identity Firewall Event Log Sources</a>. After configuring event log servers in the Active Directory, you need to turn on the Event Log Sources or Aria Operations for Logs.</p></li>
+<li><p><a class="reference external" href="https://docs.vmware.com/en/VMware-NSX/4.1/administration/GUID-0475A987-C612-483D-8CCF-01BE6DEE6952.html#GUID-0475A987-C612-483D-8CCF-01BE6DEE6952">Enable Identity Firewall on DFW and GFW</a>. Identity Firewall must be activated for IDFW firewall rules to take effect.</p></li>
+<li><p>Configure AD (required) and event log scraping (optional): <a class="reference external" href="https://docs.vmware.com/en/VMware-NSX/4.1/administration/GUID-8B60D22B-3119-48F6-AEAE-AE27A9372189.html#GUID-8B60D22B-3119-48F6-AEAE-AE27A9372189">Configuring Active Directory and Event Log Scraping</a>. Active Directory is used in creating user-based Identity Firewall rules.</p></li>
+<li><p>Configure AD sync operations: <a class="reference external" href="https://docs.vmware.com/en/VMware-NSX/4.1/administration/GUID-A1E49EF5-6B19-4D75-8696-F8B3EAE433F3.html#GUID-A1E49EF5-6B19-4D75-8696-F8B3EAE433F3">Synchronize Active Directory</a>. Active Directory objects can be used to create security groups based on user identity, and identity-based firewall rules.</p></li>
+<li><p>Create a group with AD group members: <a class="reference external" href="https://docs.vmware.com/en/VMware-NSX/4.1/administration/GUID-9DFF6EE2-2E00-4097-A412-B72472596E4D.html#GUID-9DFF6EE2-2E00-4097-A412-B72472596E4D">Add a Group</a>. Groups include different objects that are added both statically and dynamically and can be used as the source and destination of a firewall rule.</p></li>
+<li><p>Assign group with AD group members to a distributed firewall rule or gateway firewall rule. If creating a DFW rule using guest introspection, make sure that the <strong>Applied to</strong> field applies to the destination group: <a class="reference external" href="https://docs.vmware.com/en/VMware-NSX/4.1/administration/GUID-41CC06DF-1CD4-4233-B43E-492A9A3AD5F6.html#GUID-41CC06DF-1CD4-4233-B43E-492A9A3AD5F6">Add a Distributed Firewall</a>. The distributed firewall monitors all the East-West traffic on your virtual machines. The <strong>Source</strong> field should be an AD-based group.</p></li>
+</ol>
+<p>The full <a class="reference external" href="https://docs.vmware.com/en/VMware-NSX/4.1/administration/GUID-F15C4916-CEBF-47A0-A6A8-64428190B08D.html">Identity Firewall Workflow Guide can be found here</a>.</p>
+</section>
+<section id="configure-segment-firewall-for-url-blocking">
+<h3>Configure Segment Firewall for URL Blocking<a class="headerlink" href="#configure-segment-firewall-for-url-blocking" title="Link to this heading">#</a></h3>
+<p>For this build we configured a Tier-1 Segment Firewall to block a subset of users from access specific URLs with the following rule and profile:</p>
+<p><strong>Segment Firewall Rule Settings:</strong></p>
+<ul class="simple">
+<li><p>Source: Active Directory Group “Test NSX Users”</p></li>
+<li><p>Destination: Any</p></li>
+<li><p>Services: HTTP, HTTPS</p></li>
+<li><p>Applied To: T1</p></li>
+<li><p>Action: Allow</p></li>
+<li><p>Profile: URL Category</p></li>
+</ul>
+<p><strong>“URL Category” Profile Settings:</strong></p>
+<ul class="simple">
+<li><p>L7 Profile</p></li>
+<li><p>Name: URL Category</p></li>
+<li><p>Attribute Values: “Alcohol and Tobacco” and “Auctions”</p></li>
+<li><p>Action: Reject with Response</p></li>
+<li><p>Logging: Yes</p></li>
+<li><p>Enabled: Yes</p></li>
+</ul>
+</section>
+<section id="configure-distributed-firewall-rule-for-vm-to-vm-blocking">
+<h3>Configure Distributed Firewall Rule for VM to VM Blocking<a class="headerlink" href="#configure-distributed-firewall-rule-for-vm-to-vm-blocking" title="Link to this heading">#</a></h3>
+<p>For this build we configured a Distributed Firewall rule to block VM to VM traffic with our vSphere cluster with the following rule configuration:</p>
+<ul class="simple">
+<li><p>Sources: NSX Group “UseCaseGSubjectsGroup” (Virtual Machine Group)</p></li>
+<li><p>Destinations: NSX Group “UseCaseGResourcesGroup” (Virtual Machine Group)</p></li>
+<li><p>Services: Any</p></li>
+<li><p>Applied To: DFW</p></li>
+<li><p>Action: Reject</p></li>
+<li><p>Enable: On</p></li>
+</ul>
+</section>
+</section>
+<section id="vmware-workspace-one-uem">
+<h2>VMware Workspace ONE UEM<a class="headerlink" href="#vmware-workspace-one-uem" title="Link to this heading">#</a></h2>
+<p>Workspace ONE UEM provides endpoint management capabilities for this build and allows certificates to be provisioned for user authentication.</p>
+<section id="id1">
+<h3>Setup<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>The cloud-based Workspace ONE UEM instance must be provisioned by VMware. After this has been completed, follow the <a class="reference external" href="https://docs.vmware.com/en/VMware-Workspace-ONE-UEM/services/rn/WorkspaceONEUEMDocumentation.html">official Workspace ONE UEM documentation</a> to deploy agents to each of your managed endpoints. Instructions for deploying profiles and compliance requirements to devices can also be found in the link above.</p>
+</section>
+<section id="integration-with-active-directory">
+<h3>Integration with Active Directory<a class="headerlink" href="#integration-with-active-directory" title="Link to this heading">#</a></h3>
+<p>Workspace ONE UEM integrates with your existing directory service - such as Active Directory, Lotus Domino, and Novell e-Directory - to provide directory-based account access. This type of account access lets users authenticate with Workspace ONE UEM apps and enroll devices using their existing directory service credentials. The Workspace One UEM <a class="reference external" href="https://docs.vmware.com/en/VMware-Workspace-ONE-UEM/services/Directory_Service_Integration/GUID-AWT-DIRECTORYSERVICESOVERVIEW.html">Directory Services Guide can be found here</a>.</p>
+</section>
+<section id="application-deployment">
+<h3>Application Deployment<a class="headerlink" href="#application-deployment" title="Link to this heading">#</a></h3>
+<p>Internal (private) applications or public (App Store) applications can be deployed via UEM to provide services to endpoints. Google Chrome and VMWare’s UAG Tunnel Application were both deployed as a public application via UEM to Android and iOS devices. All public applications follow the same deployment steps provided in the <a class="reference external" href="https://docs.vmware.com/en/VMware-Workspace-ONE-UEM/services/Application_Management/GUID-DeployPublicApps.html">Deploy Public Applications Guide</a> of the Workspace One UEM User Manual.</p>
+<p>For macOS and Windows, the VMWare UAG Tunnel and Carbon Black Enterprise EDR agent were deployed as internal applications. All internal applications follow the same deployment steps provided in the <a class="reference external" href="https://docs.vmware.com/en/VMware-Workspace-ONE-UEM/services/Application_Management/GUID-DeployInternalApplications.html">Deploy Internal Applications Guide</a> of the Workspace One UEM User Guide.</p>
+</section>
+</section>
+<section id="vmware-workspace-one-mtd">
+<h2>VMware Workspace ONE MTD<a class="headerlink" href="#vmware-workspace-one-mtd" title="Link to this heading">#</a></h2>
+<p>Workspace ONE MTD provides endpoint security and protection for iOS, Android, and Chrome OS, securing devices against app, device, OS, and network-based threats. Integrating MTD with Workspace ONE UEM empowers your organization to adopt secure mobility without compromising productivity.</p>
+<section id="id2">
+<h3>Setup<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>The cloud-based Workspace ONE MTD instance must be provisioned by VMware. After this has been completed, log into your Workspace One MTD console to continue configuration.</p>
+</section>
+<section id="workspace-one-uem-integration">
+<h3>Workspace One UEM Integration<a class="headerlink" href="#workspace-one-uem-integration" title="Link to this heading">#</a></h3>
+<p>Follow the <a class="reference external" href="https://docs.vmware.com/en/VMware-Workspace-ONE/services/WS1-MTD/GUID-MTD-IntegrateWithWS1UEM.html">Workspace ONE MTD and UEM Configuration Guide</a> to create an Organizational Unit in MTD and integrate UEM with Workspace One MTD.</p>
+</section>
+<section id="configure-device-enrollment">
+<h3>Configure Device Enrollment<a class="headerlink" href="#configure-device-enrollment" title="Link to this heading">#</a></h3>
+<p>Once UEM integration is complete, configure an enrollment group in UEM to automatically enroll devices from UEM into MTD by following the <a class="reference external" href="https://docs.vmware.com/en/VMware-Workspace-ONE/services/WS1-MTD/GUID-MTD-Monitor-Enrollment-Activation.html">Monitor Enrollment and Activation Guide here</a>.</p>
+</section>
+<section id="configure-and-enforce-compliance">
+<h3>Configure and Enforce Compliance<a class="headerlink" href="#configure-and-enforce-compliance" title="Link to this heading">#</a></h3>
+<p>Device Compliance and Threat Classification is configured once enrollment is complete. Devices can be placed into Low/Medium/High Risk groups depending on rule sets. Additionally, AllowList and DenyList URL sets may be configured to allow or block specific URLs on devices. <a class="reference external" href="https://docs.vmware.com/en/VMware-Workspace-ONE/services/WS1-MTD/GUID-MTD-Configure-Enforce-Compliance.html">The Compliance and Threat Classification Configuration Guide can be found here.</a></p>
+</section>
+</section>
+<section id="vmware-carbon-black-enterprise-edr">
+<h2>VMware Carbon Black Enterprise EDR<a class="headerlink" href="#vmware-carbon-black-enterprise-edr" title="Link to this heading">#</a></h2>
+<p>VMware Carbon Black Enterprise EDR Standard is a next-generation antivirus (NGAV) and behavioral endpoint detection and response (EDR) solution that protects against the full spectrum of modern cyber-attacks.</p>
+<section id="id3">
+<h3>Setup<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>The cloud-based VMWare Carbon Black Enterprise EDR instance must be provisioned by VMware. After this has been completed, log into your Carbon Black Cloud console to continue configuration.</p>
+</section>
+<section id="carbon-black-cloud-sensor-installation">
+<h3>Carbon Black Cloud Sensor Installation<a class="headerlink" href="#carbon-black-cloud-sensor-installation" title="Link to this heading">#</a></h3>
+<p>Carbon Black Endpoints require Cloud sensors for protection. Each Windows, Linux, macOS, or VDI endpoint will need a Cloud sensor installed to provide protection. Sensor installation instructions are provided in the <a class="reference external" href="https://docs.vmware.com/en/VMware-Carbon-Black-Cloud/services/cbc-sensor-installation-guide/GUID-76272E42-E534-47AD-8654-B2F3B5682806.html">VMWare Carbon Black Cloud Sensor Installation Guide</a>.</p>
+</section>
+<section id="carbon-black-cloud-policies">
+<h3>Carbon Black Cloud Policies<a class="headerlink" href="#carbon-black-cloud-policies" title="Link to this heading">#</a></h3>
+<p>Once endpoints are configured, policies must be set to control endpoint behavior. Overall policy configuration is addressed in the <a class="reference external" href="https://docs.vmware.com/en/VMware-Carbon-Black-Cloud/services/carbon-black-cloud-user-guide/GUID-814C8950-5560-49D6-8E74-466ECE460D4F.html">Managing Policies section of the VMWare Carbon Black Cloud User Guide.</a></p>
+<p>For this build, a “Deny Operation” rule was set in the “Blocking and Isolation” policy section for the process “/usr/local/bin/nmap”.</p>
+</section>
+</section>
+<section id="vmware-carbon-black-cloud">
+<h2>VMware Carbon Black Cloud<a class="headerlink" href="#vmware-carbon-black-cloud" title="Link to this heading">#</a></h2>
+<p>VMware Carbon Black Cloud provides the visibility and control that DevOps and security teams need to secure Kubernetes clusters and the applications deployed on them. It delivers instant visibility into all workloads with the ability to enforce compliance, security, and governance from a single dashboard.</p>
+<section id="id4">
+<h3>Setup<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>The cloud-based VMWare Carbon Black Cloud instance must be provisioned by VMware. After this has been completed, log into your Carbon Black Cloud console to continue configuration.</p>
+</section>
+<section id="add-existing-cluster-to-carbon-black-and-install-kubernetes-sensor-on-cluster-to-enable-carbon-black-cloud">
+<h3>Add Existing Cluster to Carbon Black and Install Kubernetes Sensor on Cluster to Enable Carbon Black Cloud<a class="headerlink" href="#add-existing-cluster-to-carbon-black-and-install-kubernetes-sensor-on-cluster-to-enable-carbon-black-cloud" title="Link to this heading">#</a></h3>
+<p>To complete the following steps, an existing Kubernetes cluster is required, along with terminal access to the cluster. <a class="reference external" href="https://docs.vmware.com/en/VMware-Carbon-Black-Cloud/services/cbc-sensor-installation-guide/GUID-9AF20C3A-BA0D-44AE-89B7-446F4D0028B3.html">Step-by-step instructions are provided in the Kubernetes Sensor Installation Guide</a>.</p>
+</section>
+<section id="set-kubernetes-policies">
+<h3>Set Kubernetes Policies<a class="headerlink" href="#set-kubernetes-policies" title="Link to this heading">#</a></h3>
+<p>Runtime and hardening policies can be set according to best practices in the <a class="reference external" href="https://docs.vmware.com/en/VMware-Carbon-Black-Cloud/services/carbon-black-cloud-container-user-guide.pdf">Carbon Black for Containers User’s Guide</a>. For this build, default rules and policies were used and were not changed.</p>
+</section>
+</section>
+<section id="vmware-vsphere-vcenter-and-vsan">
+<h2>VMware vSphere, vCenter, and vSAN<a class="headerlink" href="#vmware-vsphere-vcenter-and-vsan" title="Link to this heading">#</a></h2>
+<p>Installation and configuration of vSphere, vCenter, and vSAN is outside the scope of this document. General information can be found here: <a class="reference external" href="https://docs.vmware.com/en/VMware-vSphere/index.html">https://docs.vmware.com/en/VMware-vSphere/index.html</a></p>
+</section>
+<section id="ibm-security-qradar-xdr">
+<h2>IBM Security QRadar XDR<a class="headerlink" href="#ibm-security-qradar-xdr" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#ibm-qradar"><span class="std std-ref">IBM Security QRadar XDR</span></a>.</p>
+</section>
+<section id="tenable-io">
+<h2>Tenable.io<a class="headerlink" href="#tenable-io" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id8"><span class="std std-ref">Tenable.io</span></a>.</p>
+</section>
+<section id="tenable-ad">
+<h2>Tenable.ad<a class="headerlink" href="#tenable-ad" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id11"><span class="std std-ref">Tenable.ad</span></a>.</p>
+</section>
+<section id="tenable-nnm">
+<h2>Tenable NNM<a class="headerlink" href="#tenable-nnm" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id12"><span class="std std-ref">Tenable NNM</span></a>.</p>
+</section>
+<section id="mandiant-security-validation-msv">
+<h2>Mandiant Security Validation (MSV)<a class="headerlink" href="#mandiant-security-validation-msv" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#mandiant-msv"><span class="std std-ref">Mandiant Security Validation (MSV)</span></a>.</p>
+</section>
+<section id="digicert-one">
+<h2>DigiCert ONE<a class="headerlink" href="#digicert-one" title="Link to this heading">#</a></h2>
+<p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E4B3.html#id4"><span class="std std-ref">DigiCert ONE</span></a>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="HowTo-E3B4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Enterprise 3 Build 4 (E3B4) - SDP - F5 BIG-IP, F5 NGINX Plus, Forescout eyeControl, and Forescout eyeExtend as PEs Product Guides</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="HowTo-E1B5.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-workspace-one-access">VMware Workspace ONE Access</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-microsoft-ad">Integration with Microsoft AD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-built-in-idp">Set Up Built-In IDP</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-unified-access-gateway-uag">VMware Unified Access Gateway (UAG)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uag-setup">UAG Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uag-configuration">UAG Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-workspace-one-integration-with-uag-tunnel">Configure Workspace One Integration with UAG Tunnel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-nsx-t">VMware NSX-T</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-and-installation">Setup and Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-and-configure-identity-firewall-in-nsx-t">Enable and Configure Identity Firewall in NSX-T</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-segment-firewall-for-url-blocking">Configure Segment Firewall for URL Blocking</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-distributed-firewall-rule-for-vm-to-vm-blocking">Configure Distributed Firewall Rule for VM to VM Blocking</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-workspace-one-uem">VMware Workspace ONE UEM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-active-directory">Integration with Active Directory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#application-deployment">Application Deployment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-workspace-one-mtd">VMware Workspace ONE MTD</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workspace-one-uem-integration">Workspace One UEM Integration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-device-enrollment">Configure Device Enrollment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-and-enforce-compliance">Configure and Enforce Compliance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-carbon-black-enterprise-edr">VMware Carbon Black Enterprise EDR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carbon-black-cloud-sensor-installation">Carbon Black Cloud Sensor Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carbon-black-cloud-policies">Carbon Black Cloud Policies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-carbon-black-cloud">VMware Carbon Black Cloud</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-existing-cluster-to-carbon-black-and-install-kubernetes-sensor-on-cluster-to-enable-carbon-black-cloud">Add Existing Cluster to Carbon Black and Install Kubernetes Sensor on Cluster to Enable Carbon Black Cloud</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-kubernetes-policies">Set Kubernetes Policies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-vsphere-vcenter-and-vsan">VMware vSphere, vCenter, and vSAN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-security-qradar-xdr">IBM Security QRadar XDR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-io">Tenable.io</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-ad">Tenable.ad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable-nnm">Tenable NNM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mandiant-security-validation-msv">Mandiant Security Validation (MSV)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digicert-one">DigiCert ONE</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<p>
+  
+    By NIST<br/>
+  
+</p>
+
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> Certain commercial equipment, instruments, or
+          materials are identified in this documentation to foster understanding. Such
+          identification does not imply recommendation or endorsement by the National
+          Institute of Standards and Technology, nor does it imply that the materials
+          or equipment identified are necessarily the best available for the purpose.
+        </div>
+      </p>
+    </div>
+</footer>
+  </body>
+</html>
