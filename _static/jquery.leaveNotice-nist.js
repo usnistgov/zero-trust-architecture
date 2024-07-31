@@ -4,7 +4,7 @@
   $.fn.leaveNotice = function (opt) {
     var defaults = {
       siteName: "NIST",
-      exitMessage: "<h2><strong>Thank you for visiting {SITENAME}.</strong></h2><p>We hope your visit was informative.</p><p>We have provided this link to a non-NIST site because it has information that may be of interest to our users. NIST does not necessarily endorse the views expressed or the facts presented on this site. Further, NIST does not endorse any commercial products that may be advertised or available on this site.</p>",
+      exitMessage: "<h2 style=\"margin-top:1.15rem;\"><strong>Thank you for visiting {SITENAME}.</strong></h2><p>We hope your visit was informative.</p><p>We have provided this link to a non-NIST site because it has information that may be of interest to our users. NIST does not necessarily endorse the views expressed or the facts presented on this site. Further, NIST does not endorse any commercial products that may be advertised or available on this site.</p>",
       preLinkMessage: "<div class='setoff'><p>You will now be directed to:<br/>{URL}</p></div>",
       linkString: "",
       newWindow: false,
@@ -35,8 +35,8 @@
       }
       options.timeOut = options.newWindow ? 0 : options.timeOut;
       el.click(function () {
-        $("body").append('<div id="' + options.overlayId + '"></div>');
-        $("body").append('<div id="' + options.messageHolderId + '"><div id="' + options.messageBoxId + '"></div></div>');
+        $("body").append('<div id="' + options.overlayId + '" style="z-index:9990;"></div>');
+        $("body").append('<div id="' + options.messageHolderId + '" style="top:45px;z-index:9999;"><div id="' + options.messageBoxId + '" style="padding-top:0;padding-bottom:0;"></div></div>');
         if (options.overlayAlpha !== false) {
           $("#" + options.overlayId).css("opacity", options.overlayAlpha)
         }

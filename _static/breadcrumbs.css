@@ -40,6 +40,13 @@
     list-style: none;
 }
 
+.breadcrumb-active {
+    overflow: clip;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 1000px;
+}
+
 .wy-breadcrumbs-extra {
     margin-bottom: 0;
     color: #b3b3b3;
