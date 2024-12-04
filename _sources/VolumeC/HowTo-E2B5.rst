@@ -99,7 +99,7 @@ Integration with AD
 Refer to :ref:`SailPoint IdentityIQ Integration with AD<sailpoint-integration-ad>`.
 
 VMware Workspace ONE
---------------------
+---------------------
 
 For installation, configuration, and integration instructions, refer to :ref:`VMware Workspace ONE<vmware-workspace-one>`.
 
@@ -135,6 +135,8 @@ For installation, configuration, and integration instructions, refer to :ref:`Go
 
 Google Workspace
 ----------------
+
+.. _google-workspace:
 
 Google Workspace is a cloud-based SaaS offering that provides a range of SaaS applications to users. For this build, Google Workspace provided SaaS resources that were accessible to users via Lookout SSE.
 

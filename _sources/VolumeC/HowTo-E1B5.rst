@@ -169,7 +169,7 @@ Configuration specific to this build requires PAN's Cloud Identity Engine to set
 Okta Verify App
 ---------------
 
-For installation, configuration, and integration instructions, refer to :ref:`Okta Verify App<okta-verify-app>`
+For installation, configuration, and integration instructions, refer to :ref:`Okta Verify App<okta-verify-app>`.
 
 Radiant Logic RadiantOne
 ------------------------

@@ -25,6 +25,8 @@ Build Architecture Details
    Appendix-E1B5.rst
    Appendix-E2B5.rst
    Appendix-E3B5.rst
+   Appendix-E4B5.rst
    Appendix-E1B6.rst
+   Appendix-E2B6.rst
 
 This section lists the build architecture details for all builds.

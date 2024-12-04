@@ -212,7 +212,7 @@
           
           
           
-          <a href="https://www.nccoe.nist.gov/sites/default/files/2024-07/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+          <a href="https://www.nccoe.nist.gov/sites/default/files/2024-11/zta-nist-sp-1800-35-ipd.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
         </li>
         <li class="nav-item">
           
@@ -270,7 +270,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B5.html">Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PEs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B6.html">Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE</a></li>
 </ul>
 </details></li>
 </ul>
@@ -292,7 +294,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E4B5.html">Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E2B6.html">Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VolumeC/Hardening.html">Hardening Information</a></li>
 </ul>
 </details></li>
@@ -325,6 +329,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../VolumeB/ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../acronyms.html">Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Change Log</a></li>
 </ul>
 
     </div>
@@ -496,7 +501,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-1-build-5-e1b5-sase-and-microsegmentation-pan-ngfw-and-pan-prisma-access-as-pes-summary-demonstration-results">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Summary Demonstration Results</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-2-build-5-e2b5-sdp-and-sase-lookout-sse-and-okta-identity-cloud-as-pes-summary-demonstration-results">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Summary Demonstration Results</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-3-build-5-e3b5-sdp-and-sase-microsoft-entra-conditional-access-formerly-called-azure-ad-conditional-access-and-microsoft-security-service-edge-as-pes-summary-demonstration-results">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-4-build-5-e4b5-sdp-and-microsegmentation-aws-verified-access-and-amazon-vpc-lattice-as-pe">Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PE</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-1-build-6-e1b6-sdp-and-microsegmentation-ivanti-neurons-for-zero-trust-access-as-pes-summary-demonstration-results">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-2-build-6-e2b6-sase-google-chrome-enterprise-premium-cep-access-context-manager-as-pe-summary-demonstration-results">Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE Summary Demonstration Results</a></li>
 </ul>
 </li>
 </ul>
@@ -1463,7 +1470,7 @@ document.write(`
 <ul class="simple">
 <li><p>Discovery and authentication of managed endpoint assets</p>
 <ul>
-<li><p>Demonstration was based on VMware Workspace One UEM policy configuration.</p></li>
+<li><p>Demonstration was based on VMware Workspace ONE UEM policy configuration.</p></li>
 <li><p>This build also demonstrated the capability to limit or reduce user access levels in certain scenarios.</p></li>
 <li><p>Resource authentication and limited access to the network were not demonstrated because VMware considers them out of scope for their products. Other technologies should be used to perform these functions.</p></li>
 </ul>
@@ -1485,7 +1492,7 @@ document.write(`
 <p><strong>Description:</strong> These use cases demonstrate user access to enterprise resources based on successfully achieving user and device security preconditions.</p>
 <ul class="simple">
 <li><p>For this build, we successfully demonstrated access using Windows, Mac, Linux, and mobile device iOS and Android endpoints.</p></li>
-<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to enterprise resources (on-prem and cloud) in accordance with policy via VMware Workspace One Access.</p>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to enterprise resources (on-prem and cloud) in accordance with policy via VMware Workspace ONE Access.</p>
 <ul>
 <li><p>The policy engine can differentiate between employees and contractors and provide different access permissions to each user type.</p></li>
 </ul>
@@ -1497,7 +1504,7 @@ document.write(`
 </li>
 <li><p>Stolen credential scenarios using an enterprise endpoint or BYOD were partially completed successfully.</p>
 <ul>
-<li><p>Since the certificates are protected, we were unable to duplicate VMware UEM certificates to another mobile device to complete some scenarios, including stolen credential scenarios. VMware Workspace ONE does not detect a hostile request if only using password authentication. Passwordless authentication is therefore the recommended method.</p></li>
+<li><p>Since the certificates are protected, we were unable to duplicate VMware UEM certificates to another mobile device to complete some scenarios, including stolen credential scenarios. VMwware Workspace ONE does not detect a hostile request if only using password authentication. Passwordless authentication is therefore the recommended method.</p></li>
 <li><p>Stolen devices can be wiped and blacklisted if reported.</p></li>
 </ul>
 </li>
@@ -1520,14 +1527,14 @@ document.write(`
 <ul class="simple">
 <li><p>Users or devices that fail reauthentication lose access to resources. With successful reauthentication, access is maintained.</p>
 <ul>
-<li><p>Users that are not able to reauthenticate successfully to VMware Workspace One UEM immediately lose access to resources.</p></li>
+<li><p>Users that are not able to reauthenticate successfully to VMware Workspace ONE UEM immediately lose access to resources.</p></li>
 <li><p>Endpoint credentials were invalidated by removing the authentication certificate from the device.</p></li>
 </ul>
 </li>
 <li><p>Resource reauthentication is out of scope for VMware; other technologies should be used.</p></li>
 <li><p>Compliant devices maintain or regain access to resources. Noncompliant devices or users with noncompliant devices lose access to resources.</p>
 <ul>
-<li><p>VMware Workspace One UEM determines the compliance state of devices that it manages.</p></li>
+<li><p>VMware Workspace ONE UEM determines the compliance state of devices that it manages.</p></li>
 <li><p>Devices lose access to resources via VMware Tunnel when they are noncompliant per Workspace ONE UEM.</p></li>
 <li><p>Devices that return to a compliant state have their access restored via the UAG Tunnel.</p></li>
 </ul>
@@ -1559,7 +1566,7 @@ document.write(`
 <ul class="simple">
 <li><p>VMware considers data level security out of scope for this project. Other products should be used for these services.</p></li>
 </ul>
-<p>Note that after this build was completed, VMware was acquired by Broadcom.</p>
+<p>Note that after the VMware End User Computing division products were implemented at NCCoE, VMware was acquired by Broadcom, then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC.</p>
 </section>
 <section id="enterprise-1-build-5-e1b5-sase-and-microsegmentation-pan-ngfw-and-pan-prisma-access-as-pes-summary-demonstration-results">
 <h3>Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Summary Demonstration Results<a class="headerlink" href="#enterprise-1-build-5-e1b5-sase-and-microsegmentation-pan-ngfw-and-pan-prisma-access-as-pes-summary-demonstration-results" title="Link to this heading">#</a></h3>
@@ -1968,15 +1975,107 @@ document.write(`
 <p><strong>Use Case H: Data-Level Security</strong></p>
 <p><strong>Description</strong>: This use case covers subject access requests to data with different levels of classification.</p>
 <ul class="simple">
-<li><p>Access to data based on identity attributes - Leveraging Entra Conditional Access, differing levels of access were assigned to users depending on the classification of data in the cloud.</p></li>
-<li><p>Access to data based on requesting endpoint - Leveraging Entra Conditional Access and Microsoft Intune compliance feeds, differing levels of access were assigned to subjects based on the compliance status of their endpoints. This was only applicable to data resident in the cloud.</p></li>
-<li><p>Internet access restricted when accessing data with high classification - Leveraging Entra Conditional Access, allowed and excluded subject locations were specified. Data was differentiated based on which folder an object resided in. Controls were applicable to data in the cloud.</p></li>
-<li><p>Requestor challenged to reauthenticate when accessing data with high classification - Entra Conditional Access using the authentication context feature triggers MFA for sensitive data in the cloud.</p></li>
+<li><p>Access to data based on identity attributes - Leveraging Entra ID Conditional Access, differing levels of access were assigned to users depending on the classification of data in the cloud.</p></li>
+<li><p>Access to data based on requesting endpoint - Leveraging Entra ID Conditional Access and Microsoft Intune compliance feeds, differing levels of access were assigned to subjects based on the compliance status of their endpoints. This was only applicable to data resident in the cloud.</p></li>
+<li><p>Internet access restricted when accessing data with high classification - Leveraging Entra ID Conditional Access, allowed and excluded subject locations were specified. Data was differentiated based on which folder an object resided in. Controls were applicable to data in the cloud.</p></li>
+<li><p>Requestor challenged to reauthenticate when accessing data with high classification - Entra ID Conditional Access using the authentication context feature triggers MFA for sensitive data in the cloud.</p></li>
 <li><p>User temporarily granted access privileges to data with high classification - Entra ID Privileged Identity Management was used to temporarily elevate subject privileges for a limited time so as to provide access to sensitive data and resources in the cloud.</p></li>
 <li><p>Certain operations can be prevented based on subject endpoint, location, or another factor - Access controls were applied in SharePoint that prevented the modification and downloading of files.</p></li>
 <li><p>Extra protection for highly classified data when stored on an endpoint - Encryption was applied to data that was downloaded and required a password for decryption.</p></li>
 <li><p>Although data classification was out of scope for this project, the products used had the ability to classify data. Instead, for these use cases, sensitive data was differentiated from non-sensitive data by having them use different folders.</p></li>
 </ul>
+</section>
+<section id="enterprise-4-build-5-e4b5-sdp-and-microsegmentation-aws-verified-access-and-amazon-vpc-lattice-as-pe">
+<h3>Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PE<a class="headerlink" href="#enterprise-4-build-5-e4b5-sdp-and-microsegmentation-aws-verified-access-and-amazon-vpc-lattice-as-pe" title="Link to this heading">#</a></h3>
+<p><strong>Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to discover network assets, authenticate devices, and demonstrate network connectivity.</p>
+<ul class="simple">
+<li><p>Discovery and authentication of endpoint assets</p>
+<ul>
+<li><p>For this build, endpoints did not have clients for communication with AWS Verified Access, and the discovery of endpoint assets was not demonstrated. AWS Verified Access leverages IDPs for user authentication and authorization and EPPs for onboarding and compliance checks. EPPs that can integrate with AWS Verified Access are not collaborators of this project. Therefore, no EPP was installed in this build.</p></li>
+<li><p>Authentication of resource use cases were not included in this build. This build does not have resource (or application) authentication, as AWS Verified Access does not support this capability. Resources inside of AWS can be set up for compliance checks.</p></li>
+</ul>
+</li>
+<li><p>Reauthentication of identified assets - AWS Verified Access leverages Okta to require reauthentication after a set period of time of 24 hours.</p>
+<ul>
+<li><p>User must reauthenticate once the authentication period is over. If reauthentication fails, the user does not have access to any resources. AWS is working on having adjustable timers as a feature.</p></li>
+</ul>
+</li>
+<li><p>Discovery of transaction flows - Visibility of authentication and resource access attempts was demonstrated.</p>
+<ul>
+<li><p>AWS has event logging that captures sign-in events and traffic flow logs to cloud resources within AWS.</p></li>
+<li><p>AWS logs are sent to IBM QRadar.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access</strong></p>
+<p><strong>Description:</strong> These use cases demonstrate user access to enterprise resources based on successfully achieving user and device security preconditions.</p>
+<ul class="simple">
+<li><p>For this build, we partially demonstrated access using Windows, macOS, and Linux endpoints.</p></li>
+<li><p>Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, were allowed or denied access to enterprise cloud resources in accordance with policies enforced by AWS Verified Access.</p>
+<ul>
+<li><p>The policy engine (AWS Verified Access) can differentiate between employees and contractors and provide different access permissions to each user type.</p></li>
+<li><p>AWS Verified Access was deployed in the AWS cloud to protect cloud resources within AWS.</p></li>
+<li><p>There were no endpoint compliance checks prior to allowing a user to access that resource since the EPPs that integrate with AWS are not collaborators of this project.</p></li>
+</ul>
+</li>
+<li><p>For this build, AWS Verified Access did not manage access to internet resources such as SaaS applications or applications outside of the control of AWS Verified Access. Other solutions are needed to perform this function.</p></li>
+<li><p>Stolen credential using an enterprise endpoint or BYOD - AWS Verified Access leverages EPPs to detect a hostile request. This use case was not performed since we do not have an EPP that integrates with AWS.</p></li>
+<li><p>Just-in-Time Access Privileges - Users are allowed to request and elevate privileges required to perform a given task for a limited period.</p>
+<ul>
+<li><p>A manual process was used to demonstrate providing users with additional privileges to resources.</p></li>
+</ul>
+</li>
+<li><p>Enterprise-ID Step-Up Authentication - AWS Verified Access currently does not have step-up authentication functionalities. Integration with other products is needed to have this functionality.</p></li>
+<li><p>Verification of the chosen resource (e.g., GitLab) - This build did not have the capability to verify resource compliance because AWS Verified Access currently does not have this capability.</p></li>
+</ul>
+<p><strong>Use Case C: Federated-ID Access</strong> - Out of scope for this phase.</p>
+<p><strong>Use Case E: Guest: No-ID Access</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow unmanaged guest devices to have access to public Internet resources.</p>
+<ul class="simple">
+<li><p>AWS considers this out of scope for their products. Other technologies should be used to perform guest access enforcement.</p></li>
+</ul>
+<p><strong>Use Case F: Confidence Level</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow, prevent, or terminate sessions to resources based on the continuous evaluation of user and device risk.</p>
+<ul class="simple">
+<li><p>Users or devices that fail reauthentication lose access to resources. With successful reauthentication, access is maintained.</p>
+<ul>
+<li><p>Initial authentication with AWS Verified Access provides the user or device with access to their assigned resources. AWS Verified Access has a default reauthentication of 24 hours. Users and devices are required to re-authenticate when that period expires.</p></li>
+<li><p>Users and devices that are not able to reauthenticate successfully to the AWS Verified Access will lose access to resources.</p></li>
+</ul>
+</li>
+<li><p>Resource reauthentication use cases are not included in this build. This build does not have resource authentication because the product has not been integrated with AWS Verified Access. AWS plans to integrate the solution into its roadmap.</p></li>
+<li><p>Compliant devices were not tested in this build. The EPPs that integrate with AWS Verified Access are not CRADA collaborators, so they were not available during this build.</p></li>
+<li><p>The ability to monitor and detect violations of data use policies was not demonstrated. AWS Verified Access does not have the capabilities to manage data use policies. Integration with other AWS products is needed for this functionality.</p></li>
+<li><p>User sessions and devices attempting to access unauthorized resources are blocked.</p>
+<ul>
+<li><p>AWS Verified Access policies determine whether a user or a device has access to a resource or not. If no policy allows access a resource, and the user or device requests to reach that resource, AWS Verified Access will deny the request.</p></li>
+<li><p>AWS Verified Access does not control access to internet websites. AWS recommends leveraging another vendor’s tool to perform this function.</p></li>
+</ul>
+</li>
+<li><p>Enterprise can detect malicious behavior on enterprise endpoints and BYOD but not on unmanaged endpoints.</p>
+<ul>
+<li><p>The EPPs that integrate with AWS Verified Access to detect malicious behavior are not CRADA collaborators, so they were not available during this build.</p></li>
+</ul>
+</li>
+<li><p>Enterprise can deny access to resources when users are accessing from suspicious endpoints.</p>
+<ul>
+<li><p>The EPPs that integrate with AWS Verified Access to detect malicious endpoints are not CRADA collaborators, so they were not available during this build.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case G: Service-Service Interactions</strong> - Service-to-Service use cases are tested for cloud resources. Since AWS has resources for IaaS, PaaS, and SaaS, it can leverage auth policies to permit or deny access from resources.</p>
+<ul class="simple">
+<li><p>For service calls between resources, AWS has auth policies that can allow or deny access from an AWS source resource to a destination resource.</p>
+<ul>
+<li><p>Policies are applied to resources that reside within AWS. AWS cannot control resources that are not within the AWS cloud. Use cases with resource subject locations on-prem, branch, or remote were not tested.</p></li>
+<li><p>IaaS, PaaS, and SaaS subject resources that reside within AWS were applied with auth policies to allow or deny access.</p></li>
+</ul>
+</li>
+<li><p>For Service-to-Endpoint use cases:
+-  AWS considers this out of scope for their solution.</p></li>
+</ul>
+<p><strong>Use Case H: Data-Level Security</strong> - Data-level security capabilities are not included in this build. AWS Verified Access does not have this capability. Integration with other vendors is necessary.</p>
 </section>
 <section id="enterprise-1-build-6-e1b6-sdp-and-microsegmentation-ivanti-neurons-for-zero-trust-access-as-pes-summary-demonstration-results">
 <h3>Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Summary Demonstration Results<a class="headerlink" href="#enterprise-1-build-6-e1b6-sdp-and-microsegmentation-ivanti-neurons-for-zero-trust-access-as-pes-summary-demonstration-results" title="Link to this heading">#</a></h3>
@@ -2099,6 +2198,123 @@ document.write(`
 <p><strong>Use Case G: Service-Service Interactions</strong> - Service-to-Service use cases are not included in this build. Ivanti does not have this capability. Integration with other vendors is necessary.</p>
 <p><strong>Use Case H: Data-Level Security</strong> - Data-level security capabilities are not included in this build. Ivanti does not have this capability. Integration with other vendors is necessary.</p>
 </section>
+<section id="enterprise-2-build-6-e2b6-sase-google-chrome-enterprise-premium-cep-access-context-manager-as-pe-summary-demonstration-results">
+<h3>Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE Summary Demonstration Results<a class="headerlink" href="#enterprise-2-build-6-e2b6-sase-google-chrome-enterprise-premium-cep-access-context-manager-as-pe-summary-demonstration-results" title="Link to this heading">#</a></h3>
+<p><strong>Use Case A: Discovery and Identification of IDs, Assets, and Data Flows</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to discover network assets, authenticate devices, and demonstrate network connectivity.</p>
+<ul class="simple">
+<li><p>Discovery and authentication of endpoint assets</p>
+<ul>
+<li><p>For this build, endpoints communicated with Google CEP - Access Context Manager via Chrome Enterprise Premium - Chrome Browser or the Google Endpoint Verification Agent</p></li>
+<li><p>Discovery and authentication of endpoint assets was demonstrated; however, Google does not segment endpoints by networks.</p></li>
+<li><p>Authentication of resources use cases were not included in this build. This build does not have resource authentication, as Google CEP does not support this capability.</p></li>
+</ul>
+</li>
+<li><p>Reauthentication of identified assets - Reauthentication policies can be set in this build through Okta or Google CEP - Access Context Manager policy.</p>
+<ul>
+<li><p>User must reauthenticate once the authentication period is over. If reauthentication fails, the user does not have access to any resources.</p></li>
+</ul>
+</li>
+<li><p>Discovery of transaction flows - Visibility of authentication and resource access attempts was demonstrated.</p>
+<ul>
+<li><p>Google Cloud Platform has event logging that captures sign-in events and traffic flow logs to cloud resources within Google.</p></li>
+<li><p>Google logs are sent to IBM QRadar.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access</strong></p>
+<p><strong>Description:</strong> These use cases demonstrate user access to enterprise resources based on successfully achieving user and device security preconditions.</p>
+<ul class="simple">
+<li><p>For this build, we demonstrated access using Windows, macOS, Linux, iOS, and Android endpoints.</p></li>
+<li><p>Both enterprise and contractor users on an enterprise endpoint or BYOD, on-prem or remote, were allowed or denied access to enterprise cloud resources in accordance with policies enforced by Google CEP - Access Context Manager.</p>
+<ul>
+<li><p>The policy engine (Google CEP - Access Context Manager) can differentiate between employees and contractors and provide different access permissions to each user type.</p></li>
+<li><p>Google CEP - Access Context Manager was deployed in the Google Cloud Platform to protect cloud resources within Google Cloud. Google On-Prem connectors were de-ployed to protect resources located on-prem with policies set by Google CEP - Access Context Manager.</p></li>
+<li><p>Endpoint policies were enforced by CEP - Chrome Browser on endpoints.</p></li>
+<li><p>Omnissa Workspace One UEM served as an endpoint manager for mobile device soft-ware delivery.</p></li>
+</ul>
+</li>
+<li><p>Full/Limited internet access using an enterprise endpoint or BYOD - Google CEP - Access Con-text Manager can only control access to internet resources if authentication has taken place. If a user/device has not authenticated, a policy cannot be enforced.</p></li>
+<li><p>Stolen credential using an enterprise endpoint or BYOD - Stolen credential scenarios were not completely tested since user credentials required biometrics from Okta and device credentials involved unique certificates for each device.</p></li>
+<li><p>Just-in-Time Access Privileges - Users are allowed to request and elevate privileges required to perform a given task for a limited period.</p>
+<ul>
+<li><p>A manual process was used to demonstrate providing users with additional privileges to resources.</p></li>
+<li><p>Integration with other products can be used to automate just-in-time privileges. However, those products were not part of this build.</p></li>
+</ul>
+</li>
+<li><p>Enterprise-ID Step-Up Authentication - Google cannot force a step-up authentication for a session already in progress. However, it can require different levels of authentication for different resources as a policy. So, if RSS1 does not require MFA, but RSS2 does require MFA, when a user opens a session to RSS2 they will have to use MFA to log in.</p></li>
+<li><p>Limited access to resources - Due to the nature of the resources (GitLab), Google could not provide “limited” access to resources for specific tests.</p></li>
+</ul>
+<p><strong>Use Case C: Federated-ID Access</strong> - Out of scope for this phase.</p>
+<p><strong>Use Case E: Guest: No-ID Access</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow unmanaged guest devices to have access to public Internet resources.</p>
+<ul class="simple">
+<li><p>Google considers this out of scope for their product. Other technologies should be used to perform guest access enforcement.</p></li>
+</ul>
+<p><strong>Use Case F: Confidence Level</strong></p>
+<p><strong>Description:</strong> This use case demonstrates the ability of the enterprise to allow, prevent, or terminate sessions to resources based on the continuous evaluation of user and device risk.</p>
+<ul class="simple">
+<li><p>Users or devices that fail reauthentication lose access to resources. With successful reauthen-tication, access is maintained.</p>
+<ul>
+<li><p>Devices that are not able to reauthenticate successfully to Google CEP - Access Context Manager will lose access to resources.</p></li>
+<li><p>Initial authentication with Google CEP - Access Context Manager provides the user with access to resources assigned to that user. Periodic reauthentication is required for continued access.</p></li>
+</ul>
+</li>
+<li><p>Resource authentication was not demonstrated in this build. It could not be performed by the products in this build.</p></li>
+<li><p>Compliant devices maintain or regain access to resources. Noncompliant devices or users with noncompliant devices lost access to resources.</p>
+<ul>
+<li><p>Compliance testing for F use cases were not done for this build due to a software bug that could not be fixed before testing was completed. The bug prevented reporting device status back to Google CEP - Access Context Manager properly.</p></li>
+<li><p>Installation of the Google Endpoint Verification plugin allows for more detailed compliance policies than are available from a standalone browser installation.</p></li>
+</ul>
+</li>
+<li><p>The ability to monitor, detect, and block violations of data use policies was demonstrated.</p>
+<ul>
+<li><p>Violation of data use policy was demonstrated and tested successfully using file size limits across multiple resources.</p></li>
+</ul>
+</li>
+<li><p>The ability to monitor and detect violations of data use policies was demonstrated. Internet use violations were demonstrated and tested successfully. However, the subsequent suspension of accounts can take up to an hour due to the timing of log parsing in the Google Cloud Platform.</p></li>
+<li><p>User sessions and devices attempting to access unauthorized resources are blocked.</p>
+<ul>
+<li><p>Google CEP - Access Context Manager policies determine if a user has access to a resource or not. If there is no policy to allow a user to access a resource and the user requests to reach that resource, that user will be denied by Google CEP - Access Context Manager, and a flag will be created to suspend the account.</p></li>
+<li><p>Google CEP - Access Context Manager policies can also determine if a user has accessed a forbidden URL; if a user accesses that URL, a flag will be created to suspend the account.</p></li>
+<li><p>Subsequent suspension of accounts can take up to an hour due to the timing of log parsing in the Google Cloud Platform.</p></li>
+</ul>
+</li>
+<li><p>Enterprise can detect malicious behavior on enterprise endpoints and BYOD but not on unmanaged endpoints.</p>
+<ul>
+<li><p>Google CEP - Access Context Manager could not detect malicious or suspicious behavior on enterprise endpoints and BYOD due to a software bug that could not be fixed before testing was completed. The bug prevented reporting device status back to Google CEP - Access Context Manager properly.</p></li>
+<li><p>Google CEP - Access Context Manager cannot detect malicious behavior on unmanaged devices.</p></li>
+</ul>
+</li>
+<li><p>Enterprise can deny access to resources when users are accessing from a suspicious endpoint.</p>
+<ul>
+<li><p>Google CEP - Access Context Manager could not detect malicious or suspicious behavior on enterprise endpoints and BYOD due to a software bug that could not be fixed before testing was completed. The bug prevented reporting device status back to Google CEP - Access Context Manager properly.</p></li>
+<li><p>Google CEP - Access Context Manager cannot detect malicious behavior on unmanaged devices.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Use Case G: Service-Service Interactions</strong></p>
+<p><strong>Description:</strong> This use case covers API calls between services and the ability of the policy engine to allow or deny calls to services based on properly assigned authorizations.</p>
+<ul class="simple">
+<li><p>Service calls between resources - Service testing was limited to cloud resources, not on-prem, so Scenario G-1 was not tested.</p></li>
+<li><p>Service calls to Cloud-based resources - Service calls to Google Cloud resources from outside the cloud utilized service accounts and policy controls from Google CEP - Access Context Manager to control access.</p></li>
+<li><p>Service calls between Cloud-based resources - Service calls between Google Cloud resources within the cloud also utilized service accounts and policy controls from Google CEP - Access Context Manager to control access.</p></li>
+<li><p>Service calls between containers - Service calls between containers leveraged network controls to allow or deny access.</p></li>
+<li><p>Service to endpoint - Service to endpoint communication was considered outside the scope of this build.</p></li>
+</ul>
+<p><strong>Use Case H: Data Level Security</strong></p>
+<p><strong>Description:</strong> This use case covers subject access requests to data with different levels of classification.</p>
+<ul class="simple">
+<li><p>Access to data based on identity attributes - Identity data classification testing was limited to data on Google Drive cloud resources and demonstrated successfully with low/high label classification.</p></li>
+<li><p>Access to data based on requesting endpoint - Access based on endpoint compliance is limited by the sharing permission granted in Google Drive. Sharing with full Editor permissions will circumvent the Context-based rule that limits permissions based on device compliance.</p></li>
+<li><p>Internet access restricted when accessing data with high classification - Google CEP - Access Context Manager cannot limit internet access based on data access.</p></li>
+<li><p>Accessing High-Level Data Triggers MFA Challenge - Google CEP - Access Context Manager can enforce MFA for specific resources, but it cannot enforce MFA as a reauthentication policy or trigger.</p></li>
+<li><p>Just in Time Access to High Level Data - Just in Time access is still provided manually. Integration with other products can be used to automate just-in-time privileges. However, those products were not part of this build.</p></li>
+<li><p>Operations Denied when accessing High Level Data - Google CEP - Access Context Manager can limit operations on Google Drive files based on device posture. Operations limits based on location were not included in this build.</p></li>
+<li><p>High Classified Data has Extra Protection when stored on endpoints - Google CEP - Access Context Manager cannot limit encryption policies to certain files, it can only force encryption on entire devices as a compliance standard.</p></li>
+</ul>
+<p>Note that after the VMware End User Computing division products were implemented at the NCCoE, VMware was acquired by Broadcom, then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC.</p>
+</section>
 </section>
 </section>
 
@@ -2170,7 +2386,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-1-build-5-e1b5-sase-and-microsegmentation-pan-ngfw-and-pan-prisma-access-as-pes-summary-demonstration-results">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Summary Demonstration Results</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-2-build-5-e2b5-sdp-and-sase-lookout-sse-and-okta-identity-cloud-as-pes-summary-demonstration-results">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Summary Demonstration Results</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-3-build-5-e3b5-sdp-and-sase-microsoft-entra-conditional-access-formerly-called-azure-ad-conditional-access-and-microsoft-security-service-edge-as-pes-summary-demonstration-results">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-4-build-5-e4b5-sdp-and-microsegmentation-aws-verified-access-and-amazon-vpc-lattice-as-pe">Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PE</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-1-build-6-e1b6-sdp-and-microsegmentation-ivanti-neurons-for-zero-trust-access-as-pes-summary-demonstration-results">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Summary Demonstration Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enterprise-2-build-6-e2b6-sase-google-chrome-enterprise-premium-cep-access-context-manager-as-pe-summary-demonstration-results">Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE Summary Demonstration Results</a></li>
 </ul>
 </li>
 </ul>

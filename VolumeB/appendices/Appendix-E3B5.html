@@ -64,7 +64,7 @@
     <link rel="icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE" href="Appendix-E1B6.html" />
+    <link rel="next" title="Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PEs" href="Appendix-E4B5.html" />
     <link rel="prev" title="Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs" href="Appendix-E2B5.html" />
     
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -213,7 +213,7 @@
           
           
           
-          <a href="https://www.nccoe.nist.gov/sites/default/files/2024-07/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+          <a href="https://www.nccoe.nist.gov/sites/default/files/2024-11/zta-nist-sp-1800-35-ipd.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
         </li>
         <li class="nav-item">
           
@@ -271,7 +271,9 @@
 <li class="toctree-l3"><a class="reference internal" href="Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E4B5.html">Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PEs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix-E2B6.html">Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE</a></li>
 </ul>
 </details></li>
 </ul>
@@ -293,7 +295,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E4B5.html">Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../VolumeC/HowTo-E2B6.html">Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../VolumeC/Hardening.html">Hardening Information</a></li>
 </ul>
 </details></li>
@@ -326,6 +330,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../acronyms.html">Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Change Log</a></li>
 </ul>
 
     </div>
@@ -712,23 +717,19 @@ document.write(`
 <p><strong>Figure 4 - Use Case E3B5 - User Requests and Receives Access to a Microsoft SaaS Service Resource</strong></p>
 <p><img alt="This figure depicts the message flow for the use case in which a user requests and receives access to a Microsoft SaaS Service resource." src="../../_images/AppendixS-Figure4.png" /></p>
 <p>The message flow depicted in Figure 4 consists of the following steps:</p>
-<ol class="arabic">
+<ol class="arabic simple">
 <li><p>An M365 client app or an Entra ID aware native client app is requesting a new token using the Microsoft Authentication Library.</p></li>
 <li><p>The GSA Client intercepts the first IP packet for the M365 destination and determines if the packet is to be acquired based on its traffic acquisition policy, which in this case is the Microsoft 365 traffic profile, and queues the packet until the tunnel is established.</p>
-<blockquote>
-<div><ol class="loweralpha simple">
+<ol class="loweralpha simple">
 <li><p>The GSA Client checks if any outer tunnel instance is present. If not, it reaches out to the Tunneling Client to create the outer tunnel instance.</p></li>
 <li><p>The Entra SSE service forces Entra ID user authentication to create an authenticated tunnel.</p></li>
 <li><p>The GSA Client initiates an Entra ID authentication, and Entra ID provides the access token to the GSA Client. The GSA Client stores it locally.</p></li>
 </ol>
-</div></blockquote>
 </li>
 <li><p>The queued packet is now sent inside the tunnel that was created earlier to the Microsoft SSE Internet Access service.</p>
-<blockquote>
-<div><ol class="loweralpha simple">
+<ol class="loweralpha simple">
 <li><p>Entra ID enforces any Conditional Access policies that apply to the Conditional Access Control targeting the Microsoft 365 traffic profile under Target resource or other Conditional Access policy controls such as Compliant Network with Microsoft’s SSE Internet Access Service.</p></li>
 </ol>
-</div></blockquote>
 </li>
 <li><p>Entra ID returns an M365 access token or rejects the request to the M365 app, depending on policy. In this case, Entra ID returns an M365 access token via Microsoft SSE Internet Access and the GSA Client.</p></li>
 <li><p>The M365 app sends the request to the M365 service, such as SharePoint online, via the GSA Client and the Microsoft SSE Internet Access service.</p></li>
@@ -760,11 +761,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="Appendix-E1B6.html"
+       href="Appendix-E4B5.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</p>
+        <p class="prev-next-title">Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PEs</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

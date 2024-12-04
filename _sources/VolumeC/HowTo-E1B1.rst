@@ -185,7 +185,7 @@ The steps below explain the installation of the IdentityIQ server, initial confi
 
 4. Govern permissions by pushing employee and contractor users and groups to AD and Okta. Note: This step should be completed after the integration with AD and Okta is completed. Steps to configure integration are in :ref:`Integration with AD<sailpoint-integration-ad>` and :ref:`Integration with Radiant Logic<sailpoint-integration-radiant>`. After integration with AD and Okta is completed, navigate to the **Setup** drop-down menu and select **Roles**. Here we will create a birthright role and access profile for employees and contractors.
 
-    a. Select the **New Role** drop-down button and select **Role**. The screenshot lists the four roles that are created for this build.
+   a. Select the **New Role** drop-down button and select **Role**. The screenshot lists the four roles that are created for this build.
 
 ..
 
@@ -203,7 +203,7 @@ The steps below explain the installation of the IdentityIQ server, initial confi
 
 5. The next step is to synchronize users and groups. To begin, navigate to the **Setup** tab and select **Tasks**.
 
-    a. To create user aggregation, select the **New Task** drop down button and select **Account Aggregation**. The screenshot below depicts the aggregation configuration for Radiant Logic. This allows SailPoint to sync with Radiant Logic on any updates made to users. Repeat this step for AD and Okta accounts. Note that the **Account Aggregation Options** section is where the AD and Okta applications need to be selected to create the proper account aggregation.
+   a. To create user aggregation, select the **New Task** drop down button and select **Account Aggregation**. The screenshot below depicts the aggregation configuration for Radiant Logic. This allows SailPoint to sync with Radiant Logic on any updates made to users. Repeat this step for AD and Okta accounts. Note that the **Account Aggregation Options** section is where the AD and Okta applications need to be selected to create the proper account aggregation.
 
 ..
 
@@ -213,11 +213,11 @@ The steps below explain the installation of the IdentityIQ server, initial confi
 
 6. Configure lifecycle processes through Rapid Setup Configuration. Click on the **Setup** cog and select **Rapid Setup** to begin. The Rapid Setup Configuration process allows onboarding of applications and manage functions such as joiner, mover, and leaver of identities. Use the “Using Rapid Setup” section of the `IdentityIQ Rapid Setup Guide <https://community.sailpoint.com/t5/IdentityIQ-Product-Guides/8-2-IdentityIQ-Rapid-Setup-Guide/ta-p/196225>`__ to guide the configuration.
 
-    a. Configure **Joiner**, **Mover,** and **Leaver.**
+   a. Configure **Joiner**, **Mover,** and **Leaver.**
 
-    b. Configure **Identity Operations**.
+   b. Configure **Identity Operations**.
 
-    c. Configure Rapid Setup specific to AD users: Aggregation, Joiner, Mover, and Leaver.
+   c. Configure Rapid Setup specific to AD users: Aggregation, Joiner, Mover, and Leaver.
 
 7. Govern user permissions to applications on an individual basis. Configure procedures to provision and approve user access to resources. For Enterprise 1, the process is for an administrator or user to request approval to access an application. That request goes to the user's manager for review and approval. Once the manager approves the request, SailPoint kicks off an API call to Okta to configure access for that user.
 
@@ -476,9 +476,9 @@ Okta Verify app configuration - iOS
 
 4. Add desired settings. Under **Apple Managed App Settings**, click **Add** and add two items.
 
-    a. For the first item, the key will be **domainName**, the value will be your Org URL, and the type will be STRING.
+   a. For the first item, the key will be **domainName**, the value will be your Org URL, and the type will be STRING.
 
-    b. For the second item, the key will be **managementHint**, the value will be the **Secret Key** you saved from the Okta console during preparation, and the type will be STRING.
+   b. For the second item, the key will be **managementHint**, the value will be the **Secret Key** you saved from the Okta console during preparation, and the type will be STRING.
 
 5. Click **Next,** then click **Done**.
 
@@ -521,27 +521,27 @@ QRadar setup
 
 7. Enter a name for the log source and turn off **Coalescing Events**. Click **Step 4: Configure Protocol Parameters**. The settings are as follows:
 
-    a. Log Source Identifier: **MobileIron Cloud**
+   a. Log Source Identifier: **MobileIron Cloud**
 
-    b. Service Type: SFTP
+   b. Service Type: SFTP
 
-    c. Remote IP or Hostname: <Log server you set up previously>
+   c. Remote IP or Hostname: <Log server you set up previously>
 
-    d. Remote port: 22
+   d. Remote port: 22
 
-    e. Remote User/Password: <Credentials created earlier, if not using key file authentication>
+   e. Remote User/Password: <Credentials created earlier, if not using key file authentication>
 
-    f. SSH Key File: <Credentials created earlier, if not using password authentication>
+   f. SSH Key File: <Credentials created earlier, if not using password authentication>
 
-    g. Remote directory: Directory where Ivanti logs are being stored
+   g. Remote directory: Directory where Ivanti logs are being stored
 
-    h. Recursive: On
+   h. Recursive: On
 
-    i. FTP File Type Pattern (Regex for Ivanti log files): ^.*\\.(zip|ZIP)$
+   i. FTP File Type Pattern (Regex for Ivanti log files): ^.*\\.(zip|ZIP)$
 
-    j. Processor: ZIP
+   j. Processor: ZIP
 
-    k. All other settings can be left as default
+   k. All other settings can be left as default
 
 8. Click **Step 5: Test Protocol Parameters**. Run the tests and ensure the configuration is valid.
 

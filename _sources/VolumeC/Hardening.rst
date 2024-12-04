@@ -25,13 +25,13 @@ Windows Hardening
 
 3.  Run the SCAP Compliance Checker (SCC) tool:
 
-    a. Open the SCC tool and click Select **Local Scan** under **Scan Type**.
+   a. Open the SCC tool and click Select **Local Scan** under **Scan Type**.
 
-    b. Check appropriate OS and/or application versions boxes in the **Content** area.
+   b. Check appropriate OS and/or application versions boxes in the **Content** area.
 
-    c. Under **Stream Details** -> **Profile**, select **Mac1_Public** for non-sensitive environments.
+   c. Under **Stream Details** -> **Profile**, select **Mac1_Public** for non-sensitive environments.
 
-    d. Go back to the **Scan** section on the left and click **Start Scan**.
+   d. Go back to the **Scan** section on the left and click **Start Scan**.
 
 4.  Once the scan is complete, click **Results** -> **Open Results Directory** and select the most recent Results directory.
 
@@ -195,16 +195,42 @@ The `Appgate Admin Guide <https://sdphelp.appgate.com/adminguide/v6.2/system-sec
 
 -  Use certificate authentication for headless and always-on clients.
 
-Broadcom (VMware) 
+AWS
+~~~
+
+For information on relevant AWS configuration information, please review the following AWS documentation.
+
+-  AWS Cloud Security: https://aws.amazon.com/security/
+
+-  Best Practices for Security, Identity, & Compliance: https://aws.amazon.com/architecture/security-identity-compliance/?cards-all.sort-by=item.additionalFields.sortDate&cards-all.sort-order=desc&awsf.content-type=*all&awsf.methodology=*all
+
+-  AVA Security in Verified Access: https://docs.aws.amazon.com/verified-access/latest/ug/security.html
+
+-  Security in Amazon VPC Lattice: https://docs.aws.amazon.com/vpc-lattice/latest/ug/security.html
+
+
+Broadcom 
 ~~~~~~~~~~~~~~~~~
 
-VMware disables unnecessary ports, protocols, and services as part of baseline hardening standards. It follows industry best practices in applying secure configurations to managed servers.
+The majority of services provided by Broadcom (with Symantec products) for this project are hosted in the cloud, and hardening is managed by Broadcom. Two on-prem instances of Symantec offerings were deployed: the Symantec DLP Management Server and SpanVA.
 
-For Workspace ONE UEM, Workspace ONE Assist, and VMware RemoteHelp servers that use Windows operating systems, server configurations can be hardened using GPO policies (such as account policies, user rights, security options, event log settings, app restrictions). Workspace ONE UEM, Workspace ONE Access, and Workspace ONE Intelligence Linux-based servers use Amazon Linux 2 images for system hardening. The Amazon Linux 2 images include default security configurations, such as limited remote access using SSH key pairs, remote root login disablement, reduced non-critical package installation, and automatic security related updates. This hardening information can be found at https://techzone.vmware.com/resource/workspace-one-cloud-services-security#system-hardening.
+Symantec DLP Management Server Hardening
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-An overview of the security controls implemented within Workspace ONE commercial cloud services and their alignment with the NIST SP 800-171 standards can be found at the following link: https://techzone.vmware.com/resource/workspace-one-cloud-services-alignment-nist-sp-800-171#introduction.
+Guidelines for hardening aspects of Symantec DLP capabilities are as follows:
 
-Note that after the VMware products were implemented at NCCoE, VMware was acquired by Broadcom.
+-  Firewall ports: https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/corporate-firewall-configuration-v15632745-d279e11210.html
+
+-  Services: https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/windows-security-lockdown-guidelines-v15632398-d279e11241.html
+
+-  Service account configuration: https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/windows-administrative-security-settings-v15632498-d279e11405.html
+
+SpanVA
+^^^^^^^
+
+SpanVA hardening guidelines are located on: https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/symantec-cloudsoc/cloud/audit-home/spanva-audit/spanva-security.html
+
+The SpanVA appliance comes hardened out of the box; only necessary firewall ports are open and all externally facing services, including SSH, are turned off.
 
 Cisco Systems 
 ~~~~~~~~~~~~~~
@@ -381,7 +407,19 @@ The Windows 365 hardening guide can be found at the following link: https://lear
 Okta 
 ~~~~~
 
-Okta Identity Cloud is being hosted on a cloud platform which has options of FedRAMP High, FedRAMP Moderate, and DoD Impact Level 4 (IL4). For the hardening details, please refer to `https://www.okta.com/resources/whitepaper/okta-security-technical-white-paper/ <https://gcc02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.okta.com%2Fresources%2Fwhitepaper%2Fokta-security-technical-white-paper%2F&data=05%7C01%7Cparisa.grayeli%40nist.gov%7Cc91010cbdef74f55ffc608db89fffd33%7C2ab5d82fd8fa4797a93e054655c61dec%7C1%7C0%7C638255504786105445%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=mrNnI6qWKMRi0pvF6XuU4ajRReNIwSUJ2%2BNwDg61SOo%3D&reserved=0>`__
+Okta Identity Cloud is being hosted on a cloud platform which has options of FedRAMP High, FedRAMP Moderate, and DoD Impact Level 4 (IL4). For the hardening details, please refer to https://www.okta.com/resources/whitepaper/okta-security-technical-white-paper/
+
+Omnissa
+~~~~~~~
+
+Omnissa disables unnecessary ports, protocols, and services as part of baseline hardening standards. It follows industry best practices in applying secure configurations to managed servers. 
+
+For Workspace ONE UEM, Workspace ONE Assist, and Omnissa RemoteHelp servers that use Windows operating systems, server configurations can be hardened using GPO policies (such as account policies, user rights, security options, event log settings, app restrictions). Workspace ONE UEM, Workspace ONE Access, and Workspace ONE Intelligence Linux-based servers use Amazon Linux 2 images for system hardening. The Amazon Linux 2 images include default security configurations, such as limited remote access using SSH key pairs, remote root login disablement, reduced non-critical package installation, and automatic security related updates. This hardening information can be found at https://techzone.vmware.com/resource/workspace-one-cloud-services-security#system-hardening.
+
+An overview of the security controls implemented within Workspace ONE commercial cloud services and their alignment with the NIST SP 800-171 standards can be found at the following link: https://techzone.vmware.com/resource/workspace-one-cloud-services-alignment-nist-sp-800-171#introduction.
+
+Note that after the VMware End User Computing division products were implemented at NCCoE, VMware was acquired by Broadcom, then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC.
+
 
 Palo Alto Networks (PAN)
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -396,29 +434,6 @@ Ping Identity
 ~~~~~~~~~~~~~~
 
 The OS is hardened according to the appropriate OS Hardening section above. A product-specific security hardening guide is available at: https://support.pingidentity.com/s/article/PingFederate-Security-Hardening-Guide
-
-Symantec by Broadcom
-~~~~~~~~~~~~~~~~~~~~~
-
-The majority of services provided by Symantec by Broadcom for this project are hosted in the cloud, and hardening is managed by Symantec by Broadcom. Symantec by Broadcom is `in process for FedRAMP authorization <https://marketplace.fedramp.gov/products/FR2232465502>`__. Two on-prem instances of Symantec by Broadcom offerings were deployed: the Symantec DLP Management Server and SpanVA.
-
-Symantec DLP Management Server Hardening
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Guidelines for hardening aspects of Symantec DLP capabilities are as follows:
-
--  Firewall ports: https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/corporate-firewall-configuration-v15632745-d279e11210.html
-
--  Services: https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/windows-security-lockdown-guidelines-v15632398-d279e11241.html
-
--  Service account configuration: https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/windows-administrative-security-settings-v15632498-d279e11405.html
-
-SpanVA
-^^^^^^
-
-SpanVA hardening guidelines are located in Symantec's official documentation: https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/symantec-cloudsoc/cloud/audit-home/spanva-audit/spanva-security.html
-
-The SpanVA appliance comes hardened out of the box; only necessary firewall ports are open and all externally facing services, including SSH, are turned off.
 
 Tenable 
 ~~~~~~~~~

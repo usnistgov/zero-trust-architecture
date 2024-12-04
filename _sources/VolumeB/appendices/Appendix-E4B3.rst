@@ -6,7 +6,7 @@ Enterprise 4 Build 3 (E4B3) - EIG Run - IBM Security Verify as PE
 Technologies
 ------------
 
-E4B3 uses products from IBM, Mandiant, Palo Alto Networks, Tenable, and VMware. Certificates from DigiCert are also used. For more information on these collaborators and the products and technologies that they contributed to this project overall, see :ref:`Collaborators and Their Contributions`.
+E4B3 uses products from Broadcom (with VMware products), IBM, Mandiant, Palo Alto Networks, and Tenable. Certificates from DigiCert are also used. For more information on these collaborators and the products and technologies that they contributed to this project overall, see :ref:`Collaborators and Their Contributions`.
 
 E4B3 components consist of IBM Security Verify, IBM Security MaaS360 (for both laptops and mobile devices), IBM Cloud Pak for Security, IBM QRadar XDR, Mandiant Security Validation, Palo Alto Networks GlobalProtect VPN, Tenable.io, Tenable.ad, Tenable NNM, IBM Security Guardium Data Encryption, IBM Security Guardium Data Protection, VMware infrastructure, and DigiCert ONE.
 

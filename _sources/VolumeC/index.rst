@@ -25,7 +25,9 @@ Build Implementation Instructions
    HowTo-E1B5.rst
    HowTo-E2B5.rst
    HowTo-E3B5.rst
+   HowTo-E4B5.rst
    HowTo-E1B6.rst
+   HowTo-E2B6.rst
    Hardening.rst
 
 The following section of this guide shows information technology (IT) professionals and security engineers how we implemented numerous example zero trust architecture (ZTA) solutions. We cover all of the products employed in this reference design.
@@ -118,7 +120,13 @@ This practice guide provides instructions for reproducing the builds that we hav
 |       |                                                                                  |                                    |
 |       | Microsoft Security Service Edge                                                  |                                    |
 +-------+----------------------------------------------------------------------------------+------------------------------------+
+| E4B5  | AWS Verified Access (AVA)                                                        | SDP and Microsegmentation          |
+|       |                                                                                  |                                    |
+|       | Amazon VPC Lattice                                                               |                                    |
++-------+----------------------------------------------------------------------------------+------------------------------------+
 | E1B6  | Ivanti Neurons for Zero Trust Access                                             | SDP and Microsegmentation          |
++-------+----------------------------------------------------------------------------------+------------------------------------+
+| E2B6  | Google Chrome Enterprise Premium (CEP) - Access Context Manager                  | SASE                               |
 +-------+----------------------------------------------------------------------------------+------------------------------------+
 
 The NCCoE worked with members of the ZTA community of interest to develop a diverse but non-comprehensive set of use cases and scenarios to demonstrate the capabilities of the builds. The use cases are summarized in :ref:`Functional Demonstrations`.
@@ -147,36 +155,40 @@ Each EIG run phase build is instantiated in a unique way, depending on the equip
 
 -  E3B2 uses products from F5, Forescout, Mandiant, Microsoft, Palo Alto Networks, PC Matic, and Tenable. Certificates from DigiCert are also used.
 
--  E4B3 uses products from IBM, Mandiant, Palo Alto Networks, Tenable, and VMware. Certificates from DigiCert are also used.
+-  E4B3 uses products from Broadcom (with VMware products), IBM, Mandiant, Palo Alto Networks, and Tenable. Certificates from DigiCert are also used.
 
 SDP, Microsegmentation, and SASE Phase Build Features
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The SDP, microsegmentation, and SASE phase builds are based on the general ZTA reference design that is depicted in :ref:`Figure 1 - General ZTA Reference Architecture<ArchitectureFigure1>`. It consists of ZTA core components: a PDP, which includes both a PE and a PA; one or more PEPs; and ZTA functional components for ICAM, security analytics, data security, and endpoint security. The builds implemented in the SDP, microsegmentation, and SASE phase of the project each deploy elements of one or more of the SDP, microsegmentation, or SASE deployments.
 
-Each SDP, microsegmentation, and SASE phase build is instantiated in a unique way, depending on the equipment used and the capabilities supported. Briefly, the eleven builds are as follows:
+Each SDP, microsegmentation, and SASE phase build is instantiated in a unique way, depending on the equipment used and the capabilities supported. Briefly, the thirteen builds are as follows:
 
 -  E1B3 uses all of the same products and technologies as E1B2, so there is no separate section for E1B3 in this document.
 
--  E2B3 uses products from Cisco Systems, IBM, Mandiant, Palo Alto Networks, Ping Identity, Radiant Logic, SailPoint, Tenable, and VMware. Certificates from DigiCert are also used.
+-  E2B3 uses products from Broadcom (with VMware products), Cisco Systems, IBM, Mandiant, Palo Alto Networks, Ping Identity, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used.
 
 -  E3B3 uses products from F5, Forescout, Mandiant, Microsoft, Palo Alto Networks, PC Matic, and Tenable. Certificates from DigiCert are also used.
 
 -  E1B4 uses products from Amazon Web Services, Appgate, IBM, Ivanti, Mandiant, Okta, Radiant Logic, SailPoint, Tenable, and Zimperium. Certificates from DigiCert are also used.
 
--  E2B4 uses products from Google Cloud, IBM, Mandiant, Okta, Radiant Logic, SailPoint, Symantec by Broadcom, Tenable, and VMware. Certificates from DigiCert are also used.
+-  E2B4 uses products from Broadcom (with Symantec and VMware products), Google Cloud, IBM, Mandiant, Okta, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used.
 
 -  E3B4 uses products from F5, Forescout, Mandiant, Microsoft, Palo Alto Networks, and Tenable. Certificates from DigiCert are also used.
 
--  E4B4 uses products from IBM, Mandiant, Tenable, and VMware. Certificates from DigiCert are also used.
+-  E4B4 uses products from Broadcom (with VMware products), IBM, Mandiant, and Tenable. Certificates from DigiCert are also used.
 
 -  E1B5 uses products from Amazon Web Services, IBM, Mandiant, Okta, Palo Alto Networks, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used.
 
--  E2B5 uses products from Google Cloud, IBM, Lookout, Mandiant, Okta, Radiant Logic, SailPoint, Tenable, and VMware. Certificates from DigiCert are also used.
+-  E2B5 uses products from Broadcom (with VMware products), Google Cloud, IBM, Lookout, Mandiant, Okta, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used.
 
 -  E3B5 uses products from Mandiant, Microsoft, and Tenable. Certificates from DigiCert are also used.
 
+-  E4B5 uses products from Amazon Web Services, IBM, Mandiant, Okta, and Tenable. Certificates from DigiCert are also used. 
+
 -  E1B6 uses products from Amazon Web Services, IBM, Ivanti, Mandiant, Okta, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used.
+
+-  E2B6 uses products from Google Cloud, IBM, Mandiant, Okta, Omnissa, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used. 
 
 Physical Architecture Overview
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -210,5 +222,15 @@ The following builds are supported within the physical architecture depicted in 
 -  E4B4 components consist of VMware Workspace ONE Access, VMware Unified Access Gateway (UAG), VMware NSX-T, VMware Workspace ONE UEM, VMware Workspace ONE MTD, VMware Carbon Black Enterprise EDR, VMware Carbon Black Cloud, VMware vSphere, VMware vCenter, VMware vSAN, IBM Security QRadar XDR, Mandiant MSV, Tenable.io, Tenable.ad, Tenable NNM, and DigiCert ONE.
 
 -  E1B5 components consist of PAN Panorama, PAN Next Generation Firewall (NGFW), PAN Prisma Access, PAN Prisma SASE (Prisma Access & Prisma SD-WAN), PAN Cloud Delivered Security Services (CDSS), PAN Cloud Identity Engine, PAN Global Protect, PAN Strata Cloud Manager, Okta Identity Cloud, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, Okta Verify App, IBM Security QRadar XDR, Tenable.io, Tenable.ad, Tenable NNM, Mandiant MSV, DigiCert CertCentral, and AWS IaaS.
+
+-  E2B5 components consist of Lookout Security Service Edge (SSE) (includes Secure Private Access [SPA], Secure Cloud Access [SCA], and Secure Internet Access [SIA]), Lookout Secure Private Access Connector, VMware Workspace ONE UEM, Lookout MES, Lookout Client, Okta Identity Cloud, Okta Verify App, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, IBM Security QRadar XDR, Tenable.io, Tenable.ad, Tenable NMM, Mandiant Security Validation (MSV), Google Cloud, Google Workspace, and DigiCert CertCentral.
+
+-  E3B5 components consist of Microsoft Entra Conditional Access, Microsoft Security Service Edge (SSE) (which includes Entra Private Access, Entra Internet Access, and Microsoft 365 Access), Microsoft Entra Private Access Connector, Microsoft Entra ID, Microsoft Entra ID Governance, Microsoft Intune, Microsoft Defender for Endpoint, Microsoft Global Secure Access Client, Microsoft Purview DLP, Microsoft Purview Information Protection, Microsoft Purview Information Protection Scanner, Microsoft Entra ID Identity Protection, Microsoft Defender for Identity, Microsoft Defender for Cloud, Microsoft Sentinel, Tenable.io, Tenable.ad, Mandiant Security Validation, Microsoft Azure (IaaS), Microsoft 365 (SaaS), and DigiCert CertCentral.
+
+-  E4B5 components consist of AWS Verified Access, Amazon VPC Lattice, Amazon ECS and AWS Lambda Functions, Okta Identity Cloud, Okta Verify App, IBM Security QRadar XDR, Tenable Cloud Security, Mandiant Security Validation (MSV), DigiCert CertCentral, and AWS IaaS.
+
+-  E1B6 components consist of Ivanti nZTA, Ivanti nZTA Gateway, Okta Identity Cloud, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, Okta Verify App, Ivanti Secure Access Client, IBM Security QRadar XDR, Tenable.io, Tenable.ad, Tenable NNM, Mandiant Security Validation (MSV), DigiCert CertCentral, and AWS IaaS.
+
+-  E2B6 components consist of Google CEP, Google Application Connector, Omnissa Workspace ONE UEM, Okta Identity Cloud, Okta Verify App, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, IBM Security QRadar XDR, Tenable.io, Tenable.ad, Tenable NNM, Mandiant Security Validation (MSV), Google Cloud (IaaS), Google Workspace (SaaS), and DigiCert CertCentral.
 
 For a detailed description of the architecture of each build, see :ref:`Build Architecture Details`. The remainder of this guide describes how to implement the EIG crawl, EIG run, and SDP, microsegmentation, and SASE phase builds.

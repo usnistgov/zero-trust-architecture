@@ -65,7 +65,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="General Findings" href="../VolumeB/GeneralFindings.html" />
-    <link rel="prev" title="Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides" href="HowTo-E1B6.html" />
+    <link rel="prev" title="Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE" href="HowTo-E2B6.html" />
     
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -212,7 +212,7 @@
           
           
           
-          <a href="https://www.nccoe.nist.gov/sites/default/files/2024-07/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+          <a href="https://www.nccoe.nist.gov/sites/default/files/2024-11/zta-nist-sp-1800-35-ipd.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
         </li>
         <li class="nav-item">
           
@@ -270,7 +270,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B5.html">Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PEs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B6.html">Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE</a></li>
 </ul>
 </details></li>
 </ul>
@@ -292,7 +294,9 @@
 <li class="toctree-l2"><a class="reference internal" href="HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E4B5.html">Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B6.html">Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Hardening Information</a></li>
 </ul>
 </details></li>
@@ -325,6 +329,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../VolumeB/ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../acronyms.html">Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Change Log</a></li>
 </ul>
 
     </div>
@@ -489,7 +494,12 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#appgate-sdp-client-hardening">Appgate SDP Client Hardening</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcom-vmware">Broadcom (VMware)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws">AWS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcom">Broadcom</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-dlp-management-server-hardening">Symantec DLP Management Server Hardening</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spanva">SpanVA</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cisco-systems">Cisco Systems</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digicert">DigiCert</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f5">F5</a></li>
@@ -499,13 +509,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mandiant-msv">Mandiant MSV</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft">Microsoft</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#okta">Okta</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#omnissa">Omnissa</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#palo-alto-networks-pan">Palo Alto Networks (PAN)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ping-identity">Ping Identity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-by-broadcom">Symantec by Broadcom</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-dlp-management-server-hardening">Symantec DLP Management Server Hardening</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spanva">SpanVA</a></li>
-</ul>
-</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable">Tenable</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tls-server">TLS Server</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-manager-sql">Storage Manager (SQL)</a></li>
@@ -549,14 +555,17 @@ document.write(`
 <ol class="arabic simple">
 <li><p>Download STIGs for your applicable OS</p></li>
 <li><p>Copy and unzip the STIG file to the endpoint to be hardened.</p></li>
-<li><p>Run the SCAP Compliance Checker (SCC) tool:</p>
-<ol class="loweralpha simple">
+<li><p>Run the SCAP Compliance Checker (SCC) tool:</p></li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
 <li><p>Open the SCC tool and click Select <strong>Local Scan</strong> under <strong>Scan Type</strong>.</p></li>
 <li><p>Check appropriate OS and/or application versions boxes in the <strong>Content</strong> area.</p></li>
 <li><p>Under <strong>Stream Details</strong> -&gt; <strong>Profile</strong>, select <strong>Mac1_Public</strong> for non-sensitive environments.</p></li>
 <li><p>Go back to the <strong>Scan</strong> section on the left and click <strong>Start Scan</strong>.</p></li>
 </ol>
-</li>
+</div></blockquote>
+<ol class="arabic simple" start="4">
 <li><p>Once the scan is complete, click <strong>Results</strong> -&gt; <strong>Open Results Directory</strong> and select the most recent Results directory.</p></li>
 <li><p>Open the HTML summary file and click on the <strong>Non-Compliance</strong> tab.</p></li>
 <li><p>Scroll down to the <strong>Results</strong> section and click on the any of the links with remediation information.</p></li>
@@ -697,12 +706,33 @@ document.write(`
 </ul>
 </section>
 </section>
-<section id="broadcom-vmware">
-<h3>Broadcom (VMware)<a class="headerlink" href="#broadcom-vmware" title="Link to this heading">#</a></h3>
-<p>VMware disables unnecessary ports, protocols, and services as part of baseline hardening standards. It follows industry best practices in applying secure configurations to managed servers.</p>
-<p>For Workspace ONE UEM, Workspace ONE Assist, and VMware RemoteHelp servers that use Windows operating systems, server configurations can be hardened using GPO policies (such as account policies, user rights, security options, event log settings, app restrictions). Workspace ONE UEM, Workspace ONE Access, and Workspace ONE Intelligence Linux-based servers use Amazon Linux 2 images for system hardening. The Amazon Linux 2 images include default security configurations, such as limited remote access using SSH key pairs, remote root login disablement, reduced non-critical package installation, and automatic security related updates. This hardening information can be found at <a class="reference external" href="https://techzone.vmware.com/resource/workspace-one-cloud-services-security#system-hardening">https://techzone.vmware.com/resource/workspace-one-cloud-services-security#system-hardening</a>.</p>
-<p>An overview of the security controls implemented within Workspace ONE commercial cloud services and their alignment with the NIST SP 800-171 standards can be found at the following link: <a class="reference external" href="https://techzone.vmware.com/resource/workspace-one-cloud-services-alignment-nist-sp-800-171#introduction">https://techzone.vmware.com/resource/workspace-one-cloud-services-alignment-nist-sp-800-171#introduction</a>.</p>
-<p>Note that after the VMware products were implemented at NCCoE, VMware was acquired by Broadcom.</p>
+<section id="aws">
+<h3>AWS<a class="headerlink" href="#aws" title="Link to this heading">#</a></h3>
+<p>For information on relevant AWS configuration information, please review the following AWS documentation.</p>
+<ul class="simple">
+<li><p>AWS Cloud Security: <a class="reference external" href="https://aws.amazon.com/security/">https://aws.amazon.com/security/</a></p></li>
+<li><p>Best Practices for Security, Identity, &amp; Compliance: <a class="reference external" href="https://aws.amazon.com/architecture/security-identity-compliance/?cards-all.sort-by=item.additionalFields.sortDate&amp;cards-all.sort-order=desc&amp;awsf.content-type=*all&amp;awsf.methodology=*all">https://aws.amazon.com/architecture/security-identity-compliance/?cards-all.sort-by=item.additionalFields.sortDate&amp;cards-all.sort-order=desc&amp;awsf.content-type=*all&amp;awsf.methodology=*all</a></p></li>
+<li><p>AVA Security in Verified Access: <a class="reference external" href="https://docs.aws.amazon.com/verified-access/latest/ug/security.html">https://docs.aws.amazon.com/verified-access/latest/ug/security.html</a></p></li>
+<li><p>Security in Amazon VPC Lattice: <a class="reference external" href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/security.html">https://docs.aws.amazon.com/vpc-lattice/latest/ug/security.html</a></p></li>
+</ul>
+</section>
+<section id="broadcom">
+<h3>Broadcom<a class="headerlink" href="#broadcom" title="Link to this heading">#</a></h3>
+<p>The majority of services provided by Broadcom (with Symantec products) for this project are hosted in the cloud, and hardening is managed by Broadcom. Two on-prem instances of Symantec offerings were deployed: the Symantec DLP Management Server and SpanVA.</p>
+<section id="symantec-dlp-management-server-hardening">
+<h4>Symantec DLP Management Server Hardening<a class="headerlink" href="#symantec-dlp-management-server-hardening" title="Link to this heading">#</a></h4>
+<p>Guidelines for hardening aspects of Symantec DLP capabilities are as follows:</p>
+<ul class="simple">
+<li><p>Firewall ports: <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/corporate-firewall-configuration-v15632745-d279e11210.html">https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/corporate-firewall-configuration-v15632745-d279e11210.html</a></p></li>
+<li><p>Services: <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/windows-security-lockdown-guidelines-v15632398-d279e11241.html">https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/windows-security-lockdown-guidelines-v15632398-d279e11241.html</a></p></li>
+<li><p>Service account configuration: <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/windows-administrative-security-settings-v15632498-d279e11405.html">https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/windows-administrative-security-settings-v15632498-d279e11405.html</a></p></li>
+</ul>
+</section>
+<section id="spanva">
+<h4>SpanVA<a class="headerlink" href="#spanva" title="Link to this heading">#</a></h4>
+<p>SpanVA hardening guidelines are located on: <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/symantec-cloudsoc/cloud/audit-home/spanva-audit/spanva-security.html">https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/symantec-cloudsoc/cloud/audit-home/spanva-audit/spanva-security.html</a></p>
+<p>The SpanVA appliance comes hardened out of the box; only necessary firewall ports are open and all externally facing services, including SSH, are turned off.</p>
+</section>
 </section>
 <section id="cisco-systems">
 <h3>Cisco Systems<a class="headerlink" href="#cisco-systems" title="Link to this heading">#</a></h3>
@@ -822,7 +852,14 @@ document.write(`
 </section>
 <section id="okta">
 <h3>Okta<a class="headerlink" href="#okta" title="Link to this heading">#</a></h3>
-<p>Okta Identity Cloud is being hosted on a cloud platform which has options of FedRAMP High, FedRAMP Moderate, and DoD Impact Level 4 (IL4). For the hardening details, please refer to <a class="reference external" href="https://gcc02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.okta.com%2Fresources%2Fwhitepaper%2Fokta-security-technical-white-paper%2F&amp;data=05%7C01%7Cparisa.grayeli%40nist.gov%7Cc91010cbdef74f55ffc608db89fffd33%7C2ab5d82fd8fa4797a93e054655c61dec%7C1%7C0%7C638255504786105445%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=mrNnI6qWKMRi0pvF6XuU4ajRReNIwSUJ2%2BNwDg61SOo%3D&amp;reserved=0">https://www.okta.com/resources/whitepaper/okta-security-technical-white-paper/</a></p>
+<p>Okta Identity Cloud is being hosted on a cloud platform which has options of FedRAMP High, FedRAMP Moderate, and DoD Impact Level 4 (IL4). For the hardening details, please refer to <a class="reference external" href="https://www.okta.com/resources/whitepaper/okta-security-technical-white-paper/">https://www.okta.com/resources/whitepaper/okta-security-technical-white-paper/</a></p>
+</section>
+<section id="omnissa">
+<h3>Omnissa<a class="headerlink" href="#omnissa" title="Link to this heading">#</a></h3>
+<p>Omnissa disables unnecessary ports, protocols, and services as part of baseline hardening standards. It follows industry best practices in applying secure configurations to managed servers.</p>
+<p>For Workspace ONE UEM, Workspace ONE Assist, and Omnissa RemoteHelp servers that use Windows operating systems, server configurations can be hardened using GPO policies (such as account policies, user rights, security options, event log settings, app restrictions). Workspace ONE UEM, Workspace ONE Access, and Workspace ONE Intelligence Linux-based servers use Amazon Linux 2 images for system hardening. The Amazon Linux 2 images include default security configurations, such as limited remote access using SSH key pairs, remote root login disablement, reduced non-critical package installation, and automatic security related updates. This hardening information can be found at <a class="reference external" href="https://techzone.vmware.com/resource/workspace-one-cloud-services-security#system-hardening">https://techzone.vmware.com/resource/workspace-one-cloud-services-security#system-hardening</a>.</p>
+<p>An overview of the security controls implemented within Workspace ONE commercial cloud services and their alignment with the NIST SP 800-171 standards can be found at the following link: <a class="reference external" href="https://techzone.vmware.com/resource/workspace-one-cloud-services-alignment-nist-sp-800-171#introduction">https://techzone.vmware.com/resource/workspace-one-cloud-services-alignment-nist-sp-800-171#introduction</a>.</p>
+<p>Note that after the VMware End User Computing division products were implemented at NCCoE, VMware was acquired by Broadcom, then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC.</p>
 </section>
 <section id="palo-alto-networks-pan">
 <h3>Palo Alto Networks (PAN)<a class="headerlink" href="#palo-alto-networks-pan" title="Link to this heading">#</a></h3>
@@ -833,24 +870,6 @@ document.write(`
 <section id="ping-identity">
 <h3>Ping Identity<a class="headerlink" href="#ping-identity" title="Link to this heading">#</a></h3>
 <p>The OS is hardened according to the appropriate OS Hardening section above. A product-specific security hardening guide is available at: <a class="reference external" href="https://support.pingidentity.com/s/article/PingFederate-Security-Hardening-Guide">https://support.pingidentity.com/s/article/PingFederate-Security-Hardening-Guide</a></p>
-</section>
-<section id="symantec-by-broadcom">
-<h3>Symantec by Broadcom<a class="headerlink" href="#symantec-by-broadcom" title="Link to this heading">#</a></h3>
-<p>The majority of services provided by Symantec by Broadcom for this project are hosted in the cloud, and hardening is managed by Symantec by Broadcom. Symantec by Broadcom is <a class="reference external" href="https://marketplace.fedramp.gov/products/FR2232465502">in process for FedRAMP authorization</a>. Two on-prem instances of Symantec by Broadcom offerings were deployed: the Symantec DLP Management Server and SpanVA.</p>
-<section id="symantec-dlp-management-server-hardening">
-<h4>Symantec DLP Management Server Hardening<a class="headerlink" href="#symantec-dlp-management-server-hardening" title="Link to this heading">#</a></h4>
-<p>Guidelines for hardening aspects of Symantec DLP capabilities are as follows:</p>
-<ul class="simple">
-<li><p>Firewall ports: <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/corporate-firewall-configuration-v15632745-d279e11210.html">https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/corporate-firewall-configuration-v15632745-d279e11210.html</a></p></li>
-<li><p>Services: <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/windows-security-lockdown-guidelines-v15632398-d279e11241.html">https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/windows-security-lockdown-guidelines-v15632398-d279e11241.html</a></p></li>
-<li><p>Service account configuration: <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/windows-administrative-security-settings-v15632498-d279e11405.html">https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/windows-administrative-security-settings-v15632498-d279e11405.html</a></p></li>
-</ul>
-</section>
-<section id="spanva">
-<h4>SpanVA<a class="headerlink" href="#spanva" title="Link to this heading">#</a></h4>
-<p>SpanVA hardening guidelines are located in Symantec’s official documentation: <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/symantec-cloudsoc/cloud/audit-home/spanva-audit/spanva-security.html">https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/symantec-cloudsoc/cloud/audit-home/spanva-audit/spanva-security.html</a></p>
-<p>The SpanVA appliance comes hardened out of the box; only necessary firewall ports are open and all externally facing services, including SSH, are turned off.</p>
-</section>
 </section>
 <section id="tenable">
 <h3>Tenable<a class="headerlink" href="#tenable" title="Link to this heading">#</a></h3>
@@ -910,12 +929,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="HowTo-E1B6.html"
+       href="HowTo-E2B6.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</p>
+        <p class="prev-next-title">Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE</p>
       </div>
     </a>
     <a class="right-next"
@@ -959,7 +978,12 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#appgate-sdp-client-hardening">Appgate SDP Client Hardening</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcom-vmware">Broadcom (VMware)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws">AWS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcom">Broadcom</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-dlp-management-server-hardening">Symantec DLP Management Server Hardening</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spanva">SpanVA</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cisco-systems">Cisco Systems</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digicert">DigiCert</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f5">F5</a></li>
@@ -969,13 +993,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mandiant-msv">Mandiant MSV</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft">Microsoft</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#okta">Okta</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#omnissa">Omnissa</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#palo-alto-networks-pan">Palo Alto Networks (PAN)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ping-identity">Ping Identity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-by-broadcom">Symantec by Broadcom</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-dlp-management-server-hardening">Symantec DLP Management Server Hardening</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spanva">SpanVA</a></li>
-</ul>
-</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tenable">Tenable</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tls-server">TLS Server</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-manager-sql">Storage Manager (SQL)</a></li>

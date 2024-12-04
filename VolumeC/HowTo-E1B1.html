@@ -212,7 +212,7 @@
           
           
           
-          <a href="https://www.nccoe.nist.gov/sites/default/files/2024-07/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+          <a href="https://www.nccoe.nist.gov/sites/default/files/2024-11/zta-nist-sp-1800-35-ipd.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
         </li>
         <li class="nav-item">
           
@@ -270,7 +270,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B5.html">Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PEs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B6.html">Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE</a></li>
 </ul>
 </details></li>
 </ul>
@@ -292,7 +294,9 @@
 <li class="toctree-l2"><a class="reference internal" href="HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E4B5.html">Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowTo-E2B6.html">Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Hardening.html">Hardening Information</a></li>
 </ul>
 </details></li>
@@ -325,6 +329,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../VolumeB/ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../acronyms.html">Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Change Log</a></li>
 </ul>
 
     </div>
@@ -714,16 +719,14 @@ document.write(`
 <section id="installation-and-configuration">
 <h3>Installation and Configuration<a class="headerlink" href="#installation-and-configuration" title="Link to this heading">#</a></h3>
 <p id="sailpoint-install">The steps below explain the installation of the IdentityIQ server, initial configuration to import users from the Radiant Logic identity store, and configuration to manage the lifecycle of users.</p>
-<ol class="arabic">
+<ol class="arabic simple">
 <li><p>To install IdentityIQ, first identify the platform and prerequisites. For this build, we used Windows 2019 with Apache Tomcat 9.0 and MS SQL Server 2019 as recommended requirements for release 8.2. Download the installation file from the SailPoint website and <a class="reference external" href="https://community.sailpoint.com/t5/IdentityIQ-Product-Guides/8-2-IdentityIQ-Installation-Guide/ta-p/196441">follow the installation instructions</a>.</p></li>
 <li><p>Login into IdentityIQ from a web browser (<a class="reference external" href="http://localhost:8080">http://localhost:8080</a>) using the default login and password identified in the IdentityIQ Installation Guide. Make sure to change the default password by following the instructions provided in the Guide.</p></li>
 <li><p><a class="reference external" href="https://documentation.sailpoint.com/connectors/iqservice/help/integrating_iqservice_admin/install_register.html">Configure IQService.</a> This is needed in order to set up integration with AD.</p></li>
 <li><p>Govern permissions by pushing employee and contractor users and groups to AD and Okta. Note: This step should be completed after the integration with AD and Okta is completed. Steps to configure integration are in <a class="reference internal" href="#sailpoint-integration-ad"><span class="std std-ref">Integration with AD</span></a> and <a class="reference internal" href="#sailpoint-integration-radiant"><span class="std std-ref">Integration with Radiant Logic</span></a>. After integration with AD and Okta is completed, navigate to the <strong>Setup</strong> drop-down menu and select <strong>Roles</strong>. Here we will create a birthright role and access profile for employees and contractors.</p>
-<blockquote>
-<div><ol class="loweralpha simple">
+<ol class="loweralpha simple">
 <li><p>Select the <strong>New Role</strong> drop-down button and select <strong>Role</strong>. The screenshot lists the four roles that are created for this build.</p></li>
 </ol>
-</div></blockquote>
 </li>
 </ol>
 <blockquote>
@@ -739,13 +742,11 @@ document.write(`
 <li><p>For the <strong>Employee Access Profile</strong> role, add the groups that the employees belong to. This means that these users will have access to these groups as a birthright. Perform the same for the corresponding contractor role. Note that the <strong>Entitlements</strong> should be different for the contractor based on group information in Okta and AD.</p></li>
 </ol>
 </div></blockquote>
-<ol class="arabic" start="5">
+<ol class="arabic simple" start="5">
 <li><p>The next step is to synchronize users and groups. To begin, navigate to the <strong>Setup</strong> tab and select <strong>Tasks</strong>.</p>
-<blockquote>
-<div><ol class="loweralpha simple">
+<ol class="loweralpha simple">
 <li><p>To create user aggregation, select the <strong>New Task</strong> drop down button and select <strong>Account Aggregation</strong>. The screenshot below depicts the aggregation configuration for Radiant Logic. This allows SailPoint to sync with Radiant Logic on any updates made to users. Repeat this step for AD and Okta accounts. Note that the <strong>Account Aggregation Options</strong> section is where the AD and Okta applications need to be selected to create the proper account aggregation.</p></li>
 </ol>
-</div></blockquote>
 </li>
 </ol>
 <blockquote>
@@ -754,15 +755,13 @@ document.write(`
 <li><p>To create group aggregation, select the <strong>New Task</strong> drop down button and select <strong>Account Aggregation</strong>. This allows SailPoint to sync with AD on any updates made to users in the groups. Repeat this step for the Okta account. Note that the <strong>Account Group Aggregation Options</strong> section is where the Okta applications need to be selected to create the proper account aggregation.</p></li>
 </ol>
 </div></blockquote>
-<ol class="arabic" start="6">
+<ol class="arabic simple" start="6">
 <li><p>Configure lifecycle processes through Rapid Setup Configuration. Click on the <strong>Setup</strong> cog and select <strong>Rapid Setup</strong> to begin. The Rapid Setup Configuration process allows onboarding of applications and manage functions such as joiner, mover, and leaver of identities. Use the “Using Rapid Setup” section of the <a class="reference external" href="https://community.sailpoint.com/t5/IdentityIQ-Product-Guides/8-2-IdentityIQ-Rapid-Setup-Guide/ta-p/196225">IdentityIQ Rapid Setup Guide</a> to guide the configuration.</p>
-<blockquote>
-<div><ol class="loweralpha simple">
+<ol class="loweralpha simple">
 <li><p>Configure <strong>Joiner</strong>, <strong>Mover,</strong> and <strong>Leaver.</strong></p></li>
 <li><p>Configure <strong>Identity Operations</strong>.</p></li>
 <li><p>Configure Rapid Setup specific to AD users: Aggregation, Joiner, Mover, and Leaver.</p></li>
 </ol>
-</div></blockquote>
 </li>
 <li><p>Govern user permissions to applications on an individual basis. Configure procedures to provision and approve user access to resources. For Enterprise 1, the process is for an administrator or user to request approval to access an application. That request goes to the user’s manager for review and approval. Once the manager approves the request, SailPoint kicks off an API call to Okta to configure access for that user.</p></li>
 </ol>
@@ -952,17 +951,15 @@ document.write(`
 </section>
 <section id="okta-verify-app-configuration-ios">
 <h4>Okta Verify app configuration - iOS<a class="headerlink" href="#okta-verify-app-configuration-ios" title="Link to this heading">#</a></h4>
-<ol class="arabic">
+<ol class="arabic simple">
 <li><p>In the Ivanti Neurons for UEM console, navigate to <strong>Apps &gt; App Catalog</strong>. Click <strong>Add</strong>.</p></li>
 <li><p>Select the iOS Store and search for <strong>Okta Verify</strong>. Select the official <strong>Okta Verify</strong> app.</p></li>
 <li><p>Continue through the wizard until you reach the App Configurations page. Click the <strong>+</strong> button in the Apple Managed App Configuration section.</p></li>
 <li><p>Add desired settings. Under <strong>Apple Managed App Settings</strong>, click <strong>Add</strong> and add two items.</p>
-<blockquote>
-<div><ol class="loweralpha simple">
+<ol class="loweralpha simple">
 <li><p>For the first item, the key will be <strong>domainName</strong>, the value will be your Org URL, and the type will be STRING.</p></li>
 <li><p>For the second item, the key will be <strong>managementHint</strong>, the value will be the <strong>Secret Key</strong> you saved from the Okta console during preparation, and the type will be STRING.</p></li>
 </ol>
-</div></blockquote>
 </li>
 <li><p>Click <strong>Next,</strong> then click <strong>Done</strong>.</p></li>
 </ol>
@@ -985,7 +982,7 @@ document.write(`
 </section>
 <section id="qradar-setup">
 <h4>QRadar setup<a class="headerlink" href="#qradar-setup" title="Link to this heading">#</a></h4>
-<ol class="arabic">
+<ol class="arabic simple">
 <li><p>In the QRadar console, navigate to <strong>Admin &gt; Extensions Management</strong>. Click <strong>Add</strong>.</p></li>
 <li><p>Select the Ivanti extension file provided by IBM. Click <strong>Add</strong>.</p></li>
 <li><p>Continue through the wizard until you completed the extension installation.</p></li>
@@ -993,8 +990,7 @@ document.write(`
 <li><p>In the search box, type <strong>Ivanti</strong>. Make sure <strong>Ivanti</strong> is selected in the menu and click <strong>Step 2: Select Protocol Type</strong>.</p></li>
 <li><p>In the search box, type <strong>Log File</strong>. Make sure <strong>Log File</strong> is selected in the menu and click <strong>Step 3: Configure Log Source Parameters</strong>.</p></li>
 <li><p>Enter a name for the log source and turn off <strong>Coalescing Events</strong>. Click <strong>Step 4: Configure Protocol Parameters</strong>. The settings are as follows:</p>
-<blockquote>
-<div><ol class="loweralpha simple">
+<ol class="loweralpha simple">
 <li><p>Log Source Identifier: <strong>MobileIron Cloud</strong></p></li>
 <li><p>Service Type: SFTP</p></li>
 <li><p>Remote IP or Hostname: &lt;Log server you set up previously&gt;</p></li>
@@ -1007,7 +1003,6 @@ document.write(`
 <li><p>Processor: ZIP</p></li>
 <li><p>All other settings can be left as default</p></li>
 </ol>
-</div></blockquote>
 </li>
 <li><p>Click <strong>Step 5: Test Protocol Parameters</strong>. Run the tests and ensure the configuration is valid.</p></li>
 <li><p>From the QRadar console, navigate to the <strong>Admin</strong> tab. Click <strong>Deploy Changes</strong>.</p></li>

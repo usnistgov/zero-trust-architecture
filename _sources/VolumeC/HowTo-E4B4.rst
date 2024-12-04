@@ -3,10 +3,10 @@ Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace
 
 .. include:: /_publication_note.rst
 
-This section of the practice guide contains detailed instructions for installing, configuring, and integrating all the products used to implement E4B4. For additional details on E4B4's logical and physical architectures, please refer to :ref:`architecture and builds`. Note that after this build was completed, VMware was acquired by Broadcom.
+This section of the practice guide contains detailed instructions for installing, configuring, and integrating all the products used to implement E4B4. For additional details on E4B4's logical and physical architectures, please refer to :ref:`architecture and builds`. Note that after the VMware End User Computing division products were implemented at NCCoE, VMware was acquired by Broadcom, then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC.
 
 VMware Workspace ONE Access
----------------------------
+----------------------------
 
 Workspace ONE Access can serve as an IdP and integrate with a large range of enterprise identity components. For this build, Workspace ONE Access was integrated with an on-premises Active Directory to serve as an IdP.
 
@@ -215,7 +215,7 @@ For this build we configured a Distributed Firewall rule to block VM to VM traff
 -  Enable: On
 
 VMware Workspace ONE UEM
-------------------------
+-------------------------
 
 Workspace ONE UEM provides endpoint management capabilities for this build and allows certificates to be provisioned for user authentication.
 
@@ -237,7 +237,7 @@ Internal (private) applications or public (App Store) applications can be deploy
 For macOS and Windows, the VMWare UAG Tunnel and Carbon Black Enterprise EDR agent were deployed as internal applications. All internal applications follow the same deployment steps provided in the `Deploy Internal Applications Guide <https://docs.vmware.com/en/VMware-Workspace-ONE-UEM/services/Application_Management/GUID-DeployInternalApplications.html>`__ of the Workspace One UEM User Guide.
 
 VMware Workspace ONE MTD
-------------------------
+-------------------------
 
 Workspace ONE MTD provides endpoint security and protection for iOS, Android, and Chrome OS, securing devices against app, device, OS, and network-based threats. Integrating MTD with Workspace ONE UEM empowers your organization to adopt secure mobility without compromising productivity.
 

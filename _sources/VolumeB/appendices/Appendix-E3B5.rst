@@ -120,15 +120,15 @@ The message flow depicted in Figure 4 consists of the following steps:
 
 2. The GSA Client intercepts the first IP packet for the M365 destination and determines if the packet is to be acquired based on its traffic acquisition policy, which in this case is the Microsoft 365 traffic profile, and queues the packet until the tunnel is established.
 
-    a. The GSA Client checks if any outer tunnel instance is present. If not, it reaches out to the Tunneling Client to create the outer tunnel instance.
+   a. The GSA Client checks if any outer tunnel instance is present. If not, it reaches out to the Tunneling Client to create the outer tunnel instance.
 
-    b. The Entra SSE service forces Entra ID user authentication to create an authenticated tunnel.
+   b. The Entra SSE service forces Entra ID user authentication to create an authenticated tunnel.
 
-    c. The GSA Client initiates an Entra ID authentication, and Entra ID provides the access token to the GSA Client. The GSA Client stores it locally.
+   c. The GSA Client initiates an Entra ID authentication, and Entra ID provides the access token to the GSA Client. The GSA Client stores it locally.
 
 3. The queued packet is now sent inside the tunnel that was created earlier to the Microsoft SSE Internet Access service.
 
-    a. Entra ID enforces any Conditional Access policies that apply to the Conditional Access Control targeting the Microsoft 365 traffic profile under Target resource or other Conditional Access policy controls such as Compliant Network with Microsoft's SSE Internet Access Service.
+   a. Entra ID enforces any Conditional Access policies that apply to the Conditional Access Control targeting the Microsoft 365 traffic profile under Target resource or other Conditional Access policy controls such as Compliant Network with Microsoft's SSE Internet Access Service.
 
 4. Entra ID returns an M365 access token or rejects the request to the M365 app, depending on policy. In this case, Entra ID returns an M365 access token via Microsoft SSE Internet Access and the GSA Client.
 

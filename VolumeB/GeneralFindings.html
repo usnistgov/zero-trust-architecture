@@ -211,7 +211,7 @@
           
           
           
-          <a href="https://www.nccoe.nist.gov/sites/default/files/2024-07/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+          <a href="https://www.nccoe.nist.gov/sites/default/files/2024-11/zta-nist-sp-1800-35-ipd.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
         </li>
         <li class="nav-item">
           
@@ -269,7 +269,9 @@
 <li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E4B5.html">Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PEs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E2B6.html">Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE</a></li>
 </ul>
 </details></li>
 </ul>
@@ -291,7 +293,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E4B5.html">Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E2B6.html">Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VolumeC/Hardening.html">Hardening Information</a></li>
 </ul>
 </details></li>
@@ -324,6 +328,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../acronyms.html">Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Change Log</a></li>
 </ul>
 
     </div>
@@ -521,7 +526,7 @@ document.write(`
 <li><p>ability to monitor, inspect, and enforce policy controls on traffic being sent to and from resources in the cloud or on the internet</p></li>
 <li><p>discovery of new endpoints on the network and the ability to block newly discovered endpoints that are not compliant with policy</p></li>
 </ul>
-<p>Build E1B2, which uses Zscaler as its PE, PA, and PEP, does not have an EPP because this build does not include any collaborators with EPP solutions that integrate with Zscaler. Zscaler (e.g., the Zscaler client connector) has capabilities to enforce policies based on a defined set of endpoint compliance checks to allow or deny user/endpoint access to a resource. However, it does not perform the functions of an EPP solution to protect an endpoint. Zscaler integrates with EPP solutions to receive a more robust set of information about the endpoints in order to make a decision to allow or deny access to a resource. However, in build E1B2, we do not have a collaborator with an EPP solution that can integrate with Zscaler.</p>
+<p>Build E1B2, which uses Zscaler as its PE, PA, and PEP, does not have an EPP because this build does not include any collaborators with EPP solutions that integrate with Zscaler. Zscaler (e.g., the Zscaler client connector) has the capability to enforce policies based on a defined set of endpoint compliance checks to allow or deny user/endpoint access to a resource. However, it does not perform the functions of an EPP solution to protect an endpoint. Zscaler integrates with EPP solutions to receive a more robust set of information about the endpoints in order to make a decision to allow or deny access to a resource. However, in build E1B2, we do not have a collaborator with an EPP solution that can integrate with Zscaler.</p>
 <p>Because there is no EPP in E1B2, there is no automatic solution to remediate an issue on the endpoint either.</p>
 <p>Build E1B2 also does not have a collaborator with a solution that supports determination of confidence level/trust scores that can integrate with Zscaler. Due to the absence of a collaborator with this capability, Build E1B2 does not support the calculation of confidence levels/trust scores.</p>
 <p>Build E2B1, which uses Ping Identity as its PE and PA and Ping Identity and Cisco Duo as its PEP, does not have an EPP. Cisco Duo provides limited device health information, but not the full spectrum that an EPP would provide. Because there is no official EPP in this build, there is no automatic solution to remediate an issue on the endpoint. An EPP for Enterprise 2 was included in a later build phase (E2B3).</p>
@@ -530,7 +535,7 @@ document.write(`
 <section id="sdp-microsegmentation-and-sase-phase-findings">
 <h2>SDP, Microsegmentation, and SASE Phase Findings<a class="headerlink" href="#sdp-microsegmentation-and-sase-phase-findings" title="Link to this heading">#</a></h2>
 <p>More integration of zero trust products from different vendors is needed to support the implementation of ZTAs that are built using components from a variety of vendors. For the most effective zero trust solutions, PDPs should integrate with a variety of security tools and other supporting components that enable the PDP to assess the real-time risk of any given access request.</p>
-<p>It is not unusual for a ZTA to have multiple PDPs, each of which may be integrated with one or more different supporting component and/or PEPs. As a result, the policies that the ZTA enforces are not centrally located. Rather, they are configured and managed in association with each of the various PDPs. This makes it challenging to understand, articulate, and manage the ZTA’s policies as a comprehensive whole.</p>
+<p>It is not unusual for a ZTA to have multiple PDPs, each of which may be integrated with one or more different supporting components and/or PEPs. As a result, the policies that the ZTA enforces are not centrally located. Rather, they are configured and managed in association with each of the various PDPs. This makes it challenging to understand, articulate, and manage the ZTA’s policies as a comprehensive whole.</p>
 <p>In addition, the multiple PDPs that comprise a ZTA do not typically integrate with each other to share information and so do not have a shared understanding of what users, endpoints, or other subjects may pose risks. For example, one PDP may be aware that an endpoint is non-compliant, whereas this same endpoint compliance information is not available to another PDP. On the other hand, the second PDP may be aware that the endpoint’s user may have exhibited suspicious behavior, whereas the first PDP is not. Ideally, when a ZTA has multiple PDPs, it is desirable to have an integrated approach that enables the PDPs to share information so that they can each be more fully informed, share a common, consolidated understanding of risks, and make a decision based on all information available.</p>
 <p>The SIEM and/or SOAR components contain a wealth of information that could prove useful to a PDP as it tries to determine whether any given access request should be allowed or not. Ideally, the SIEM and SOAR should send this information to the PDP in real-time, if possible, to ensure that the PDP’s access decisions are fully informed.</p>
 <p>Ideally, data security tools should be integrated with the PDP so that the PDP can be made aware of instances in which access requests are denied by the tools that are designed to protect data.</p>

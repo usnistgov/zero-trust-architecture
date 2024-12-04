@@ -252,7 +252,7 @@ Palo Alto Networks Next Generation Firewall
 
 For installation, configuration, and integration instructions, refer to :ref:`Palo Alto Networks Next Generation Firewall<palo-alto-ngfw>`.
 
-VMware
-------
+VMware Environment
+------------------
 
 The VMware environment was used for on-premises virtualized infrastructure hosting enterprise resources and consisted of three vSAN clusters. The VMware vSAN installation and configuration guide `can be found here <https://docs.vmware.com/en/VMware-vSphere/8.0/vsan-planning/GUID-3332D48C-E8F2-4462-BC30-60C9532C624C.html>`__.

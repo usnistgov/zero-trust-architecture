@@ -1,12 +1,12 @@
 Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs
-===================================================================================================================================================
+=====================================================================================================================================================
 
 .. include:: /_publication_note.rst
 
 Technologies
 ------------
 
-E4B4 uses products from IBM, Mandiant, Tenable, and VMware. Certificates from DigiCert are also used. For more information on these collaborators and the products and technologies that they contributed to this project overall, see :ref:`Collaborators and Their Contributions`. Note that after this build was completed, VMware was acquired by Broadcom.
+E4B4 uses products from Broadcom (with VMware products), IBM, Mandiant, and Tenable. Certificates from DigiCert are also used. For more information on these collaborators and the products and technologies that they contributed to this project overall, see :ref:`Collaborators and Their Contributions`. Note that after the VMware End User Computing division products were implemented at NCCoE, VMware was acquired by Broadcom, then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC.
 
 E4B4 components consist of VMware Workspace ONE Access, VMware Unified Access Gateway (UAG), VMware NSX-T, VMware Workspace ONE UEM, VMware Workspace ONE MTD, VMware Carbon Black Enterprise EDR, VMware Carbon Black Cloud, VMware vSphere, VMware vCenter, VMware vSAN, IBM QRadar XDR, Mandiant Security Validation, Tenable.io, Tenable.ad, Tenable NNM, and DigiCert ONE.
 
@@ -46,7 +46,7 @@ Message Flows for Successful Resource Access Requests
 This section depicts some high-level message flows for E4B4. Resource access is protected by VMware technology, which acts as a PDP and PEP. VMware products also serve as the identity provider for the build and provide endpoint protection.
 
 Authentication Message Flow for Access to Both Internal and External Resources (VMware Workspace ONE Access, VMware Workspace ONE UEM) 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 *Figure 2* depicts the high-level message flow supporting the use case in which a subject who has an enterprise ID, is using a compliant device, and is authorized to access an enterprise resource, requests and receives access to that resource. In the case depicted here, the request to access the resource and all communication between the user and the resource flows through an authenticated tunnel. Access to the resource is authenticated and authorized by:
 

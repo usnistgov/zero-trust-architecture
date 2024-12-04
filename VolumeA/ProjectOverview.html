@@ -211,7 +211,7 @@
           
           
           
-          <a href="https://www.nccoe.nist.gov/sites/default/files/2024-07/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+          <a href="https://www.nccoe.nist.gov/sites/default/files/2024-11/zta-nist-sp-1800-35-ipd.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
         </li>
         <li class="nav-item">
           
@@ -269,7 +269,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E4B5.html">Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PEs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VolumeB/appendices/Appendix-E2B6.html">Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE</a></li>
 </ul>
 </details></li>
 </ul>
@@ -291,7 +293,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E4B5.html">Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E2B6.html">Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VolumeC/Hardening.html">Hardening Information</a></li>
 </ul>
 </details></li>
@@ -324,6 +328,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../VolumeB/ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../acronyms.html">Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Change Log</a></li>
 </ul>
 
     </div>
@@ -488,16 +493,6 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#management-monitoring">Management/Monitoring</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcom-vmware">Broadcom (VMware)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#securing-devices">Securing Devices</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#secure-identities">Secure Identities</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#secure-network-connectivity">Secure Network Connectivity</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#application-workload">Application Workload</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visibility-and-analytics">Visibility and Analytics</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#automation-and-orchestration">Automation and Orchestration</a></li>
-</ul>
-</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cisco">Cisco</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cisco-secure-access-by-duo">Cisco Secure Access by Duo</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cisco-identity-services-engine-ise">Cisco Identity Services Engine (ISE)</a></li>
@@ -598,6 +593,15 @@ document.write(`
 </li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#omnissa">Omnissa</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-risk-and-remediation">Endpoint Risk and Remediation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#risk-based-secure-access">Risk-based Secure Access</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#secure-network-connectivity">Secure Network Connectivity</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visibility-and-analytics">Visibility and Analytics</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#automation-and-orchestration">Automation and Orchestration</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#palo-alto-networks">Palo Alto Networks</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#next-generation-firewall-ngfw">Next-Generation Firewall (NGFW)</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prisma-access">Prisma Access</a></li>
@@ -638,7 +642,7 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-by-broadcom">Symantec by Broadcom</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-as-part-of-broadcom">Symantec, as part of Broadcom</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-cloud-secure-web-gateway">Symantec Cloud Secure Web Gateway</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#web-isolation">Web Isolation</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#casb-with-data-loss-prevention-dlp">CASB with Data Loss Prevention (DLP)</a></li>
@@ -673,6 +677,15 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cloudvisory">CloudVisory</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-as-part-of-broadcom">VMware, as part of Broadcom</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-cloud-foundation-vcf">VMware Cloud Foundation (VCF)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#components-of-the-cyber-resilient-vcf">Components of the Cyber Resilient VCF</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-distributed-lateral-security">Strong Distributed Lateral Security</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#confident-cyber-recovery">Confident Cyber Recovery</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zimperium">Zimperium</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#zimperium-mobile-threat-defense">Zimperium Mobile Threat Defense</a></li>
 </ul>
@@ -699,7 +712,7 @@ document.write(`
 <section id="motivation-for-the-project">
 <h2>Motivation for the Project<a class="headerlink" href="#motivation-for-the-project" title="Link to this heading">#</a></h2>
 <p>Protecting enterprise data and resources has become increasingly challenging. Many users need access from anywhere, at any time, from any device to support the organization’s mission. Data is created, stored, transmitted, and processed across different organizations’ environments, which are distributed across on-premises and multiple clouds to meet ever-evolving business use cases. It is no longer feasible to simply protect data and resources at the perimeter of the enterprise environment or to assume that all users, devices, applications, and services within it can be trusted.</p>
-<p>A zero-trust architecture (ZTA) enables secure authorized access to assets—machines, applications and services running on them, and associated data and resources—whether located on-premises or in the cloud, for a hybrid workforce and partners based on an organization’s defined access policy. For each access request, ZTA explicitly verifies the context available at access time—this includes both static user profile information or non-person entity information such as the requester’s identity and role; and dynamic information such as geolocation, the requesting device’s health and credentials, the sensitivity of the resource, access pattern anomalies, and whether the request is warranted and in accordance with the organization’s business process logic. If the defined policy is met, a secure session is created to protect all information transferred to and from the resource. A real-time, risk-based assessment of resource access and access pattern anomaly detection with continuous policy evaluation are performed to establish and maintain the access. A ZTA can also protect organizations from non-organizational resources that their users and applications may connect to, helping to stop threats originating from outside of the organization’s control.</p>
+<p>A zero-trust architecture (ZTA) enables secure authorized access to assets—machines, applications and services running on them, and associated data and resources—whether located on-premises or in the cloud, for a hybrid workforce and partners based on an organization’s defined access policy. For each access request, ZTA explicitly verifies the context available at access time—this includes both static user profile information or non-person entity information such as the requester’s identity and role; and dynamic information such as geolocation, the requesting device’s health and credentials, the sensitivity of the resource, access pattern anomalies, and whether the request is warranted and in accordance with the organization’s business process logic. If the defined policy is met, a secure session is created to protect all information transferred to and from the resource. A real-time, risk-based assessment of resource access and access pattern anomaly detection with continuous policy evaluation is performed to establish and maintain the access. A ZTA can also protect organizations from non-organizational resources that their users and applications may connect to, helping to stop threats originating from outside of the organization’s control.</p>
 <p>The goal of this project is to develop and demonstrate various ZTA implementations. NCCoE is collaborating with ZTA technology providers to build numerous example ZTA solutions and demonstrate their ability to meet the tenets of ZTA described in NIST SP 800-207. The goal of the solutions is to enforce corporate security policy dynamically and in near-real-time to restrict access to authenticated, authorized users, devices, and non-person entities while flexibly supporting a complex set of diverse business outcomes involving both remote and on-premises workforces, use of the cloud, partner collaboration, and support for contractors. The example solutions are designed to demonstrate the ability to protect against and detect attacks and malicious insiders. They showcase the ability of ZTA products to interoperate with existing enterprise and cloud technologies while trying to minimize impact on end-user experience.</p>
 <p>The project can help organizations plan how to evolve their existing enterprise environments to ZTA, starting with an assessment of their current resources, strengths, and weaknesses, and setting mile-stones along a path of continuous improvement, gradually bringing them closer to achieving the ZTA goals they have prioritized based on risk, cost, resources, and their unique mission. The goal is to ena-ble organizations to thoughtfully apply ZTA controls that best protect their business while enabling them to operate as they need to.</p>
 </section>
@@ -743,11 +756,11 @@ document.write(`
 </section>
 <section id="project-approach">
 <h2>Project Approach<a class="headerlink" href="#project-approach" title="Link to this heading">#</a></h2>
-<p>This project began with a clean laboratory environment that we populated with various applications and services that would be expected in a typical enterprise to create several baseline enterprise architectures. Examples include SIEMs, vulnerability scanning and assessment tools, security validation tools, and discovery tools.</p>
+<p>This project began with a clean laboratory environment that we populated with various applications and services that would be expected in a typical enterprise to create several baseline enterprise architectures. Examples include security information and event management systems (SIEMs), vulnerability scanning and assessment tools, security validation tools, and discovery tools.</p>
 <p>Next, we used a phased approach to develop example ZTA solutions. This approach was designed to represent how we believe most enterprises will evolve their enterprise architecture toward ZTA, i.e., by starting with their already-existing enterprise environment and gradually adding or adapting capabilities. Our first implementations with minimum viable solution were EIG deployments because the identity-based controls provided by EIG are foundational components of ZTA. We called this phase of the project the EIG crawl phase, which did not include cloud capabilities, and followed by the EIG run phase, which we added cloud capabilities.</p>
 <p>We gradually deployed additional functional components and capabilities to address an increasing number of ZTA requirements and deployed microsegmentation, SDP, and SASE approaches.</p>
 <p>Given the importance of discovery to the successful implementation of a ZTA, we initially deployed it to continuously observe the environment and use those observations to audit and validate the documented baseline map on an ongoing basis. Because we had instantiated the baseline environment ourselves, we already had a good initial understanding of it. However, we were able to use the discovery tools to audit and validate what we deployed and provisioned, correlate known data with information reported by the tools, and use the tool outputs to formulate initial zero trust policy, ultimately ensuring that observed network flows correlate to static policies.</p>
-<p>As we continue to develop additional ZTA builds, we do so with the understanding that there is no single approach for migrating to ZTA that is best for all enterprises and the recognition that ZTA is a set of concepts and principles, not a set of technical specifications that can be complied with. The objective, instead, is continuous improvement of access control processes and policies in accordance with the principles of ZTA.</p>
+<p>The builds described in this document are examples with the understanding that there is no single approach for migrating to ZTA that is best for all enterprises; ZTA is a set of concepts and principles, not a set of technical specifications that can be complied with. The objective, instead, is continuous improvement of access control processes and policies in accordance with the principles of ZTA.</p>
 </section>
 <section id="collaborators-and-their-contributions">
 <h2>Collaborators and Their Contributions<a class="headerlink" href="#collaborators-and-their-contributions" title="Link to this heading">#</a></h2>
@@ -797,58 +810,6 @@ document.write(`
 <p><strong>CloudTrail</strong>: AWS CloudTrail monitors and records account activity across AWS infrastructures, giving organizations control over storage, analysis, and remediation actions.</p>
 <p><strong>GuardDuty</strong>: Amazon GuardDuty is a threat detection service that continuously monitors AWS accounts and workloads for malicious activity and delivers detailed security findings for visibility and remediation.</p>
 <p><strong>Firewall Manager</strong>: AWS Firewall Manager is a security management service which allows organizations to centrally configure and manage firewall rules across their accounts and applications in AWS Organizations.</p>
-</section>
-</section>
-<section id="broadcom-vmware">
-<h3>Broadcom (VMware)<a class="headerlink" href="#broadcom-vmware" title="Link to this heading">#</a></h3>
-<p>Enabling secure work from anywhere is a critical requirement for most businesses, and a zero trust architecture is best suited to enable that. But zero trust is not a single product; rather, it is a solution that requires visibility and control at the various points that link a user with the resources they need. The VMware Anywhere Workspace is designed for zero trust with connected control points for devices, users, networks, and applications.</p>
-<p>Note that after the VMware products were implemented at NCCoE, VMware was acquired by Broadcom.</p>
-<section id="securing-devices">
-<h4>Securing Devices<a class="headerlink" href="#securing-devices" title="Link to this heading">#</a></h4>
-<p>The foundation of trust is the posture of devices used by users to access applications and resources. VMware Workspace ONE™ enables customers to manage the configuration and posture of any device. Via the Compliance engine in Workspace ONE, policies are created using a customer-selectable set of attributes and configurations. Minimum posture requirements for application access can be defined for any device, whether managed by Workspace ONE or not. To limit the on-device software footprint for personally owned devices, Workspace ONE Mobile Application Management (MAM) capabilities can provide posture assessment and compliance within applications such as Workspace ONE Tunnel, Boxer, and Web, as well as for customer-developed applications. With the addition of endpoint security solutions such as Workspace ONE Mobile Threat Defense (MTD) and Carbon Black Cloud, advanced security can be implemented to ensure the device is trustworthy; and out-of-compliance devices can trigger response and remediation via Workspace ONE UEM. Integrations with other leading endpoint and network security solutions also are made possible through Workspace ONE Trust Network, where threat signals are used to inform and influence device posture assessments and trigger remediation and response.</p>
-</section>
-<section id="secure-identities">
-<h4>Secure Identities<a class="headerlink" href="#secure-identities" title="Link to this heading">#</a></h4>
-<p>User identity, posture, and behavior are also critical to zero trust. Workspace ONE Access integrates seamlessly with leading identity providers and layers on a rich set of controls that provide conditional access to any application or resource while delivering an optimal end user experience. Workspace ONE Access integrates with user, device, and login risk analytics provided by Workspace ONE Intelligence, thereby adding behavioral context to conditional application access policies and in case of established trust, granting passwordless SSP based access to applications and resources. Adoption of zero trust solutions including MFA is eased with choices including integrations for third party FIDO2 authentications or the use of phishing resistant multi-factor authentication client included with Workspace ONE Intelligent Hub.</p>
-</section>
-<section id="secure-network-connectivity">
-<h4>Secure Network Connectivity<a class="headerlink" href="#secure-network-connectivity" title="Link to this heading">#</a></h4>
-<p>Providing secure connectivity to resources, regardless of location, in an efficient and safe manner is critical to zero trust. With Zero Trust Network Access, which VMware delivers with Workspace ONE Tunnel and Secure Access, companies can tailor access based on resource sensitivity, device posture, user role, and authentication strength, as well as the application being used to access the network. VMware is unique in providing per-app tunneling capabilities for both managed and unmanaged devices, meaning that access to a resource can be allowed only via specified applications (e.g. Chrome, Firefox or a native client application). Traffic policies can be sculpted to provide different access to each application. With Tunnel, a device is not placed onto a network or given an internal IP address, which further minimizes network-borne threats to endpoints, and the security risks of hub-based network architectures. Secure access can be provided as either a managed service from VMware or with the customer-deployed Unified Access Gateway (UAG). Integrating with NSX can further segment access by limiting access to NSX Security Groups to specific applications managed by Workspace ONE.</p>
-<p>In addition to Workspace ONE Tunnel and Secure Access, VMware Horizon also provides secure access to virtual desktops and applications that run inside your data center, which also provides complete data containerization.</p>
-</section>
-<section id="application-workload">
-<h4>Application Workload<a class="headerlink" href="#application-workload" title="Link to this heading">#</a></h4>
-<p>VMware vSphere provides workload isolation through virtualization. VMware NSX secures access to workloads by providing microsegmentation within the data center, which provides granular access policies that allow traffic only between specific resources. The deep integration between vSphere, NSX, and Carbon Black Cloud, allows for security to be further improved by restricting communication between specific processes between disparate workloads, thus ensuring that only traffic between processes and workloads that is specifically intended is permitted.</p>
-<p>NSX provides additional east-west (intra-data center) inspection of traffic, including IDS/IPS capabilities, Network Traffic Analytics (NTA), and Network Detection and Response (NDR), which provide advanced threat protection against advanced threats and lateral movement.</p>
-</section>
-<section id="data">
-<h4>Data<a class="headerlink" href="#data" title="Link to this heading">#</a></h4>
-<p>VMware Workspace ONE Unified Endpoint Management (UEM) is responsible for device enrollment, a mobile application catalog, policy enforcement regarding device compliance, and integration with key enterprise services, such as email, content, and social media.</p>
-<p>Workspace ONE UEM features include:</p>
-<ul class="simple">
-<li><p>Device management platform - Allows full lifecycle management of a wide variety of devices, including phones, tablets, Windows 10, and rugged and special-purpose devices.</p></li>
-<li><p>Application deployment capabilities - Provides automatic deployment or self-service application access for employees.</p></li>
-<li><p>User and device profile services - Ensures that configuration settings for users and devices comply with enterprise security requirements and simplify end-user access to applications</p></li>
-<li><p>Productivity tools - Includes an email client with secure email functionality, a content management tool for securely storing and managing content, and a web browser to ensure secure access to corporate information and tools.</p></li>
-</ul>
-</section>
-<section id="visibility-and-analytics">
-<h4>Visibility and Analytics<a class="headerlink" href="#visibility-and-analytics" title="Link to this heading">#</a></h4>
-<p>Having visibility into the operation of the zero trust solution requires bringing together data from many solution elements. Additionally, bringing data together can enable analysis and generation of insights that can inform a ZTA.</p>
-<p>Workspace ONE Intelligence provides visibility and analytics for device, identity, and network activities and highlights conditions that deviate significantly from the norm. Enterprises now can see how devices compare to their enterprise fleet, and these insights can be used for reporting and visualization and as input to automated response actions and playbooks. Resource access attempts can be profiled to look for new or unusual access patterns, and that information can be used to directly inform zero trust access policies.</p>
-<p>Workspace ONE Intelligence can incorporate threat data from leading security providers via Workspace ONE Trust Network, which gives additional context and insights that administrators can use to assess hygiene and posture.</p>
-</section>
-<section id="automation-and-orchestration">
-<h4>Automation and Orchestration<a class="headerlink" href="#automation-and-orchestration" title="Link to this heading">#</a></h4>
-<p>Workspace ONE Intelligence provides automation and orchestration capabilities that can be triggered by any event. Automations can be as simple as notifying a user that their device needs an operating system (OS) update to remain compliant, or complex actions that involve multiple products, such as responding to detected malicious code on a device by opening a ticket in a ticketing system, then notifying IT and security teams, removing sensitive enterprise applications and data, followed by quarantining the device from the network. This is all made possible through API integrations with VMware and third-party products and is enabled in a low- or no-code manner.</p>
-<p>VMware’s product offerings provide the foundation for ZTA.</p>
-<ul class="simple">
-<li><p>Connected control points - device, user, network, and workload</p></li>
-<li><p>Freedom of choice - any device, any application, any cloud</p></li>
-<li><p>Respecting privacy - clearly communicate what data the enterprise can - and cannot - see</p></li>
-<li><p>End-user experience - better security delivered in a way that improves user experience</p></li>
-</ul>
-<p>For more information about VMware’s zero trust offerings, please see <a class="reference external" href="https://www.vmware.com/solutions/zero-trust-security.html">https://www.vmware.com/solutions/zero-trust-security.html</a>.</p>
 </section>
 </section>
 <section id="cisco">
@@ -1017,7 +978,7 @@ document.write(`
 <li><p><strong>Integrations</strong></p>
 <blockquote>
 <div><ul class="simple">
-<li><p><strong>BeyondCorp Alliance ecosystem integrations:</strong> A collection of integrations from BeyondCorp Alliance member partners that enable organizations to share signal information from EDR, MDM, enterprise mobility management (EMM), and other device or ecosystem endpoints to use in access policy decisions. (Members include Check Point, Citrix, CrowdStrike, InTune, Jamf, Lookout, Palo Alto Networks, Symantec by Broadcom, and VMware.)</p></li>
+<li><p><strong>BeyondCorp Alliance ecosystem integrations:</strong> A collection of integrations from BeyondCorp Alliance member partners that enable organizations to share signal information from EDR, MDM, enterprise mobility management (EMM), and other device or ecosystem endpoints to use in access policy decisions. (Members include Broadcom, Check Point, Citrix, CrowdStrike, InTune, Jamf, Lookout, and Palo Alto Networks.)</p></li>
 </ul>
 </div></blockquote>
 </li>
@@ -1262,6 +1223,53 @@ document.write(`
 </section>
 </section>
 </section>
+<section id="omnissa">
+<h3>Omnissa<a class="headerlink" href="#omnissa" title="Link to this heading">#</a></h3>
+<p>The Omnissa™ Platform is the first AI-driven digital work platform that enables smart, seamless, and secure work experiences from anywhere. It uniquely integrates multiple industry-leading solutions, including UEM, virtual desktops and apps, digital employee experience, and security and compliance through common data, identity, administration, and automation services. Built on the vision of autonomous workspaces - self-configuring, self-healing, and self-securing - Omnissa continuously adapts to how people work, delivering personalized and engaging employee experiences while optimizing security, IT operations, and costs.</p>
+<p>Enabling secure work from anywhere is a critical requirement for most businesses, and a zero trust architecture is best suited to enable that. But zero trust is not a single product; rather, it is a solution that requires visibility and control at the various points that link a user with the resources they need. The Omnissa Platform is designed for zero trust with connected control points for devices, users, networks, and applications.</p>
+<p>Note that after the VMware End User Computing products were implemented at the NCCoE, VMware End User Computing became Omnissa LLC. VMware® Workspace ONE® UEM is now Omnissa Workspace ONE® UEM; VMware Workspace ONE® Access™ is now Omnissa Access™; and VMware Workspace ONE Intelligence is now Omnissa Intelligence™.</p>
+<section id="endpoint-risk-and-remediation">
+<h4>Endpoint Risk and Remediation<a class="headerlink" href="#endpoint-risk-and-remediation" title="Link to this heading">#</a></h4>
+<p>The foundation of trust is the posture of devices users use to access applications and resources. Omnissa Workspace ONE™ UEM enables customers to manage the configuration and posture of any device. Via the compliance engine in Workspace ONE, policies are created using a customer-selectable set of attributes and configurations. Minimum posture requirements for application access can be defined for any device, whether managed by Workspace ONE or not. To limit the on-device software footprint for personally owned devices, Workspace ONE Mobile Application Management (MAM) capabilities can provide posture assessment and compliance within applications such as Workspace ONE Tunnel, productivity apps, and browsers, as well as for customer-developed applications. With the addition of endpoint security solutions such as Workspace ONE Mobile Threat Defense (MTD) and partners from the Omnissa Workspace ONE Trust Network, advanced security can be implemented to ensure the device is trustworthy; out-of-compliance devices can trigger response and remediation via Workspace ONE UEM. Threat signals can be used to inform and influence device posture assessments and trigger remediation and response.</p>
+</section>
+<section id="risk-based-secure-access">
+<h4>Risk-based Secure Access<a class="headerlink" href="#risk-based-secure-access" title="Link to this heading">#</a></h4>
+<p>User identity, posture, and behavior are also critical to zero trust. Omnissa Access (formerly Workspace ONE Access) integrates seamlessly with leading identity providers and layers on a rich set of controls that provide conditional access to any application or resource while delivering an optimal end-user experience. Omnissa Access integrates with user, device, and login risk analytics provided by Omnissa Intelligence, thereby adding behavioral context to conditional application access policies and granting passwordless SSO-based access to applications and resources in case of established trust. The adoption of zero trust solutions, including MFA, is eased with choices including integrations for third-party FIDO2 authenticators or the use of phishing-resistant MFA client, which are included with Workspace ONE Intelligent Hub.</p>
+</section>
+<section id="secure-network-connectivity">
+<h4>Secure Network Connectivity<a class="headerlink" href="#secure-network-connectivity" title="Link to this heading">#</a></h4>
+<p>Providing secure connectivity to resources, regardless of location, safely and efficiently is critical to zero trust. With Zero Trust Network Access, which Omnissa delivers with Workspace ONE Tunnel, companies can tailor access based on resource sensitivity, device posture, user role, and authentication strength, as well as the application being used to access the network. VMware is unique in providing per-app tunneling capabilities for both managed and unmanaged devices, meaning that access to a resource can be allowed only via specified applications (e.g., Chrome, Firefox, or a native client application). Traffic policies can be sculpted to provide different access to each application. With Tunnel, a device is not placed onto a network or given an internal IP address, which further minimizes network-borne threats to endpoints and the security risks of hub-based network architectures. Secure access can be provided as either a managed service from Omnissa or with the customer-deployed Unified Access Gateway (UAG).</p>
+<p>In addition to Workspace ONE Tunnel, Omnissa Horizon also provides secure access to virtual desktops and applications inside your data center, providing complete data containerization.</p>
+</section>
+<section id="data">
+<h4>Data<a class="headerlink" href="#data" title="Link to this heading">#</a></h4>
+<p>Omnissa Workspace ONE UEM is responsible for device enrollment, a mobile application catalog, policy enforcement regarding device compliance, and integration with key enterprise services, such as email, content, and social media.
+Workspace ONE UEM features include:</p>
+<ul class="simple">
+<li><p>Device management platform - Allows full lifecycle management of a wide variety of devices, including phones, tablets, Windows, Mac, ChromeOS, and rugged and special-purpose devices.</p></li>
+<li><p>Application deployment capabilities - Provides automatic deployment or self-service applica-tion access for employees.</p></li>
+<li><p>User and device profile services - Ensures that configuration settings for users and devices comply with enterprise security requirements and simplify end-user access to applications.</p></li>
+<li><p>Productivity tools - Includes an email client with secure email functionality, a content man-agement tool for securely storing and managing content, and a web browser to ensure secure access to corporate information and tools.</p></li>
+</ul>
+</section>
+<section id="visibility-and-analytics">
+<h4>Visibility and Analytics<a class="headerlink" href="#visibility-and-analytics" title="Link to this heading">#</a></h4>
+<p>Having visibility into the operation of the zero trust solution requires bringing together data from many solution elements. Additionally, bringing data together can enable analysis and generation of insights that can inform a ZTA.</p>
+<p>Omnissa Intelligence (formerly VMware Workspace ONE Intelligence) provides visibility and analytics for device, identity, and network activities, and highlights conditions that deviate significantly from the norm. Enterprises can now see how devices compare to their enterprise fleet, and these insights can be used for reporting and visualization and as input to automated response actions and playbooks. Resource access attempts can be profiled to look for new or unusual access patterns, and that information can be used to inform zero trust access policies directly. Omnissa Intelligence can incorporate threat data from leading security providers via Workspace ONE Trust Network, which gives additional context and insights that administrators can use to assess hygiene and posture.</p>
+</section>
+<section id="automation-and-orchestration">
+<h4>Automation and Orchestration<a class="headerlink" href="#automation-and-orchestration" title="Link to this heading">#</a></h4>
+<p>Omnissa Intelligence provides automation and orchestration capabilities that any event can trigger. Automation can be as simple as notifying a user that their device needs an operating system (OS) update to remain compliant or complex actions that involve multiple products, such as responding to detected malicious code on a device by opening a ticket in a ticketing system, then notifying IT and security teams, removing sensitive enterprise applications and data, followed by quarantining the device from the network. These capabilities are made possible through API integrations with VMware and third-party products and are enabled in a low- or no-code manner.
+Omnissa’s product offerings provide the foundation for ZTA.</p>
+<ul class="simple">
+<li><p>Connected control points - device, user, network, and workload</p></li>
+<li><p>Freedom of choice - any device, any application, any cloud</p></li>
+<li><p>Respecting privacy - clearly communicate what data the enterprise can - and cannot - see</p></li>
+<li><p>End-user experience - better security delivered in a way that improves user experience</p></li>
+</ul>
+<p>For more information about Omnissa offerings, please visit www.omnissa.com.</p>
+</section>
+</section>
 <section id="palo-alto-networks">
 <h3>Palo Alto Networks<a class="headerlink" href="#palo-alto-networks" title="Link to this heading">#</a></h3>
 <p>Palo Alto Networks is shaping the cloud-centric future with technology designed to transform the way people and organizations operate by using the latest breakthroughs in AI, analytics, automation, and orchestration. By delivering an integrated platform and empowering a growing ecosystem of partners, Palo Alto Networks security technologies enable organizations to apply consistent security controls across clouds, networks, endpoints, and mobile devices.</p>
@@ -1391,9 +1399,9 @@ document.write(`
 </section>
 </section>
 </section>
-<section id="symantec-by-broadcom">
-<h3>Symantec by Broadcom<a class="headerlink" href="#symantec-by-broadcom" title="Link to this heading">#</a></h3>
-<p>Symantec by Broadcom provides business-critical software designed to modernize, optimize, and protect complex hybrid environments. As part of Broadcom, the Symantec Enterprise Division business reinvests more than 14% of revenue back into research and development (R&amp;D), enabling it to innovate across its cybersecurity portfolio and deliver new functionality that delivers both effective zero trust security and an exceptional user experience. With more than 80% of its workforce dedicated to R&amp;D and operations, Symantec by Broadcom’s engineering-centered culture supports a comprehensive portfolio of enterprise software, enabling scalability, agility, and security for organizations. For more information, go to <a class="reference external" href="https://symantec.com/">https://symantec.com/</a>.</p>
+<section id="symantec-as-part-of-broadcom">
+<h3>Symantec, as part of Broadcom<a class="headerlink" href="#symantec-as-part-of-broadcom" title="Link to this heading">#</a></h3>
+<p>Symantec, as part of Broadcom delivers data-centric, hybrid cybersecurity to defend modern businesses. Symantec ZTNA is a SaaS solution that cloaks all corporate resources on the network, leaving no room for lateral movement and network-based threats. The combined Symantec portfolio leverages one of the largest civilian security threat intelligence networks in the world to deliver rich context and extensive telemetry that enables organizations to easily and accurately identify threats while extending zero trust protections to every asset and application. For more information, go to <a class="reference external" href="https://symantec.com/">https://symantec.com/</a>.</p>
 <section id="symantec-cloud-secure-web-gateway">
 <h4>Symantec Cloud Secure Web Gateway<a class="headerlink" href="#symantec-cloud-secure-web-gateway" title="Link to this heading">#</a></h4>
 <p>Symantec Cloud Secure Web Gateway, built upon secure web gateway (SWG) technology, is a cloud-delivered network security service that offers protection against advanced threats, provides access control, and safeguards critical business information for secure and compliant use of cloud applications and the web.</p>
@@ -1464,23 +1472,23 @@ document.write(`
 <p>MVISION Complete delivers a comprehensive suite of tools that provide threat and data protection across endpoints, web, and cloud. Individual products included in the MVISION Complete Suite include the following.</p>
 <section id="trellix-epo">
 <h5>Trellix ePO<a class="headerlink" href="#trellix-epo" title="Link to this heading">#</a></h5>
-<p>Trellix ePolicy Orchestrator (ePO) is a centralized management console for deploying, configuring, and managing Trellix endpoint security solutions including threat prevention, data protection, and EDR. For more information on Trellix ePO, please visit <a class="reference external" href="https://www.trellix.com/en-in/products/epo.html">ePolicy Orchestrator | Trellix</a>.</p>
+<p>Trellix ePolicy Orchestrator (ePO) is a centralized management console for deploying, configuring, and managing Trellix endpoint security solutions including threat prevention, data protection, and EDR. For more information on Trellix ePO, please visit <a class="reference external" href="https://www.trellix.com/en-in/products/epo.html">ePolicy Orchestrator</a>.</p>
 </section>
 <section id="trellix-insights">
 <h5>Trellix Insights<a class="headerlink" href="#trellix-insights" title="Link to this heading">#</a></h5>
-<p>Trellix Insights is a threat intelligence platform integrated with the Trellix solution portfolio that enables customers to gain contextual understanding of active global threat campaigns relevant to their vertical. Through integrated understanding of compensating controls and detection events, Insights enables organizations to predictively stay ahead of threats, quickly identify campaign activity within their environment, and receive the guidance necessary to proactively defend against campaigns. For more information on Trellix Insights, please visit <a class="reference external" href="https://www.trellix.com/en-us/products/trellix-insights.html">Trellix Insights | Trellix</a>.</p>
+<p>Trellix Insights is a threat intelligence platform integrated with the Trellix solution portfolio that enables customers to gain contextual understanding of active global threat campaigns relevant to their vertical. Through integrated understanding of compensating controls and detection events, Insights enables organizations to predictively stay ahead of threats, quickly identify campaign activity within their environment, and receive the guidance necessary to proactively defend against campaigns. For more information on Trellix Insights, please visit <a class="reference external" href="https://www.trellix.com/en-us/products/trellix-insights.html">Trellix Insights</a>.</p>
 </section>
 <section id="trellix-endpoint-security-platform">
 <h5>Trellix Endpoint Security Platform<a class="headerlink" href="#trellix-endpoint-security-platform" title="Link to this heading">#</a></h5>
-<p>Trellix Endpoint Security Platform blocks malicious and targeted attacks using traditional and enhanced detection techniques as part of a layered protection strategy. Techniques include generic malware detection, behavioral detection, ML, containment, and enhanced remediation. For more information on Trellix Endpoint Security, please visit <a class="reference external" href="https://www.trellix.com/en-us/products/endpoint-security.html?data-tab=install-upgrade">Trellix Endpoint Security | Trellix</a>.</p>
+<p>Trellix Endpoint Security Platform blocks malicious and targeted attacks using traditional and enhanced detection techniques as part of a layered protection strategy. Techniques include generic malware detection, behavioral detection, ML, containment, and enhanced remediation. For more information on Trellix Endpoint Security, please visit <a class="reference external" href="https://www.trellix.com/en-us/products/endpoint-security.html?data-tab=install-upgrade">Trellix Endpoint Security</a>.</p>
 </section>
 <section id="trellix-edr">
 <h5>Trellix EDR<a class="headerlink" href="#trellix-edr" title="Link to this heading">#</a></h5>
-<p>Trellix EDR collects and analyzes device trace data using advanced detection techniques in order to surface suspected threats within an enterprise. Trellix EDR empowers security operations teams to gain important context about the environment with true real-time enterprise search capabilities and integrated threat intelligence. Trellix EDR is an asset to resource-starved security operations teams working to keep up with the ever-growing threat landscape by incorporating integrated AI-assisted guided investigations. Guided investigations analyze thousands of artifacts beyond the initial detection event to replicate a traditionally manual playbook process. By automating this process, analysts can reach conclusions faster, reduce time to detection, and accelerate confident response activities. For more information on Trellix EDR, please visit <a class="reference external" href="https://www.trellix.com/en-us/products/edr.html">Trellix EDR - Endpoint Detection &amp; Response | Trellix</a>.</p>
+<p>Trellix EDR collects and analyzes device trace data using advanced detection techniques in order to surface suspected threats within an enterprise. Trellix EDR empowers security operations teams to gain important context about the environment with true real-time enterprise search capabilities and integrated threat intelligence. Trellix EDR is an asset to resource-starved security operations teams working to keep up with the ever-growing threat landscape by incorporating integrated AI-assisted guided investigations. Guided investigations analyze thousands of artifacts beyond the initial detection event to replicate a traditionally manual playbook process. By automating this process, analysts can reach conclusions faster, reduce time to detection, and accelerate confident response activities. For more information on Trellix EDR, please visit <a class="reference external" href="https://www.trellix.com/en-us/products/edr.html">Trellix EDR - Endpoint Detection &amp; Response</a>.</p>
 </section>
 <section id="trellix-dlp-endpoint">
 <h5>Trellix DLP Endpoint<a class="headerlink" href="#trellix-dlp-endpoint" title="Link to this heading">#</a></h5>
-<p>Trellix DLP Endpoint enables organizations to discover, control, and block access to sensitive data on the endpoint. Trellix DLP Endpoint integrates with identity providers to assign policy based on users’ roles and groups, and in a ZTA can adjust data protection policy as user trust changes. Additionally, DLP Endpoint is managed by ePO, and it includes a full case management system for aggregating multiple DLP incidents and identifying malicious insiders. For more information on Trellix DLP Endpoint, please visit <a class="reference external" href="https://www.trellix.com/en-in/products/dlp-endpoint.html">DLP Endpoint | Trellix</a>.</p>
+<p>Trellix DLP Endpoint enables organizations to discover, control, and block access to sensitive data on the endpoint. Trellix DLP Endpoint integrates with identity providers to assign policy based on users’ roles and groups, and in a ZTA can adjust data protection policy as user trust changes. Additionally, DLP Endpoint is managed by ePO, and it includes a full case management system for aggregating multiple DLP incidents and identifying malicious insiders. For more information on Trellix DLP Endpoint, please visit <a class="reference external" href="https://www.trellix.com/en-in/products/dlp-endpoint.html">DLP Endpoint</a>.</p>
 </section>
 <section id="skyhigh-security-sse-platform">
 <h5>Skyhigh Security SSE Platform<a class="headerlink" href="#skyhigh-security-sse-platform" title="Link to this heading">#</a></h5>
@@ -1490,12 +1498,12 @@ document.write(`
 </section>
 <section id="full-remote-browser-isolation">
 <h4>Full Remote Browser Isolation<a class="headerlink" href="#full-remote-browser-isolation" title="Link to this heading">#</a></h4>
-<p>Remote browser isolation enables organizations to fully contain web applications within a secure container to prevent malware and data leakage and provide complete control over a browser session. The Skyhigh SSE solution out of the box offers remote browser isolation for risky websites to ensure no implicit trust is being granted to web applications prior to trust validation. In some cases, organizations would choose that no implicit trust is ever extended to web traffic, regardless of known reputation. In this scenario, full-time browser isolation is required to meet this objective. The Trellix offering, with sister company Skyhigh Security, includes the ability for full remote browser isolation as an add-on module. For more information on remote browser isolation, see <a class="reference external" href="https://www.mcafee.com/enterprise/en-us/products/remote-browser-isolation.html">Remote Browser Isolation | McAfee Products</a>.</p>
+<p>Remote browser isolation enables organizations to fully contain web applications within a secure container to prevent malware and data leakage and provide complete control over a browser session. The Skyhigh SSE solution out of the box offers remote browser isolation for risky websites to ensure no implicit trust is being granted to web applications prior to trust validation. In some cases, organizations would choose that no implicit trust is ever extended to web traffic, regardless of known reputation. In this scenario, full-time browser isolation is required to meet this objective. The Trellix offering, with sister company Skyhigh Security, includes the ability for full remote browser isolation as an add-on module.</p>
 </section>
 <section id="helix-xdr">
 <h4>Helix (XDR)<a class="headerlink" href="#helix-xdr" title="Link to this heading">#</a></h4>
 <p>To achieve zero trust outcomes, it is necessary to have a common platform that applies AI-driven, real-time threat intelligence to data collected from devices and security sensors as a mechanism for surfacing advanced attacks and associated entity risk, and to orchestrate proactive and remediating responses across native and open security tools. Within many zero trust reference architectures, this platform could be considered the dynamic access control plane, or the trust algorithm.</p>
-<p>Trellix delivers this capability through Helix. Helix is a cloud-hosted, intelligence-driven platform that collects data from over 600 different sensors and point solutions, analyzes the data against known threats, behaviors, and campaigns using AI and enhanced detection rules, and powers automated and manual responses across Trellix native and third-party policy engines. For more information on Trellix XDR, see <a class="reference external" href="https://www.trellix.com/en-hk/products/trellix-platform.html">Trellix-Platform | Trellix</a>.</p>
+<p>Trellix delivers this capability through Helix. Helix is a cloud-hosted, intelligence-driven platform that collects data from over 600 different sensors and point solutions, analyzes the data against known threats, behaviors, and campaigns using AI and enhanced detection rules, and powers automated and manual responses across Trellix native and third-party policy engines. For more information on Trellix XDR, see <a class="reference external" href="https://www.trellix.com/en-hk/products/trellix-platform.html">Trellix-Platform</a>.</p>
 </section>
 <section id="cloudvisory">
 <h4>CloudVisory<a class="headerlink" href="#cloudvisory" title="Link to this heading">#</a></h4>
@@ -1507,7 +1515,40 @@ document.write(`
 <li><p>intra-cloud and cloud-to-cloud network monitoring</p></li>
 <li><p>multi-cloud support</p></li>
 </ul>
-<p>For more information on CloudVisory, see <a class="reference external" href="https://www.trellix.com/en-us/products/cloudvisory.html">CloudVisory | Trellix</a>.</p>
+<p>For more information on CloudVisory, see <a class="reference external" href="https://www.trellix.com/en-us/products/cloudvisory.html">CloudVisory</a>.</p>
+</section>
+</section>
+<section id="vmware-as-part-of-broadcom">
+<h3>VMware, as part of Broadcom<a class="headerlink" href="#vmware-as-part-of-broadcom" title="Link to this heading">#</a></h3>
+<p>Enabling secure work across the enterprise is a critical requirement for most businesses, and a zero trust architecture is best suited to enable that. But zero trust is not a single product; rather, it is a solution that requires visibility and control at the various points that link a user with the resources they need. By implementing zero trust with fewer tools and silos, Broadcom architects security into your infrastructure, providing authoritative control of the environment and reducing the attack surface without adding operational complexity. VCF, or VMware Cloud Foundation private cloud platform allows enterprises to operationalize zero trust consistently across their environments and infrastructure.</p>
+<section id="vmware-cloud-foundation-vcf">
+<h4>VMware Cloud Foundation (VCF)<a class="headerlink" href="#vmware-cloud-foundation-vcf" title="Link to this heading">#</a></h4>
+<p>VCF is a software-defined infrastructure delivering cloud consumption experience on-premises. This unified cloud experience features automated self-service infrastructure on a hardened platform with built-in resilience, threat prevention, and fast recovery from disasters or security incidents. VCF includes industry-leading storage and compute capabilities, cloud-scale networking with Layer 2 (L2) through Layer 7 (L7) network and security virtualization. It includes an embedded vSphere Kubernetes Service, enabling developers to build, run, and manage secure container environments by design. With automated VM and container provisioning, VCF leverages standardized hyperconverged infrastructure (HCI) for secure, consistent cloud-scale deployments. It also supports scalable edge deployments, bringing the full stack to remote office/branch office (ROBO) and edge locations through VCF Edge.</p>
+<p>VCF’s automation of self-service IaaS via infrastructure as code supports a secure and resilient zero trust architecture, protecting workloads and infrastructure against cyberattacks through distributed firewalling, context-aware security, and rapid recovery, including ransomware protection and recovery.</p>
+</section>
+<section id="components-of-the-cyber-resilient-vcf">
+<h4>Components of the Cyber Resilient VCF<a class="headerlink" href="#components-of-the-cyber-resilient-vcf" title="Link to this heading">#</a></h4>
+<p>VMware Cloud Foundation delivers end-to-end cyber resilience with integrated infrastructure hardening, compliance monitoring and remediation, strong distributed lateral security, and confident cyber-recovery.</p>
+<p>For out-of-the-box hardening, VMware Cloud Foundation delivers defense in depth at both the server and hypervisor level with centralized, non-disruptive patching and workload-agnostic management of security controls. VCF’s integrated risk management includes adaptable security policies and controls across VM and container-based applications, supporting zero trust and preventing the sprawl of stale firewall rules to lower network outages. VCF’s integrated Unified Cloud Management enables Compliance Monitoring via adaptable security and networking policies across VM and container-based workloads. This monitoring provides operators with compliance drift alerts and auto-remediation to minimize risk and avoid unplanned downtime.</p>
+<section id="strong-distributed-lateral-security">
+<h5>Strong Distributed Lateral Security<a class="headerlink" href="#strong-distributed-lateral-security" title="Link to this heading">#</a></h5>
+<p>Broadcom enables comprehensive zero trust lateral security throughout the VCF private cloud infrastructure against increasingly sophisticated east-west attacks and ransomware, using micro-segmentation to reduce the attack surface and isolate applications with contextual segmentation policies that restrict threat lateral movement.</p>
+<p>The vDefend Distributed Firewall (formerly known as VMware NSX Distributed Firewall, and now an add-on to VMware Cloud Foundation) is a software-defined distributed L7 firewall that delivers context-based, granular enforcement at scale to protect all enterprise application workloads - VMs, containers, and bare metal - with zero trust micro-segmentation for all workloads limiting the lateral spread of threats. This hypervisor-integrated, multi-layer defense-in-depth approach is network topology-agnostic, allowing VMware Cloud Foundation to enable least-privilege comprehensive zero trust at the speed of applications and providing deep visibility and granular control across all network flows.</p>
+<p>Key capabilities of the vDefend Distributed Firewall include:</p>
+<ul class="simple">
+<li><p>A distributed, scale-out L7 stateful firewall.</p></li>
+<li><p>Radically simplified firewall deployment and operations, enabling VM mobility with contextual security policies but without network changes.</p></li>
+<li><p>Scalable traffic-flow analysis with rule recommendations for rapid deployment of micro-segmentation at scale.</p></li>
+<li><p>Elastic firewall scaling for massive inspection and policy enforcement capacity, eliminating constraints of hardware firewalls.</p></li>
+<li><p>Advanced Threat Prevention with scale-out threat detection capabilities and prevention using the same firewall management and ops console for evolving threats.</p></li>
+</ul>
+</section>
+<section id="confident-cyber-recovery">
+<h5>Confident Cyber Recovery<a class="headerlink" href="#confident-cyber-recovery" title="Link to this heading">#</a></h5>
+<p>VMware Live Recovery is the VCF cyber and disaster recovery capability in a unified management experience with the seamless extension of on-premises restore operations to the cloud and purpose-built ransomware recovery. VMware Live Recovery enables operators to protect and recover VMs across on-premise clouds with fully automated orchestration at scale, with confident, controlled recovery from ransomware and other disasters in a secure, isolated clean room that is built and managed by Broadcom, with guided workflow automation and embedded behavioral analysis of live workloads.</p>
+<p>VMware Live Recovery features push-button VM network isolation to segregate VMs from one another at restore to prevent lateral movement of ransomware and reinfection of the production environment and allow informed selection of restore point candidates with analytic insights on the rate of change and file entropy. Immutable, air-gapped recovery points are stored as snapshots in a secure, VMware-managed Cloud File System to preserve data integrity at the time of recovery. VMware Live Recovery also enables simple, policy-based operations for thousands of VMs through automation and integration with VMware Cloud Foundation; its automated orchestration workflows reduce recovery time to minutes reliably. Enterprise operations benefit from centralized recovery plans using the integrated automated failback at scale.</p>
+<p>For more information about zero trust offerings on the VMware platform, please see <a class="reference external" href="https://www.vmware.com/solutions/zero-trust-security.html">Implement Zero Trust</a>.</p>
+</section>
 </section>
 </section>
 <section id="zimperium">
@@ -1594,16 +1635,6 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute">Compute</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#storage">Storage</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#management-monitoring">Management/Monitoring</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcom-vmware">Broadcom (VMware)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#securing-devices">Securing Devices</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#secure-identities">Secure Identities</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#secure-network-connectivity">Secure Network Connectivity</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#application-workload">Application Workload</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visibility-and-analytics">Visibility and Analytics</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#automation-and-orchestration">Automation and Orchestration</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cisco">Cisco</a><ul class="nav section-nav flex-column">
@@ -1706,6 +1737,15 @@ document.write(`
 </li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#omnissa">Omnissa</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-risk-and-remediation">Endpoint Risk and Remediation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#risk-based-secure-access">Risk-based Secure Access</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#secure-network-connectivity">Secure Network Connectivity</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visibility-and-analytics">Visibility and Analytics</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#automation-and-orchestration">Automation and Orchestration</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#palo-alto-networks">Palo Alto Networks</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#next-generation-firewall-ngfw">Next-Generation Firewall (NGFW)</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prisma-access">Prisma Access</a></li>
@@ -1746,7 +1786,7 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-by-broadcom">Symantec by Broadcom</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-as-part-of-broadcom">Symantec, as part of Broadcom</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#symantec-cloud-secure-web-gateway">Symantec Cloud Secure Web Gateway</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#web-isolation">Web Isolation</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#casb-with-data-loss-prevention-dlp">CASB with Data Loss Prevention (DLP)</a></li>
@@ -1779,6 +1819,15 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#full-remote-browser-isolation">Full Remote Browser Isolation</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#helix-xdr">Helix (XDR)</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cloudvisory">CloudVisory</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-as-part-of-broadcom">VMware, as part of Broadcom</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vmware-cloud-foundation-vcf">VMware Cloud Foundation (VCF)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#components-of-the-cyber-resilient-vcf">Components of the Cyber Resilient VCF</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-distributed-lateral-security">Strong Distributed Lateral Security</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#confident-cyber-recovery">Confident Cyber Recovery</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zimperium">Zimperium</a><ul class="nav section-nav flex-column">

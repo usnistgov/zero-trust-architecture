@@ -1097,7 +1097,7 @@ Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace
 
 -  Discovery and authentication of managed endpoint assets
 
-   -  Demonstration was based on VMware Workspace One UEM policy configuration.
+   -  Demonstration was based on VMware Workspace ONE UEM policy configuration.
 
    -  This build also demonstrated the capability to limit or reduce user access levels in certain scenarios.
 
@@ -1121,7 +1121,7 @@ Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace
 
 -  For this build, we successfully demonstrated access using Windows, Mac, Linux, and mobile device iOS and Android endpoints.
 
--  Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to enterprise resources (on-prem and cloud) in accordance with policy via VMware Workspace One Access.
+-  Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, are allowed or denied access to enterprise resources (on-prem and cloud) in accordance with policy via VMware Workspace ONE Access.
 
    -  The policy engine can differentiate between employees and contractors and provide different access permissions to each user type.
 
@@ -1131,7 +1131,7 @@ Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace
 
 -  Stolen credential scenarios using an enterprise endpoint or BYOD were partially completed successfully.
 
-   -  Since the certificates are protected, we were unable to duplicate VMware UEM certificates to another mobile device to complete some scenarios, including stolen credential scenarios. VMware Workspace ONE does not detect a hostile request if only using password authentication. Passwordless authentication is therefore the recommended method. 
+   -  Since the certificates are protected, we were unable to duplicate VMware UEM certificates to another mobile device to complete some scenarios, including stolen credential scenarios. VMwware Workspace ONE does not detect a hostile request if only using password authentication. Passwordless authentication is therefore the recommended method. 
 
    -  Stolen devices can be wiped and blacklisted if reported.
 
@@ -1157,7 +1157,7 @@ Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace
 
 -  Users or devices that fail reauthentication lose access to resources. With successful reauthentication, access is maintained.
 
-   -  Users that are not able to reauthenticate successfully to VMware Workspace One UEM immediately lose access to resources.
+   -  Users that are not able to reauthenticate successfully to VMware Workspace ONE UEM immediately lose access to resources.
 
    -  Endpoint credentials were invalidated by removing the authentication certificate from the device.
 
@@ -1165,7 +1165,7 @@ Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace
 
 -  Compliant devices maintain or regain access to resources. Noncompliant devices or users with noncompliant devices lose access to resources.
 
-   -  VMware Workspace One UEM determines the compliance state of devices that it manages.
+   -  VMware Workspace ONE UEM determines the compliance state of devices that it manages.
 
    -  Devices lose access to resources via VMware Tunnel when they are noncompliant per Workspace ONE UEM.
 
@@ -1203,7 +1203,7 @@ Description: This use case covers subject access requests to data with different
 
 -  VMware considers data level security out of scope for this project. Other products should be used for these services.
 
-Note that after this build was completed, VMware was acquired by Broadcom.
+Note that after the VMware End User Computing division products were implemented at NCCoE, VMware was acquired by Broadcom, then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC.
 
 Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Summary Demonstration Results
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1640,13 +1640,13 @@ Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access 
 
 **Description**: This use case covers subject access requests to data with different levels of classification.
 
--  Access to data based on identity attributes - Leveraging Entra Conditional Access, differing levels of access were assigned to users depending on the classification of data in the cloud.
+-  Access to data based on identity attributes - Leveraging Entra ID Conditional Access, differing levels of access were assigned to users depending on the classification of data in the cloud.
 
--  Access to data based on requesting endpoint - Leveraging Entra Conditional Access and Microsoft Intune compliance feeds, differing levels of access were assigned to subjects based on the compliance status of their endpoints. This was only applicable to data resident in the cloud.
+-  Access to data based on requesting endpoint - Leveraging Entra ID Conditional Access and Microsoft Intune compliance feeds, differing levels of access were assigned to subjects based on the compliance status of their endpoints. This was only applicable to data resident in the cloud.
 
--  Internet access restricted when accessing data with high classification - Leveraging Entra Conditional Access, allowed and excluded subject locations were specified. Data was differentiated based on which folder an object resided in. Controls were applicable to data in the cloud.
+-  Internet access restricted when accessing data with high classification - Leveraging Entra ID Conditional Access, allowed and excluded subject locations were specified. Data was differentiated based on which folder an object resided in. Controls were applicable to data in the cloud.
 
--  Requestor challenged to reauthenticate when accessing data with high classification - Entra Conditional Access using the authentication context feature triggers MFA for sensitive data in the cloud.
+-  Requestor challenged to reauthenticate when accessing data with high classification - Entra ID Conditional Access using the authentication context feature triggers MFA for sensitive data in the cloud.
 
 -  User temporarily granted access privileges to data with high classification - Entra ID Privileged Identity Management was used to temporarily elevate subject privileges for a limited time so as to provide access to sensitive data and resources in the cloud.
 
@@ -1655,6 +1655,108 @@ Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access 
 -  Extra protection for highly classified data when stored on an endpoint - Encryption was applied to data that was downloaded and required a password for decryption.
 
 -  Although data classification was out of scope for this project, the products used had the ability to classify data. Instead, for these use cases, sensitive data was differentiated from non-sensitive data by having them use different folders.
+
+Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Use Case A: Discovery and Identification of IDs, Assets, and Data Flows**
+
+**Description:** This use case demonstrates the ability of the enterprise to discover network assets, authenticate devices, and demonstrate network connectivity.
+
+-  Discovery and authentication of endpoint assets 
+
+   -  For this build, endpoints did not have clients for communication with AWS Verified Access, and the discovery of endpoint assets was not demonstrated. AWS Verified Access leverages IDPs for user authentication and authorization and EPPs for onboarding and compliance checks. EPPs that can integrate with AWS Verified Access are not collaborators of this project. Therefore, no EPP was installed in this build. 
+
+   -  Authentication of resource use cases were not included in this build. This build does not have resource (or application) authentication, as AWS Verified Access does not support this capability. Resources inside of AWS can be set up for compliance checks. 
+
+-  Reauthentication of identified assets - AWS Verified Access leverages Okta to require reauthentication after a set period of time of 24 hours.
+
+   -  User must reauthenticate once the authentication period is over. If reauthentication fails, the user does not have access to any resources. AWS is working on having adjustable timers as a feature. 
+
+-  Discovery of transaction flows - Visibility of authentication and resource access attempts was demonstrated.
+
+   -  AWS has event logging that captures sign-in events and traffic flow logs to cloud resources within AWS.
+
+   -  AWS logs are sent to IBM QRadar.
+
+**Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access** 
+
+**Description:** These use cases demonstrate user access to enterprise resources based on successfully achieving user and device security preconditions.
+
+-  For this build, we partially demonstrated access using Windows, macOS, and Linux endpoints.
+
+-  Both Enterprise and Contractor Users on an enterprise endpoint or BYOD, on-prem or remote, were allowed or denied access to enterprise cloud resources in accordance with policies enforced by AWS Verified Access. 
+
+   -  The policy engine (AWS Verified Access) can differentiate between employees and contractors and provide different access permissions to each user type.
+
+   -  AWS Verified Access was deployed in the AWS cloud to protect cloud resources within AWS.
+
+   -  There were no endpoint compliance checks prior to allowing a user to access that resource since the EPPs that integrate with AWS are not collaborators of this project.
+
+-  For this build, AWS Verified Access did not manage access to internet resources such as SaaS applications or applications outside of the control of AWS Verified Access. Other solutions are needed to perform this function.
+
+-  Stolen credential using an enterprise endpoint or BYOD - AWS Verified Access leverages EPPs to detect a hostile request. This use case was not performed since we do not have an EPP that integrates with AWS.
+
+-  Just-in-Time Access Privileges - Users are allowed to request and elevate privileges required to perform a given task for a limited period.
+
+   -  A manual process was used to demonstrate providing users with additional privileges to resources.
+
+-  Enterprise-ID Step-Up Authentication - AWS Verified Access currently does not have step-up authentication functionalities. Integration with other products is needed to have this functionality.
+
+-  Verification of the chosen resource (e.g., GitLab) - This build did not have the capability to verify resource compliance because AWS Verified Access currently does not have this capability.
+
+**Use Case C: Federated-ID Access** - Out of scope for this phase.
+
+**Use Case E: Guest: No-ID Access** 
+
+**Description:** This use case demonstrates the ability of the enterprise to allow unmanaged guest devices to have access to public Internet resources.
+
+-  AWS considers this out of scope for their products. Other technologies should be used to perform guest access enforcement.
+
+**Use Case F: Confidence Level** 
+
+**Description:** This use case demonstrates the ability of the enterprise to allow, prevent, or terminate sessions to resources based on the continuous evaluation of user and device risk.
+
+-  Users or devices that fail reauthentication lose access to resources. With successful reauthentication, access is maintained.
+
+   -  Initial authentication with AWS Verified Access provides the user or device with access to their assigned resources. AWS Verified Access has a default reauthentication of 24 hours. Users and devices are required to re-authenticate when that period expires. 
+
+   -  Users and devices that are not able to reauthenticate successfully to the AWS Verified Access will lose access to resources.
+
+-  Resource reauthentication use cases are not included in this build. This build does not have resource authentication because the product has not been integrated with AWS Verified Access. AWS plans to integrate the solution into its roadmap.
+
+-  Compliant devices were not tested in this build. The EPPs that integrate with AWS Verified Access are not CRADA collaborators, so they were not available during this build.
+
+-  The ability to monitor and detect violations of data use policies was not demonstrated. AWS Verified Access does not have the capabilities to manage data use policies. Integration with other AWS products is needed for this functionality.
+
+-  User sessions and devices attempting to access unauthorized resources are blocked.
+
+   -  AWS Verified Access policies determine whether a user or a device has access to a resource or not. If no policy allows access a resource, and the user or device requests to reach that resource, AWS Verified Access will deny the request. 
+
+   -  AWS Verified Access does not control access to internet websites. AWS recommends leveraging another vendor's tool to perform this function.
+
+-  Enterprise can detect malicious behavior on enterprise endpoints and BYOD but not on unmanaged endpoints.
+
+   -  The EPPs that integrate with AWS Verified Access to detect malicious behavior are not CRADA collaborators, so they were not available during this build.
+
+-  Enterprise can deny access to resources when users are accessing from suspicious endpoints.
+
+   -  The EPPs that integrate with AWS Verified Access to detect malicious endpoints are not CRADA collaborators, so they were not available during this build.
+
+**Use Case G: Service-Service Interactions** - Service-to-Service use cases are tested for cloud resources. Since AWS has resources for IaaS, PaaS, and SaaS, it can leverage auth policies to permit or deny access from resources.
+
+-  For service calls between resources, AWS has auth policies that can allow or deny access from an AWS source resource to a destination resource. 
+
+   -  Policies are applied to resources that reside within AWS. AWS cannot control resources that are not within the AWS cloud. Use cases with resource subject locations on-prem, branch, or remote were not tested.
+
+   -  IaaS, PaaS, and SaaS subject resources that reside within AWS were applied with auth policies to allow or deny access. 
+
+-  For Service-to-Endpoint use cases:
+   -  AWS considers this out of scope for their solution.  
+
+**Use Case H: Data-Level Security** - Data-level security capabilities are not included in this build. AWS Verified Access does not have this capability. Integration with other vendors is necessary.
+
+
 
 Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Summary Demonstration Results
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1778,3 +1880,144 @@ Once user credentials/device is reported stolen, policies are applied to deny th
 **Use Case G: Service-Service Interactions** - Service-to-Service use cases are not included in this build. Ivanti does not have this capability. Integration with other vendors is necessary.
 
 **Use Case H: Data-Level Security** - Data-level security capabilities are not included in this build. Ivanti does not have this capability. Integration with other vendors is necessary.
+
+Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE Summary Demonstration Results
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Use Case A: Discovery and Identification of IDs, Assets, and Data Flows**
+
+**Description:** This use case demonstrates the ability of the enterprise to discover network assets, authenticate devices, and demonstrate network connectivity.
+
+-  Discovery and authentication of endpoint assets 
+
+   -  For this build, endpoints communicated with Google CEP - Access Context Manager via Chrome Enterprise Premium - Chrome Browser or the Google Endpoint Verification Agent
+
+   -  Discovery and authentication of endpoint assets was demonstrated; however, Google does not segment endpoints by networks.
+
+   -  Authentication of resources use cases were not included in this build. This build does not have resource authentication, as Google CEP does not support this capability.
+
+-  Reauthentication of identified assets - Reauthentication policies can be set in this build through Okta or Google CEP - Access Context Manager policy.
+
+   -  User must reauthenticate once the authentication period is over. If reauthentication fails, the user does not have access to any resources.  
+
+-  Discovery of transaction flows - Visibility of authentication and resource access attempts was demonstrated.
+
+   -  Google Cloud Platform has event logging that captures sign-in events and traffic flow logs to cloud resources within Google.
+
+   -  Google logs are sent to IBM QRadar.
+
+**Use Case B: Enterprise-ID Access, Use Case D: Other-ID Access**
+
+**Description:** These use cases demonstrate user access to enterprise resources based on successfully achieving user and device security preconditions.
+
+-  For this build, we demonstrated access using Windows, macOS, Linux, iOS, and Android endpoints.
+
+-  Both enterprise and contractor users on an enterprise endpoint or BYOD, on-prem or remote, were allowed or denied access to enterprise cloud resources in accordance with policies enforced by Google CEP - Access Context Manager. 
+
+   -  The policy engine (Google CEP - Access Context Manager) can differentiate between employees and contractors and provide different access permissions to each user type.
+
+   -  Google CEP - Access Context Manager was deployed in the Google Cloud Platform to protect cloud resources within Google Cloud. Google On-Prem connectors were de-ployed to protect resources located on-prem with policies set by Google CEP - Access Context Manager.
+
+   -  Endpoint policies were enforced by CEP - Chrome Browser on endpoints.
+
+   -  Omnissa Workspace One UEM served as an endpoint manager for mobile device soft-ware delivery.
+
+-  Full/Limited internet access using an enterprise endpoint or BYOD - Google CEP - Access Con-text Manager can only control access to internet resources if authentication has taken place. If a user/device has not authenticated, a policy cannot be enforced.
+
+-  Stolen credential using an enterprise endpoint or BYOD - Stolen credential scenarios were not completely tested since user credentials required biometrics from Okta and device credentials involved unique certificates for each device.
+
+-  Just-in-Time Access Privileges - Users are allowed to request and elevate privileges required to perform a given task for a limited period.
+
+   -  A manual process was used to demonstrate providing users with additional privileges to resources.
+
+   -  Integration with other products can be used to automate just-in-time privileges. However, those products were not part of this build.
+
+-  Enterprise-ID Step-Up Authentication - Google cannot force a step-up authentication for a session already in progress. However, it can require different levels of authentication for different resources as a policy. So, if RSS1 does not require MFA, but RSS2 does require MFA, when a user opens a session to RSS2 they will have to use MFA to log in. 
+
+-  Limited access to resources - Due to the nature of the resources (GitLab), Google could not provide “limited” access to resources for specific tests. 
+
+**Use Case C: Federated-ID Access** - Out of scope for this phase.
+
+**Use Case E: Guest: No-ID Access** 
+
+**Description:** This use case demonstrates the ability of the enterprise to allow unmanaged guest devices to have access to public Internet resources.
+
+-  Google considers this out of scope for their product. Other technologies should be used to perform guest access enforcement.
+
+**Use Case F: Confidence Level** 
+
+**Description:** This use case demonstrates the ability of the enterprise to allow, prevent, or terminate sessions to resources based on the continuous evaluation of user and device risk.
+
+-  Users or devices that fail reauthentication lose access to resources. With successful reauthen-tication, access is maintained.
+
+   -  Devices that are not able to reauthenticate successfully to Google CEP - Access Context Manager will lose access to resources.
+
+   -  Initial authentication with Google CEP - Access Context Manager provides the user with access to resources assigned to that user. Periodic reauthentication is required for continued access.
+
+-  Resource authentication was not demonstrated in this build. It could not be performed by the products in this build. 
+
+-  Compliant devices maintain or regain access to resources. Noncompliant devices or users with noncompliant devices lost access to resources.
+
+   -  Compliance testing for F use cases were not done for this build due to a software bug that could not be fixed before testing was completed. The bug prevented reporting device status back to Google CEP - Access Context Manager properly.
+
+   -  Installation of the Google Endpoint Verification plugin allows for more detailed compliance policies than are available from a standalone browser installation.
+
+-  The ability to monitor, detect, and block violations of data use policies was demonstrated. 
+
+   -  Violation of data use policy was demonstrated and tested successfully using file size limits across multiple resources. 
+
+-  The ability to monitor and detect violations of data use policies was demonstrated. Internet use violations were demonstrated and tested successfully. However, the subsequent suspension of accounts can take up to an hour due to the timing of log parsing in the Google Cloud Platform.
+
+-  User sessions and devices attempting to access unauthorized resources are blocked.
+
+   -  Google CEP - Access Context Manager policies determine if a user has access to a resource or not. If there is no policy to allow a user to access a resource and the user requests to reach that resource, that user will be denied by Google CEP - Access Context Manager, and a flag will be created to suspend the account.
+
+   -  Google CEP - Access Context Manager policies can also determine if a user has accessed a forbidden URL; if a user accesses that URL, a flag will be created to suspend the account.
+
+   -  Subsequent suspension of accounts can take up to an hour due to the timing of log parsing in the Google Cloud Platform.
+
+-  Enterprise can detect malicious behavior on enterprise endpoints and BYOD but not on unmanaged endpoints.
+
+   -  Google CEP - Access Context Manager could not detect malicious or suspicious behavior on enterprise endpoints and BYOD due to a software bug that could not be fixed before testing was completed. The bug prevented reporting device status back to Google CEP - Access Context Manager properly.
+
+   -  Google CEP - Access Context Manager cannot detect malicious behavior on unmanaged devices.
+
+-  Enterprise can deny access to resources when users are accessing from a suspicious endpoint.
+
+   -  Google CEP - Access Context Manager could not detect malicious or suspicious behavior on enterprise endpoints and BYOD due to a software bug that could not be fixed before testing was completed. The bug prevented reporting device status back to Google CEP - Access Context Manager properly.
+
+   -  Google CEP - Access Context Manager cannot detect malicious behavior on unmanaged devices.
+
+**Use Case G: Service-Service Interactions** 
+
+**Description:** This use case covers API calls between services and the ability of the policy engine to allow or deny calls to services based on properly assigned authorizations.
+
+-  Service calls between resources - Service testing was limited to cloud resources, not on-prem, so Scenario G-1 was not tested.
+
+-  Service calls to Cloud-based resources - Service calls to Google Cloud resources from outside the cloud utilized service accounts and policy controls from Google CEP - Access Context Manager to control access.
+
+-  Service calls between Cloud-based resources - Service calls between Google Cloud resources within the cloud also utilized service accounts and policy controls from Google CEP - Access Context Manager to control access.
+
+-  Service calls between containers - Service calls between containers leveraged network controls to allow or deny access.
+
+-  Service to endpoint - Service to endpoint communication was considered outside the scope of this build.
+
+**Use Case H: Data Level Security**
+
+**Description:** This use case covers subject access requests to data with different levels of classification.
+
+-  Access to data based on identity attributes - Identity data classification testing was limited to data on Google Drive cloud resources and demonstrated successfully with low/high label classification.
+
+-  Access to data based on requesting endpoint - Access based on endpoint compliance is limited by the sharing permission granted in Google Drive. Sharing with full Editor permissions will circumvent the Context-based rule that limits permissions based on device compliance.
+
+-  Internet access restricted when accessing data with high classification - Google CEP - Access Context Manager cannot limit internet access based on data access.
+
+-  Accessing High-Level Data Triggers MFA Challenge - Google CEP - Access Context Manager can enforce MFA for specific resources, but it cannot enforce MFA as a reauthentication policy or trigger.
+
+-  Just in Time Access to High Level Data - Just in Time access is still provided manually. Integration with other products can be used to automate just-in-time privileges. However, those products were not part of this build.
+
+-  Operations Denied when accessing High Level Data - Google CEP - Access Context Manager can limit operations on Google Drive files based on device posture. Operations limits based on location were not included in this build.
+
+-  High Classified Data has Extra Protection when stored on endpoints - Google CEP - Access Context Manager cannot limit encryption policies to certain files, it can only force encryption on entire devices as a compliance standard.
+
+Note that after the VMware End User Computing division products were implemented at the NCCoE, VMware was acquired by Broadcom, then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC.

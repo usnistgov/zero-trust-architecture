@@ -255,34 +255,38 @@ Three EIG run phase builds have been implemented. Each of these EIG run phase bu
 
 -  **Enterprise 3 Build 2 (E3B2)** uses products from F5, Forescout, Mandiant, Microsoft, Palo Alto Networks, PC Matic, and Tenable. Certificates from DigiCert are used. The build is described in detail in the :ref:`Enterprise 3 Build 2<enterprise 3 build 2 (e3b2) - eig run - microsoft azure ad conditional access (later renamed *entra conditional access*), microsoft intune, forescout eyecontrol, and forescout eyeextend as pes>` section.
 
--  **Enterprise 4 Build 3 (E4B3)** uses products from IBM, Mandiant, Palo Alto Networks, Tenable, and VMware. Certificates from DigiCert are used. The build is described in detail in the :ref:`Enterprise 4 Build 3<enterprise 4 build 3 (e4b3) - eig run - ibm security verify as pe>` section.
+-  **Enterprise 4 Build 3 (E4B3)** uses products from Broadcom (with VMware products), IBM, Mandiant, Palo Alto Networks, and Tenable. Certificates from DigiCert are used. The build is described in detail in the :ref:`Enterprise 4 Build 3<enterprise 4 build 3 (e4b3) - eig run - ibm security verify as pe>` section.
 
 SDP, Microsegmentation, and SASE Builds
 ---------------------------------------
 
-Unlike the EIG crawl and run phase builds, which are based on a constrained version of the general reference architecture that is depicted in :ref:`Figure 2<architecturefigure2>`, there are no constraints on the ZTA reference architecture when used as the underlying design for a build in the SDP, microsegmentation, and SASE phase of the project. The SDP, microsegmentation, and SASE phase builds that have been implemented as part of this project are based on the general ZTA described in the :ref:`General ZTA Reference Architecture` section. Each of these builds is unique, based on the equipment used and the capabilities supported. Briefly, these eleven builds are as follows:
+Unlike the EIG crawl and run phase builds, which are based on a constrained version of the general reference architecture that is depicted in :ref:`Figure 2<architecturefigure2>`, there are no constraints on the ZTA reference architecture when used as the underlying design for a build in the SDP, microsegmentation, and SASE phase of the project. The SDP, microsegmentation, and SASE phase builds that have been implemented as part of this project are based on the general ZTA described in the :ref:`General ZTA Reference Architecture` section. Each of these builds is unique, based on the equipment used and the capabilities supported. Briefly, these thirteen builds are as follows:
 
 -  **Enterprise 1 Build 3 (E1B3)** uses products from Amazon Web Services, IBM, Ivanti, Mandiant, Okta, Radiant Logic, SailPoint, Tenable, and Zscaler. Certificates from DigiCert are used. The build is described in detail in the :ref:`Enterprise 1 Build 3<enterprise 1 build 3 (e1b3) - sdp - zscaler zpa ca as pe>` section.
 
--  **Enterprise 2 Build 3 (E2B3)** uses products from Cisco Systems, IBM, Mandiant, Palo Alto Networks, Ping Identity, Radiant Logic, SailPoint, Tenable, and VMware. Certificates from DigiCert are used. The build is described in detail in the :ref:`Enterprise 2 Build 3<enterprise 2 build 3 (e2b3) - microsegmentation - cisco ise, cisco secure workload, and ping identity ping federate as pes product guides>` section.
+-  **Enterprise 2 Build 3 (E2B3)** uses products from Broadcom (with VMware products), Cisco Systems, IBM, Mandiant, Palo Alto Networks, Ping Identity, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are used. The build is described in detail in the :ref:`Enterprise 2 Build 3<enterprise 2 build 3 (e2b3) - microsegmentation - cisco ise, cisco secure workload, and ping identity ping federate as pes product guides>` section.
 
 -  **Enterprise 3 Build 3 (E3B3)** uses products from F5, Forescout, Mandiant, Microsoft, Palo Alto Networks, PC Matic, and Tenable. Certificates from DigiCert are used. The build is described in detail in the :ref:`Enterprise 3 Build 3<enterprise 3 build 3 (e3b3) - sdp and microsegmentation - microsoft azure ad conditional access (later renamed *entra conditional access*), microsoft intune, microsoft sentinel, forescout eyecontrol, and forescout eyeextend as pes>` section.
 
 -  **Enterprise 1 Build 4 (E1B4)** uses products from Amazon Web Services, Appgate, IBM, Ivanti, Mandiant, Okta, Radiant Logic, SailPoint, Tenable, and Zimperium. Certificates from DigiCert are used. The build is described in detail in the :ref:`Enterprise 1 Build 4<enterprise 1 build 4 (e1b4) - sdp - appgate sdp controller as pe>` section.
 
--  **Enterprise 2 Build 4 (E2B4)** uses products from Google Cloud, IBM, Mandiant, Okta, Radiant Logic, SailPoint, Symantec by Broadcom, Tenable, and VMware. Certificates from DigiCert are also used. The build is described in detail in the :ref:`Enterprise 2 Build 4<enterprise 2 build 4 (e2b4) - sdp and sase - symantec cloud secure web gateway, symantec ztna, and symantec cloud access security broker as pes>` section.
+-  **Enterprise 2 Build 4 (E2B4)** uses products from Broadcom (with VMware and Symantec products), Google Cloud, IBM, Mandiant, Okta, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used. The build is described in detail in the :ref:`Enterprise 2 Build 4<enterprise 2 build 4 (e2b4) - sdp and sase - symantec cloud secure web gateway, symantec ztna, and symantec cloud access security broker as pes>` section.
 
 -  **Enterprise 3 Build 4 (E3B4)** uses products from F5, Forescout, Mandiant, Microsoft, Palo Alto Networks, and Tenable. Certificates from DigiCert are also used. The build is described in detail in the :ref:`Enterprise 3 Build 4<enterprise 3 build 4 (e3b4) - sdp - f5 big-ip, f5 nginx plus, forescout eyecontrol, and forescout eyeextend as pes>` section.
 
--  **Enterprise 4 Build 4 (E4B4)** uses products from IBM, Mandiant, Tenable, and VMware. Certificates from DigiCert are also used. The build is described in detail in the :ref:`Enterprise 4 Build 4<enterprise 4 build 4 (e4b4) - sdp, microsegmentation, and eig - vmware workspace one access, vmware unified access gateway, and vmware nsx-t as pes>` section.
+-  **Enterprise 4 Build 4 (E4B4)** uses products from Broadcom (with VMware products), IBM, Mandiant, and Tenable. Certificates from DigiCert are also used. The build is described in detail in the :ref:`Enterprise 4 Build 4<Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs>` section.
 
 -  **Enterprise 1 Build 5 (E1B5)** uses products from Amazon Web Services, IBM, Mandiant, Okta, Palo Alto Networks (PAN), Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used. The build is described in detail in the :ref:`Enterprise 1 Build 5<enterprise 1 build 5 (e1b5) - sase and microsegmentation - pan ngfw and pan prisma access as pes>` section.
 
--  **Enterprise 2 Build 5 (E2B5)** uses products from Google Cloud, IBM, Lookout, Mandiant, Okta, Radiant Logic, SailPoint, Tenable, and VMware. Certificates from DigiCert are also used. The build is described in detail in the :ref:`Enterprise 2 Build 5<enterprise 2 build 5 (e2b5) - sdp and sase - lookout sse and okta identity cloud as pes>` section.
+-  **Enterprise 2 Build 5 (E2B5)** uses products from Broadcom (with VMware products), Google Cloud, IBM, Lookout, Mandiant, Okta, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used. The build is described in detail in the :ref:`Enterprise 2 Build 5<enterprise 2 build 5 (e2b5) - sdp and sase - lookout sse and okta identity cloud as pes>` section.
 
 -  **Enterprise 3 Build 5 (E3B5)** uses products from Mandiant, Microsoft, and Tenable. Certificates from DigiCert are also used. The build is described in detail in the :ref:`Enterprise 3 Build 5<enterprise 3 build 5 (e3b5) - sdp and sase - microsoft entra conditional access (formerly azure ad conditional access) and microsoft security service edge as pes product guides>` section.
 
+-  **Enterprise 4 Build 5 (E4B5)** uses products from Amazon Web Services, IBM, Mandiant, Okta, and Tenable. Certificates from DigiCert are also used. The build is described in detail in the :ref:`Enterprise 4 Build 5 <Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PEs>` section.
+
 -  **Enterprise 1 Build 6 (E1B6)** uses products from Amazon Web Services, IBM, Ivanti, Mandiant, Okta, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used. The build is described in detail in the :ref:`Enterprise 1 Build 6<enterprise 1 build 6 (e1b6) - sdp and microsegmentation - ivanti neurons for zero trust access as pe>` section.
+
+-  **Enterprise 2 Build 6 (E2B6)** uses products from Google Cloud, IBM, Mandiant, Okta, Omnissa, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used. The build is described in detail in the :ref:`Enterprise 2 Build 6 <Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE>` section.
 
 
 *Table 1* maps each build to the type of architecture it instantiates.
@@ -614,11 +618,11 @@ The security analytics capabilities deployed in Phase 0 of our effort included S
 .. |Figure5| image:: images/Architecture-Figure5.png
    :alt: This figure depicts a closeup of the shared services domain of Enterprise 1.
 .. |Figure6| image:: images/Architecture-Figure6.png
-   :alt: This figure is a closeup of the high-level level physical architecture of the Enterprise 1 Branch Office in the NCCoE laboratory environment.
+   :alt: This figure is a closeup of the high-level physical architecture of the Enterprise 1 Branch Office in the NCCoE laboratory environment.
 .. |Figure7| image:: images/Architecture-Figure7.png
    :alt: This figure is a close-up of the high-level physical architecture of Enterprise 4 in the NCCoE laboratory baseline environment.
 .. |Figure8| image:: images/Architecture-Figure8.png
-   :alt: This figure is a closeup of the high-level level physical architecture of the Coffee Shop in the NCCoE laboratory environment.
+   :alt: This figure is a closeup of the high-level physical architecture of the Coffee Shop in the NCCoE laboratory environment.
 .. |Figure9| image:: images/Architecture-Figure9.png
    :alt: This figure depicts the management and orchestration domain.
 .. |Figure10| image:: images/Architecture-Figure10.png

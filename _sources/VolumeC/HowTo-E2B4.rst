@@ -137,7 +137,7 @@ Integration with AD
 Refer to :ref:`SailPoint IdentityIQ Integration with AD<sailpoint-integration-ad>`.
 
 VMware Workspace ONE
---------------------
+---------------------
 
 For installation, configuration, and integration instructions, refer to :ref:`VMware Workspace ONE<vmware-workspace-one>`.
 

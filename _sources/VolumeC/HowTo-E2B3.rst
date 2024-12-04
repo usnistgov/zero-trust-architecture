@@ -77,14 +77,14 @@ Integration with Ping Identity
 There is no integration with Ping Identity. For this build, SailPoint provides AD user information and Duo pulls from AD.
 
 VMware Workspace ONE
---------------------
+---------------------
 
 .. _vmware-workspace-one:
 
 VMware Workspace ONE Access is a cloud-based service that provides a variety of management functions to support enterprise operations. For this build, two VMware services were utilized to support endpoint management functionality: Workspace ONE Access and Workspace ONE UEM.
 
 VMware Workspace ONE Access
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Workspace ONE Access can serve as an IdP and integrate with a large range of enterprise identity components. For this build, Workspace ONE Access was integrated with PingFederate and RadiantOne to provide certificate-based authentication for endpoints.
 
@@ -156,7 +156,7 @@ Workspace ONE Access can also be configured as a Service Provider (SP) for PingF
 Initial setup for this integration has now been completed. To utilize this integration, you can set policies on either Workspace ONE Access or PingFederate to point to the other IdP or SP. In PingFederate, this can be found under **Authentication -> Policies**. In Workspace ONE Access, this can be found under **Resources -> Policies**.
 
 VMware Workspace ONE UEM
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Workspace ONE UEM provides endpoint management capabilities for this build and allows certificates to be provisioned for user authentication.
 

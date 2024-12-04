@@ -211,7 +211,7 @@
           
           
           
-          <a href="https://www.nccoe.nist.gov/sites/default/files/2024-07/zta-nist-sp-1800-35-preliminary-draft-4.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
+          <a href="https://www.nccoe.nist.gov/sites/default/files/2024-11/zta-nist-sp-1800-35-ipd.pdf" title="NIST SP 1800-35 Publication" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/NISTSPLogo.jpg" class="icon-link-image" alt="NIST SP 1800-35 Publication"/></a>
         </li>
         <li class="nav-item">
           
@@ -269,7 +269,9 @@
 <li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E4B5.html">Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PEs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices/Appendix-E2B6.html">Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE</a></li>
 </ul>
 </details></li>
 </ul>
@@ -291,7 +293,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B5.html">Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Product Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E2B5.html">Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs Product Guides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E3B5.html">Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly Azure AD Conditional Access) and Microsoft Security Service Edge as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E4B5.html">Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E1B6.html">Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PEs Product Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VolumeC/HowTo-E2B6.html">Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VolumeC/Hardening.html">Hardening Information</a></li>
 </ul>
 </details></li>
@@ -324,6 +328,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ZeroTrustTakeaways.html">Zero Trust Journey Takeaways</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../acronyms.html">Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Change Log</a></li>
 </ul>
 
     </div>
@@ -727,24 +732,26 @@ document.write(`
 <ul class="simple">
 <li><p><strong>Enterprise 1 Build 2 (E1B2)</strong> uses products from Amazon Web Services, IBM, Ivanti, Mandiant, Okta, Radiant Logic, SailPoint, Tenable, and Zscaler. Certificates from DigiCert are used. The build is described in detail in the <a class="reference internal" href="appendices/Appendix-E1B2.html#enterprise-1-build-2-e1b2-eig-run-zscaler-zpa-central-authority-ca-as-pe"><span class="std std-ref">Enterprise 1 Build 2</span></a> section.</p></li>
 <li><p><strong>Enterprise 3 Build 2 (E3B2)</strong> uses products from F5, Forescout, Mandiant, Microsoft, Palo Alto Networks, PC Matic, and Tenable. Certificates from DigiCert are used. The build is described in detail in the <a class="reference internal" href="appendices/Appendix-E3B2.html#enterprise-3-build-2-e3b2-eig-run-microsoft-azure-ad-conditional-access-later-renamed-entra-conditional-access-microsoft-intune-forescout-eyecontrol-and-forescout-eyeextend-as-pes"><span class="std std-ref">Enterprise 3 Build 2</span></a> section.</p></li>
-<li><p><strong>Enterprise 4 Build 3 (E4B3)</strong> uses products from IBM, Mandiant, Palo Alto Networks, Tenable, and VMware. Certificates from DigiCert are used. The build is described in detail in the <a class="reference internal" href="appendices/Appendix-E4B3.html#enterprise-4-build-3-e4b3-eig-run-ibm-security-verify-as-pe"><span class="std std-ref">Enterprise 4 Build 3</span></a> section.</p></li>
+<li><p><strong>Enterprise 4 Build 3 (E4B3)</strong> uses products from Broadcom (with VMware products), IBM, Mandiant, Palo Alto Networks, and Tenable. Certificates from DigiCert are used. The build is described in detail in the <a class="reference internal" href="appendices/Appendix-E4B3.html#enterprise-4-build-3-e4b3-eig-run-ibm-security-verify-as-pe"><span class="std std-ref">Enterprise 4 Build 3</span></a> section.</p></li>
 </ul>
 </section>
 <section id="sdp-microsegmentation-and-sase-builds">
 <h2>SDP, Microsegmentation, and SASE Builds<a class="headerlink" href="#sdp-microsegmentation-and-sase-builds" title="Link to this heading">#</a></h2>
-<p>Unlike the EIG crawl and run phase builds, which are based on a constrained version of the general reference architecture that is depicted in <a class="reference internal" href="#architecturefigure2"><span class="std std-ref">Figure 2</span></a>, there are no constraints on the ZTA reference architecture when used as the underlying design for a build in the SDP, microsegmentation, and SASE phase of the project. The SDP, microsegmentation, and SASE phase builds that have been implemented as part of this project are based on the general ZTA described in the <a class="reference internal" href="#general-zta-reference-architecture"><span class="std std-ref">General ZTA Reference Architecture</span></a> section. Each of these builds is unique, based on the equipment used and the capabilities supported. Briefly, these eleven builds are as follows:</p>
+<p>Unlike the EIG crawl and run phase builds, which are based on a constrained version of the general reference architecture that is depicted in <a class="reference internal" href="#architecturefigure2"><span class="std std-ref">Figure 2</span></a>, there are no constraints on the ZTA reference architecture when used as the underlying design for a build in the SDP, microsegmentation, and SASE phase of the project. The SDP, microsegmentation, and SASE phase builds that have been implemented as part of this project are based on the general ZTA described in the <a class="reference internal" href="#general-zta-reference-architecture"><span class="std std-ref">General ZTA Reference Architecture</span></a> section. Each of these builds is unique, based on the equipment used and the capabilities supported. Briefly, these thirteen builds are as follows:</p>
 <ul class="simple">
 <li><p><strong>Enterprise 1 Build 3 (E1B3)</strong> uses products from Amazon Web Services, IBM, Ivanti, Mandiant, Okta, Radiant Logic, SailPoint, Tenable, and Zscaler. Certificates from DigiCert are used. The build is described in detail in the <a class="reference internal" href="appendices/Appendix-E1B3.html#enterprise-1-build-3-e1b3-sdp-zscaler-zpa-ca-as-pe"><span class="std std-ref">Enterprise 1 Build 3</span></a> section.</p></li>
-<li><p><strong>Enterprise 2 Build 3 (E2B3)</strong> uses products from Cisco Systems, IBM, Mandiant, Palo Alto Networks, Ping Identity, Radiant Logic, SailPoint, Tenable, and VMware. Certificates from DigiCert are used. The build is described in detail in the <a class="reference internal" href="../VolumeC/HowTo-E2B3.html#enterprise-2-build-3-e2b3-microsegmentation-cisco-ise-cisco-secure-workload-and-ping-identity-ping-federate-as-pes-product-guides"><span class="std std-ref">Enterprise 2 Build 3</span></a> section.</p></li>
+<li><p><strong>Enterprise 2 Build 3 (E2B3)</strong> uses products from Broadcom (with VMware products), Cisco Systems, IBM, Mandiant, Palo Alto Networks, Ping Identity, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are used. The build is described in detail in the <a class="reference internal" href="../VolumeC/HowTo-E2B3.html#enterprise-2-build-3-e2b3-microsegmentation-cisco-ise-cisco-secure-workload-and-ping-identity-ping-federate-as-pes-product-guides"><span class="std std-ref">Enterprise 2 Build 3</span></a> section.</p></li>
 <li><p><strong>Enterprise 3 Build 3 (E3B3)</strong> uses products from F5, Forescout, Mandiant, Microsoft, Palo Alto Networks, PC Matic, and Tenable. Certificates from DigiCert are used. The build is described in detail in the <a class="reference internal" href="appendices/Appendix-E3B3.html#enterprise-3-build-3-e3b3-sdp-and-microsegmentation-microsoft-azure-ad-conditional-access-later-renamed-entra-conditional-access-microsoft-intune-microsoft-sentinel-forescout-eyecontrol-and-forescout-eyeextend-as-pes"><span class="std std-ref">Enterprise 3 Build 3</span></a> section.</p></li>
 <li><p><strong>Enterprise 1 Build 4 (E1B4)</strong> uses products from Amazon Web Services, Appgate, IBM, Ivanti, Mandiant, Okta, Radiant Logic, SailPoint, Tenable, and Zimperium. Certificates from DigiCert are used. The build is described in detail in the <a class="reference internal" href="appendices/Appendix-E1B4.html#enterprise-1-build-4-e1b4-sdp-appgate-sdp-controller-as-pe"><span class="std std-ref">Enterprise 1 Build 4</span></a> section.</p></li>
-<li><p><strong>Enterprise 2 Build 4 (E2B4)</strong> uses products from Google Cloud, IBM, Mandiant, Okta, Radiant Logic, SailPoint, Symantec by Broadcom, Tenable, and VMware. Certificates from DigiCert are also used. The build is described in detail in the <a class="reference internal" href="appendices/Appendix-E2B4.html#enterprise-2-build-4-e2b4-sdp-and-sase-symantec-cloud-secure-web-gateway-symantec-ztna-and-symantec-cloud-access-security-broker-as-pes"><span class="std std-ref">Enterprise 2 Build 4</span></a> section.</p></li>
+<li><p><strong>Enterprise 2 Build 4 (E2B4)</strong> uses products from Broadcom (with VMware and Symantec products), Google Cloud, IBM, Mandiant, Okta, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used. The build is described in detail in the <a class="reference internal" href="appendices/Appendix-E2B4.html#enterprise-2-build-4-e2b4-sdp-and-sase-symantec-cloud-secure-web-gateway-symantec-ztna-and-symantec-cloud-access-security-broker-as-pes"><span class="std std-ref">Enterprise 2 Build 4</span></a> section.</p></li>
 <li><p><strong>Enterprise 3 Build 4 (E3B4)</strong> uses products from F5, Forescout, Mandiant, Microsoft, Palo Alto Networks, and Tenable. Certificates from DigiCert are also used. The build is described in detail in the <a class="reference internal" href="appendices/Appendix-E3B4.html#enterprise-3-build-4-e3b4-sdp-f5-big-ip-f5-nginx-plus-forescout-eyecontrol-and-forescout-eyeextend-as-pes"><span class="std std-ref">Enterprise 3 Build 4</span></a> section.</p></li>
-<li><p><strong>Enterprise 4 Build 4 (E4B4)</strong> uses products from IBM, Mandiant, Tenable, and VMware. Certificates from DigiCert are also used. The build is described in detail in the <a class="reference internal" href="appendices/Appendix-E4B4.html#enterprise-4-build-4-e4b4-sdp-microsegmentation-and-eig-vmware-workspace-one-access-vmware-unified-access-gateway-and-vmware-nsx-t-as-pes"><span class="std std-ref">Enterprise 4 Build 4</span></a> section.</p></li>
+<li><p><strong>Enterprise 4 Build 4 (E4B4)</strong> uses products from Broadcom (with VMware products), IBM, Mandiant, and Tenable. Certificates from DigiCert are also used. The build is described in detail in the <a class="reference internal" href="appendices/Appendix-E4B4.html#enterprise-4-build-4-e4b4-sdp-microsegmentation-and-eig-vmware-workspace-one-access-vmware-unified-access-gateway-and-vmware-nsx-t-as-pes"><span class="std std-ref">Enterprise 4 Build 4</span></a> section.</p></li>
 <li><p><strong>Enterprise 1 Build 5 (E1B5)</strong> uses products from Amazon Web Services, IBM, Mandiant, Okta, Palo Alto Networks (PAN), Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used. The build is described in detail in the <a class="reference internal" href="appendices/Appendix-E1B5.html#enterprise-1-build-5-e1b5-sase-and-microsegmentation-pan-ngfw-and-pan-prisma-access-as-pes"><span class="std std-ref">Enterprise 1 Build 5</span></a> section.</p></li>
-<li><p><strong>Enterprise 2 Build 5 (E2B5)</strong> uses products from Google Cloud, IBM, Lookout, Mandiant, Okta, Radiant Logic, SailPoint, Tenable, and VMware. Certificates from DigiCert are also used. The build is described in detail in the <a class="reference internal" href="appendices/Appendix-E2B5.html#enterprise-2-build-5-e2b5-sdp-and-sase-lookout-sse-and-okta-identity-cloud-as-pes"><span class="std std-ref">Enterprise 2 Build 5</span></a> section.</p></li>
+<li><p><strong>Enterprise 2 Build 5 (E2B5)</strong> uses products from Broadcom (with VMware products), Google Cloud, IBM, Lookout, Mandiant, Okta, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used. The build is described in detail in the <a class="reference internal" href="appendices/Appendix-E2B5.html#enterprise-2-build-5-e2b5-sdp-and-sase-lookout-sse-and-okta-identity-cloud-as-pes"><span class="std std-ref">Enterprise 2 Build 5</span></a> section.</p></li>
 <li><p><strong>Enterprise 3 Build 5 (E3B5)</strong> uses products from Mandiant, Microsoft, and Tenable. Certificates from DigiCert are also used. The build is described in detail in the <a class="reference internal" href="../VolumeC/HowTo-E3B5.html#enterprise-3-build-5-e3b5-sdp-and-sase-microsoft-entra-conditional-access-formerly-azure-ad-conditional-access-and-microsoft-security-service-edge-as-pes-product-guides"><span class="std std-ref">Enterprise 3 Build 5</span></a> section.</p></li>
+<li><p><strong>Enterprise 4 Build 5 (E4B5)</strong> uses products from Amazon Web Services, IBM, Mandiant, Okta, and Tenable. Certificates from DigiCert are also used. The build is described in detail in the <a class="reference internal" href="appendices/Appendix-E4B5.html#enterprise-4-build-5-e4b5-sdp-and-microsegmentation-aws-verified-access-and-amazon-vpc-lattice-as-pes"><span class="std std-ref">Enterprise 4 Build 5</span></a> section.</p></li>
 <li><p><strong>Enterprise 1 Build 6 (E1B6)</strong> uses products from Amazon Web Services, IBM, Ivanti, Mandiant, Okta, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used. The build is described in detail in the <a class="reference internal" href="appendices/Appendix-E1B6.html#enterprise-1-build-6-e1b6-sdp-and-microsegmentation-ivanti-neurons-for-zero-trust-access-as-pe"><span class="std std-ref">Enterprise 1 Build 6</span></a> section.</p></li>
+<li><p><strong>Enterprise 2 Build 6 (E2B6)</strong> uses products from Google Cloud, IBM, Mandiant, Okta, Omnissa, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used. The build is described in detail in the <a class="reference internal" href="../VolumeC/HowTo-E2B6.html#enterprise-2-build-6-e2b6-sase-google-chrome-enterprise-premium-cep-access-context-manager-as-pe"><span class="std std-ref">Enterprise 2 Build 6</span></a> section.</p></li>
 </ul>
 <p><em>Table 1</em> maps each build to the type of architecture it instantiates.</p>
 <div class="pst-scrollable-table-container"><table class="table" id="id1">
@@ -825,9 +832,17 @@ document.write(`
 <td><p>Microsoft Entra Conditional Access (formerly Azure AD Conditional Access), Microsoft Security Service Edge,Microsoft Sentinel</p></td>
 <td><p>SDP and SASE</p></td>
 </tr>
-<tr class="row-even"><td><p>E1B6</p></td>
+<tr class="row-even"><td><p>E4B5</p></td>
+<td><p>Amazon AVA, Amazon VPC Lattice</p></td>
+<td><p>SDP and Microsegmentation</p></td>
+</tr>
+<tr class="row-odd"><td><p>E1B6</p></td>
 <td><p>Ivanti Neurons for Zero Trust Access (nZTA)</p></td>
 <td><p>SDP and Microsegmentation</p></td>
+</tr>
+<tr class="row-even"><td><p>E2B6</p></td>
+<td><p>Google Beyond Corp Enterprise (BCE)</p></td>
+<td><p>SASE</p></td>
 </tr>
 </tbody>
 </table>
@@ -949,7 +964,7 @@ document.write(`
 <h3>Enterprise 1 Branch Office<a class="headerlink" href="#enterprise-1-branch-office" title="Link to this heading">#</a></h3>
 <p><em>Figure 6</em> is a closeup of the high-level physical architecture of the Enterprise 1 Branch Office in the NCCoE laboratory environment. The Enterprise 1 Branch Office has three main components: a firewall, a switch, and a subnet for corporate users.</p>
 <p><strong>Figure 6 - Physical Architecture of the Enterprise 1 Branch Office</strong></p>
-<p><img alt="This figure is a closeup of the high-level level physical architecture of the Enterprise 1 Branch Office in the NCCoE laboratory environment." src="../_images/Architecture-Figure6.png" /></p>
+<p><img alt="This figure is a closeup of the high-level physical architecture of the Enterprise 1 Branch Office in the NCCoE laboratory environment." src="../_images/Architecture-Figure6.png" /></p>
 <section id="branch-firewall">
 <span id="firewall-1"></span><h4>Branch Firewall<a class="headerlink" href="#branch-firewall" title="Link to this heading">#</a></h4>
 <p>One of the independent virtual firewalls provided by the Palo Alto Networks 5250 physical firewall is used for the Enterprise 1 Branch Office. It provides firewall and gateway capabilities, connecting the Branch Office to Enterprise 1 via the emulated WAN/internet service provider and supports a site-to-site VPN IPsec connection from the Branch Office to Enterprise 1. This firewall is integrated with the AD of Enterprise 1 so it can leverage Enterprise 1’s user directory store.</p>
@@ -986,7 +1001,7 @@ document.write(`
 <h3>Coffee Shop<a class="headerlink" href="#coffee-shop" title="Link to this heading">#</a></h3>
 <p><em>Figure 8</em> is a closeup of the high-level physical architecture of the coffee shop in the NCCoE laboratory environment. As shown, the coffee shop provides users and mobile devices (e.g., smartphones and laptops) wireless access to the internet via an ASUS RC-AC66U access point.</p>
 <p><strong>Figure 8 - Physical Architecture of the Coffee Shop</strong></p>
-<p><img alt="This figure is a closeup of the high-level level physical architecture of the Coffee Shop in the NCCoE laboratory environment." src="../_images/Architecture-Figure8.png" /></p>
+<p><img alt="This figure is a closeup of the high-level physical architecture of the Coffee Shop in the NCCoE laboratory environment." src="../_images/Architecture-Figure8.png" /></p>
 </section>
 <section id="management-and-orchestration-domain">
 <h3>Management and Orchestration Domain<a class="headerlink" href="#management-and-orchestration-domain" title="Link to this heading">#</a></h3>
