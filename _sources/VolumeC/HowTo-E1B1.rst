@@ -326,7 +326,7 @@ To acquire and install the MDM certificate:
 Configure Android Enterprise
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Android Enterprise allows personal and corporate applications on the same Android device. Android Enterprise configuration depends on the type of Google subscription. Please follow Ivanti documentation to `set up the integration <http://mi.extendedhelp.mobileiron.com/82/all/en/Setting_up_Android_enterprise.htm?Highlight=android%20enterprise>`__.
+Android Enterprise allows personal and corporate applications on the same Android device. Android Enterprise configuration depends on the type of Google subscription. Please follow Ivanti documentation to `set up the integration <https://mi.extendedhelp.mobileiron.com/82/all/en/Setting_up_Android_enterprise.htm?Highlight=android%20enterprise>`__.
 
 The Android Enterprise Work Profile configuration defines which features and apps are allowed, and which are restricted on Android enterprise devices. Do the following to configure the profile:
 
@@ -555,7 +555,7 @@ Ivanti Sentry is an inline gateway that manages, encrypts, and secures traffic b
 Installation and Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For this implementation we used a Standalone Sentry installation on-premises. For the latest Sentry installation instructions, select the appropriate version of the *Standalone Sentry On-Premises Installation Guide* at https://www.ivanti.com/support/product-documentation.
+For this implementation we used a Standalone Sentry installation on-premises. For the latest Sentry installation instructions, select the appropriate version of the `Standalone Sentry On-Premises Installation Guide <https://www.ivanti.com/support/product-documentation>`__.
 
 Next, create a profile for Standalone Sentry in the Ivanti Neurons for UEM console. For information on how to create a profile for Standalone Sentry and configure Standalone Sentry for ActiveSync and AppTunnel, see the `Sentry Guide for Cloud <https://help.ivanti.com/mi/help/en_us/SNTRY/9.x/gdcl/LandingPage.htm>`__. For the latest Sentry installation instructions, click on Sentry, then select the appropriate version of the Standalone Sentry On-Premises Installation Guide.
 
@@ -843,7 +843,7 @@ Tenable.io is a cloud-based platform that is used in this build to provide netwo
 Installation and Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-As a cloud-based platform, a license must first be obtained, and a cloud instance deployed by Tenable. Once that is completed, Tenable.io can be accessed through the web interface located at https://cloud.tenable.com.
+As a cloud-based platform, a license must first be obtained, and a cloud instance deployed by Tenable. Once that is completed, Tenable.io can be accessed through the `Tenable.io web interface <https://cloud.tenable.com>`__.
 
 Deploy an agent
 ^^^^^^^^^^^^^^^
@@ -852,7 +852,7 @@ Deploy an agent
 
 2. Click **Add Nessus Agent** and save the Linking Key.
 
-3. On the target endpoint, download the agent from https://downloads.tenable.com. When the download completes, run the executable file.
+3. On the target endpoint, download the agent from `Tenable Downloads <https://downloads.tenable.com>`__. When the download completes, run the executable file.
 
 4. In the setup window, fill in the key from step 2, the server (in our case, cloud.tenable.com:443), and the agent groups that this agent will be part of (in our case, Default). Click **Next.**
 
@@ -871,7 +871,7 @@ Deploy a scanner
 
 2. Click **Add Nessus Scanner** and save the Linking Key.
 
-3. Download the Nessus Scanner .ova file from https://downloads.tenable.com.
+3. Download the Nessus Scanner .ova file from `Tenable Downloads <https://downloads.tenable.com>`__.
 
 4. Deploy the .ova file in your virtual environment.
 
@@ -907,6 +907,8 @@ Tenable.ad
 
 Tenable.ad provides AD monitoring to detect attacks and identify vulnerabilities. In this build, Tenable.ad is integrated with the on-premises AD installation and configured to forward alerts to the IBM QRadar SIEM.
 
+Note that after Tenable products were implemented at NCCoE, the name Tenable.ad was changed to Tenable Identity Exposure.
+
 For Tenable.ad installation and configuration, follow the `Tenable.ad On-Premise Installation Guide. <https://docs.tenable.com/identity-exposure/Installation/Content/03_Install/install_tenablead.htm>`__
 
 For Tenable.ad and QRadar integration, follow the `Tenable and IBM QRadar SIEM Integration Guide <https://docs.tenable.com/integrations/IBM/QRadar/Content/PDF/Tenable_and_IBM_QRadar_SIEM_Integration_Guide.pdf>`__.
@@ -927,7 +929,7 @@ Deploy a Tenable NNM instance
 
 2. Click **Add Nessus Network Monitor** and save the Linking Key.
 
-3. Download the NNM .ova file from https://downloads.tenable.com.
+3. Download the NNM .ova file from `Tenable Downloads <https://downloads.tenable.com>`__.
 
 4. Deploy the .ova file in your virtual environment.
 
@@ -1062,7 +1064,7 @@ DigiCert CertCentral
 
 CertCentral simplifies digital trust and automates certificate management by consolidating tasks for issuing, installing, inspecting, remediating, and renewing TLS/SSL certificates in one place. In this build, CertCentral provided TLS/SSL certificates to any system needing those services.
 
-For the latest CertCentral setup and usage instructions, see https://docs.digicert.com/get-started/.
+For the latest CertCentral setup and usage instructions, see CertCentral: `Get Started <https://docs.digicert.com/get-started/>`__.
 
 Requesting a certificate
 ~~~~~~~~~~~~~~~~~~~~~~~~

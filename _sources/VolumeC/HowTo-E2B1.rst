@@ -145,7 +145,7 @@ Prior to the deployment of the vsys, the `initial configuration <https://docs.pa
 
 Once the vsys has been deployed, we `created a security policy <https://docs.paloaltonetworks.com/pan-os/10-1/pan-os-admin/getting-started/set-up-a-basic-security-policy>`__ for filtering the inbound and outbound traffic.
 
-For GlobalProtect VPN access installation instructions, visit: https://docs.paloaltonetworks.com/globalprotect/10-1/globalprotect-admin/globalprotect-quick-configs/remote-access-vpn-authentication-profile
+For GlobalProtect VPN access installation instructions, visit: `Remote Access VPN (Authentication Profile) <https://docs.paloaltonetworks.com/globalprotect/10-1/globalprotect-admin/globalprotect-quick-configs/remote-access-vpn-authentication-profile>`__
 
 IBM Security QRadar XDR
 -----------------------
@@ -161,6 +161,8 @@ Tenable.ad
 ----------
 
 For installation, configuration, and integration instructions, refer to :ref:`Tenable.ad<tenable-ad>`.
+
+Note that after Tenable products were implemented at NCCoE, the name Tenable.ad was changed to Tenable Identity Exposure.
 
 Tenable NNM
 -----------

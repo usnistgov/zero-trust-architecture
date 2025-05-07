@@ -5,11 +5,11 @@ Motivation for the Project
 ---------------------------
 Protecting enterprise data and resources has become increasingly challenging. Many users need access from anywhere, at any time, from any device to support the organization's mission. Data is created, stored, transmitted, and processed across different organizations' environments, which are distributed across on-premises and multiple clouds to meet ever-evolving business use cases. It is no longer feasible to simply protect data and resources at the perimeter of the enterprise environment or to assume that all users, devices, applications, and services within it can be trusted. 
 
-A zero-trust architecture (ZTA) enables secure authorized access to assets—machines, applications and services running on them, and associated data and resources—whether located on-premises or in the cloud, for a hybrid workforce and partners based on an organization's defined access policy. For each access request, ZTA explicitly verifies the context available at access time—this includes both static user profile information or non-person entity information such as the requester's identity and role; and dynamic information such as geolocation, the requesting device's health and credentials, the sensitivity of the resource, access pattern anomalies, and whether the request is warranted and in accordance with the organization's business process logic. If the defined policy is met, a secure session is created to protect all information transferred to and from the resource. A real-time, risk-based assessment of resource access and access pattern anomaly detection with continuous policy evaluation is performed to establish and maintain the access. A ZTA can also protect organizations from non-organizational resources that their users and applications may connect to, helping to stop threats originating from outside of the organization's control. 
+A ZTA enables secure authorized access to assets—machines, applications and services running on them, and associated data and resources—whether located on-premises or in the cloud, for a hybrid workforce and partners based on an organization's defined access policy. For each access request, ZTA explicitly verifies the context available at access time—this includes both static user profile information or non-person entity information, such as the requester's identity and role; and dynamic information such as geolocation, the requesting device's health and credentials, the sensitivity of the resource, access pattern anomalies, and whether the request is warranted and in accordance with the organization's business process logic. If the defined policy is met, a secure session is created to protect all information transferred to and from the resource. A real-time, risk-based assessment of resource access and access pattern anomaly detection with continuous policy evaluation is performed to establish and maintain the access. A ZTA can also protect organizations from non-organizational resources that their users and applications may connect to, helping to stop threats originating from outside of the organization's control. 
 
-The goal of this project is to develop and demonstrate various ZTA implementations. NCCoE is collaborating with ZTA technology providers to build numerous example ZTA solutions and demonstrate their ability to meet the tenets of ZTA described in NIST SP 800-207. The goal of the solutions is to enforce corporate security policy dynamically and in near-real-time to restrict access to authenticated, authorized users, devices, and non-person entities while flexibly supporting a complex set of diverse business outcomes involving both remote and on-premises workforces, use of the cloud, partner collaboration, and support for contractors. The example solutions are designed to demonstrate the ability to protect against and detect attacks and malicious insiders. They showcase the ability of ZTA products to interoperate with existing enterprise and cloud technologies while trying to minimize impact on end-user experience. 
+NCCoE has collaborated with ZTA technology providers to build numerous example ZTA solutions and demonstrate their ability to meet the tenets of ZTA described in NIST SP 800-207. The goal of the solutions is to enforce corporate security policy dynamically and in near-real-time to restrict access to authenticated, authorized users, devices, and non-person entities while flexibly supporting a complex set of business outcomes involving both remote and on-premises workforces, use of the cloud, partner collaboration, and support for contractors. The example solutions are designed to demonstrate the ability to protect against and detect attacks and malicious insiders. They showcase the ability of ZTA products to interoperate with existing enterprise and cloud technologies while trying to minimize the impact on end-user experience. 
 
-The project can help organizations plan how to evolve their existing enterprise environments to ZTA, starting with an assessment of their current resources, strengths, and weaknesses, and setting mile-stones along a path of continuous improvement, gradually bringing them closer to achieving the ZTA goals they have prioritized based on risk, cost, resources, and their unique mission. The goal is to ena-ble organizations to thoughtfully apply ZTA controls that best protect their business while enabling them to operate as they need to.
+The project can help organizations plan how to evolve their existing enterprise environments to ZTA, starting with an assessment of their current resources, strengths, and weaknesses, and setting mile-stones along a path of continuous improvement, gradually bringing them closer to achieving the ZTA goals they have prioritized based on risk, cost, resources, and their unique mission. The goal is to enable organizations to thoughtfully apply ZTA controls that best protect their business while enabling them to operate as they need to.
 
 Challenges in Implementing ZTA
 -------------------------------
@@ -26,7 +26,7 @@ Throughout this project, numerous challenges organizations may face in implement
 
  - Leveraging existing investments and balancing priorities while making progress toward a ZTA via modernization initiatives 
 
- - Lack of understanding regarding what additional skills and training administrators, security personnel, operators, end users, and policy decision makers may require
+ - Lack of understanding regarding what additional skills and training administrators, security personnel, operators, end users, and policy decision-makers may require
 
 - Missing foundational pieces, such as:
 
@@ -46,27 +46,16 @@ Throughout this project, numerous challenges organizations may face in implement
 
  - Lack of common understanding and language of ZTA across the community and within the organization, gauging the organization's ZTA maturity, determining which ZTA approach is most suitable for the business, and developing an implementation plan
 
- - There is not a single ZTA that fits all. ZTAs need to be designed and integrated for each organization based on the organization's requirements and risk tolerance, as well as its existing invested technologies and environments.
-
-Project Approach
-----------------
-
-This project began with a clean laboratory environment that we populated with various applications and services that would be expected in a typical enterprise to create several baseline enterprise architectures. Examples include security information and event management systems (SIEMs), vulnerability scanning and assessment tools, security validation tools, and discovery tools. 
-
-Next, we used a phased approach to develop example ZTA solutions. This approach was designed to represent how we believe most enterprises will evolve their enterprise architecture toward ZTA, i.e., by starting with their already-existing enterprise environment and gradually adding or adapting capabilities. Our first implementations with minimum viable solution were EIG deployments because the identity-based controls provided by EIG are foundational components of ZTA. We called this phase of the project the EIG crawl phase, which did not include cloud capabilities, and followed by the EIG run phase, which we added cloud capabilities. 
-
-We gradually deployed additional functional components and capabilities to address an increasing number of ZTA requirements and deployed microsegmentation, SDP, and SASE approaches.
-
-Given the importance of discovery to the successful implementation of a ZTA, we initially deployed it to continuously observe the environment and use those observations to audit and validate the documented baseline map on an ongoing basis. Because we had instantiated the baseline environment ourselves, we already had a good initial understanding of it. However, we were able to use the discovery tools to audit and validate what we deployed and provisioned, correlate known data with information reported by the tools, and use the tool outputs to formulate initial zero trust policy, ultimately ensuring that observed network flows correlate to static policies.
-
-The builds described in this document are examples with the understanding that there is no single approach for migrating to ZTA that is best for all enterprises; ZTA is a set of concepts and principles, not a set of technical specifications that can be complied with. The objective, instead, is continuous improvement of access control processes and policies in accordance with the principles of ZTA. 
+There is not a single ZTA that fits all. ZTAs need to be designed and implemented for each organization based on the organization's requirements and risk tolerance, as well as its existing invested technologies and environments.
 
 Collaborators and Their Contributions
 -------------------------------------
 
 Organizations participating in this project submitted their capabilities in response to an open call in the Federal Register for all sources of relevant security capabilities from academia and industry (vendors and integrators). Respondents with relevant capabilities or product components (identified as “Technology Partners/Collaborators” herein) signed a CRADA to collaborate with NIST in a consortium to build example ZTA solutions.
 
-Each of these technology partners and collaborators has described the relevant products and capabilities they bring to this ZTA effort in the following subsections. The NCCoE does not certify or validate products or services. We demonstrate the capabilities that can be achieved by using participants' contributed technology.
+Each of these technology partners and collaborators has described the relevant products and capabilities they bring to this ZTA effort in the following subsections. 
+
+The NCCoE does not certify, validate, or endorse products or services. We demonstrate the capabilities that can be achieved by using participants' contributed technology. Your organization's information security experts should identify the products that will best integrate with your existing tools and IT system infrastructure. Your organization can adopt this solution or one that adheres to these guidelines entirely, or you can use this guide as a starting point for tailoring and implementing parts of a solution.
 
 Appgate
 ~~~~~~~
@@ -76,12 +65,12 @@ Appgate is the secure access company. It empowers how people work and connect by
 Appgate SDP
 ^^^^^^^^^^^^
 
-The Appgate SDP solution has been designed with the intent to provide all the critical elements of NIST SP 800-207. The Appgate SDP has a controller that offers policy administrator (PA) and policy engine (PE) functionality and gateways that offer policy enforcement point (PEP) functionality. Appgate SDP natively integrates with components via representational state transfer (REST) application programming interfaces (APIs) and metadata. By providing highly performant, scalable, secure, integrated, and cloaked zero trust access, Appgate SDP is able to ensure that the correct device and user (under the appropriate conditions at that moment in time) are connected. For more information about Appgate SDP, see https://www.appgate.com/zero-trust-network-access/how-it-works.
+The Appgate SDP solution has been designed with the intent to provide all the critical elements of NIST SP 800-207. The Appgate SDP has a controller that offers policy administrator (PA) and policy engine (PE) functionality and gateways that offer policy enforcement point (PEP) functionality. Appgate SDP natively integrates with components via representational state transfer (REST) application programming interfaces (APIs) and metadata. By providing highly performant, scalable, secure, integrated, and cloaked zero trust access, Appgate SDP is able to ensure that the correct device and user (under the appropriate conditions at that moment in time) are connected. For more information about Appgate SDP, see `How Appgate SDP Works <https://www.appgate.com/zero-trust-network-access/how-it-works>`__.
 
 AWS
 ~~~
 
-AWS provides a platform in the cloud that hosts private and public sector agencies in most countries around the world. AWS offers more than 200 services which include compute, storage, networking, database, analytics, application services, deployment, management, developer, mobile, IoT, artificial intelligence (AI), security, and hybrid and enterprise applications. Additionally, AWS provides several security-related services and features such as Identity and Access Management (IAM), Virtual Private Cloud (VPC), PrivateLink, and Security Hub, allowing AWS customers to build and deliver their services worldwide with a high degree of confidence and assurance. AWS's array of third-party applications provides complementary functionality that further extends the capabilities of the AWS environment. To learn more about security services and compliance on AWS, please visit: https://aws.amazon.com/products/security.
+AWS provides a platform in the cloud that hosts private and public sector agencies in most countries around the world. AWS offers more than 200 services which include compute, storage, networking, database, analytics, application services, deployment, management, developer, mobile, IoT, artificial intelligence (AI), security, and hybrid and enterprise applications. Additionally, AWS provides several security-related services and features such as Identity and Access Management (IAM), Virtual Private Cloud (VPC), PrivateLink, and Security Hub, allowing AWS customers to build and deliver their services worldwide with a high degree of confidence and assurance. AWS's array of third-party applications provides complementary functionality that further extends the capabilities of the AWS environment. To learn more about security services and compliance on AWS, please visit `Security, Identity, and Compliance on AWS <https://aws.amazon.com/products/security>`__.
 
 The following subsections briefly list some AWS services relevant to ZTA that are being provided in support of this project, organized by category of service.
 
@@ -139,7 +128,7 @@ Management/Monitoring
 Cisco
 ~~~~~
 
-Cisco Systems, or Cisco, delivers collaboration, enterprise, and industrial networking and security solutions. The company's cybersecurity team, Cisco Secure, is one of the largest cloud and network security providers in the world. Cisco's Talos Intelligence Group, the largest commercial threat intelligence team in the world, is comprised of world-class threat researchers, analysts, and engineers, and supported by unrivaled telemetry and sophisticated systems. The group feeds rapid and actionable threat intelligence to Cisco customers, products, and services to help identify new threats quickly and defend against them. Cisco solutions are built to work together and integrate into your environment, using the “network as a sensor” and “network as an enforcer” approach to both make your team more efficient and keep your enterprise secure. Learn more about Cisco at https://www.cisco.com/go/secure.
+Cisco Systems, or Cisco, delivers collaboration, enterprise, and industrial networking and security solutions. The company's cybersecurity team, Cisco Secure, is one of the largest cloud and network security providers in the world. Cisco's Talos Intelligence Group, the largest commercial threat intelligence team in the world, is comprised of world-class threat researchers, analysts, and engineers, and supported by unrivaled telemetry and sophisticated systems. The group feeds rapid and actionable threat intelligence to Cisco customers, products, and services to help identify new threats quickly and defend against them. Cisco solutions are built to work together and integrate into your environment, using the “network as a sensor” and “network as an enforcer” approach to both make your team more efficient and keep your enterprise secure. Learn more about Cisco at `Cisco Security <https://www.cisco.com/go/secure>`__.
 
 Cisco Secure Access by Duo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -178,17 +167,17 @@ Cisco Encrypted Traffic Analytics (ETA)
 Cisco SecureX
 ^^^^^^^^^^^^^
 
-`Cisco SecureX <http://www.cisco.com/go/secureX>`__ is an extended detection and response (XDR) cloud-native integrated threat response platform within the Cisco Secure portfolio. Its open, extensible integrations connect to the infrastructure, providing unified visibility and simplicity in one location. It maximizes operational efficiency to secure the network, users and endpoints, cloud edge, and applications. Cisco SecureX radically reduces the dwell time and human-powered tasks involved with detecting, investigating, and remediating threats to counter attacks, or securing access and managing policy to stay compliant. The time savings and better collaboration involved with orchestrating and automating security across SecOps, ITOps, and NetOps teams help advance the security maturity level.
+`Cisco SecureX <https://www.cisco.com/go/secureX>`__ is an extended detection and response (XDR) cloud-native integrated threat response platform within the Cisco Secure portfolio. Its open, extensible integrations connect to the infrastructure, providing unified visibility and simplicity in one location. It maximizes operational efficiency to secure the network, users and endpoints, cloud edge, and applications. Cisco SecureX radically reduces the dwell time and human-powered tasks involved with detecting, investigating, and remediating threats to counter attacks, or securing access and managing policy to stay compliant. The time savings and better collaboration involved with orchestrating and automating security across SecOps, ITOps, and NetOps teams help advance the security maturity level.
 
 Cisco Endpoint Security Analytics (CESA)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`Cisco Endpoint Security Analytics (CESA) <http://www.cisco.com/c/en/us/products/security/endpoint-security-analytics-built-on-splunk/index.html?dtid=osscdc000283>`__ analyzes endpoint telemetry generated by the Network Visibility Module (NVM), which is built into the Cisco AnyConnect® Secure Mobility Client. CESA feeds Splunk Enterprise software to analyze NVM data provided by endpoints to uncover endpoint-specific security risks and breaches. This data includes information about data loss, unapproved applications and SaaS usage, security evasion, unknown malware, user behavior when not connected to the enterprise, endpoint asset inventory, and destination allowlists and denylists.
+`Cisco Endpoint Security Analytics (CESA) <https://www.cisco.com/c/en/us/products/security/endpoint-security-analytics-built-on-splunk/index.html?dtid=osscdc000283>`__ analyzes endpoint telemetry generated by the Network Visibility Module (NVM), which is built into the Cisco AnyConnect® Secure Mobility Client. CESA feeds Splunk Enterprise software to analyze NVM data provided by endpoints to uncover endpoint-specific security risks and breaches. This data includes information about data loss, unapproved applications and SaaS usage, security evasion, unknown malware, user behavior when not connected to the enterprise, endpoint asset inventory, and destination allowlists and denylists.
 
 Cisco AnyConnect Secure Mobility Client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`Cisco AnyConnect Secure Mobility Client <http://www.cisco.com/c/en/us/products/security/anyconnect-secure-mobility-client/index.html?dtid=osscdc000283>`__ is a unified endpoint software client compatible with several of today's major enterprise mobility platforms. It helps manage the security risks associated with extended networks. Built on foundational VPN technology, it extends beyond remote-access capabilities to offer user-friendly, network-based security including:
+`Cisco AnyConnect Secure Mobility Client <https://www.cisco.com/c/en/us/products/security/anyconnect-secure-mobility-client/index.html?dtid=osscdc000283>`__ is a unified endpoint software client compatible with several of today's major enterprise mobility platforms. It helps manage the security risks associated with extended networks. Built on foundational VPN technology, it extends beyond remote-access capabilities to offer user-friendly, network-based security including:
 
 -  Simple and context-aware security policy enforcement
 
@@ -283,27 +272,27 @@ Forescout
 
 Forescout delivers automated cybersecurity across the digital terrain. It empowers its customers to achieve continuous alignment of their security frameworks with their digital realities, across all asset types - IT, IoT, OT, and Internet of Medical Things (IoMT). Forescout enables organizations to manage cyber risk through automation and data-powered insights.
 
-The Forescout Platform provides complete asset visibility of connected devices, continuous compliance, network segmentation, network access control, and a strong foundation for zero trust. Forescout customers gain data-powered intelligence to accurately detect risks and quickly remediate cyberthreats without disruption of critical business assets. https://www.forescout.com/company/
+The Forescout Platform provides complete asset visibility of connected devices, continuous compliance, network segmentation, network access control, and a strong foundation for zero trust. Forescout customers gain data-powered intelligence to accurately detect risks and quickly remediate cyberthreats without disruption of critical business assets. For more information, see `About Forescout <https://www.forescout.com/company/>`__.
 
 Forescout eyeSight
 ^^^^^^^^^^^^^^^^^^
 
-Forescout eyeSight delivers comprehensive device visibility across an organization's entire digital terrain - without disrupting critical business processes. It discovers every IP-connected device, auto-classifies it, and assesses its compliance posture and risk the instant the device connects to the network. https://www.forescout.com/products/eyesight/
+Forescout eyeSight delivers comprehensive device visibility across an organization's entire digital terrain - without disrupting critical business processes. It discovers every IP-connected device, auto-classifies it, and assesses its compliance posture and risk the instant the device connects to the network. For more information, see `eyeSight <https://www.forescout.com/products/eyesight/>`__.
 
 Forescout eyeControl
 ^^^^^^^^^^^^^^^^^^^^
 
-Forescout eyeControl provides flexible and frictionless network access control for heterogeneous enterprise networks. It enforces and automates zero trust security policies for least-privilege access on all managed and unmanaged assets across an organization's digital terrain. Policy-based controls can continuously enforce asset compliance, proactively reduce attack surfaces, and rapidly respond to incidents. https://www.forescout.com/products/eyecontrol/
+Forescout eyeControl provides flexible and frictionless network access control for heterogeneous enterprise networks. It enforces and automates zero trust security policies for least-privilege access on all managed and unmanaged assets across an organization's digital terrain. Policy-based controls can continuously enforce asset compliance, proactively reduce attack surfaces, and rapidly respond to incidents. For more information, see  `eyeControl <https://www.forescout.com/products/eyecontrol/>`__.
 
 Forescout eyeSegment
 ^^^^^^^^^^^^^^^^^^^^
 
-Forescout eyeSegment accelerates zero trust segmentation. It simplifies the design, planning, and deployment of non-disruptive, dynamic segmentation across an organization's digital terrain to reduce attack surface and regulatory risk. https://www.forescout.com/products/eyesegment/
+Forescout eyeSegment accelerates zero trust segmentation. It simplifies the design, planning, and deployment of non-disruptive, dynamic segmentation across an organization's digital terrain to reduce attack surface and regulatory risk. For more information, see  `eyeSegment <https://www.forescout.com/products/eyesegment/>`__.
 
 Forescout eyeExtend
 ^^^^^^^^^^^^^^^^^^^
 
-Forescout eyeExtend automates security workflows across disparate products. It shares device context between the Forescout platform and other IT and security products, automates policy enforcement across disparate tools, and accelerates system-wide response to mitigate risks. https://www.forescout.com/products/eyeextend/
+Forescout eyeExtend automates security workflows across disparate products. It shares device context between the Forescout platform and other IT and security products, automates policy enforcement across disparate tools, and accelerates system-wide response to mitigate risks. For more information, see `eyeExtend <https://www.forescout.com/products/eyeextend/>`__.
 
 Google Cloud
 ~~~~~~~~~~~~
@@ -407,12 +396,12 @@ IBM Cloud Pak for Security is a unified cross-domain security platform that inte
 Ivanti
 ~~~~~~
 
-Ivanti finds, heals, manages, and protects devices regardless of location - automatically. It is an enterprise software company specializing in endpoint management, network security, risk-based vulnerability management, and service and asset management. The Ivanti solution is able to discover, manage, secure, and service all endpoints across the enterprise including corporate/government-owned and BYOD. Ivanti is actively involved with helping to better prepare government and enterprises with cybersecurity and zero trust best practices. Learn more about Ivanti here: https://www.ivanti.com/. The Ivanti solution enables an enterprise to centrally manage/monitor endpoints and trigger adaptive policies to remediate threats, quarantine devices, and maintain compliance.
+Ivanti finds, heals, manages, and protects devices regardless of location - automatically. It is an enterprise software company specializing in endpoint management, network security, risk-based vulnerability management, and service and asset management. The Ivanti solution is able to discover, manage, secure, and service all endpoints across the enterprise including corporate/government-owned and BYOD. Ivanti is actively involved with helping to better prepare government and enterprises with cybersecurity and zero trust best practices. Learn more about Ivanti on the `Ivanti website <https://www.ivanti.com/>`__. The Ivanti solution enables an enterprise to centrally manage/monitor endpoints and trigger adaptive policies to remediate threats, quarantine devices, and maintain compliance.
 
 Ivanti Neurons for Unified Endpoint Management (UEM)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Ivanti Neurons for UEM helps enterprises create a secure workspace on any device with apps, configurations, and policies for the user based on their role. Users get easy and secure access to the resources they need for their productivity. For more information, see https://www.ivanti.com/products/ivanti-neurons-for-mdm.
+Ivanti Neurons for UEM helps enterprises create a secure workspace on any device with apps, configurations, and policies for the user based on their role. Users get easy and secure access to the resources they need for their productivity. For more information, see `Ivanti Neurons for MDM <https://www.ivanti.com/products/ivanti-neurons-for-mdm>`__.
 
 The Ivanti Neurons for UEM platform provides the fundamental visibility and IT controls needed to secure, manage, and monitor any corporate or employee-owned mobile device or desktop that accesses business-critical data. The Neurons for UEM platform allows organizations to secure a vast range of employee and BYOD devices being used within the organization while managing the entire life cycle of the device, including:
 
@@ -431,17 +420,17 @@ The Ivanti Neurons for UEM platform provides the fundamental visibility and IT c
 Ivanti Sentry
 ^^^^^^^^^^^^^
 
-Ivanti Sentry is an in-line intelligent gateway that helps secure access to on-premises resources and provides authentication and authorization to enterprise data. For more information, see https://www.ivanti.com/products/secure-connectivity/sentry.
+Ivanti Sentry is an in-line intelligent gateway that helps secure access to on-premises resources and provides authentication and authorization to enterprise data. For more information, see `Ivanti Sentry <https://www.ivanti.com/products/secure-connectivity/sentry>`__.
 
 Ivanti Access ZSO
 ^^^^^^^^^^^^^^^^^
 
-Ivanti Access Zero Sign-On (ZSO) enforces risk-based policies to prevent unauthorized users, endpoints, apps or services from connecting to enterprise cloud services. ZSO helps identify the user, device, app, location, network type, and presence of threats. The adaptive access control check is the basis of the zero trust model. ZSO provides a frictionless single sign-on experience to end users leveraging secure mobile based MFA. The solution is federated with the Okta Identity Cloud to provide continuous authentication and authorization. For more information, see https://www.ivanti.com/products/zero-sign-on.
+Ivanti Access Zero Sign-On (ZSO) enforces risk-based policies to prevent unauthorized users, endpoints, apps or services from connecting to enterprise cloud services. ZSO helps identify the user, device, app, location, network type, and presence of threats. The adaptive access control check is the basis of the zero trust model. ZSO provides a frictionless single sign-on experience to end users leveraging secure mobile based MFA. The solution is federated with the Okta Identity Cloud to provide continuous authentication and authorization. For more information, see `Ivanti Zero Sign-On (ZSO) <https://www.ivanti.com/products/zero-sign-on>`__.
 
 Ivanti Mobile Threat Defense
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The combination of cloud and mobile threat defense (MTD) protects data on-device and on-the-network with state-of-the-art encryption and threat monitoring to detect and remediate device, network, app-level, and phishing attacks. For more information, see https://www.ivanti.com/products/mobile-threat-defense.
+The combination of cloud and mobile threat defense (MTD) protects data on-device and on-the-network with state-of-the-art encryption and threat monitoring to detect and remediate device, network, app-level, and phishing attacks. For more information, see `Ivanti Mobile Threat Defense <https://www.ivanti.com/products/mobile-threat-defense>`__.
 
 Lookout
 ~~~~~~~
@@ -456,7 +445,7 @@ Lookout MES is a SaaS-based MTD solution that protects devices from threats and 
 Mandiant
 ~~~~~~~~
 
-Mandiant scales its intelligence and expertise through the Mandiant Advantage SaaS platform to deliver current intelligence, automation of alert investigation, and prioritization and validation of security control products from a variety of vendors. (http://www.mandiant.com/)
+Mandiant scales its intelligence and expertise through the Mandiant Advantage SaaS platform to deliver current intelligence, automation of alert investigation, and prioritization and validation of security control products from a variety of vendors. Visit the `Mandiant website <https://www.mandiant.com/>`__ to learn more.
 
 Mandiant Security Validation (MSV)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -491,6 +480,8 @@ Microsoft
 ~~~~~~~~~
 
 `Microsoft Security <https://www.microsoft.com/en-us/security/business/be-fearless>`__ brings together the capabilities of security, compliance, identity, and management to natively integrate individual layers of protection across clouds, platforms, endpoints, and devices. Microsoft Security helps reduce the risk of data breaches and compliance violations and improve productivity by providing the necessary coverage to enable zero trust. Microsoft's security products give IT leaders the tools to confidently help their organization digitally transform with Microsoft's protection across their entire environment.
+
+Note that after Enterprise 3's earlier Microsoft builds were completed, the name Azure AD was changed to Entra ID, and the name Defender for Cloud Apps was changed to Defender for Apps.
 
 Azure
 ^^^^^
@@ -767,7 +758,7 @@ PC Matic Pro's on-premises endpoint protection provides default-deny protection 
 Ping Identity
 ~~~~~~~~~~~~~
 
-Ping Identity delivers intelligent identity solutions for the enterprise. Ping enables companies to achieve zero trust identity-defined security and more personalized, streamlined user experiences. The PingOne Cloud Platform provides customers, workforces, and partners with access to cloud, mobile, SaaS, and on-premises applications across the hybrid enterprise. Over half of the Fortune 100 choose Ping for their identity expertise, open standards, and partnerships with companies including Microsoft and Amazon. Ping Identity provides flexible identity solutions that accelerate digital business initiatives and secure the enterprise through multi-factor authentication, single sign-on, access management, intelligent API security, and directory and data governance capabilities. For more information, please visit https://www.pingidentity.com/.
+Ping Identity delivers intelligent identity solutions for the enterprise. Ping enables companies to achieve zero trust identity-defined security and more personalized, streamlined user experiences. The PingOne Cloud Platform provides customers, workforces, and partners with access to cloud, mobile, SaaS, and on-premises applications across the hybrid enterprise. Over half of the Fortune 100 choose Ping for their identity expertise, open standards, and partnerships with companies including Microsoft and Amazon. Ping Identity provides flexible identity solutions that accelerate digital business initiatives and secure the enterprise through multi-factor authentication, single sign-on, access management, intelligent API security, and directory and data governance capabilities. For more information, please visit the `Ping Identity website <https://www.pingidentity.com/>`__.
 
 PingFederate
 ^^^^^^^^^^^^
@@ -831,7 +822,7 @@ PingDirectory can be deployed within Ping Identity's SaaS offerings, in a custom
 Radiant Logic
 ~~~~~~~~~~~~~
 
-Radiant Logic, the enterprise Identity Data Fabric company, helps organizations combat complexity and improve defenses by making identity data easy to access, manage, use, and protect. With Radiant, it's fast and easy to put identity data to work, creating the identity data foundation of the enterprise where organizations can realize meaningful business value, accelerate innovation, and achieve zero trust. Built to combat identity sprawl, enterprise technical debt, and interoperability issues, the RadiantOne platform connects many disparate identity data sources across legacy and cloud infrastructures, without disruption. It can accelerate the success of initiatives including SSO, mergers and acquisitions integrations, identity governance and administration, hybrid and multi-cloud environments, customer identity and access management, and more with an identity data fabric foundation. Visit http://www.radiantlogic.com/ to learn more.
+Radiant Logic, the enterprise Identity Data Fabric company, helps organizations combat complexity and improve defenses by making identity data easy to access, manage, use, and protect. With Radiant, it's fast and easy to put identity data to work, creating the identity data foundation of the enterprise where organizations can realize meaningful business value, accelerate innovation, and achieve zero trust. Built to combat identity sprawl, enterprise technical debt, and interoperability issues, the RadiantOne platform connects many disparate identity data sources across legacy and cloud infrastructures, without disruption. It can accelerate the success of initiatives including SSO, mergers and acquisitions integrations, identity governance and administration, hybrid and multi-cloud environments, customer identity and access management, and more with an identity data fabric foundation. Visit the `Radiant Logic website <https://www.radiantlogic.com/>`__ to learn more.
 
 RadiantOne Intelligent Identity Data Platform
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -861,7 +852,7 @@ Global Synchronization leverages bidirectional connectors to propagate identity 
 SailPoint
 ~~~~~~~~~
 
-SailPoint offers identity security technologies that automate the identity lifecycle; manage the integrity of identity attributes; enforce least privilege through dynamic access controls, role-based policies, and separation of duties (SoD); and continuously assess, govern, and respond to access risks using AI and ML. SailPoint Identity Security is the cornerstone of an effective zero trust strategy. Discover more at https://www.sailpoint.com/.
+SailPoint offers identity security technologies that automate the identity lifecycle; manage the integrity of identity attributes; enforce least privilege through dynamic access controls, role-based policies, and separation of duties (SoD); and continuously assess, govern, and respond to access risks using AI and ML. SailPoint Identity Security is the cornerstone of an effective zero trust strategy. Discover more at the `Sailpoint website <https://www.sailpoint.com/>`__.
 
 IdentityIQ Platform
 ^^^^^^^^^^^^^^^^^^^
@@ -893,7 +884,7 @@ IdentityIQ Lifecyle Manager enables an organization to manage changes to access 
 Symantec, as part of Broadcom
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Symantec, as part of Broadcom delivers data-centric, hybrid cybersecurity to defend modern businesses. Symantec ZTNA is a SaaS solution that cloaks all corporate resources on the network, leaving no room for lateral movement and network-based threats. The combined Symantec portfolio leverages one of the largest civilian security threat intelligence networks in the world to deliver rich context and extensive telemetry that enables organizations to easily and accurately identify threats while extending zero trust protections to every asset and application. For more information, go to https://symantec.com/.
+Symantec, as part of Broadcom delivers data-centric, hybrid cybersecurity to defend modern businesses. Symantec ZTNA is a SaaS solution that cloaks all corporate resources on the network, leaving no room for lateral movement and network-based threats. The combined Symantec portfolio leverages one of the largest civilian security threat intelligence networks in the world to deliver rich context and extensive telemetry that enables organizations to easily and accurately identify threats while extending zero trust protections to every asset and application. For more information, go to the `Symantec website <https://symantec.com/>`__.
 
 Symantec Cloud Secure Web Gateway
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -960,6 +951,8 @@ Tenable
 
 Tenable®, Inc. is the Cyber Exposure company. Organizations around the globe rely on Tenable to understand and reduce cyber risk. As the creator of Nessus®, Tenable extended its expertise in vulnerabilities to see and secure any digital asset on any computing platform.
 
+Note that after Tenable products were implemented at NCCoE, the name Tenable.ad was changed to Tenable Identity Exposure.
+
 Tenable.io
 ^^^^^^^^^^
 
@@ -968,12 +961,12 @@ Powered by Nessus technology and managed in the cloud, Tenable.io provides compr
 Tenable.ad
 ^^^^^^^^^^
 
-Tenable.ad is a software solution that helps organizations harden their AD by finding and fixing AD weaknesses and vulnerabilities before attacks happen. Tenable.ad Indicators of Exposure discover and prioritize weaknesses within existing AD domains and reduce exposure by following Tenable.ad step-by-step remediation guidance. Tenable.ad keeps an AD in this hardened state by continuously monitoring and alerting in real time of any new misconfigurations, while Tenable.ad Indicators of Attacks enable detection and response to AD attacks in real time. In addition, Tenable.ad tracks and records all changes to an AD, helping show the link between AD changes and malicious actions. Tenable.ad can send alerts using email or through an existing SIEM solution.
+Tenable.ad is a software solution that helps organizations harden their AD by finding and fixing AD weaknesses and vulnerabilities before attacks happen. Tenable.ad Indicators of Exposure discover and prioritize weaknesses within existing AD domains and reduce exposure by following Tenable.ad step-by-step remediation guidelines. Tenable.ad keeps an AD in this hardened state by continuously monitoring and alerting in real time of any new misconfigurations, while Tenable.ad Indicators of Attacks enable detection and response to AD attacks in real time. In addition, Tenable.ad tracks and records all changes to an AD, helping show the link between AD changes and malicious actions. Tenable.ad can send alerts using email or through an existing SIEM solution.
 
 Trellix
 ~~~~~~~
 
-Trellix is redefining the future of cybersecurity. The company's open and native XDR platform helps organizations confronted by today's most advanced threats gain confidence in the protection and resilience of their operations. Trellix's security experts, along with an extensive partner ecosystem, accelerate technology innovation through ML and automation to empower customers. See more at https://trellix.com/. Trellix solutions can play a pivotal role in assisting organizations in meeting their zero trust outcomes through Trellix's extensive portfolio of enforcement points and ability to quickly quantify risk and orchestrate responses.
+Trellix is redefining the future of cybersecurity. The company's open and native XDR platform helps organizations confronted by today's most advanced threats gain confidence in the protection and resilience of their operations. Trellix's security experts, along with an extensive partner ecosystem, accelerate technology innovation through ML and automation to empower customers. See more at the `Trellix website <https://trellix.com/>`__. Trellix solutions can play a pivotal role in assisting organizations in meeting their zero trust outcomes through Trellix's extensive portfolio of enforcement points and ability to quickly quantify risk and orchestrate responses.
 
 Trellix offers a comprehensive portfolio of tools that align with zero trust objectives and outcomes. The following subsections discuss the tools from the portfolio currently being included in this NCCoE effort.
 
@@ -990,7 +983,7 @@ Trellix ePolicy Orchestrator (ePO) is a centralized management console for deplo
 Trellix Insights
 ''''''''''''''''
 
-Trellix Insights is a threat intelligence platform integrated with the Trellix solution portfolio that enables customers to gain contextual understanding of active global threat campaigns relevant to their vertical. Through integrated understanding of compensating controls and detection events, Insights enables organizations to predictively stay ahead of threats, quickly identify campaign activity within their environment, and receive the guidance necessary to proactively defend against campaigns. For more information on Trellix Insights, please visit `Trellix Insights <https://www.trellix.com/en-us/products/trellix-insights.html>`__.
+Trellix Insights is a threat intelligence platform integrated with the Trellix solution portfolio that enables customers to gain contextual understanding of active global threat campaigns relevant to their vertical. Through integrated understanding of compensating controls and detection events, Insights enables organizations to predictively stay ahead of threats, quickly identify campaign activity within their environment, and receive the guidelines necessary to proactively defend against campaigns. For more information on Trellix Insights, please visit `Trellix Insights <https://www.trellix.com/en-us/products/trellix-insights.html>`__.
 
 Trellix Endpoint Security Platform
 ''''''''''''''''''''''''''''''''''

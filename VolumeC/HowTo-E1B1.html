@@ -28,13 +28,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/content.css?v=59cd0ab0" />
     <link rel="stylesheet" type="text/css" href="../_static/breadcrumbs.css?v=84f9056b" />
+    <link rel="stylesheet" type="text/css" href="../_static/tables.css?v=1ae3e97c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -44,7 +45,7 @@
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -54,7 +55,6 @@
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeC/HowTo-E1B1';</script>
     <script src="../_static/jquery.visible.js?v=5b129ffc"></script>
@@ -846,7 +846,7 @@ document.write(`
 </section>
 <section id="configure-android-enterprise">
 <h4>Configure Android Enterprise<a class="headerlink" href="#configure-android-enterprise" title="Link to this heading">#</a></h4>
-<p>Android Enterprise allows personal and corporate applications on the same Android device. Android Enterprise configuration depends on the type of Google subscription. Please follow Ivanti documentation to <a class="reference external" href="http://mi.extendedhelp.mobileiron.com/82/all/en/Setting_up_Android_enterprise.htm?Highlight=android%20enterprise">set up the integration</a>.</p>
+<p>Android Enterprise allows personal and corporate applications on the same Android device. Android Enterprise configuration depends on the type of Google subscription. Please follow Ivanti documentation to <a class="reference external" href="https://mi.extendedhelp.mobileiron.com/82/all/en/Setting_up_Android_enterprise.htm?Highlight=android%20enterprise">set up the integration</a>.</p>
 <p>The Android Enterprise Work Profile configuration defines which features and apps are allowed, and which are restricted on Android enterprise devices. Do the following to configure the profile:</p>
 <ol class="arabic simple">
 <li><p>In the Cloud portal, go to <strong>Configurations</strong> and click <strong>Add.</strong></p></li>
@@ -1015,7 +1015,7 @@ document.write(`
 <p>Ivanti Sentry is an inline gateway that manages, encrypts, and secures traffic between the mobile device and back-end enterprise systems. In this build, Ivanti Sentry acts as a PEP that controls access to enterprise resources.</p>
 <section id="id6">
 <h3>Installation and Configuration<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
-<p>For this implementation we used a Standalone Sentry installation on-premises. For the latest Sentry installation instructions, select the appropriate version of the <em>Standalone Sentry On-Premises Installation Guide</em> at <a class="reference external" href="https://www.ivanti.com/support/product-documentation">https://www.ivanti.com/support/product-documentation</a>.</p>
+<p>For this implementation we used a Standalone Sentry installation on-premises. For the latest Sentry installation instructions, select the appropriate version of the <a class="reference external" href="https://www.ivanti.com/support/product-documentation">Standalone Sentry On-Premises Installation Guide</a>.</p>
 <p>Next, create a profile for Standalone Sentry in the Ivanti Neurons for UEM console. For information on how to create a profile for Standalone Sentry and configure Standalone Sentry for ActiveSync and AppTunnel, see the <a class="reference external" href="https://help.ivanti.com/mi/help/en_us/SNTRY/9.x/gdcl/LandingPage.htm">Sentry Guide for Cloud</a>. For the latest Sentry installation instructions, click on Sentry, then select the appropriate version of the Standalone Sentry On-Premises Installation Guide.</p>
 </section>
 <section id="ivanti-tunnel-configuration-and-deployment">
@@ -1217,13 +1217,13 @@ document.write(`
 <p id="id8">Tenable.io is a cloud-based platform that is used in this build to provide network discovery, vulnerability, and scanning capabilities for enterprise components.</p>
 <section id="id9">
 <h3>Installation and Configuration<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
-<p>As a cloud-based platform, a license must first be obtained, and a cloud instance deployed by Tenable. Once that is completed, Tenable.io can be accessed through the web interface located at <a class="reference external" href="https://cloud.tenable.com">https://cloud.tenable.com</a>.</p>
+<p>As a cloud-based platform, a license must first be obtained, and a cloud instance deployed by Tenable. Once that is completed, Tenable.io can be accessed through the <a class="reference external" href="https://cloud.tenable.com">Tenable.io web interface</a>.</p>
 <section id="deploy-an-agent">
 <h4>Deploy an agent<a class="headerlink" href="#deploy-an-agent" title="Link to this heading">#</a></h4>
 <ol class="arabic simple">
 <li><p>In Tenable.io, click the hamburger menu (☰) in the top left corner and navigate to <strong>Settings &gt; Sensors &gt; Nessus Agents.</strong></p></li>
 <li><p>Click <strong>Add Nessus Agent</strong> and save the Linking Key.</p></li>
-<li><p>On the target endpoint, download the agent from <a class="reference external" href="https://downloads.tenable.com">https://downloads.tenable.com</a>. When the download completes, run the executable file.</p></li>
+<li><p>On the target endpoint, download the agent from <a class="reference external" href="https://downloads.tenable.com">Tenable Downloads</a>. When the download completes, run the executable file.</p></li>
 <li><p>In the setup window, fill in the key from step 2, the server (in our case, cloud.tenable.com:443), and the agent groups that this agent will be part of (in our case, Default). Click <strong>Next.</strong></p></li>
 <li><p>Click <strong>Install</strong> and approve the request if User Account Control (UAC) comes up.</p></li>
 <li><p>When installation completes, updates will continue running in the background. The update and connection process may take some time. The endpoint will then be shown in the cloud tenant.</p></li>
@@ -1237,7 +1237,7 @@ document.write(`
 <ol class="arabic simple">
 <li><p>In Tenable.io, navigate to <strong>Settings &gt; Sensors &gt; Cloud Scanners.</strong></p></li>
 <li><p>Click <strong>Add Nessus Scanner</strong> and save the Linking Key.</p></li>
-<li><p>Download the Nessus Scanner .ova file from <a class="reference external" href="https://downloads.tenable.com">https://downloads.tenable.com</a>.</p></li>
+<li><p>Download the Nessus Scanner .ova file from <a class="reference external" href="https://downloads.tenable.com">Tenable Downloads</a>.</p></li>
 <li><p>Deploy the .ova file in your virtual environment.</p></li>
 <li><p>Once the scanner is running, navigate to the IP address shown in the console in a web browser.</p></li>
 <li><p>Login with the default username <em>wizard</em> and default password <em>admin</em>.</p></li>
@@ -1260,6 +1260,7 @@ document.write(`
 <section id="tenable-ad">
 <h2>Tenable.ad<a class="headerlink" href="#tenable-ad" title="Link to this heading">#</a></h2>
 <p id="id11">Tenable.ad provides AD monitoring to detect attacks and identify vulnerabilities. In this build, Tenable.ad is integrated with the on-premises AD installation and configured to forward alerts to the IBM QRadar SIEM.</p>
+<p>Note that after Tenable products were implemented at NCCoE, the name Tenable.ad was changed to Tenable Identity Exposure.</p>
 <p>For Tenable.ad installation and configuration, follow the <a class="reference external" href="https://docs.tenable.com/identity-exposure/Installation/Content/03_Install/install_tenablead.htm">Tenable.ad On-Premise Installation Guide.</a></p>
 <p>For Tenable.ad and QRadar integration, follow the <a class="reference external" href="https://docs.tenable.com/integrations/IBM/QRadar/Content/PDF/Tenable_and_IBM_QRadar_SIEM_Integration_Guide.pdf">Tenable and IBM QRadar SIEM Integration Guide</a>.</p>
 </section>
@@ -1272,7 +1273,7 @@ document.write(`
 <ol class="arabic simple">
 <li><p>In Tenable.io, navigate to <strong>Settings &gt; Sensors &gt; Nessus Network Monitors.</strong></p></li>
 <li><p>Click <strong>Add Nessus Network Monitor</strong> and save the Linking Key.</p></li>
-<li><p>Download the NNM .ova file from <a class="reference external" href="https://downloads.tenable.com">https://downloads.tenable.com</a>.</p></li>
+<li><p>Download the NNM .ova file from <a class="reference external" href="https://downloads.tenable.com">Tenable Downloads</a>.</p></li>
 <li><p>Deploy the .ova file in your virtual environment.</p></li>
 <li><p>Once the NNM instance is running, navigate to the IP address shown in the console in a web browser on port 8835.</p></li>
 <li><p>Enter credentials for a new administrator account and click <strong>Submit.</strong></p></li>
@@ -1369,7 +1370,7 @@ document.write(`
 <section id="digicert-certcentral">
 <h2>DigiCert CertCentral<a class="headerlink" href="#digicert-certcentral" title="Link to this heading">#</a></h2>
 <p id="id13">CertCentral simplifies digital trust and automates certificate management by consolidating tasks for issuing, installing, inspecting, remediating, and renewing TLS/SSL certificates in one place. In this build, CertCentral provided TLS/SSL certificates to any system needing those services.</p>
-<p>For the latest CertCentral setup and usage instructions, see <a class="reference external" href="https://docs.digicert.com/get-started/">https://docs.digicert.com/get-started/</a>.</p>
+<p>For the latest CertCentral setup and usage instructions, see CertCentral: <a class="reference external" href="https://docs.digicert.com/get-started/">Get Started</a>.</p>
 <section id="requesting-a-certificate">
 <h3>Requesting a certificate<a class="headerlink" href="#requesting-a-certificate" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">

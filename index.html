@@ -28,13 +28,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/content.css?v=59cd0ab0" />
     <link rel="stylesheet" type="text/css" href="_static/breadcrumbs.css?v=84f9056b" />
+    <link rel="stylesheet" type="text/css" href="_static/tables.css?v=1ae3e97c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -44,7 +45,7 @@
     <script src="_static/jquery.js?v=5d32c60e"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
@@ -54,7 +55,6 @@
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <script src="_static/jquery.visible.js?v=5b129ffc"></script>
@@ -704,13 +704,6 @@ document.write(`
 <p>Please submit comments by completing the comment template spreadsheet posted on the <a class="reference external" href="https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture">NCCoE ZTA project page</a> and emailing it to <a class="reference external" href="mailto:nccoe-zta-project&#37;&#52;&#48;list&#46;nist&#46;gov">nccoe-zta-project<span>&#64;</span>list<span>&#46;</span>nist<span>&#46;</span>gov</a>.</p>
 <p>Public comment period: December 4, 2024 through January 31, 2025</p>
 <p>All comments are subject to release under the Freedom of Information Act.</p>
-<p>NIST is particularly interested in your feedback on the following questions:</p>
-<ol class="arabic simple">
-<li><p>How well do the practices in this guide relate to existing practices leveraged by your organization? Are there significant gaps between the sets of practices that this guide should address?</p></li>
-<li><p>How do you expect this guide to influence your future practices and processes?</p></li>
-<li><p>How do you envision using this guide? What changes would you like to see to increase/improve that use?</p></li>
-<li><p>What suggestions do you have on changing the format of the provided information?</p></li>
-</ol>
 <div class="line-block">
 <div class="line">National Cybersecurity Center of Excellence</div>
 <div class="line">National Institute of Standards and Technology</div>
@@ -727,7 +720,7 @@ document.write(`
 <p>The documents in this series describe example implementations of cybersecurity practices that businesses and other organizations may voluntarily adopt. These documents do not describe regulations or mandatory practices, nor do they carry statutory authority.</p>
 <p><strong>ABSTRACT</strong></p>
 <p>A zero trust architecture (ZTA) enables secure authorized access to enterprise resources that are distributed across on-premises and multiple cloud environments, while enabling a hybrid workforce and partners to access resources from anywhere, at any time, from any device in support of the organization’s mission.</p>
-<p>This NIST Cybersecurity Practice Guide explains how organizations can implement ZTA consistent with the concepts and principles outlined in NIST Special Publication (SP) 800-207, Zero Trust Architecture. The NCCoE worked with 24 collaborators under Cooperative Research Development Agreements (CRADAs) to integrate commercially available technology to build 19 ZTA example implementations and demonstrate a number of common use cases. Detailed technical information on each build can serve as a valuable resource for your technology implementers by providing models they can emulate. The lessons learned from the implementations and integrations can benefit your organization by saving time and resources. This guide also includes mappings of ZTA principles to commonly used security standards and guidance.</p>
+<p>This NIST Cybersecurity Practice Guide explains how organizations can implement ZTA consistent with the concepts and principles outlined in NIST Special Publication (SP) 800-207, Zero Trust Architecture. The NCCoE worked with 24 collaborators under Cooperative Research and Development Agreements (CRADAs) to integrate commercially available technology to build 19 ZTA example implementations and demonstrate a number of common use cases. The Guide includes detailed technical information on each example ZTA implementation, providing models that organizations can emulate. The Guide also summarizes best practices and lessons learned from the implementations and integrations to make it easier and more cost-effective to implement ZTA. This guide also includes mappings of ZTA principles and technologies to commonly used security standards and guidelines.</p>
 <p><strong>KEYWORDS</strong></p>
 <p><em>enhanced identity governance (EIG); identity, credential, and access management (ICAM); microsegmentation; secure access service edge (SASE); software-defined perimeter (SDP); zero trust; zero trust architecture (ZTA).</em></p>
 <p><strong>ACKNOWLEDGMENTS</strong></p>
@@ -746,7 +739,7 @@ document.write(`
 <li><p>Lookout: Tyler Croak, Jeff Gilhool, Hashim Khan*</p></li>
 <li><p>Microsoft: Thomas Detzner, Ehud Itshaki, Janet Jones, Hemma Prafullchandra*, Enrique Saggese, Sarah Young</p></li>
 <li><p>MITRE: Eileen Division*, Spike Dog, Sallie Edwards, Ayayidjin Gabiam, Jolene Loveless*, Karri Meldorf, Kenneth Sandlin, Lauren Swan, Jessica Walton</p></li>
-<li><p>NIST: Mike Bartock, Douglas Montgomery, Cherilyn Pascoe, Kevin Stine</p></li>
+<li><p>NIST: Mike Bartock, Julia Chua, Douglas Montgomery, Cherilyn Pascoe, Michael Powell, Kevin Stine</p></li>
 <li><p>Okta: Brian Dack, Sean Frazier, Naveed Mirza, Kelsey Nelson, Ron Wilson</p></li>
 <li><p>Omnissa: Keith Luck*</p></li>
 <li><p>PC Matic: Andy Tuch</p></li>
@@ -759,7 +752,7 @@ document.write(`
 </ul>
 <p><em>* Former employee; all work for this publication was done while at that organization</em></p>
 <p>Special thanks to all who reviewed and provided feedback on this document.</p>
-<p>The collaborators who have or will participate in this project’s current or upcoming builds submitted their capabilities in response to a notice in the Federal Register. Respondents with relevant capabilities or product components were invited to sign a Cooperative Research and Development Agreement (CRADA) with NIST, allowing them to participate in a consortium to build this example solution. We are working with the following list of collaborators.</p>
+<p>The Technology Collaborators who participated in this project submitted their capabilities in response to a notice in the Federal Register. Respondents with relevant capabilities or product components were invited to sign a Cooperative Research and Development Agreement (CRADA) with NIST, allowing them to participate in a consortium to build this example solution. We worked with:</p>
 <div class="pst-scrollable-table-container"><table class="table" id="id1">
 <caption><span class="caption-text">Technology Partners/Collaborators</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
 <tbody>
@@ -792,7 +785,7 @@ document.write(`
 <td><p><a class="reference external" href="https://www.zimperium.com/">Zimperium</a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://cloud.google.com/">Google Cloud</a></p></td>
-<td><p><a class="reference external" href="http://www.paloaltonetworks.com/">Palo Alto Networks</a></p></td>
+<td><p><a class="reference external" href="https://www.paloaltonetworks.com/">Palo Alto Networks</a></p></td>
 <td><p><a class="reference external" href="https://www.zscaler.com/">Zscaler</a></p></td>
 </tr>
 </tbody>
@@ -802,11 +795,11 @@ document.write(`
 <p><strong>DOCUMENT CONVENTIONS</strong></p>
 <p>The terms “shall” and “shall not” indicate requirements to be followed strictly to conform to the publication and from which no deviation is permitted. The terms “should” and “should not” indicate that among several possibilities, one is recommended as particularly suitable without mentioning or excluding others, or that a certain course of action is preferred but not necessarily required, or that (in the negative form) a certain possibility or course of action is discouraged but not prohibited. The terms “may” and “need not” indicate a course of action permissible within the limits of the publication. The terms “can” and “cannot” indicate a possibility and capability, whether material, physical, or causal.</p>
 <p><strong>CALL FOR PATENT CLAIMS</strong></p>
-<p>This public review includes a call for information on essential patent claims (claims whose use would be required for compliance with the guidance or requirements in this Information Technology Laboratory (ITL) draft publication). Such guidance and/or requirements may be directly stated in this ITL Publication or by reference to another publication. This call also includes disclosure, where known, of the existence of pending U.S. or foreign patent applications relating to this ITL draft publication and of any relevant unexpired U.S. or foreign patents.</p>
+<p>This public review includes a call for information on essential patent claims (claims whose use would be required for compliance with the guidelines or requirements in this Information Technology Laboratory (ITL) draft publication). Such guidelines and/or requirements may be directly stated in this ITL Publication or by reference to another publication. This call also includes disclosure, where known, of the existence of pending U.S. or foreign patent applications relating to this ITL draft publication and of any relevant unexpired U.S. or foreign patents.</p>
 <p>ITL may require from the patent holder, or a party authorized to make assurances on its behalf, in written or electronic form, either:</p>
 <ol class="loweralpha simple">
 <li><p>assurance in the form of a general disclaimer to the effect that such party does not hold and does not currently intend holding any essential patent claim(s); or</p></li>
-<li><p>assurance that a license to such essential patent claim(s) will be made available to applicants desiring to utilize the license for the purpose of complying with the guidance or requirements in this ITL draft publication either:</p>
+<li><p>assurance that a license to such essential patent claim(s) will be made available to applicants desiring to utilize the license for the purpose of complying with the guidelines or requirements in this ITL draft publication either:</p>
 <ol class="arabic simple">
 <li><p>under reasonable terms and conditions that are demonstrably free of any unfair discrimination; or</p></li>
 <li><p>without compensation and under reasonable terms and conditions that are demonstrably free of any unfair discrimination.</p></li>

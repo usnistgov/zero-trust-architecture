@@ -28,13 +28,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/content.css?v=59cd0ab0" />
     <link rel="stylesheet" type="text/css" href="../../_static/breadcrumbs.css?v=84f9056b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tables.css?v=1ae3e97c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -44,7 +45,7 @@
     <script src="../../_static/jquery.js?v=5d32c60e"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
@@ -54,7 +55,6 @@
     <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeB/appendices/Appendix-E2B6';</script>
     <script src="../../_static/jquery.visible.js?v=5b129ffc"></script>
@@ -512,8 +512,9 @@ document.write(`
 <h2>Technologies<a class="headerlink" href="#technologies" title="Link to this heading">#</a></h2>
 <p>E2B6 uses products from Google Cloud, IBM, Mandiant, Okta, Omnissa, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used. For more information on these collaborators and the products and technologies they contributed to this project overall, see <a class="reference internal" href="../../VolumeA/ProjectOverview.html#collaborators-and-their-contributions"><span class="std std-ref">Collaborators and Their Contributions</span></a>.</p>
 <p>E2B6 components consist of Google Chrome Enterprise Premium (CEP), Google Application Connector, Omnissa Workspace ONE UEM, Okta Identity Cloud, Okta Verify App, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, IBM Security QRadar XDR, Tenable.io, Tenable.ad, Tenable Nessus Network Monitor (NNM), Mandiant Security Validation (MSV), Google Cloud (IaaS), Google Workspace (SaaS), and DigiCert CertCentral.</p>
+<p>Note that after Tenable products were implemented at NCCoE, the name Tenable.ad was changed to Tenable Identity Exposure.</p>
 <p>Table 1 lists all of the technologies used in Build E2B6. It lists the products used to instantiate each ZTA component and the security function that each component provides.</p>
-<p>Note that after the VMware End User Computing division products were implemented at NCCoE, VMware was acquired by Broadcom, then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC.</p>
+<p>Note that after the VMware End User Computing Division products were implemented at NCCoE, VMware was acquired by Broadcom, and then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC.</p>
 <p><strong>Table 1 - E2B6 Products and Technologies</strong></p>
 <div class="pst-scrollable-table-container"><table class="table" id="id1">
 <caption><span class="caption-text">E2B6 Products and Technologies</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
@@ -587,7 +588,7 @@ document.write(`
 </tr>
 <tr class="row-even"><td><p>Security Analytics - Vulnerability Scanning and Assessment</p></td>
 <td><p>Tenable.io and Tenable.ad</p></td>
-<td><p>Scans and assesses the enterprise infrastructure and resources for security risks, identifies vulnerabilities and misconfigurations, and provides remediation guidance regarding investigating and prioritizing responses to incidents.</p></td>
+<td><p>Scans and assesses the enterprise infrastructure and resources for security risks, identifies vulnerabilities and misconfigurations, and provides remediation guidelines regarding investigating and prioritizing responses to incidents.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Security Analytics - Traffic Inspection</p></td>
 <td><p>Tenable NNM</p></td>
@@ -646,7 +647,7 @@ document.write(`
 <p>In this section we present the logical architecture of E2B6. We also describe E2B6’s physical architecture and present message flow diagrams for some of its processes.</p>
 <section id="logical-architecture">
 <h3>Logical Architecture<a class="headerlink" href="#logical-architecture" title="Link to this heading">#</a></h3>
-<p>Figure 1 depicts the logical architecture of E2B6. It uses numbered arrows to depict the general flow of messages needed for a subject to request access to a resource and have that access request evaluated based on subject identity (both requesting user and requesting endpoint identity), user authorizations, and requesting endpoint health. It also depicts the flow of messages supporting periodic reauthentication of the requesting user and the requesting endpoint and periodic verification of requesting endpoint health, all of which must be performed to continually reevaluate access. The labeled steps in Figure 1 have the same meanings as they do in <a class="reference internal" href="../architecture.html#architecturefigure1"><span class="std std-ref">Architecture - Figure 1</span></a>. However, Figure 1 includes the specific products that instantiate the architecture of E2B6. Figure 1 also does not depict any of the resource management steps found in <a class="reference internal" href="../architecture.html#architecturefigure1"><span class="std std-ref">Architecture - Figure 1</span></a> because the ZTA technologies deployed in E2B6 do not support the ability to perform authentication and reauthentication of the resource or periodic verification of resource health.</p>
+<p>Figure 1 depicts the logical architecture of E2B6. It uses numbered arrows to depict the general flow of messages needed for a subject to request access to a resource and have that access request evaluated based on subject identity (both requesting user and requesting endpoint identity), user authorizations, and requesting endpoint health. It also depicts the flow of messages supporting periodic reauthentication of the requesting user and the requesting endpoint and periodic verification of requesting endpoint health, all of which must be performed to continually reevaluate access. The labeled steps in Figure 1 have the same meanings as they do in <a class="reference internal" href="../architecture.html#architecturefigure1"><span class="std std-ref">General ZTA Reference Architecture</span></a>. However, Figure 1 includes the specific products that instantiate the architecture of E2B6. Figure 1 also does not depict any of the resource management steps found in <a class="reference internal" href="../architecture.html#architecturefigure1"><span class="std std-ref">General ZTA Reference Architecture</span></a> because the ZTA technologies deployed in E2B6 do not support the ability to perform authentication and reauthentication of the resource or periodic verification of resource health.</p>
 <p>E2B6 was designed with Google CEP - Access Context Manager serving as PE, PA, and Google CEP - Identity Aware Proxy and Google CEP - Chrome Browser serving as PEPs. Okta Identity Cloud serves as the identity, access, and credential manager. Radiant Logic acts as a PIP for the PDP as it responds to inquiries and provides identity information on demand in order for Okta Identity Cloud to make near-real-time access decisions. A more detailed depiction of the messages that flow among components to support a user access request can be found in <a class="reference internal" href="#message-flow-e2b6"><span class="std std-ref">Message Flows for Successful Resource Access Requests</span></a>.</p>
 <p><strong>Figure 1 - Logical Architecture of E2B6</strong></p>
 <p><img alt="This figure depicts the logical architecture of E2B6. It uses numbered arrows to depict the general flow of messages needed for a subject to request access to a resource and have that access request evaluated based on subject identity (both requesting user and requesting endpoint identity), authorizations, and requesting endpoint health." src="../../_images/E2B6-Figure1.png" /></p>

@@ -147,16 +147,6 @@ Public comment period: December 4, 2024 through January 31, 2025
 
 All comments are subject to release under the Freedom of Information Act.
 
-NIST is particularly interested in your feedback on the following questions:
-
-1.	How well do the practices in this guide relate to existing practices leveraged by your organization? Are there significant gaps between the sets of practices that this guide should address?
-
-2.	How do you expect this guide to influence your future practices and processes?
-
-3.	How do you envision using this guide? What changes would you like to see to increase/improve that use?
-
-4.	What suggestions do you have on changing the format of the provided information?
-
 
 | National Cybersecurity Center of Excellence
 | National Institute of Standards and Technology
@@ -181,7 +171,7 @@ The documents in this series describe example implementations of cybersecurity p
 
 A zero trust architecture (ZTA) enables secure authorized access to enterprise resources that are distributed across on-premises and multiple cloud environments, while enabling a hybrid workforce and partners to access resources from anywhere, at any time, from any device in support of the organization's mission. 
 
-This NIST Cybersecurity Practice Guide explains how organizations can implement ZTA consistent with the concepts and principles outlined in NIST Special Publication (SP) 800-207, Zero Trust Architecture. The NCCoE worked with 24 collaborators under Cooperative Research Development Agreements (CRADAs) to integrate commercially available technology to build 19 ZTA example implementations and demonstrate a number of common use cases. Detailed technical information on each build can serve as a valuable resource for your technology implementers by providing models they can emulate. The lessons learned from the implementations and integrations can benefit your organization by saving time and resources. This guide also includes mappings of ZTA principles to commonly used security standards and guidance.
+This NIST Cybersecurity Practice Guide explains how organizations can implement ZTA consistent with the concepts and principles outlined in NIST Special Publication (SP) 800-207, Zero Trust Architecture. The NCCoE worked with 24 collaborators under Cooperative Research and Development Agreements (CRADAs) to integrate commercially available technology to build 19 ZTA example implementations and demonstrate a number of common use cases. The Guide includes detailed technical information on each example ZTA implementation, providing models that organizations can emulate. The Guide also summarizes best practices and lessons learned from the implementations and integrations to make it easier and more cost-effective to implement ZTA. This guide also includes mappings of ZTA principles and technologies to commonly used security standards and guidelines.
 
 
 **KEYWORDS**
@@ -218,7 +208,7 @@ We are grateful to the following individuals for their generous contributions of
 
 -  MITRE: Eileen Division\*, Spike Dog, Sallie Edwards, Ayayidjin Gabiam, Jolene Loveless\*, Karri Meldorf, Kenneth Sandlin, Lauren Swan, Jessica Walton
 
--  NIST: Mike Bartock, Douglas Montgomery, Cherilyn Pascoe, Kevin Stine
+-  NIST: Mike Bartock, Julia Chua, Douglas Montgomery, Cherilyn Pascoe, Michael Powell, Kevin Stine
 
 -  Okta: Brian Dack, Sean Frazier, Naveed Mirza, Kelsey Nelson, Ron Wilson
 
@@ -242,7 +232,7 @@ We are grateful to the following individuals for their generous contributions of
 
 Special thanks to all who reviewed and provided feedback on this document.
 
-The collaborators who have or will participate in this project's current or upcoming builds submitted their capabilities in response to a notice in the Federal Register. Respondents with relevant capabilities or product components were invited to sign a Cooperative Research and Development Agreement (CRADA) with NIST, allowing them to participate in a consortium to build this example solution. We are working with the following list of collaborators. 
+The Technology Collaborators who participated in this project submitted their capabilities in response to a notice in the Federal Register. Respondents with relevant capabilities or product components were invited to sign a Cooperative Research and Development Agreement (CRADA) with NIST, allowing them to participate in a consortium to build this example solution. We worked with:
 
 .. table:: Technology Partners/Collaborators
 
@@ -261,7 +251,7 @@ The collaborators who have or will participate in this project's current or upco
    +-------------------------------------------------+------------------------------------------------------------------------------+----------------------------------------------------------------------------+
    | `Forescout <https://www.forescout.com/>`__      | `Omnissa <https://www.omnissa.com/>`__                                       | `Zimperium <https://www.zimperium.com/>`__                                 |
    +-------------------------------------------------+------------------------------------------------------------------------------+----------------------------------------------------------------------------+
-   | `Google Cloud <https://cloud.google.com/>`__    | `Palo Alto Networks <http://www.paloaltonetworks.com/>`__                    | `Zscaler <https://www.zscaler.com/>`__                                     |
+   | `Google Cloud <https://cloud.google.com/>`__    | `Palo Alto Networks <https://www.paloaltonetworks.com/>`__                   | `Zscaler <https://www.zscaler.com/>`__                                     |
    +-------------------------------------------------+------------------------------------------------------------------------------+----------------------------------------------------------------------------+
 
 Note that after the VMware End User Computing division products were implemented at the NCCoE, VMware was acquired by Broadcom, then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC. Symantec was also previously acquired by Broadcom. 
@@ -272,13 +262,13 @@ The terms “shall” and “shall not” indicate requirements to be followed s
 
 **CALL FOR PATENT CLAIMS**
 
-This public review includes a call for information on essential patent claims (claims whose use would be required for compliance with the guidance or requirements in this Information Technology Laboratory (ITL) draft publication). Such guidance and/or requirements may be directly stated in this ITL Publication or by reference to another publication. This call also includes disclosure, where known, of the existence of pending U.S. or foreign patent applications relating to this ITL draft publication and of any relevant unexpired U.S. or foreign patents.
+This public review includes a call for information on essential patent claims (claims whose use would be required for compliance with the guidelines or requirements in this Information Technology Laboratory (ITL) draft publication). Such guidelines and/or requirements may be directly stated in this ITL Publication or by reference to another publication. This call also includes disclosure, where known, of the existence of pending U.S. or foreign patent applications relating to this ITL draft publication and of any relevant unexpired U.S. or foreign patents.
 
 ITL may require from the patent holder, or a party authorized to make assurances on its behalf, in written or electronic form, either:
 
 a) assurance in the form of a general disclaimer to the effect that such party does not hold and does not currently intend holding any essential patent claim(s); or
 
-b) assurance that a license to such essential patent claim(s) will be made available to applicants desiring to utilize the license for the purpose of complying with the guidance or requirements in this ITL draft publication either:
+b) assurance that a license to such essential patent claim(s) will be made available to applicants desiring to utilize the license for the purpose of complying with the guidelines or requirements in this ITL draft publication either:
 
    1. under reasonable terms and conditions that are demonstrably free of any unfair discrimination; or 
 

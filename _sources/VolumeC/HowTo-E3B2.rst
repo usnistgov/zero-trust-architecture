@@ -141,7 +141,7 @@ For Forescout eyeExtend installation instructions, visit the `Forescout Installa
 Integration with Microsoft Endpoint Manager
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Integration instructions for Microsoft Endpoint Manager can be found at Forescout's official GitHub repository: https://github.com/Forescout/eyeExtend-Connect/tree/master/Intune.
+Integration instructions for Microsoft Endpoint Manager can be found at `Forescout's official GitHub repository <https://github.com/Forescout/eyeExtend-Connect/tree/master/Intune>`__.
 
 Microsoft Azure IaaS
 --------------------

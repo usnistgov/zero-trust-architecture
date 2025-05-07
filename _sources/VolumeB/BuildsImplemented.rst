@@ -5,9 +5,11 @@ Builds Implemented
 
 The following is a list of the builds that have been implemented in the project, organized by build type. Each of these builds instantiates the ZTA architecture in a unique way, depending on the equipment used and the capabilities supported. The products used in each build were based on having out-of-box integration.
 
-Note that after the VMware End User Computing division products were implemented at NCCoE, VMware was acquired by Broadcom, then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC. 
+Note that after the VMware End User Computing Division products were implemented at NCCoE, VMware was acquired by Broadcom, and then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC. 
 
 Note that after Enterprise 3's earlier Microsoft builds were completed, the name Azure AD was changed to Entra ID, and the name Defender for Cloud Apps was changed to Defender for Apps.
+
+Note that after Tenable products were implemented at NCCoE, the name Tenable.ad was changed to Tenable Identity Exposure.
 
 
 EIG Crawl Builds Implemented 

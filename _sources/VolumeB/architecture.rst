@@ -12,6 +12,18 @@ Architecture and Builds
    BuildsImplemented.rst
    appendices/index.rst
 
+This project began with a clean laboratory environment that we populated with various applications and services that would be expected in a typical enterprise to create several baseline enterprise architectures. Examples include security information and event management systems (SIEMs), vulnerability scanning and assessment tools, security validation tools, and discovery tools.
+
+Next, we used a phased approach to develop example ZTA solutions. This approach was designed to represent how we believe most enterprises will evolve their enterprise architecture toward ZTA, i.e., by starting with their already-existing enterprise environment and gradually adding or adapting capabilities. Our first implementations with minimum viable solutions were EIG deployments because the identity-based controls provided by EIG are foundational components of ZTA. We called this phase of the project the EIG crawl phase, which did not include cloud capabilities, and it was followed by the EIG run phase, where we added cloud capabilities.
+
+We gradually deployed additional functional components and capabilities to address an increasing number of ZTA requirements and deployed microsegmentation, SDP, and SASE approaches.
+
+Given the importance of discovery to the successful implementation of a ZTA, we initially deployed it to continuously observe the environment and use those observations to audit and validate the documented baseline map on an ongoing basis. Because we had instantiated the baseline environment ourselves, we already had a good initial understanding of it. However, we were able to use the discovery tools to audit and validate what we deployed and provisioned, correlate known data with information reported by the tools, and use the tool outputs to formulate an initial zero trust policy, ultimately ensuring that observed network flows correlate to static policies.
+
+The builds described in this document are examples with the understanding that there is no single approach for migrating to ZTA that is best for all enterprises; ZTA is a set of concepts and principles, not a set of technical specifications that can be complied with. The objective, instead, is continuous improvement of access control processes and policies in accordance with the principles of ZTA
+
+This section provides information on the project's ZTA builds and the underlying architectures they implemented.
+
 In the :ref:`General ZTA Reference Architecture` section we present a general ZTA based on NIST SP 800-207 and describe its components and operation. This architecture is general enough that it applies to all deployment approaches: EIG, SDP, microsegmentation, and SASE. The components in the general ZTA may be operated as either on-premises or cloud-based services.
 
 In the :ref:`EIG Crawl Phase Reference Architecture` section we describe a constrained version of this general ZTA that we call the *EIG* *crawl phase* reference architecture. Three of the ZTA builds that are documented in this practice guide are instantiations of this EIG crawl phase reference architecture. This architecture relies mainly on ICAM and endpoint protection platform (EPP) components, does not include any components that are specifically dedicated to providing PE or PA functionality, and is currently limited to protecting on-premises resources.
@@ -29,7 +41,7 @@ This documentation will be updated throughout the project lifecycle as the archi
 General ZTA Reference Architecture 
 -----------------------------------
 
-*Figure 1* depicts the high-level logical architecture of a general ZTA reference design independent of deployment models. It consists of three types of core components: PEs, PAs, and PEPs, as well as several supporting components that assist the policy engine in making its decisions by providing data and policy rules related to areas such as ICAM, endpoint security, security analytics, data security, and resource protection. Specific capabilities that fall into each of these supporting component categories are discussed in more detail later in this section. The various sets of information either generated via policy or collected by the supporting components and used as input to ZTA policy decisions are referred to as policy information points (PIPs). Each of the logical components in the reference architecture does not necessarily directly correlate to physical (hardware or software) components. In fact, although the simplicity of the architecture may seem to imply that the supporting components are simple plug-ins that respond in real-time to the PDP, in many cases the ICAM, EDR/EPP, security analytics, and data security PIPs will each represent complex infrastructures. Some ZTA logical component functions may be performed by multiple hardware or software components, or a single software component may perform multiple logical functions.
+*Figure 1* depicts the high-level logical architecture of a general ZTA reference design independent of deployment models. It consists of three types of core components: PEs, PAs, and PEPs, as well as several supporting components that assist the policy engine in making its decisions by providing data and policy rules related to areas such as ICAM, endpoint security, security analytics, data security, and resource protection. Specific capabilities that fall into each of these supporting component categories are discussed in more detail later in this section. The various sets of information, either generated via policy or collected by the supporting components and used as input to ZTA policy decisions are referred to as policy information points (PIPs). Each of the logical components in the reference architecture does not necessarily directly correlate to physical (hardware or software) components. In fact, although the simplicity of the architecture may seem to imply that the supporting components are simple plug-ins that respond in real-time to the PDP, in many cases, the ICAM, endpoint detection and response (EDR)/endpoint protection platform (EPP), security analytics, and data security PIPs will each represent complex infrastructures. Some ZTA logical component functions may be performed by multiple hardware or software components, or a single software component may perform multiple logical functions.
 
 Subjects (human users, devices, applications, servers, and other non-human entities that request information from resources) request and receive access to enterprise resources via the ZTA. Human subjects are authenticated. Non-human subjects are also authenticated. They are also protected by endpoint security. Enterprise resources may be located on-premises or in the cloud. Existing enterprise subjects and resources are not part of the reference architecture itself; however, any changes required to existing endpoints, such as installing ZTA agents, should be considered part of the reference architecture.
 
@@ -98,7 +110,7 @@ ZTA supporting components are integral to other enterprise systems and provide i
 
    -  **Data discovery -** Scanning and classifying digital assets, including unstructured data
 
-   -  **Data classification and labeling -** Describing an organization's data security levels to the system and applying those labels to the data (note that classification and labeling are considered out of scope for this project, so these capabilities were exercised only to the extent necessary to demonstrate access enforcement)
+   -  **Data classification, labeling, and sanitization -** Describing an organization's data security levels to the system and applying those labels to the data and sanitizing it (note that classification, labeling, and sanitization are considered out of scope for this project, so these capabilities were exercised only to the extent necessary to demonstrate access enforcement)
 
    -  **Data encryption -** Protecting data from unauthorized disclosure while at rest and in transit; ability to encrypt/watermark data as needed to protect it on user devices and/or to prevent tampering
 
@@ -106,7 +118,7 @@ ZTA supporting components are integral to other enterprise systems and provide i
 
    -  **Data availability -** Protecting the ability of authorized users to access data in a timely manner and guarding against unauthorized deletion
 
-   -  **Data access protection -** Restricting access to and actions on data based on permanent or transient attributes of the entity accessing the data, with the ability to revoke access as needed. Includes all data access policies and rules needed to secure access to enterprise information and resources. DLP is an example of a capability that can be provided by a data access protection supporting component.
+   -  **Data access protection and exfiltration -** Restricting access to and actions on data based on permanent or transient attributes of the entity accessing the data, with the ability to revoke access as needed. Includes all data access policies and rules needed to secure access to enterprise information and resources. DLP is an example of a capability that can be provided by a data access protection supporting component.
 
    -  **Auditing and compliance -** Proving that the data security policies are in effect and delivering the desired protections
 
@@ -116,15 +128,15 @@ ZTA supporting components are integral to other enterprise systems and provide i
 
    -  **SOAR** - Collect and monitor alerts from the SIEM and other security systems, and execute predefined incident response workflows to automatically analyze the information and orchestrate the operations required to respond
 
-   -  **Vulnerability scanning and assessment** - Scan and assess enterprise hardware and software assets for security risks, identify vulnerabilities and misconfigurations, and provide remediation guidance regarding investigating and prioritizing responses to incidents
+   -  **Vulnerability scanning and assessment** - Scan and assess enterprise hardware and software assets for security risks, identify vulnerabilities and misconfigurations, and provide remediation guidelines regarding investigating and prioritizing responses to incidents
 
-   -  **Network discovery** - Discover, classify, and assess the risk posed by devices and users on the network
+   -  **Network discovery** - Discover, classify, and assess the risk posed by devices, services, and users on the network
 
    -  **Security controls validation -** Validate the ZTA cybersecurity controls implemented through visibility into network traffic and transaction flows
 
-   -  **Identity monitoring** - Monitor the identity of subjects to detect and send alerts for indicators that user accounts or credentials may be compromised, or to detect sign-in risks for a particular access session
+   -  **Identity monitoring** - Monitor the identity of subjects to detect and send alerts for indicators that user accounts or credentials may be compromised, revoked, or to detect sign-in risks for a particular access session
 
-   -  **Security monitoring -** Monitor and detect malicious or suspicious user actions based on directory signals
+   -  **Security monitoring -** Monitor and detect malicious or suspicious user and device actions based on directory signals
 
    -  **Application protection and response -** Protect applications from phishing, spam, malware, and other attacks
 
@@ -142,9 +154,9 @@ ZTA supporting components are integral to other enterprise systems and provide i
 
    -  **User behavior** **analytics** - Monitor and analyze user behavior to detect unusual patterns or anomalies that might indicate an attack
 
-   -  **Firmware assurance** - Continuously monitor IT device firmware 
+   -  **Firmware assurance** - Continuously monitor IT device firmware including versions and firmware updates
 
-   -  **Centralized management** - Provide a centralized platform for configuring and managing multiple security components
+   -  **Centralized management** - Provide a centralized platform for configuring and managing integrity and distribution of multiple security components
 
 -  **Resource Protection**: This category includes build components that do not fit neatly into one of the four supporting component/PIP categories enumerated above. They include components that are deployed on-premises or in the cloud to serve as proxies for a resource or otherwise protect it through monitoring and control, as well as secure desktops and workstations.
 
@@ -302,9 +314,9 @@ ZTA Laboratory Physical Architecture
 
 .. _ArchitecturePhysical:
 
-:ref:`Figure 3<ArchitectureFigure3>` depicts the high-level physical architecture of the ZTA laboratory environment, which is located at the NCCoE site. The NCCoE provides VM resources and physical infrastructure for the ZTA lab. It also hosts GitLab, which is used as a DevOps platform that stores Terraform and Ansible configuration information and provides version control for configuration file and change management activities. The NCCoE hosts all the collaborators' ZTA-related software for Enterprises 1, 2, 3, and 4. The NCCoE also provides connectivity from the ZTA lab to the NIST Data Center, which provides connectivity to the internet and public IP spaces (both IPv4 and IPv6).
+:ref:`Figure 3<ArchitectureFigure3>` depicts the high-level physical architecture of the ZTA laboratory environment, which is located at the NCCoE site. The NCCoE provides VM resources and physical infrastructure for the ZTA lab. It also hosts GitLab, which is used as a DevOps platform that stores Terraform and Ansible configuration information and provides version control for configuration file and change management activities. The NCCoE hosts all the collaborators' ZTA-related software for Enterprises 1, 2, 3, and 4. The NCCoE also provides connectivity from the ZTA lab to the NIST Site, which provides connectivity to the internet and public IP spaces (both IPv4 and IPv6).
 
-Access to and from the ZTA lab from within ITOps is protected by a Palo Alto Networks Next Generation Firewall (PA-5250). (The brick box icons in *Figure 3* represent firewalls.) The ZTA lab network infrastructure includes four independent enterprises (Enterprises 1, 2, 3, and 4), a branch office used only by Enterprise 1, a coffee shop that all enterprises can use, a management and orchestration domain, and an emulated WAN/internet service provider. The emulated WAN service provider provides connectivity among all the ZTA laboratory networks, i.e., among all the enterprises, the coffee shop, the branch office, and the management and orchestration domain. Another Palo Alto Networks PA-5250 firewall that is split into separate virtual systems protects the network perimeters of each of the enterprises and the branch office. The emulated WAN service provider also connects the ZTA laboratory network to ITOps. The ZTA laboratory network has access to cloud services provided by AWS, Azure, and Google Cloud, as well as connectivity to SaaS services provided by various collaborators, all of which are available via the internet.
+Access to and from the ZTA lab is protected by a Palo Alto Networks Next Generation Firewall (PA-5250). (The brick box icons in *Figure 3* represent firewalls.) The ZTA lab network infrastructure includes four independent enterprises (Enterprises 1, 2, 3, and 4), a branch office used only by Enterprise 1, a coffee shop that all enterprises can use, a management and orchestration domain, and an emulated WAN/internet service provider. The emulated WAN service provider provides connectivity among all the ZTA laboratory networks, i.e., among all the enterprises, the coffee shop, the branch office, and the management and orchestration domain. Another Palo Alto Networks PA-5250 firewall that is split into separate virtual systems protects the network perimeters of each of the enterprises and the branch office. The emulated WAN service provider also connects the ZTA laboratory network to the NCCoE Site. The ZTA laboratory network has access to cloud services provided by AWS, Azure, and Google Cloud, as well as connectivity to SaaS services provided by various collaborators, all of which are available via the internet.
 
 Each enterprise within the NCCoE laboratory environment is protected by a firewall and has both IPv4 and IPv6 (dual stack) configured. Each of the enterprises is equipped with a baseline architecture that is intended to represent the typical environment of an enterprise before a zero trust deployment model is instantiated.
 
@@ -314,7 +326,7 @@ Each enterprise within the NCCoE laboratory environment is protected by a firewa
 
 .. _ArchitectureFigure3:
 
-The details of the baseline physical architecture of enterprise 1, enterprise 1 branch office, enterprises 2, 3, and 4, the management and orchestration domain, and the coffee shop, as well as the baseline software running on this physical architecture are described in the subsections below. The details of each of the builds that occupy Enterprises 1, 2, 3, and 4 are provided in :ref:`Build Architecture Details`. (See Table 1). For a fully detailed diagram, please review the :download:`full architecture diagram </VolumeB/images/Architecture-PhysicalFullDetail.png>`.
+The details of the baseline physical architecture of Enterprise 1, Enterprise 1 branch office, Enterprises 2, 3, and 4, the management and orchestration domain, and the coffee shop, as well as the baseline software running on this physical architecture are described in the subsections below. The details of each of the builds that occupy Enterprises 1, 2, 3, and 4 are provided in :ref:`Build Architecture Details`. (See Table 1). For a fully detailed diagram, please review the :download:`full architecture diagram </VolumeB/images/Architecture-PhysicalFullDetail.png>`.
 
 Enterprise 1
 ~~~~~~~~~~~~

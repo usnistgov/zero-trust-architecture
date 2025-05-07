@@ -28,13 +28,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/content.css?v=59cd0ab0" />
     <link rel="stylesheet" type="text/css" href="../../_static/breadcrumbs.css?v=84f9056b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tables.css?v=1ae3e97c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -44,7 +45,7 @@
     <script src="../../_static/jquery.js?v=5d32c60e"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
@@ -54,7 +55,6 @@
     <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeB/appendices/Appendix-E4B5';</script>
     <script src="../../_static/jquery.visible.js?v=5b129ffc"></script>
@@ -633,7 +633,7 @@ document.write(`
 <p>In this section we present the logical architecture of E4B5. We also describe E4B5’s physical architecture and present message flow diagrams for some of its processes.</p>
 <section id="logical-architecture">
 <h3>Logical Architecture<a class="headerlink" href="#logical-architecture" title="Link to this heading">#</a></h3>
-<p><em>Figure 1</em> depicts the logical architecture of E4B5. It uses numbered arrows to depict the general flow of messages needed for a subject to request access to a resource and have that access request evaluated based on subject identity (both requesting user and requesting endpoint identity), user authorizations, and requesting endpoint health. It also depicts the flow of messages supporting periodic reauthentication of the requesting user, the requesting endpoint, and the resource, as well as periodic verification of requesting endpoint health, all of which must be performed to continually reevaluate access. The labeled steps in <em>Figure 1</em> have the same meanings as they do in <a class="reference internal" href="../architecture.html#architecturefigure1"><span class="std std-ref">Architecture - Figure 1</span></a>. However, <em>Figure 1</em> includes the specific products that instantiate the architecture of E4B5.</p>
+<p><em>Figure 1</em> depicts the logical architecture of E4B5. It uses numbered arrows to depict the general flow of messages needed for a subject to request access to a resource and have that access request evaluated based on subject identity (both requesting user and requesting endpoint identity), user authorizations, and requesting endpoint health. It also depicts the flow of messages supporting periodic reauthentication of the requesting user, the requesting endpoint, and the resource, as well as periodic verification of requesting endpoint health, all of which must be performed to continually reevaluate access. The labeled steps in <em>Figure 1</em> have the same meanings as they do in <a class="reference internal" href="../architecture.html#architecturefigure1"><span class="std std-ref">General ZTA Reference Architecture</span></a>. However, <em>Figure 1</em> includes the specific products that instantiate the architecture of E4B5.</p>
 <p>E4B5 was designed with AWS Verified Access and Amazon VPC Lattice serving as PE, PA, and PEP, and Okta Identity Cloud serving as the identity, access, and credential manager. A more detailed depiction of the messages that flow among components to support a user access request can be found in <a class="reference internal" href="#message-flow-for-a-request-to-access-a-resource-that-is-located-in-amazon-aws-iaas"><span class="std std-ref">Message Flow for a Request to Access a Resource that is Located in Amazon AWS IaaS</span></a>.</p>
 <p><strong>Figure 1 - Logical Architecture of E4B5</strong></p>
 <p><img alt="This figure depicts the logical architecture of E4B5. It uses numbered arrows to depict the general flow of messages needed for a subject to request access to a resource and have that access request evaluated based on subject identity (both requesting user and requesting endpoint identity), authorizations, and requesting endpoint health." src="../../_images/E4B5-Figure1.png" /></p>

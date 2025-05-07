@@ -13,7 +13,7 @@ Symantec ZTNA is a cloud-based service that allows this build to control network
 Installation and Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This build's instance of the Symantec Cloud SWG was provisioned and deployed with the help of the Symantec team. The initial configuration process is detailed in the `official documentation <https://techdocs.broadcom.com/us/en/symantec-security-software/web-and-network-security/secure-access-cloud/1-0/sac-workflow.html>`__. Symantec ZTNA was also integrated with many of the other build components, for which details can be found later in this section. Following that, policies were configured in accordance with the `official Symantec ZTNA policy guidance <https://techdocs.broadcom.com/us/en/symantec-security-software/web-and-network-security/secure-access-cloud/1-0/sac-policies.html>`__.
+This build's instance of the Symantec Cloud SWG was provisioned and deployed with the help of the Symantec team. The initial configuration process is detailed in the `official documentation <https://techdocs.broadcom.com/us/en/symantec-security-software/web-and-network-security/secure-access-cloud/1-0/sac-workflow.html>`__. Symantec ZTNA was also integrated with many of the other build components, for which details can be found later in this section. Following that, policies were configured in accordance with the `official Symantec ZTNA policy guidelines <https://techdocs.broadcom.com/us/en/symantec-security-software/web-and-network-security/secure-access-cloud/1-0/sac-policies.html>`__.
 
 Integration with Okta Identity Cloud
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -33,7 +33,7 @@ Integration with Symantec Endpoint Security was accomplished using `Symantec by 
 Integration with Symantec Cloud Secure Web Gateway (Cloud SWG)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Integration with the Symantec Cloud SWG was accomplished using guidance provided in the Symantec ZTNA web interface. Integrating these components depends on linking them together via subscription ID.
+Integration with the Symantec Cloud SWG was accomplished using guidelines provided in the Symantec ZTNA web interface. Integrating these components depends on linking them together via subscription ID.
 
 Symantec ZTNA Connector
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -48,7 +48,7 @@ The Symantec Cloud SWG is a cloud-based service that can apply policy to user tr
 Installation and Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This build's instance of the Symantec Cloud SWG was provisioned and deployed with the help of the Symantec by Broadcom team. Once deployment was complete, policies were configured in accordance with the `official Cloud SWG Policy guidance <https://techdocs.broadcom.com/us/en/symantec-security-software/web-and-network-security/cloud-swg/help/policy-matrix.html>`__.
+This build's instance of the Symantec Cloud SWG was provisioned and deployed with the help of the Symantec by Broadcom team. Once deployment was complete, policies were configured in accordance with the `official Cloud SWG Policy guidelines <https://techdocs.broadcom.com/us/en/symantec-security-software/web-and-network-security/cloud-swg/help/policy-matrix.html>`__.
 
 Integrations
 ~~~~~~~~~~~~
@@ -155,6 +155,8 @@ Tenable.ad
 ----------
 
 For installation, configuration, and integration instructions, refer to :ref:`Tenable.ad<tenable-ad>`.
+
+Note that after Tenable products were implemented at NCCoE, the name Tenable.ad was changed to Tenable Identity Exposure.
 
 Tenable NNM
 -----------

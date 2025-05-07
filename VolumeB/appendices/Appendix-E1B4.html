@@ -28,13 +28,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/content.css?v=59cd0ab0" />
     <link rel="stylesheet" type="text/css" href="../../_static/breadcrumbs.css?v=84f9056b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tables.css?v=1ae3e97c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -44,7 +45,7 @@
     <script src="../../_static/jquery.js?v=5d32c60e"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
@@ -54,7 +55,6 @@
     <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeB/appendices/Appendix-E1B4';</script>
     <script src="../../_static/jquery.visible.js?v=5b129ffc"></script>
@@ -513,6 +513,7 @@ document.write(`
 <h2>Technologies<a class="headerlink" href="#technologies" title="Link to this heading">#</a></h2>
 <p>E1B4 uses products from Amazon Web Services, Appgate, IBM, Ivanti, Mandiant, Okta, Radiant Logic, SailPoint, Tenable, and Zimperium. Certificates from DigiCert are also used. For more information on these collaborators and the products and technologies that they contributed to this project overall, see <a class="reference internal" href="../../VolumeA/ProjectOverview.html#collaborators-and-their-contributions"><span class="std std-ref">Collaborators and Their Contributions</span></a>.</p>
 <p>E1B4 components consist of Appgate SDP Controller, Appgate SDP Gateway, Appgate SDP client, Appgate Portal, Appgate Injector (Appgate for Kubernetes), Okta Identity Cloud, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, Okta Verify App, Ivanti Neurons for Unified Endpoint Management (UEM) Platform, Zimperium Mobile Threat Defense, IBM Security QRadar XDR, Tenable.io, Tenable.ad, Tenable NNM, IBM Cloud Pak for Security, Mandiant Security Validation (MSV), DigiCert CertCentral, and AWS IaaS.</p>
+<p>Note that after Tenable products were implemented at NCCoE, the name Tenable.ad was changed to Tenable Identity Exposure.</p>
 <p><em>Table 1</em> lists all of the technologies used in Build E1B4. It lists the products used to instantiate each ZTA component and the security function that each component provides.</p>
 <p><strong>Table 1 - E1B4 Products and Technologies</strong></p>
 <div class="pst-scrollable-table-container"><table class="table" id="id1">
@@ -583,7 +584,7 @@ document.write(`
 </tr>
 <tr class="row-odd"><td><p>Security Analytics - Vulnerability Scanning and Assessment</p></td>
 <td><p>Tenable.io and Tenable.ad</p></td>
-<td><p>Scans and assesses the enterprise infrastructure and resources for security risks, identifies vulnerabilities and misconfigurations, and provides remediation guidance regarding investigating and prioritizing responses to incidents.</p></td>
+<td><p>Scans and assesses the enterprise infrastructure and resources for security risks, identifies vulnerabilities and misconfigurations, and provides remediation guidelines regarding investigating and prioritizing responses to incidents.</p></td>
 </tr>
 <tr class="row-even"><td><p>Security Analytics - Traffic Inspection</p></td>
 <td><p>Tenable NNM</p></td>
@@ -646,7 +647,7 @@ document.write(`
 <p>In this section we present the logical architecture of E1B4. We also describe E1B4’s physical architecture and present message flow diagrams for some of its processes.</p>
 <section id="logical-architecture">
 <h3>Logical Architecture<a class="headerlink" href="#logical-architecture" title="Link to this heading">#</a></h3>
-<p><em>Figure 1</em> depicts the logical architecture of E1B4. It uses numbered arrows to depict the general flow of messages needed for a subject to request access to a resource and have that access request evaluated based on subject identity (both requesting user and requesting endpoint identity), user authorizations, and requesting endpoint health. It also depicts the flow of messages supporting periodic reauthentication of the requesting user, the requesting endpoint, and the resource; and periodic verification of requesting endpoint health, all of which must be performed to continually reevaluate access. The labeled steps in <em>Figure 1</em> have the same meanings as they do in <a class="reference internal" href="../architecture.html#architecturefigure1"><span class="std std-ref">Architecture - Figure 1</span></a>. However, <em>Figure 1</em> includes the specific products that instantiate the architecture of E1B4.</p>
+<p><em>Figure 1</em> depicts the logical architecture of E1B4. It uses numbered arrows to depict the general flow of messages needed for a subject to request access to a resource and have that access request evaluated based on subject identity (both requesting user and requesting endpoint identity), user authorizations, and requesting endpoint health. It also depicts the flow of messages supporting periodic reauthentication of the requesting user, the requesting endpoint, and the resource; and periodic verification of requesting endpoint health, all of which must be performed to continually reevaluate access. The labeled steps in <em>Figure 1</em> have the same meanings as they do in <a class="reference internal" href="../architecture.html#architecturefigure1"><span class="std std-ref">General ZTA Reference Architecture</span></a>. However, <em>Figure 1</em> includes the specific products that instantiate the architecture of E1B4.</p>
 <p>E1B4 was designed with Appgate components that serve as PEs, PAs, and PEPs, and Okta Identity Cloud that serves as the identity, access, and credential manager. Radiant Logic acts as a PIP for the PDP as it responds to inquiries and provides identity information on demand in order for Okta to make near-real-time access decisions. A more detailed depiction of the messages that flow among components to support a user access request can be found in <a class="reference internal" href="#appendix-e1b4-messageflows"><span class="std std-ref">Message Flows for Successful Resource Access Requests</span></a>.</p>
 <p><strong>Figure 1 - Logical Architecture of E1B4</strong></p>
 <p><img alt="This figure depicts the logical architecture of E1B4. It uses numbered arrows to depict the general flow of messages needed for a subject to request access to a resource and have that access request evaluated based on subject identity (both requesting user and requesting endpoint identity), user authorizations, and requesting endpoint health." src="../../_images/AppendixM-Figure1.png" /></p>

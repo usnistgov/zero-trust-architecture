@@ -32,7 +32,7 @@ This scenario deals with a request using different Enterprise-ID profiles, one w
 | B-1.1   | b | E1  | On-Prem 🡪  | A+       | A       | A   | RSS2   | Y     | Y   | Access Successful                        |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.1   | c | E1  | On-Prem 🡪  | A-       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.1   | c | E1  | On-Prem 🡪  | A−       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
 | B-1.1   | d | E2  | On-Prem 🡪  | A+       | A       | A   | RSS1   | Y     | Y   | Access Not Successful                    |
@@ -41,16 +41,16 @@ This scenario deals with a request using different Enterprise-ID profiles, one w
 | B-1.1   | e | E2  | On-Prem 🡪  | A+       | A       | A   | RSS2   | Y     | Y   | Access Successful                        |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.1   | f | E2  | On-Prem 🡪  | A-       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.1   | f | E2  | On-Prem 🡪  | A−       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.1   | g | E3  | On-Prem 🡪  | A-       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.1   | g | E3  | On-Prem 🡪  | A−       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
 | B-1.1   | h | E1  | On-Prem 🡪  | RA+      | A       | A   | RSS1   | Y     | Y   | Access Successful                        |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.1   | i | E1  | On-Prem 🡪  | RA-      | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.1   | i | E1  | On-Prem 🡪  | RA−      | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
 | B-1.1   | j | E1  | On-Prem 🡪  | RA+      | A       | A   | RSS1   | N     | Y   | Access Not Successful                    |
@@ -80,7 +80,7 @@ This scenario deals with a request using different Enterprise-ID profiles, one w
 | B-1.2   | b | E1  | Branch 🡪   | A+       | A       | A   | RSS2   | Y     | Y   | Access Successful                        |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.2   | c | E1  | Branch 🡪   | A-       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.2   | c | E1  | Branch 🡪   | A−       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
 | B-1.2   | d | E2  | Branch 🡪   | A+       | A       | A   | RSS1   | Y     | Y   | Access Not Successful                    |
@@ -89,16 +89,16 @@ This scenario deals with a request using different Enterprise-ID profiles, one w
 | B-1.2   | e | E2  | Branch 🡪   | A+       | A       | A   | RSS2   | Y     | Y   | Access Successful                        |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.2   | f | E2  | Branch 🡪   | A-       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.2   | f | E2  | Branch 🡪   | A−       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.2   | g | E3  | Branch 🡪   | A-       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.2   | g | E3  | Branch 🡪   | A−       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
 | B-1.2   | h | E1  | Branch 🡪   | RA+      | A       | A   | RSS1   | Y     | Y   | Access Successful                        |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.2   | i | E1  | Branch 🡪   | RA-      | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.2   | i | E1  | Branch 🡪   | RA−      | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
 | B-1.2   | j | E1  | Branch 🡪   | RA+      | A       | A   | RSS1   | N     | Y   | Access Not Successful                    |
@@ -128,7 +128,7 @@ This scenario deals with a request using different Enterprise-ID profiles, one w
 | B-1.3   | b | E1  | Remote 🡪   | A+       | A       | A   | RSS2   | Y     | Y   | Access Successful                        |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.3   | c | E1  | Remote 🡪   | A-       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.3   | c | E1  | Remote 🡪   | A−       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
 | B-1.3   | d | E2  | Remote 🡪   | A+       | A       | A   | RSS1   | Y     | Y   | Access Not Successful                    |
@@ -137,16 +137,16 @@ This scenario deals with a request using different Enterprise-ID profiles, one w
 | B-1.3   | e | E2  | Remote 🡪   | A+       | A       | A   | RSS2   | Y     | Y   | Access Successful                        |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.3   | f | E2  | Remote 🡪   | A-       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.3   | f | E2  | Remote 🡪   | A−       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.3   | g | E3  | Remote 🡪   | A-       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.3   | g | E3  | Remote 🡪   | A−       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
 | B-1.3   | h | E1  | Remote 🡪   | RA+      | A       | A   | RSS1   | Y     | Y   | Access Successful                        |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.3   | i | E1  | Remote 🡪   | RA-      | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.3   | i | E1  | Remote 🡪   | RA−      | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | On-Prem    |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
 | B-1.3   | j | E1  | Remote 🡪   | RA+      | A       | A   | RSS1   | N     | Y   | Access Not Successful                    |
@@ -176,7 +176,7 @@ This scenario deals with a request using different Enterprise-ID profiles, one w
 | B-1.4   | b | E1  | On-Prem 🡪  | A+       | A       | A   | RSS2   | Y     | Y   | Access Successful                        |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.4   | c | E1  | On-Prem 🡪  | A-       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.4   | c | E1  | On-Prem 🡪  | A−       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
 | B-1.4   | d | E2  | On-Prem 🡪  | A+       | A       | A   | RSS1   | Y     | Y   | Access Not Successful                    |
@@ -185,16 +185,16 @@ This scenario deals with a request using different Enterprise-ID profiles, one w
 | B-1.4   | e | E2  | On-Prem 🡪  | A+       | A       | A   | RSS2   | Y     | Y   | Access Successful                        |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.4   | f | E2  | On-Prem 🡪  | A-       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.4   | f | E2  | On-Prem 🡪  | A−       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+ -----------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.4   | g | E3  | On-Prem 🡪  | A-       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.4   | g | E3  | On-Prem 🡪  | A−       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
 | B-1.4   | h | E1  | On-Prem 🡪  | RA+      | A       | A   | RSS1   | Y     | Y   | Access Successful                        |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.4   | i | E1  | On-Prem 🡪  | RA-      | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.4   | i | E1  | On-Prem 🡪  | RA−      | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
 | B-1.4   | j | E1  | On-Prem 🡪  | RA+      | A       | A   | RSS1   | N     | Y   | Access Not Successful                    |
@@ -224,7 +224,7 @@ This scenario deals with a request using different Enterprise-ID profiles, one w
 | B-1.5   | b | E1  | Branch 🡪   | A+       | A       | A   | RSS2   | Y     | Y   | Access Successful                        |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.5   | c | E1  | Branch 🡪   | A-       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.5   | c | E1  | Branch 🡪   | A−       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
 | B-1.5   | d | E2  | Branch 🡪   | A+       | A       | A   | RSS1   | Y     | Y   | Access Not Successful                    |
@@ -233,16 +233,16 @@ This scenario deals with a request using different Enterprise-ID profiles, one w
 | B-1.5   | e | E2  | Branch 🡪   | A+       | A       | A   | RSS2   | Y     | Y   | Access Successful                        |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.5   | f | E2  | Branch 🡪   | A-       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.5   | f | E2  | Branch 🡪   | A−       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.5   | g | E3  | Branch 🡪   | A-       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.5   | g | E3  | Branch 🡪   | A−       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
 | B-1.5   | h | E1  | Branch 🡪   | RA+      | A       | A   | RSS1   | Y     | Y   | Access Successful                        |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.5   | i | E1  | Branch 🡪   | RA-      | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.5   | i | E1  | Branch 🡪   | RA−      | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
 | B-1.5   | j | E1  | Branch 🡪   | RA+      | A       | A   | RSS1   | N     | Y   | Access Not Successful                    |
@@ -272,7 +272,7 @@ This scenario deals with a request using different Enterprise-ID profiles, one w
 | B-1.6   | b | E1  | Remote 🡪   | A+       | A       | A   | RSS2   | Y     | Y   | Access Successful                        |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.6   | c | E1  | Remote 🡪   | A-       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.6   | c | E1  | Remote 🡪   | A−       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
 | B-1.6   | d | E2  | Remote 🡪   | A+       | A       | A   | RSS1   | Y     | Y   | Access Not Successful                    |
@@ -281,16 +281,16 @@ This scenario deals with a request using different Enterprise-ID profiles, one w
 | B-1.6   | e | E2  | Remote 🡪   | A+       | A       | A   | RSS2   | Y     | Y   | Access Successful                        |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.6   | f | E2  | Remote 🡪   | A-       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.6   | f | E2  | Remote 🡪   | A−       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.6   | g | E3  | Remote 🡪   | A-       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.6   | g | E3  | Remote 🡪   | A−       | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
 | B-1.6   | h | E1  | Remote 🡪   | RA+      | A       | A   | RSS1   | Y     | Y   | Access Successful                        |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
-| B-1.6   | i | E1  | Remote 🡪   | RA-      | A       | --- | ---    | Y     | --- | Access Not Successful                    |
+| B-1.6   | i | E1  | Remote 🡪   | RA−      | A       | --- | ---    | Y     | --- | Access Not Successful                    |
 |         |   |     | Cloud      |          |         |     |        |       |     |                                          |
 +---------+---+-----+------------+----------+---------+-----+--------+-------+-----+------------------------------------------+
 | B-1.6   | j | E1  | Remote 🡪   | RA+      | A       | A   | RSS1   | N     | Y   | Access Not Successful                    |
@@ -342,10 +342,10 @@ This scenario deals with access from an enterprise-owned device to non-enterpris
 | B-2.1   | c | E4  | On-Prem 🡪  | A+       | A  | URL1   | Y     | Y            | Access Successful                        |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
-| B-2.1   | d | E4  | On-Prem 🡪  | A+       | A  | URL1   | Y     | Y            | Access Successful                        |
+| B-2.1   | d | E4  | On-Prem 🡪  | A+       | A  | URL2   | Y     | Y            | Access Successful                        |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
-| B-2.1   | e | E4  | On-Prem 🡪  | A-       | A  | ---    | Y     | ---          | Access Not Successful                    |
+| B-2.1   | e | E4  | On-Prem 🡪  | A−       | A  | ---    | Y     | ---          | Access Not Successful                    |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
 | B-2.1   | f | E5  | On-Prem 🡪  | A+       | A  | URL1   | Y     | N            | Access Not Successful                    |
@@ -357,16 +357,16 @@ This scenario deals with access from an enterprise-owned device to non-enterpris
 | B-2.1   | h | E5  | On-Prem 🡪  | A+       | A  | URL1   | Y     | Y            | Access Not Successful                    |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
-| B-2.1   | i | E5  | On-Prem 🡪  | A+       | A  | URL1   | Y     | Y            | Access Not Successful                    |
+| B-2.1   | i | E5  | On-Prem 🡪  | A+       | A  | URL2   | Y     | Y            | Access Not Successful                    |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
-| B-2.1   | j | E5  | On-Prem 🡪  | A-       | A  | ---    | Y     | ---          | Access Not Successful                    |
+| B-2.1   | j | E5  | On-Prem 🡪  | A−       | A  | ---    | Y     | ---          | Access Not Successful                    |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
 | B-2.1   | k | E4  | On-Prem 🡪  | RA+      | A  | URL1   | Y     | ---          | Access Successful                        |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
-| B-2.1   | l | E4  | On-Prem 🡪  | RA-      | A  | ---    | Y     | ---          | Access Not Successful                    |
+| B-2.1   | l | E4  | On-Prem 🡪  | RA−      | A  | ---    | Y     | ---          | Access Not Successful                    |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
 | B-2.1   | m | E4  | On-Prem 🡪  | A+       | A  | URL1   | N     | ---          | Access Not Successful                    |
@@ -390,10 +390,10 @@ This scenario deals with access from an enterprise-owned device to non-enterpris
 | B-2.2   | c | E4  | Branch 🡪   | A+       | A  | URL1   | Y     | Y            | Access Successful                        |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
-| B-2.2   | d | E4  | Branch 🡪   | A+       | A  | URL1   | Y     | Y            | Access Successful                        |
+| B-2.2   | d | E4  | Branch 🡪   | A+       | A  | URL2   | Y     | Y            | Access Successful                        |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
-| B-2.2   | e | E4  | Branch 🡪   | A-       | A  | ---    | Y     | ---          | Access Not Successful                    |
+| B-2.2   | e | E4  | Branch 🡪   | A−       | A  | ---    | Y     | ---          | Access Not Successful                    |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
 | B-2.2   | f | E5  | Branch 🡪   | A+       | A  | URL1   | Y     | N            | Access Not Successful                    |
@@ -405,16 +405,16 @@ This scenario deals with access from an enterprise-owned device to non-enterpris
 | B-2.2   | h | E5  | Branch 🡪   | A+       | A  | URL1   | Y     | Y            | Access Not Successful                    |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
-| B-2.2   | i | E5  | Branch 🡪   | A+       | A  | URL1   | Y     | Y            | Access Not Successful                    |
+| B-2.2   | i | E5  | Branch 🡪   | A+       | A  | URL2   | Y     | Y            | Access Not Successful                    |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
-| B-2.2   | j | E5  | Branch 🡪   | A-       | A  | ---    | Y     | ---          | Access Not Successful                    |
+| B-2.2   | j | E5  | Branch 🡪   | A−       | A  | ---    | Y     | ---          | Access Not Successful                    |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
 | B-2.2   | k | E4  | Branch 🡪   | RA+      | A  | URL1   | Y     | ---          | Access Successful                        |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
-| B-2.2   | l | E4  | Branch 🡪   | RA-      | A  | ---    | Y     | ---          | Access Not Successful                    |
+| B-2.2   | l | E4  | Branch 🡪   | RA−      | A  | ---    | Y     | ---          | Access Not Successful                    |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
 | B-2.2   | m | E4  | Branch 🡪   | A+       | A  | URL1   | N     | ---          | Access Not Successful                    |
@@ -438,10 +438,10 @@ This scenario deals with access from an enterprise-owned device to non-enterpris
 | B-2.3   | c | E4  | Remote 🡪   | A+       | A  | URL1   | Y     | Y            | Access Successful                        |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
-| B-2.3   | d | E4  | Remote 🡪   | A+       | A  | URL1   | Y     | Y            | Access Successful                        |
+| B-2.3   | d | E4  | Remote 🡪   | A+       | A  | URL2   | Y     | Y            | Access Successful                        |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
-| B-2.3   | e | E4  | Remote 🡪   | A-       | A  | ---    | Y     | ---          | Access Not Successful                    |
+| B-2.3   | e | E4  | Remote 🡪   | A−       | A  | ---    | Y     | ---          | Access Not Successful                    |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
 | B-2.3   | f | E5  | Remote 🡪   | A+       | A  | URL1   | Y     | N            | Access Not Successful                    |
@@ -453,16 +453,16 @@ This scenario deals with access from an enterprise-owned device to non-enterpris
 | B-2.3   | h | E5  | Remote 🡪   | A+       | A  | URL1   | Y     | Y            | Access Not Successful                    |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
-| B-2.3   | i | E5  | Remote 🡪   | A+       | A  | URL1   | Y     | Y            | Access Not Successful                    |
+| B-2.3   | i | E5  | Remote 🡪   | A+       | A  | URL2   | Y     | Y            | Access Not Successful                    |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
-| B-2.3   | j | E5  | Remote 🡪   | A-       | A  | ---    | Y     | ---          | Access Not Successful                    |
+| B-2.3   | j | E5  | Remote 🡪   | A−       | A  | ---    | Y     | ---          | Access Not Successful                    |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
 | B-2.3   | k | E4  | Remote 🡪   | RA+      | A  | URL1   | Y     | ---          | Access Successful                        |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
-| B-2.3   | l | E4  | Remote 🡪   | RA-      | A  | ---    | Y     | ---          | Access Not Successful                    |
+| B-2.3   | l | E4  | Remote 🡪   | RA−      | A  | ---    | Y     | ---          | Access Not Successful                    |
 |         |   |     | Internet   |          |    |        |       |              |                                          |
 +---------+---+-----+------------+----------+----+--------+-------+--------------+------------------------------------------+
 | B-2.3   | m | E4  | Remote 🡪   | A+       | A  | URL1   | N     | ---          | Access Not Successful                    |
@@ -504,7 +504,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.1   | b | E6 | On-Prem     | A-       | ---         | N           | Access Not Successful            | ---                                 |
+| B-3.1   | b | E6 | On-Prem     | A−       | ---         | N           | Access Not Successful            | ---                                 |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -516,7 +516,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.1   | d | E6 | On-Prem     | A        | A-          | N           | Keep Access                      | Access Not Successful               |
+| B-3.1   | d | E6 | On-Prem     | A        | A−          | N           | Keep Access                      | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -528,7 +528,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.1   | f | E6 | On-Prem     | ---      | A-          | N           | ---                              | Access Not Successful               |
+| B-3.1   | f | E6 | On-Prem     | ---      | A−          | N           | ---                              | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -540,7 +540,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.1   | h | E6 | On-Prem     | A-       | A           | N           | Access Not Successful            | Keep Access                         |
+| B-3.1   | h | E6 | On-Prem     | A−       | A           | N           | Access Not Successful            | Keep Access                         |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -552,13 +552,13 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.1   | j | E7 | On-Prem     | A        | A-          | Y           | Keep Access                      | Access Not Successful               |
+| B-3.1   | j | E7 | On-Prem     | A        | A−          | Y           | Keep Access                      | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.1   | k | E7 | On-Prem     | ---      | A-          | Y           | ---                              | Access Not Successful               |
+| B-3.1   | k | E7 | On-Prem     | ---      | A−          | Y           | ---                              | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -570,7 +570,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.1   | m | E7 | On-Prem     | ---      | RA-         | Y           | ---                              | Access Not Successful               |
+| B-3.1   | m | E7 | On-Prem     | ---      | RA−         | Y           | ---                              | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -594,7 +594,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.2   | b | E6 | On-Prem     | A-       | ---         | N           | Access Not Successful            | ---                                 |
+| B-3.2   | b | E6 | On-Prem     | A−       | ---         | N           | Access Not Successful            | ---                                 |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | Branch 🡪  |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -606,7 +606,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.2   | d | E6 | On-Prem     | A        | A-          | N           | Keep Access                      | Access Not Successful               |
+| B-3.2   | d | E6 | On-Prem     | A        | A−          | N           | Keep Access                      | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | Branch 🡪  |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -618,7 +618,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.2   | f | E6 | On-Prem     | ---      | A-          | N           | ---                              | Access Not Successful               |
+| B-3.2   | f | E6 | On-Prem     | ---      | A−          | N           | ---                              | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | Branch 🡪  |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -630,7 +630,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.2   | h | E6 | On-Prem     | A-       | A           | N           | Access Not Successful            | Keep Access                         |
+| B-3.2   | h | E6 | On-Prem     | A−       | A           | N           | Access Not Successful            | Keep Access                         |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | Branch 🡪  |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -642,13 +642,13 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.2   | j | E7 | On-Prem     | A        | A-          | Y           | Keep Access                      | Access Not Successful               |
+| B-3.2   | j | E7 | On-Prem     | A        | A−          | Y           | Keep Access                      | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | Branch 🡪  |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.2   | k | E7 | On-Prem     | ---      | A-          | Y           | ---                              | Access Not Successful               |
+| B-3.2   | k | E7 | On-Prem     | ---      | A−          | Y           | ---                              | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | Branch 🡪  |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -660,7 +660,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.2   | m | E7 | On-Prem     | ---      | RA-         | Y           | ---                              | Access Not Successful               |
+| B-3.2   | m | E7 | On-Prem     | ---      | RA−         | Y           | ---                              | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | Branch 🡪  |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -684,7 +684,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.3   | b | E6 | Branch      | A-       | ---         | N           | Access Not Successful            | ---                                 |
+| B-3.3   | b | E6 | Branch      | A−       | ---         | N           | Access Not Successful            | ---                                 |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -696,7 +696,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.3   | d | E6 | Branch      | A        | A-          | N           | Keep Access                      | Access Not Successful               |
+| B-3.3   | d | E6 | Branch      | A        | A−          | N           | Keep Access                      | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -708,7 +708,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.3   | f | E6 | Branch      | ---      | A-          | N           | ---                              | Access Not Successful               |
+| B-3.3   | f | E6 | Branch      | ---      | A−          | N           | ---                              | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -720,7 +720,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.3   | h | E6 | Branch      | A-       | A           | N           | Access Not Successful            | Keep Access                         |
+| B-3.3   | h | E6 | Branch      | A−       | A           | N           | Access Not Successful            | Keep Access                         |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -732,13 +732,13 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.3   | j | E7 | Branch      | A        | A-          | Y           | Keep Access                      | Access Not Successful               |
+| B-3.3   | j | E7 | Branch      | A        | A−          | Y           | Keep Access                      | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.3   | k | E7 | Branch      | ---      | A-          | Y           | ---                              | Access Not Successful               |
+| B-3.3   | k | E7 | Branch      | ---      | A−          | Y           | ---                              | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -750,7 +750,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.3   | m | E7 | Branch      | ---      | RA-         | Y           | ---                              | Access Not Successful               |
+| B-3.3   | m | E7 | Branch      | ---      | RA−         | Y           | ---                              | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -774,7 +774,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.4   | b | E6 | Remote      | A-       | ---         | N           | Access Not Successful            | ---                                 |
+| B-3.4   | b | E6 | Remote      | A−       | ---         | N           | Access Not Successful            | ---                                 |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -786,7 +786,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.4   | d | E6 | Remote      | A        | A-          | N           | Keep Access                      | Access Not Successful               |
+| B-3.4   | d | E6 | Remote      | A        | A−          | N           | Keep Access                      | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -798,7 +798,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.4   | f | E6 | Remote      | ---      | A-          | N           | ---                              | Access Not Successful               |
+| B-3.4   | f | E6 | Remote      | ---      | A−          | N           | ---                              | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -810,7 +810,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.4   | h | E6 | Remote      | A-       | A           | N           | Access Not Successful            | Keep Access                         |
+| B-3.4   | h | E6 | Remote      | A−       | A           | N           | Access Not Successful            | Keep Access                         |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -822,13 +822,13 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.4   | j | E7 | Remote      | A        | A-          | Y           | Keep Access                      | Access Not Successful               |
+| B-3.4   | j | E7 | Remote      | A        | A−          | Y           | Keep Access                      | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.4   | k | E7 | Remote      | ---      | A-          | Y           | ---                              | Access Not Successful               |
+| B-3.4   | k | E7 | Remote      | ---      | A−          | Y           | ---                              | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -840,7 +840,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.4   | m | E7 | Remote      | ---      | RA-         | Y           | ---                              | Access Not Successful               |
+| B-3.4   | m | E7 | Remote      | ---      | RA−         | Y           | ---                              | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -864,7 +864,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.5   | b | E6 | On-Prem     | A-       | ---         | N           | Access Not Successful            | ---                                 |
+| B-3.5   | b | E6 | On-Prem     | A−       | ---         | N           | Access Not Successful            | ---                                 |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | Remote 🡪  |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -876,7 +876,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.5   | d | E6 | On-Prem     | A        | A-          | N           | Keep Access                      | Access Not Successful               |
+| B-3.5   | d | E6 | On-Prem     | A        | A−          | N           | Keep Access                      | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | Remote 🡪  |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -888,7 +888,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.5   | f | E6 | On-Prem     | ---      | A-          | N           | ---                              | Access Not Successful               |
+| B-3.5   | f | E6 | On-Prem     | ---      | A−          | N           | ---                              | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | Remote 🡪  |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -900,7 +900,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.5   | h | E6 | On-Prem     | A-       | A           | N           | Access Not Successful            | Keep Access                         |
+| B-3.5   | h | E6 | On-Prem     | A−       | A           | N           | Access Not Successful            | Keep Access                         |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | Remote 🡪  |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -912,13 +912,13 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.5   | j | E7 | On-Prem     | A        | A-          | Y           | Keep Access                      | Access Not Successful               |
+| B-3.5   | j | E7 | On-Prem     | A        | A−          | Y           | Keep Access                      | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | Remote 🡪  |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.5   | k | E7 | On-Prem     | ---      | A-          | Y           | ---                              | Access Not Successful               |
+| B-3.5   | k | E7 | On-Prem     | ---      | A−          | Y           | ---                              | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | Remote 🡪  |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -930,7 +930,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | On-Prem     |          |             |             |                                  |                                     |
 +---------+---+----+-------------+----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-3.5   | m | E7 | On-Prem     | ---      | RA-         | Y           | ---                              | Access Not Successful               |
+| B-3.5   | m | E7 | On-Prem     | ---      | RA−         | Y           | ---                              | Access Not Successful               |
 |         |   |    |             |          |             |             |                                  |                                     |
 |         |   |    | | Remote 🡪  |          |             |             |                                  |                                     |
 |         |   |    |             |          |             |             |                                  |                                     |
@@ -973,7 +973,7 @@ This scenario deals with requests using different Enterprise-ID profiles, one wi
 | B-4.1   | b | E1 | On-Prem 🡪  | A+       | A  | A   | RSS2   | Y     | Y   | Access Successful    |
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.1   | c | E1 | On-Prem 🡪  | A-       | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.1   | c | E1 | On-Prem 🡪  | A−       | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
 | B-4.1   | d | E2 | On-Prem 🡪  | A+       | A  | A   | RSS1   | Y     | Y   | Access Not Successful|
@@ -982,16 +982,16 @@ This scenario deals with requests using different Enterprise-ID profiles, one wi
 | B-4.1   | e | E2 | On-Prem 🡪  | A+       | A  | A   | RSS2   | Y     | Y   | Access Successful    |
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.1   | f | E2 | On-Prem 🡪  | A-       | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.1   | f | E2 | On-Prem 🡪  | A−       | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.1   | g | E3 | On-Prem 🡪  | A-       | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.1   | g | E3 | On-Prem 🡪  | A−       | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
 | B-4.1   | h | E1 | On-Prem 🡪  | RA+      | A  | A   | RSS1   | Y     | Y   | Access Successful    |
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.1   | i | E1 | On-Prem 🡪  | RA-      | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.1   | i | E1 | On-Prem 🡪  | RA−      | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
 | B-4.1   | j | E1 | On-Prem 🡪  | RA+      | A  | A   | RSS1   | N     | Y   | Access Not Successful|
@@ -1021,7 +1021,7 @@ This scenario deals with requests using different Enterprise-ID profiles, one wi
 | B-4.2   | b | E1 | Branch 🡪   | A+       | A  | A   | RSS2   | Y     | Y   | Access Successful    |
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.2   | c | E1 | Branch 🡪   | A-       | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.2   | c | E1 | Branch 🡪   | A−       | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
 | B-4.2   | d | E2 | Branch 🡪   | A+       | A  | A   | RSS1   | Y     | Y   | Access Not Successful|
@@ -1030,16 +1030,16 @@ This scenario deals with requests using different Enterprise-ID profiles, one wi
 | B-4.2   | e | E2 | Branch 🡪   | A+       | A  | A   | RSS2   | Y     | Y   | Access Successful    |
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.2   | f | E2 | Branch 🡪   | A-       | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.2   | f | E2 | Branch 🡪   | A−       | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.2   | g | E3 | Branch 🡪   | A-       | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.2   | g | E3 | Branch 🡪   | A−       | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
 | B-4.2   | h | E1 | Branch 🡪   | RA+      | A  | A   | RSS1   | Y     | Y   | Access Successful    |
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.2   | i | E1 | Branch 🡪   | RA-      | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.2   | i | E1 | Branch 🡪   | RA−      | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
 | B-4.2   | j | E1 | Branch 🡪   | RA+      | A  | A   | RSS1   | N     | Y   | Access Not Successful|
@@ -1069,7 +1069,7 @@ This scenario deals with requests using different Enterprise-ID profiles, one wi
 | B-4.3   | b | E1 | Remote 🡪   | A+       | A  | A   | RSS2   | Y     | Y   | Access Successful    |
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.3   | c | E1 | Remote 🡪   | A-       | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.3   | c | E1 | Remote 🡪   | A−       | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
 | B-4.3   | d | E2 | Remote 🡪   | A+       | A  | A   | RSS1   | Y     | Y   | Access Not Successful|
@@ -1078,16 +1078,16 @@ This scenario deals with requests using different Enterprise-ID profiles, one wi
 | B-4.3   | e | E2 | Remote 🡪   | A+       | A  | A   | RSS2   | Y     | Y   | Access Successful    |
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.2   | f | E2 | Remote 🡪   | A-       | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.2   | f | E2 | Remote 🡪   | A−       | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.3   | g | E3 | Remote 🡪   | A-       | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.3   | g | E3 | Remote 🡪   | A−       | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
 | B-4.3   | h | E1 | Remote 🡪   | RA+      | A  | A   | RSS1   | Y     | Y   | Access Successful    |
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.3   | i | E1 | Remote 🡪   | RA-      | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.3   | i | E1 | Remote 🡪   | RA−      | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | On-Prem    |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
 | B-4.3   | j | E1 | Remote 🡪   | RA+      | A  | A   | RSS1   | N     | Y   | Access Not Successful|
@@ -1117,7 +1117,7 @@ This scenario deals with requests using different Enterprise-ID profiles, one wi
 | B-4.4   | b | E1 | On-Prem 🡪  | A+       | A  | A   | RSS2   | Y     | Y   | Access Successful    |
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.4   | c | E1 | On-Prem 🡪  | A-       | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.4   | c | E1 | On-Prem 🡪  | A−       | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
 | B-4.4   | d | E2 | On-Prem 🡪  | A+       | A  | A   | RSS1   | Y     | Y   | Access Not Successful|
@@ -1126,16 +1126,16 @@ This scenario deals with requests using different Enterprise-ID profiles, one wi
 | B-4.4   | e | E2 | On-Prem 🡪  | A+       | A  | A   | RSS2   | Y     | Y   | Access Successful    |
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.4   | f | E2 | On-Prem 🡪  | A-       | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.4   | f | E2 | On-Prem 🡪  | A−       | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.4   | g | E3 | On-Prem 🡪  | A-       | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.4   | g | E3 | On-Prem 🡪  | A−       | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
 | B-4.4   | h | E1 | On-Prem 🡪  | RA+      | A  | A   | RSS1   | Y     | Y   | Access Successful    |
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.4   | i | E1 | On-Prem 🡪  | RA-      | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.4   | i | E1 | On-Prem 🡪  | RA−      | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
 | B-4.4   | j | E1 | On-Prem 🡪  | RA+      | A  | A   | RSS1   | N     | Y   | Access Not Successful|
@@ -1165,7 +1165,7 @@ This scenario deals with requests using different Enterprise-ID profiles, one wi
 | B-4.5   | b | E1 | Branch 🡪   | A+       | A  | A   | RSS2   | Y     | Y   | Access Successful    |
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.5   | c | E1 | Branch 🡪   | A-       | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.5   | c | E1 | Branch 🡪   | A−       | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
 | B-4.5   | d | E2 | Branch 🡪   | A+       | A  | A   | RSS1   | Y     | Y   | Access Not Successful|
@@ -1174,16 +1174,16 @@ This scenario deals with requests using different Enterprise-ID profiles, one wi
 | B-4.5   | e | E2 | Branch 🡪   | A+       | A  | A   | RSS2   | Y     | Y   | Access Successful    |
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.5   | f | E2 | Branch 🡪   | A-       | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.5   | f | E2 | Branch 🡪   | A−       | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.5   | g | E3 | Branch 🡪   | A-       | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.5   | g | E3 | Branch 🡪   | A−       | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
 | B-4.5   | h | E1 | Branch 🡪   | RA+      | A  | A   | RSS1   | Y     | Y   | Access Successful    |
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.5   | i | E1 | Branch 🡪   | RA-      | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.5   | i | E1 | Branch 🡪   | RA−      | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
 | B-4.5   | j | E1 | Branch 🡪   | RA+      | A  | A   | RSS1   | N     | Y   | Access Not Successful|
@@ -1213,7 +1213,7 @@ This scenario deals with requests using different Enterprise-ID profiles, one wi
 | B-4.6   | b | E1 | Branch 🡪   | A+       | A  | A   | RSS2   | Y     | Y   | Access Successful    |
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.6   | c | E1 | Branch 🡪   | A-       | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.6   | c | E1 | Branch 🡪   | A−       | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
 | B-4.6   | d | E2 | Branch 🡪   | A+       | A  | A   | RSS1   | Y     | Y   | Access Not Successful|
@@ -1222,16 +1222,16 @@ This scenario deals with requests using different Enterprise-ID profiles, one wi
 | B-4.6   | e | E2 | Branch 🡪   | A+       | A  | A   | RSS2   | Y     | Y   | Access Successful    |
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.6   | f | E2 | Branch 🡪   | A-       | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.6   | f | E2 | Branch 🡪   | A−       | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.6   | g | E3 | Branch 🡪   | A-       | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.6   | g | E3 | Branch 🡪   | A−       | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
 | B-4.6   | h | E1 | Branch 🡪   | RA+      | A  | A   | RSS1   | Y     | Y   | Access Successful    |
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
-| B-4.6   | i | E1 | Branch 🡪   | RA-      | A  | --- | ---    | Y     | --- | Access Not Successful|
+| B-4.6   | i | E1 | Branch 🡪   | RA−      | A  | --- | ---    | Y     | --- | Access Not Successful|
 |         |   |    | Cloud      |          |    |     |        |       |     |                      |
 +---------+---+----+------------+----------+----+-----+--------+-------+-----+----------------------+
 | B-4.6   | j | E1 | Branch 🡪   | RA+      | A  | A   | RSS1   | N     | Y   | Access Not Successful|
@@ -1283,10 +1283,10 @@ This scenario deals with access from an enterprise-owned device to non-enterpris
 | B-5.1   | c | E4 | On-Prem 🡪  | A+        | A  | URL1   | Y     | Y            | Access Successful      |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
-| B-5.1   | d | E4 | On-Prem 🡪  | A+        | A  | URL1   | Y     | Y            | Access Successful      |
+| B-5.1   | d | E4 | On-Prem 🡪  | A+        | A  | URL2   | Y     | Y            | Access Successful      |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
-| B-5.1   | e | E4 | On-Prem 🡪  | A-        | A  | ---    | Y     | ---          | Access Not Successful  |
+| B-5.1   | e | E4 | On-Prem 🡪  | A−        | A  | ---    | Y     | ---          | Access Not Successful  |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
 | B-5.1   | f | E5 | On-Prem 🡪  | A+        | A  | URL1   | Y     | N            | Access Not Successful  |
@@ -1298,16 +1298,16 @@ This scenario deals with access from an enterprise-owned device to non-enterpris
 | B-5.1   | h | E5 | On-Prem 🡪  | A+        | A  | URL1   | Y     | Y            | Access Not Successful  |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
-| B-5.1   | i | E5 | On-Prem 🡪  | A+        | A  | URL1   | Y     | Y            | Access Not Successful  |
+| B-5.1   | i | E5 | On-Prem 🡪  | A+        | A  | URL2   | Y     | Y            | Access Not Successful  |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
-| B-5.1   | j | E5 | On-Prem 🡪  | A-        | A  | ---    | Y     | ---          | Access Not Successful  |
+| B-5.1   | j | E5 | On-Prem 🡪  | A−        | A  | ---    | Y     | ---          | Access Not Successful  |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
 | B-5.1   | k | E4 | On-Prem 🡪  | RA+       | A  | URL1   | Y     | ---          | Access Successful      |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
-| B-5.1   | l | E4 | On-Prem 🡪  | RA-       | A  | ---    | Y     | ---          | Access Not Successful  |
+| B-5.1   | l | E4 | On-Prem 🡪  | RA−       | A  | ---    | Y     | ---          | Access Not Successful  |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
 | B-5.1   | m | E4 | On-Prem 🡪  | A+        | A  | URL1   | N     | ---          | Access Not Successful  |
@@ -1331,10 +1331,10 @@ This scenario deals with access from an enterprise-owned device to non-enterpris
 | B-5.2   | c | E4 | Branch 🡪   | A+        | A  | URL1   | Y     | Y            | Access Successful      |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
-| B-5.2   | d | E4 | Branch 🡪   | A+        | A  | URL1   | Y     | Y            | Access Successful      |
+| B-5.2   | d | E4 | Branch 🡪   | A+        | A  | URL2   | Y     | Y            | Access Successful      |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
-| B-5.2   | e | E4 | Branch 🡪   | A-        | A  | ---    | Y     | ---          | Access Not Successful  |
+| B-5.2   | e | E4 | Branch 🡪   | A−        | A  | ---    | Y     | ---          | Access Not Successful  |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
 | B-5.2   | f | E5 | Branch 🡪   | A+        | A  | URL1   | Y     | N            | Access Not Successful  |
@@ -1346,16 +1346,16 @@ This scenario deals with access from an enterprise-owned device to non-enterpris
 | B-5.2   | h | E5 | Branch 🡪   | A+        | A  | URL1   | Y     | Y            | Access Not Successful  |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
-| B-5.2   | i | E5 | Branch 🡪   | A+        | A  | URL1   | Y     | Y            | Access Not Successful  |
+| B-5.2   | i | E5 | Branch 🡪   | A+        | A  | URL2   | Y     | Y            | Access Not Successful  |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
-| B-5.2   | j | E5 | Branch 🡪   | A-        | A  | ---    | Y     | ---          | Access Not Successful  |
+| B-5.2   | j | E5 | Branch 🡪   | A−        | A  | ---    | Y     | ---          | Access Not Successful  |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
 | B-5.2   | k | E4 | Branch 🡪   | RA+       | A  | URL1   | Y     | ---          | Access Successful      |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
-| B-5.2   | l | E4 | Branch 🡪   | RA-       | A  | ---    | Y     | ---          | Access Not Successful  |
+| B-5.2   | l | E4 | Branch 🡪   | RA−       | A  | ---    | Y     | ---          | Access Not Successful  |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
 | B-5.2   | m | E4 | Branch 🡪   | A+        | A  | URL1   | N     | ---          | Access Not Successful  |
@@ -1379,10 +1379,10 @@ This scenario deals with access from an enterprise-owned device to non-enterpris
 | B-5.3   | c | E4 | Remote 🡪   | A+        | A  | URL1   | Y     | Y            | Access Successful      |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
-| B-5.3   | d | E4 | Remote 🡪   | A+        | A  | URL1   | Y     | Y            | Access Successful      |
+| B-5.3   | d | E4 | Remote 🡪   | A+        | A  | URL2   | Y     | Y            | Access Successful      |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
-| B-5.3   | e | E4 | Remote 🡪   | A-        | A  | ---    | Y     | ---          | Access Not Successful  |
+| B-5.3   | e | E4 | Remote 🡪   | A−        | A  | ---    | Y     | ---          | Access Not Successful  |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
 | B-5.3   | f | E5 | Remote 🡪   | A+        | A  | URL1   | Y     | N            | Access Not Successful  |
@@ -1394,16 +1394,16 @@ This scenario deals with access from an enterprise-owned device to non-enterpris
 | B-5.3   | h | E5 | Remote 🡪   | A+        | A  | URL1   | Y     | Y            | Access Not Successful  |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
-| B-5.3   | i | E5 | Remote 🡪   | A+        | A  | URL1   | Y     | Y            | Access Not Successful  |
+| B-5.3   | i | E5 | Remote 🡪   | A+        | A  | URL2   | Y     | Y            | Access Not Successful  |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
-| B-5.3   | j | E5 | Remote 🡪   | A-        | A  | ---    | Y     | ---          | Access Not Successful  |
+| B-5.3   | j | E5 | Remote 🡪   | A−        | A  | ---    | Y     | ---          | Access Not Successful  |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
 | B-5.3   | k | E4 | Remote 🡪   | RA+       | A  | URL1   | Y     | ---          | Access Successful      |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
-| B-5.3   | l | E4 | Remote 🡪   | RA-       | A  | ---    | Y     | ---          | Access Not Successful  |
+| B-5.3   | l | E4 | Remote 🡪   | RA−       | A  | ---    | Y     | ---          | Access Not Successful  |
 |         |   |    | Internet   |           |    |        |       |              |                        |
 +---------+---+----+------------+-----------+----+--------+-------+--------------+------------------------+
 | B-5.3   | m | E4 | Remote 🡪   | A+        | A  | URL1   | N     | ---          | Access Not Successful  |
@@ -1445,7 +1445,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.1   | b | E6 | On-Prem     | A-        | ---         | N           | Access Not Successful            | ---                                 |
+| B-6.1   | b | E6 | On-Prem     | A−        | ---         | N           | Access Not Successful            | ---                                 |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1457,7 +1457,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.1   | d | E6 | On-Prem     | A         | A-          | N           | Keep Access                      | Access Not Successful               |
+| B-6.1   | d | E6 | On-Prem     | A         | A−          | N           | Keep Access                      | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1469,7 +1469,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.1   | f | E6 | On-Prem     | ---       | A-          | N           | ---                              | Access Not Successful               |
+| B-6.1   | f | E6 | On-Prem     | ---       | A−          | N           | ---                              | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1481,7 +1481,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.1   | h | E6 | On-Prem     | A-        | A           | N           | Access Not Successful            | Keep Access                         |
+| B-6.1   | h | E6 | On-Prem     | A−        | A           | N           | Access Not Successful            | Keep Access                         |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1493,13 +1493,13 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.1   | j | E6 | On-Prem     | A         | A-          | Y           | Keep Access                      | Access Not Successful               |
+| B-6.1   | j | E6 | On-Prem     | A         | A−          | Y           | Keep Access                      | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.1   | k | E6 | On-Prem     | ---       | A-          | Y           | ---                              | Access Not Successful               |
+| B-6.1   | k | E6 | On-Prem     | ---       | A−          | Y           | ---                              | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1511,7 +1511,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.1   | m | E6 | On-Prem     | ---       | RA-         | Y           | ---                              | Access Not Successful               |
+| B-6.1   | m | E6 | On-Prem     | ---       | RA−         | Y           | ---                              | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1535,7 +1535,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.2   | b | E6 | On-Prem     | A-        | ---         | N           | Access Not Successful            | ---                                 |
+| B-6.2   | b | E6 | On-Prem     | A−        | ---         | N           | Access Not Successful            | ---                                 |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | Branch 🡪  |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1547,7 +1547,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.2   | d | E6 | On-Prem     | A         | A-          | N           | Keep Access                      | Access Not Successful               |
+| B-6.2   | d | E6 | On-Prem     | A         | A−          | N           | Keep Access                      | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | Branch 🡪  |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1559,7 +1559,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.2   | f | E6 | On-Prem     | ---       | A-          | N           | ---                              | Access Not Successful               |
+| B-6.2   | f | E6 | On-Prem     | ---       | A−          | N           | ---                              | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | Branch 🡪  |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1571,7 +1571,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.2   | h | E6 | On-Prem     | A-        | A           | N           | Access Not Successful            | Keep Access                         |
+| B-6.2   | h | E6 | On-Prem     | A−        | A           | N           | Access Not Successful            | Keep Access                         |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | Branch 🡪  |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1583,13 +1583,13 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.2   | j | E7 | On-Prem     | A         | A-          | Y           | Keep Access                      | Access Not Successful               |
+| B-6.2   | j | E7 | On-Prem     | A         | A−          | Y           | Keep Access                      | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | Branch 🡪  |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.2   | k | E7 | On-Prem     | ---       | A-          | Y           | ---                              | Access Not Successful               |
+| B-6.2   | k | E7 | On-Prem     | ---       | A−          | Y           | ---                              | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | Branch 🡪  |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1601,7 +1601,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.2   | m | E7 | On-Prem     | ---       | RA-         | Y           | ---                              | Access Not Successful               |
+| B-6.2   | m | E7 | On-Prem     | ---       | RA−         | Y           | ---                              | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | Branch 🡪  |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1625,7 +1625,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.3   | b | E6 | Branch      | A-        | ---         | N           | Access Not Successful            | ---                                 |
+| B-6.3   | b | E6 | Branch      | A−        | ---         | N           | Access Not Successful            | ---                                 |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1637,7 +1637,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.3   | d | E6 | Branch      | A         | A-          | N           | Keep Access                      | Access Not Successful               |
+| B-6.3   | d | E6 | Branch      | A         | A−          | N           | Keep Access                      | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1649,7 +1649,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.3   | f | E6 | Branch      | ---       | A-          | N           | ---                              | Access Not Successful               |
+| B-6.3   | f | E6 | Branch      | ---       | A−          | N           | ---                              | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1661,7 +1661,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.3   | h | E6 | Branch      | A-        | A           | N           | Access Not Successful            | Keep Access                         |
+| B-6.3   | h | E6 | Branch      | A−        | A           | N           | Access Not Successful            | Keep Access                         |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1673,13 +1673,13 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.3   | j | E7 | Branch      | A         | A-          | Y           | Keep Access                      | Access Not Successful               |
+| B-6.3   | j | E7 | Branch      | A         | A−          | Y           | Keep Access                      | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.3   | k | E7 | Branch      | ---       | A-          | Y           | ---                              | Access Not Successful               |
+| B-6.3   | k | E7 | Branch      | ---       | A−          | Y           | ---                              | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1691,7 +1691,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.3   | m | E7 | Branch      | ---       | RA-         | Y           | ---                              | Access Not Successful               |
+| B-6.3   | m | E7 | Branch      | ---       | RA−         | Y           | ---                              | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1715,7 +1715,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.4   | b | E6 | Remote      | A-        | ---         | N           | Access Not Successful            | ---                                 |
+| B-6.4   | b | E6 | Remote      | A−        | ---         | N           | Access Not Successful            | ---                                 |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1727,7 +1727,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.4   | d | E6 | Remote      | A         | A-          | N           | Keep Access                      | Access Not Successful               |
+| B-6.4   | d | E6 | Remote      | A         | A−          | N           | Keep Access                      | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1739,7 +1739,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.4   | f | E6 | Remote      | ---       | A-          | N           | ---                              | Access Not Successful               |
+| B-6.4   | f | E6 | Remote      | ---       | A−          | N           | ---                              | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1751,7 +1751,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.4   | h | E6 | Remote      | A-        | A           | N           | Access Not Successful            | Keep Access                         |
+| B-6.4   | h | E6 | Remote      | A−        | A           | N           | Access Not Successful            | Keep Access                         |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1763,13 +1763,13 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.4   | j | E7 | Remote      | A         | A-          | Y           | Keep Access                      | Access Not Successful               |
+| B-6.4   | j | E7 | Remote      | A         | A−          | Y           | Keep Access                      | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.4   | k | E7 | Remote      | ---       | A-          | Y           | ---                              | Access Not Successful               |
+| B-6.4   | k | E7 | Remote      | ---       | A−          | Y           | ---                              | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1781,7 +1781,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.4   | m | E7 | Remote      | ---       | RA-         | Y           | ---                              | Access Not Successful               |
+| B-6.4   | m | E7 | Remote      | ---       | RA−         | Y           | ---                              | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | On-Prem 🡪 |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1805,7 +1805,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.5   | b | E6 | On-Prem     | A-        | ---         | N           | Access Not Successful            | ---                                 |
+| B-6.5   | b | E6 | On-Prem     | A−        | ---         | N           | Access Not Successful            | ---                                 |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | Remote 🡪  |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1817,7 +1817,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.5   | d | E6 | On-Prem     | A         | A-          | N           | Keep Access                      | Access Not Successful               |
+| B-6.5   | d | E6 | On-Prem     | A         | A−          | N           | Keep Access                      | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | Remote 🡪  |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1829,7 +1829,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.5   | f | E6 | On-Prem     | ---       | A-          | N           | ---                              | Access Not Successful               |
+| B-6.5   | f | E6 | On-Prem     | ---       | A−          | N           | ---                              | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | Remote 🡪  |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1841,7 +1841,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.5   | h | E6 | On-Prem     | A-        | A           | N           | Access Not Successful            | Keep Access                         |
+| B-6.5   | h | E6 | On-Prem     | A−        | A           | N           | Access Not Successful            | Keep Access                         |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | Remote 🡪  |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1853,13 +1853,13 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.5   | j | E7 | On-Prem     | A         | A-          | Y           | Keep Access                      | Access Not Successful               |
+| B-6.5   | j | E7 | On-Prem     | A         | A−          | Y           | Keep Access                      | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | Remote 🡪  |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.5   | k | E7 | On-Prem     | ---       | A-          | Y           | ---                              | Access Not Successful               |
+| B-6.5   | k | E7 | On-Prem     | ---       | A−          | Y           | ---                              | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | Remote 🡪  |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |
@@ -1871,7 +1871,7 @@ This scenario deals with a request using a stolen credential. It does not matter
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | On-Prem     |           |             |             |                                  |                                     |
 +---------+---+----+-------------+-----------+-------------+-------------+----------------------------------+-------------------------------------+
-| B-6.5   | m | E7 | On-Prem     | ---       | RA-         | Y           | ---                              | Access Not Successful               |
+| B-6.5   | m | E7 | On-Prem     | ---       | RA−         | Y           | ---                              | Access Not Successful               |
 |         |   |    |             |           |             |             |                                  |                                     |
 |         |   |    | | Remote 🡪  |           |             |             |                                  |                                     |
 |         |   |    |             |           |             |             |                                  |                                     |

@@ -10,6 +10,8 @@ E1B6 uses products from Amazon Web Services, IBM, Ivanti, Mandiant, Okta, Radian
 
 E1B6 components consist of Ivanti Neurons for Zero Trust Access (nZTA), Ivanti nZTA Gateway, Okta Identity Cloud, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, Okta Verify App, Ivanti Secure Access Client, IBM Security QRadar XDR, Tenable.io, Tenable.ad, Tenable NNM, Mandiant Security Validation (MSV), DigiCert CertCentral, and AWS IaaS.
 
+Note that after Tenable products were implemented at NCCoE, the name Tenable.ad was changed to Tenable Identity Exposure.
+
 Table 1 lists all of the technologies used in Build E1B6. It lists the products used to instantiate each ZTA component and the security function that each component provides. The technologies in this table are used to support zero trust access for non-mobile devices. For the technologies used to support zero trust access for mobile devices, refer to :ref:`Enterprise 1 Build 1 (E1B1) <Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs>`.
 
 **Table 1 - E1B6 Products and Technologies**
@@ -27,7 +29,7 @@ In this section we present the logical architecture of E1B6. We also describe E1
 Logical Architecture
 ~~~~~~~~~~~~~~~~~~~~
 
-Figure 1 depicts the logical architecture of E1B6. It uses numbered arrows to depict the general flow of messages needed for a subject to request access to a resource and have that access request evaluated based on subject identity (both requesting user and requesting endpoint identity), user authorizations, and requesting endpoint health. It also depicts the flow of messages supporting periodic reauthentication of the requesting user, the requesting endpoint, and the resource; and periodic verification of requesting endpoint health, all of which must be performed to continually reevaluate access. The labeled steps in Figure 1 have the same meanings as they do in :ref:`Architecture - Figure 1<ArchitectureFigure1>`. However, Figure 1 includes the specific products that instantiate the architecture of E1B6.
+Figure 1 depicts the logical architecture of E1B6. It uses numbered arrows to depict the general flow of messages needed for a subject to request access to a resource and have that access request evaluated based on subject identity (both requesting user and requesting endpoint identity), user authorizations, and requesting endpoint health. It also depicts the flow of messages supporting periodic reauthentication of the requesting user, the requesting endpoint, and the resource; and periodic verification of requesting endpoint health, all of which must be performed to continually reevaluate access. The labeled steps in Figure 1 have the same meanings as they do in :ref:`General ZTA Reference Architecture<ArchitectureFigure1>`. However, Figure 1 includes the specific products that instantiate the architecture of E1B6.
 
 E1B6 was designed with Ivanti components that serve as PEs, PAs, and PEPs, and Okta Identity Cloud that serves as the identity, access, and credential manager. Radiant Logic acts as a PIP for the PDP as it responds to inquiries and provides identity information on demand in order for Okta to make near-real-time access decisions. A more detailed depiction of the messages that flow among components to support a user access request can be found in :ref:`Message Flow for a Successful Resource Access Request<message-flow-e1b6>`.
 

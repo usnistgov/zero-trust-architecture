@@ -28,13 +28,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/content.css?v=59cd0ab0" />
     <link rel="stylesheet" type="text/css" href="../_static/breadcrumbs.css?v=84f9056b" />
+    <link rel="stylesheet" type="text/css" href="../_static/tables.css?v=1ae3e97c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -44,7 +45,7 @@
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -54,7 +55,6 @@
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeC/HowTo-E2B4';</script>
     <script src="../_static/jquery.visible.js?v=5b129ffc"></script>
@@ -550,7 +550,7 @@ document.write(`
 <p>Symantec ZTNA is a cloud-based service that allows this build to control network access within the enterprise and to control access to enterprise applications and resources.</p>
 <section id="installation-and-configuration">
 <h3>Installation and Configuration<a class="headerlink" href="#installation-and-configuration" title="Link to this heading">#</a></h3>
-<p>This build’s instance of the Symantec Cloud SWG was provisioned and deployed with the help of the Symantec team. The initial configuration process is detailed in the <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/web-and-network-security/secure-access-cloud/1-0/sac-workflow.html">official documentation</a>. Symantec ZTNA was also integrated with many of the other build components, for which details can be found later in this section. Following that, policies were configured in accordance with the <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/web-and-network-security/secure-access-cloud/1-0/sac-policies.html">official Symantec ZTNA policy guidance</a>.</p>
+<p>This build’s instance of the Symantec Cloud SWG was provisioned and deployed with the help of the Symantec team. The initial configuration process is detailed in the <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/web-and-network-security/secure-access-cloud/1-0/sac-workflow.html">official documentation</a>. Symantec ZTNA was also integrated with many of the other build components, for which details can be found later in this section. Following that, policies were configured in accordance with the <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/web-and-network-security/secure-access-cloud/1-0/sac-policies.html">official Symantec ZTNA policy guidelines</a>.</p>
 </section>
 <section id="integration-with-okta-identity-cloud">
 <h3>Integration with Okta Identity Cloud<a class="headerlink" href="#integration-with-okta-identity-cloud" title="Link to this heading">#</a></h3>
@@ -566,7 +566,7 @@ document.write(`
 </section>
 <section id="integration-with-symantec-cloud-secure-web-gateway-cloud-swg">
 <h3>Integration with Symantec Cloud Secure Web Gateway (Cloud SWG)<a class="headerlink" href="#integration-with-symantec-cloud-secure-web-gateway-cloud-swg" title="Link to this heading">#</a></h3>
-<p>Integration with the Symantec Cloud SWG was accomplished using guidance provided in the Symantec ZTNA web interface. Integrating these components depends on linking them together via subscription ID.</p>
+<p>Integration with the Symantec Cloud SWG was accomplished using guidelines provided in the Symantec ZTNA web interface. Integrating these components depends on linking them together via subscription ID.</p>
 </section>
 <section id="symantec-ztna-connector">
 <h3>Symantec ZTNA Connector<a class="headerlink" href="#symantec-ztna-connector" title="Link to this heading">#</a></h3>
@@ -578,7 +578,7 @@ document.write(`
 <p>The Symantec Cloud SWG is a cloud-based service that can apply policy to user traffic. User endpoints with the Symantec Endpoint Security agent are configured to pass network traffic through the Cloud SWG, allowing policy to be applied and enforced.</p>
 <section id="id1">
 <h3>Installation and Configuration<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p>This build’s instance of the Symantec Cloud SWG was provisioned and deployed with the help of the Symantec by Broadcom team. Once deployment was complete, policies were configured in accordance with the <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/web-and-network-security/cloud-swg/help/policy-matrix.html">official Cloud SWG Policy guidance</a>.</p>
+<p>This build’s instance of the Symantec Cloud SWG was provisioned and deployed with the help of the Symantec by Broadcom team. Once deployment was complete, policies were configured in accordance with the <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/web-and-network-security/cloud-swg/help/policy-matrix.html">official Cloud SWG Policy guidelines</a>.</p>
 </section>
 <section id="integrations">
 <h3>Integrations<a class="headerlink" href="#integrations" title="Link to this heading">#</a></h3>
@@ -666,6 +666,7 @@ document.write(`
 <section id="tenable-ad">
 <h2>Tenable.ad<a class="headerlink" href="#tenable-ad" title="Link to this heading">#</a></h2>
 <p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id11"><span class="std std-ref">Tenable.ad</span></a>.</p>
+<p>Note that after Tenable products were implemented at NCCoE, the name Tenable.ad was changed to Tenable Identity Exposure.</p>
 </section>
 <section id="tenable-nnm">
 <h2>Tenable NNM<a class="headerlink" href="#tenable-nnm" title="Link to this heading">#</a></h2>

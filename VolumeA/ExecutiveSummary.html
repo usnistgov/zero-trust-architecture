@@ -28,13 +28,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/content.css?v=59cd0ab0" />
     <link rel="stylesheet" type="text/css" href="../_static/breadcrumbs.css?v=84f9056b" />
+    <link rel="stylesheet" type="text/css" href="../_static/tables.css?v=1ae3e97c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -44,7 +45,7 @@
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -54,7 +55,6 @@
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeA/ExecutiveSummary';</script>
     <script src="../_static/jquery.visible.js?v=5b129ffc"></script>
@@ -481,9 +481,9 @@ document.write(`
 <p class="admonition-title">Note</p>
 <p>This page is supplementary material for the <a class="reference external" href="https://www.nccoe.nist.gov/sites/default/files/2024-11/zta-nist-sp-1800-35-ipd.pdf">NIST SP 1800-35 publication</a>.</p>
 </div>
-<p>A zero trust architecture (ZTA) can help your organization protect its data and resources no matter where they are located. A ZTA can also enable your workforce, contractors, partners, and other authorized parties to securely access the data and resources they need from anywhere at any time. ZTAs implement a risk-based approach to cybersecurity—continuously evaluating and verifying conditions and requests to decide which access requests should be permitted, then ensuring that each access is properly safeguarded commensurate with risk. Because of their effectiveness against both internal and external threats, ZTAs are increasingly being implemented, and some organizations are already required to use ZTAs.</p>
-<p>This guide is intended to help your organization evolve existing environments and technologies to a ZTA gradually over time. The insights in this guide are based on a project at the NIST National Cybersecurity Center of Excellence (NCCoE) in collaboration with 24 technology providers. Together we have built and implemented 19 example ZTA solutions in lab environments, each demonstrating the principles of ZTA as outlined in NIST Special Publication (SP) 800-207, Zero Trust Architecture. For each of the ZTA examples, we have provided detailed technical information including architecture, sample technologies leveraged, specific configurations and integrations of technologies, and use cases and scenarios demonstrated, as well as mappings to the NIST Cybersecurity Framework (CSF) versions 1.1 and 2.0, NIST SP 800-53r5, and security measures outlined in “EO-Critical Software” under Executive Order (EO) 14028. This guide provides practical information that you can use to develop your ZTA roadmap, including models you can emulate and examples of how to best leverage existing technology infrastructure. The lessons we have learned from our demonstrations can benefit your organization by saving time and resources.</p>
-<p>There is no single approach for migrating to ZTA that is best for all enterprises. ZTA is a set of concepts and principles, not a set of technical specifications that can be complied with. The objective is continuous improvement of access control processes and policies in accordance with the principles of ZTA.</p>
+<p>A zero trust architecture (ZTA) is an enterprise cybersecurity architecture that is based on zero trust principles, such as those outlined in NIST Special Publication (SP) 800-207, <em>Zero Trust Architecture</em>, and that is designed to prevent data breaches and limit internal lateral movement. A ZTA can help your organization protect its data and resources no matter where they are located. A ZTA can also enable your workforce, contractors, partners, and other authorized parties to securely access the data and resources they need from anywhere at any time. ZTA implements a risk-based approach to cybersecurity—continuously evaluating and verifying conditions and requests to decide which access requests should be permitted, then ensuring that each access is properly safeguarded commensurate with risk. Because of their effectiveness against both internal and external threats, this architecture is increasingly being adopted, and some organizations are required to use a ZTA.</p>
+<p>There is no single approach for each organization to migrate to ZTA. Therefore, the NIST National Cybersecurity Center of Excellence worked with 24 technology providers to demonstrate practical implementation of ZTA principles from NIST SP 800-207. Together, we have built and implemented 19 example ZTA solutions in lab environments, leveraging the technology from our collaborators. For each of the example ZTAs, we have outlined detailed technical information, including architecture, sample technologies leveraged, specific configurations and integrations of technologies, and use cases and scenarios demonstrated. We have also created mappings between the example ZTAs’ security capabilities and the NIST Cybersecurity Framework (CSF) versions 1.1 and 2.0, NIST SP 800-53r5, and NIST critical software security measures.</p>
+<p>This guide is intended to help your organization gradually evolve existing environments and technologies into a ZTA over time. It provides practical information that you can use to develop your ZTA roadmap, including models you can emulate and examples of how to best leverage existing technology infrastructure. The lessons we have learned from our demonstrations can benefit your organization by saving time and resources.</p>
 <p>By utilizing this guide, your organization can be better positioned to implement a ZTA that achieves the following:</p>
 <blockquote>
 <div><ul class="simple">

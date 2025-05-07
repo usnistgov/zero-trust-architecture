@@ -85,6 +85,8 @@ Tenable.ad
 
 For installation, configuration, and integration instructions, refer to :ref:`Tenable.ad<tenable-ad>`.
 
+Note that after Tenable products were implemented at NCCoE, the name Tenable.ad was changed to Tenable Identity Exposure.
+
 Tenable NNM
 -----------
 

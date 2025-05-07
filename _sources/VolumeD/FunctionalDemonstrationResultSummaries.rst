@@ -1203,7 +1203,7 @@ Description: This use case covers subject access requests to data with different
 
 -  VMware considers data level security out of scope for this project. Other products should be used for these services.
 
-Note that after the VMware End User Computing division products were implemented at NCCoE, VMware was acquired by Broadcom, then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC.
+Note that after the VMware End User Computing Division products were implemented at NCCoE, VMware was acquired by Broadcom, and then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC.
 
 Enterprise 1 Build 5 (E1B5) - SASE and Microsegmentation - PAN NGFW and PAN Prisma Access as PEs Summary Demonstration Results
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

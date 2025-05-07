@@ -92,7 +92,7 @@ VMware Workspace ONE
 
 For installation, configuration, and integration instructions, refer to :ref:`VMware Workspace ONE<vmware-workspace-one>`.
 
-Note that after the VMware End User Computing division products were implemented at NCCoE, VMware was acquired by Broadcom, then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC. 
+Note that after the VMware End User Computing Division products were implemented at NCCoE, VMware was acquired by Broadcom, and then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC. 
 
 IBM Security QRadar XDR
 -----------------------
@@ -108,6 +108,8 @@ Tenable.ad
 ----------
 
 For installation, configuration, and integration instructions, refer to :ref:`Tenable.ad<tenable-ad>`.
+
+Note that after Tenable products were implemented at NCCoE, the name Tenable.ad was changed to Tenable Identity Exposure.
 
 Tenable NNM
 -----------

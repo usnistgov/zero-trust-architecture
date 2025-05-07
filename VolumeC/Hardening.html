@@ -28,13 +28,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/content.css?v=59cd0ab0" />
     <link rel="stylesheet" type="text/css" href="../_static/breadcrumbs.css?v=84f9056b" />
+    <link rel="stylesheet" type="text/css" href="../_static/tables.css?v=1ae3e97c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -44,7 +45,7 @@
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -54,7 +55,6 @@
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeC/Hardening';</script>
     <script src="../_static/jquery.visible.js?v=5b129ffc"></script>
@@ -547,8 +547,8 @@ document.write(`
 <section id="infrastructure-hardening-applicable-to-all-builds">
 <h2>Infrastructure Hardening Applicable to All Builds<a class="headerlink" href="#infrastructure-hardening-applicable-to-all-builds" title="Link to this heading">#</a></h2>
 <p>This section describes the hardening of infrastructure devices that are applicable to all builds.</p>
-<p>Security Technical Implementation Guides (STIGs) are security configuration standards from the Defense Information Systems Agency (DISA). They contain technical guidance on how to harden information systems. STIGs can be downloaded from <a class="reference external" href="https://public.cyber.mil/stigs">https://public.cyber.mil/stigs</a> and viewed using the STIG Viewing Tools, which can be downloaded from <a class="reference external" href="https://public.cyber.mil/stigs/srg-stig-tools/">https://public.cyber.mil/stigs/srg-stig-tools/</a>.</p>
-<p>DISA provides instructions for implementing and validating security requirements. Group Policy Objects (GPOs) can be used to assist with implementing STIG settings. The GPO package can be downloaded from <a class="reference external" href="https://public.cyber.mil/stigs/gpo/">https://public.cyber.mil/stigs/gpo/</a> and deployed in the enterprise environment. The GPO reports enable reviewing GPO configuration from a browser. They can be found in the Reports folder in the downloaded GPO package under the desired OS and/or application.</p>
+<p>Security Technical Implementation Guides (STIGs) are security configuration standards from the Defense Information Systems Agency (DISA). They contain technical guidelines on how to harden information systems. STIGs can be downloaded from the <a class="reference external" href="https://public.cyber.mil/stigs">official STIGs webpage</a> and viewed using the STIG Viewing Tools, which can be downloaded from the <a class="reference external" href="https://public.cyber.mil/stigs/srg-stig-tools/">official STIG Viewing Tools webpage</a>.</p>
+<p>DISA provides instructions for implementing and validating security requirements. Group Policy Objects (GPOs) can be used to assist with implementing STIG settings. The GPO package can be downloaded from the <a class="reference external" href="https://public.cyber.mil/stigs/gpo/">official STIGs Group Policy Objects webpage</a> and deployed in the enterprise environment. The GPO reports enable reviewing GPO configuration from a browser. They can be found in the Reports folder in the downloaded GPO package under the desired OS and/or application.</p>
 <p>If deploying in an IaaS environment, templates already implementing a hardened baseline may be available. For example, AWS provides Amazon Machine Images (AMI) for a variety of hardening standards, such as CIS Benchmarks.</p>
 <section id="windows-hardening">
 <h3>Windows Hardening<a class="headerlink" href="#windows-hardening" title="Link to this heading">#</a></h3>
@@ -585,8 +585,8 @@ document.write(`
 <ol class="arabic simple">
 <li><p>Install the OpenSCAP tool (oscap) and SCAP Security Guide.</p>
 <ol class="loweralpha simple">
-<li><p>OpenSCAP can be installed using the instructions at <a class="reference external" href="https://www.open-scap.org/tools/openscap-base/">https://www.open-scap.org/tools/openscap-base/</a></p></li>
-<li><p>The latest official SCAP Security Guide profiles can be downloaded from <a class="github reference external" href="https://github.com/ComplianceAsCode/content/releases">ComplianceAsCode/content</a>.</p></li>
+<li><p>OpenSCAP can be installed using the instructions at the <a class="reference external" href="https://www.open-scap.org/tools/openscap-base/">OpenSCAP Base webpage</a></p></li>
+<li><p>The latest official SCAP Security Guide profiles can be downloaded from the <a class="reference external" href="https://github.com/ComplianceAsCode/content/releases">ComplianceAsCode GitHub repository</a>.</p></li>
 </ol>
 </li>
 <li><p>View possible profiles by running oscap info /path/to/profile/&lt;Name_of_Profile&gt;.xml.</p></li>
@@ -600,14 +600,14 @@ document.write(`
 <h3>Cisco Switch Hardening (Catalyst 9300 and Cisco 3850)<a class="headerlink" href="#cisco-switch-hardening-catalyst-9300-and-cisco-3850" title="Link to this heading">#</a></h3>
 <p>Hardening recommendations for Cisco routers and switches are described at the following link:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://public.cyber.mil/stigs/downloads/">https://public.cyber.mil/stigs/downloads/</a></p></li>
+<li><p><a class="reference external" href="https://public.cyber.mil/stigs/downloads">Official STIG Download webpage</a></p></li>
 </ul>
 </section>
 <section id="cisco-wireless-access-point-controller-hardening">
 <h3>Cisco Wireless Access Point Controller Hardening<a class="headerlink" href="#cisco-wireless-access-point-controller-hardening" title="Link to this heading">#</a></h3>
 <p>Hardening recommendations for Cisco Wireless Access Point Controller is described at the following link:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://public.cyber.mil/stigs/downloads/">https://public.cyber.mil/stigs/downloads/</a></p></li>
+<li><p><a class="reference external" href="https://public.cyber.mil/stigs/downloads">Official STIG Download webpage</a></p></li>
 </ul>
 </section>
 <section id="mobile-device-hardening">
@@ -619,17 +619,17 @@ document.write(`
 </ul>
 <p>Note that STIGs for iOS and Android devices are available at the following links:</p>
 <ul class="simple">
-<li><p>iOS - <a class="reference external" href="https://public.cyber.mil/announcement/disa-releases-the-apple-ios-ipados-16-security-technical-implementation-guide/">https://public.cyber.mil/announcement/disa-releases-the-apple-ios-ipados-16-security-technical-implementation-guide/</a></p></li>
-<li><p>Android - <a class="reference external" href="https://public.cyber.mil/announcement/disa-has-released-the-google-android-12-security-technical-implementation-guide-stig/">https://public.cyber.mil/announcement/disa-has-released-the-google-android-12-security-technical-implementation-guide-stig/</a></p></li>
+<li><p>iOS - <a class="reference external" href="https://public.cyber.mil/stigs/downloads">Official STIG Download webpage</a></p></li>
+<li><p>Android - <a class="reference external" href="https://public.cyber.mil/stigs/downloads">Official STIG Download webpage</a></p></li>
 </ul>
 <p>Pushing these STIGs to a mobile device requires creating policies to address each of the individual items listed in the STIG. These policies may be created manually, but endpoint management solutions sometimes provide pre-created policies that allow customers to easily apply the STIGs as baselines. If such pre-created policies are not available and users want to apply baseline STIGs for the mobile device and MDM in question, they will need to create the hardening profile baseline policies manually.</p>
 </section>
 <section id="palo-alto-networks-firewall-hardening-pan-5250-ngfw">
 <h3>Palo Alto Networks Firewall Hardening (PAN 5250 NGFW)<a class="headerlink" href="#palo-alto-networks-firewall-hardening-pan-5250-ngfw" title="Link to this heading">#</a></h3>
-<p>Device hardening guidelines for Palo Alto Networks (PAN) Next Generation Firewalls and Panorama management devices, which are detailed in the PANW Common Criteria Evaluated Configuration Guides (CCECGs), can be found at the following links. Note that this documentation also includes guidance for enabling FIPS mode, but FIPS was not enabled for this project’s deployment:</p>
+<p>Device hardening guidelines for Palo Alto Networks (PAN) Next Generation Firewalls and Panorama management devices, which are detailed in the PANW Common Criteria Evaluated Configuration Guides (CCECGs), can be found at the following links. Note that this documentation also includes guidelines for enabling FIPS mode, but FIPS was not enabled for this project’s deployment:</p>
 <ul class="simple">
-<li><p>CCECG for <a class="reference external" href="https://www.niap-ccevs.org/Product/Maint.cfm?AMID=1545&amp;PID=11284">Palo Alto Networks PA-220, PA-400, PA-800, PA-3200, PA-3400, PA-5200, PA-5400, PA-5450, PA-7000, and VM Series Next-Generation Firewall with PAN-OS 10.2</a> - <a class="reference external" href="https://www.niap-ccevs.org/MMO/ProductAM/st_vid11284-agd.pdf">https://www.niap-ccevs.org/MMO/ProductAM/st_vid11284-agd.pdf</a></p></li>
-<li><p>CCECG for Palo Alto Networks M-200, M-300, M-600, and M-700 Hardware, and Virtual Appliances all running Panorama 10.2 - <a class="reference external" href="https://www.niap-ccevs.org/MMO/ProductAM/st_vid11285-agd.pdf">https://www.niap-ccevs.org/MMO/ProductAM/st_vid11285-agd.pdf</a></p></li>
+<li><p>CCECG for <a class="reference external" href="https://www.niap-ccevs.org/Product/Maint.cfm?AMID=1545&amp;PID=11284">Palo Alto Networks PA-220, PA-400, PA-800, PA-3200, PA-3400, PA-5200, PA-5400, PA-5450, PA-7000, and VM Series Next-Generation Firewall with PAN-OS 10.2</a> - <a class="reference external" href="https://www.niap-ccevs.org/MMO/ProductAM/st_vid11284-agd.pdf">Common Criteria Evaluated Configuration Guide (CCECG) for Next-Generation Firewalls with PAN-OS 10.2 PDF</a></p></li>
+<li><p><a class="reference external" href="https://www.niap-ccevs.org/MMO/ProductAM/st_vid11285-agd.pdf">CCECG for Palo Alto Networks M-200, M-300, M-600, and M-700 Hardware, and Virtual Appliances all running Panorama 10.2</a></p></li>
 </ul>
 </section>
 <section id="enterprise-services-and-resources-hardening">
@@ -644,32 +644,32 @@ document.write(`
 </li>
 <li><p>Dynamic Host Configuration Protocol (DHCP)</p>
 <ul>
-<li><p>In addition to the OS hardening referenced in the <a class="reference internal" href="#windows-hardening"><span class="std std-ref">Windows Hardening</span></a> section, Microsoft provides more recommendations at the following link: <a class="reference external" href="https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/building-the-totally-network-isolated-root-certification/ba-p/1189470">https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/building-the-totally-network-isolated-root-certification/ba-p/1189470</a></p></li>
+<li><p>In addition to the OS hardening referenced in the <a class="reference internal" href="#windows-hardening"><span class="std std-ref">Windows Hardening</span></a> section, Microsoft provides more recommendations at the following link: <a class="reference external" href="https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/building-the-totally-network-isolated-root-certification/ba-p/1189470">Building the Totally Network Isolated Root Certification Authority</a></p></li>
 </ul>
 </li>
 <li><p>Domain Name System (DNS)</p>
 <ul>
-<li><p>Microsoft provides DNS hardening recommendations in its Secure DNS Deployment Guide, which is at the following link: <a class="reference external" href="https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee649266(v=ws.10)">https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee649266(v=ws.10)</a></p></li>
+<li><p>Microsoft provides DNS hardening recommendations in its Secure DNS Deployment Guide, which is at the following link: <a class="reference external" href="https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee649266(v=ws.10)">Secure DNS Deployment Guide</a></p></li>
 </ul>
 </li>
 <li><p>Remote Authentication Dial-In User Service (RADIUS)</p>
 <ul>
-<li><p>Microsoft Network Policy Server (NPS) best practices are followed. They can be found at: <a class="reference external" href="https://learn.microsoft.com/en-us/windows-server/networking/technologies/nps/nps-best-practices">https://learn.microsoft.com/en-us/windows-server/networking/technologies/nps/nps-best-practices</a>.</p></li>
+<li><p>Microsoft Network Policy Server (NPS) best practices are followed. They can be found at: <a class="reference external" href="https://learn.microsoft.com/en-us/windows-server/networking/technologies/nps/nps-best-practices">Network Policy Server Best Practices</a>.</p></li>
 </ul>
 </li>
 <li><p>Server Message Block (SMB)/Secure File Transfer Protocol (SFTP)</p>
 <ul>
-<li><p>Microsoft recommends accessing the following link for information on SMB security enhancements: <a class="reference external" href="https://learn.microsoft.com/en-us/windows-server/storage/file-server/smb-security">https://learn.microsoft.com/en-us/windows-server/storage/file-server/smb-security</a></p></li>
+<li><p>Microsoft recommends accessing the following link for information on SMB security enhancements: <a class="reference external" href="https://learn.microsoft.com/en-us/windows-server/storage/file-server/smb-security">SMB security enhancements</a></p></li>
 </ul>
 </li>
 <li><p>Windows Server Update Services (WSUS)</p>
 <ul>
-<li><p>In addition to performing the standard Windows Hardening referenced above, Microsoft recommends following their recommended WSUS best practices, which can be found at the following link: <a class="reference external" href="https://learn.microsoft.com/en-us/troubleshoot/mem/configmgr/update-management/windows-server-update-services-best-practices">https://learn.microsoft.com/en-us/troubleshoot/mem/configmgr/update-management/windows-server-update-services-best-practices</a></p></li>
+<li><p>In addition to performing the standard Windows Hardening referenced above, Microsoft recommends following their recommended WSUS best practices, which can be found at the following link: <a class="reference external" href="https://learn.microsoft.com/en-us/troubleshoot/mem/configmgr/update-management/windows-server-update-services-best-practices">Windows Server Update Services best practices</a></p></li>
 </ul>
 </li>
 <li><p>GitLab Enterprise</p>
 <ul>
-<li><p>GitLab Enterprise is hardened according to the guidance provided by GitLab at the following link: <a class="reference external" href="https://docs.gitlab.com/ee/security/">https://docs.gitlab.com/ee/security/</a>.</p></li>
+<li><p>GitLab Enterprise is hardened according to the guidelines provided by GitLab at the following link: <a class="reference external" href="https://docs.gitlab.com/ee/security/">Secure GitLab</a>.</p></li>
 </ul>
 </li>
 </ul>
@@ -710,10 +710,10 @@ document.write(`
 <h3>AWS<a class="headerlink" href="#aws" title="Link to this heading">#</a></h3>
 <p>For information on relevant AWS configuration information, please review the following AWS documentation.</p>
 <ul class="simple">
-<li><p>AWS Cloud Security: <a class="reference external" href="https://aws.amazon.com/security/">https://aws.amazon.com/security/</a></p></li>
-<li><p>Best Practices for Security, Identity, &amp; Compliance: <a class="reference external" href="https://aws.amazon.com/architecture/security-identity-compliance/?cards-all.sort-by=item.additionalFields.sortDate&amp;cards-all.sort-order=desc&amp;awsf.content-type=*all&amp;awsf.methodology=*all">https://aws.amazon.com/architecture/security-identity-compliance/?cards-all.sort-by=item.additionalFields.sortDate&amp;cards-all.sort-order=desc&amp;awsf.content-type=*all&amp;awsf.methodology=*all</a></p></li>
-<li><p>AVA Security in Verified Access: <a class="reference external" href="https://docs.aws.amazon.com/verified-access/latest/ug/security.html">https://docs.aws.amazon.com/verified-access/latest/ug/security.html</a></p></li>
-<li><p>Security in Amazon VPC Lattice: <a class="reference external" href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/security.html">https://docs.aws.amazon.com/vpc-lattice/latest/ug/security.html</a></p></li>
+<li><p><a class="reference external" href="https://aws.amazon.com/security/">AWS Cloud Security</a></p></li>
+<li><p><a class="reference external" href="https://aws.amazon.com/architecture/security-identity-compliance/?cards-all.sort-by=item.additionalFields.sortDate&amp;cards-all.sort-order=desc&amp;awsf.content-type=*all&amp;awsf.methodology=*all">Best Practices for Security, Identity, &amp; Compliance</a></p></li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/verified-access/latest/ug/security.html">AVA Security in Verified Access</a></p></li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/security.html">Security in Amazon VPC Lattice</a></p></li>
 </ul>
 </section>
 <section id="broadcom">
@@ -723,14 +723,14 @@ document.write(`
 <h4>Symantec DLP Management Server Hardening<a class="headerlink" href="#symantec-dlp-management-server-hardening" title="Link to this heading">#</a></h4>
 <p>Guidelines for hardening aspects of Symantec DLP capabilities are as follows:</p>
 <ul class="simple">
-<li><p>Firewall ports: <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/corporate-firewall-configuration-v15632745-d279e11210.html">https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/corporate-firewall-configuration-v15632745-d279e11210.html</a></p></li>
-<li><p>Services: <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/windows-security-lockdown-guidelines-v15632398-d279e11241.html">https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/windows-security-lockdown-guidelines-v15632398-d279e11241.html</a></p></li>
-<li><p>Service account configuration: <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/windows-administrative-security-settings-v15632498-d279e11405.html">https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/windows-administrative-security-settings-v15632498-d279e11405.html</a></p></li>
+<li><p>Firewall ports: <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/corporate-firewall-configuration-v15632745-d279e11210.html">Corporate firewall configuration</a></p></li>
+<li><p>Services: <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/windows-security-lockdown-guidelines-v15632398-d279e11241.html">Windows security lockdown guidelines</a></p></li>
+<li><p>Service account configuration: <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-0-1/Install-DLP/post-installation-tasks-v15632229-d279e10401/about-post-installation-security-configuration-v15632391-d279e10427/windows-administrative-security-settings-v15632498-d279e11405.html">Windows Administrative security settings</a></p></li>
 </ul>
 </section>
 <section id="spanva">
 <h4>SpanVA<a class="headerlink" href="#spanva" title="Link to this heading">#</a></h4>
-<p>SpanVA hardening guidelines are located on: <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/symantec-cloudsoc/cloud/audit-home/spanva-audit/spanva-security.html">https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/symantec-cloudsoc/cloud/audit-home/spanva-audit/spanva-security.html</a></p>
+<p>SpanVA hardening guidelines are located on: <a class="reference external" href="https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/symantec-cloudsoc/cloud/spanva-home.html">SpanVA</a></p>
 <p>The SpanVA appliance comes hardened out of the box; only necessary firewall ports are open and all externally facing services, including SSH, are turned off.</p>
 </section>
 </section>
@@ -739,8 +739,8 @@ document.write(`
 <p>Note that in addition to the Cisco hardening recommendations provided in this section, information regarding hardening of Cisco switches and wireless access point controllers used in the network infrastructure of all builds are provided in the <a class="reference internal" href="#cisco-switch-hardening-catalyst-9300-and-cisco-3850"><span class="std std-ref">Cisco Switch Hardening (Catalyst 9300 and Cisco 3850)</span></a> and <a class="reference internal" href="#cisco-wireless-access-point-controller-hardening"><span class="std std-ref">Cisco Wireless Access Point Controller Hardening</span></a> sections.</p>
 <p>Cisco provides hardening recommendations for ISE and SNA at the links below:</p>
 <ul class="simple">
-<li><p>ISE - <a class="reference external" href="https://ncp.nist.gov/checklist/994">https://ncp.nist.gov/checklist/994</a> and/or <a class="reference external" href="https://gcc02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdl.dod.cyber.mil%2Fwp-content%2Fuploads%2Fstigs%2Fzip%2FU_Cisco_ISE_Y23M06_STIG.zip&amp;data=05%7C01%7Cparisa.grayeli%40nist.gov%7Cf8daec6b3e374ad0590d08db9a82ce90%7C2ab5d82fd8fa4797a93e054655c61dec%7C1%7C0%7C638273658845872886%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=iumMWw%2FnfrdYgc%2BEPB7X5rsdNuZvtHJ%2BJ2aj%2BXG%2BwGo%3D&amp;reserved=0">https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_Cisco_ISE_Y23M06_STIG.zip</a></p></li>
-<li><p>SNA - <a class="reference external" href="https://gcc02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.niap-ccevs.org%2Fproduct%2FCompliant.cfm%3FPID%3D11313&amp;data=05%7C01%7Cparisa.grayeli%40nist.gov%7Cf8daec6b3e374ad0590d08db9a82ce90%7C2ab5d82fd8fa4797a93e054655c61dec%7C1%7C0%7C638273658845872886%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=lLtfYo9NrD1Bs4hKYbBMQF9fXt5wm3E5%2FmcimWF2YAs%3D&amp;reserved=0">https://www.niap-ccevs.org/product/Compliant.cfm?PID=11313</a></p></li>
+<li><p>ISE - <a class="reference external" href="https://ncp.nist.gov/checklist/994">Cisco ISE STIG Y24M10 Checklist Details</a> and/or <a class="reference external" href="https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_Cisco_ISE_Y23M06_STIG.zip">Cisco ISE STIG Y24M10</a></p></li>
+<li><p>SNA - <a class="reference external" href="https://www.niap-ccevs.org/products/11313">Compliant Product - Cisco Secure Network Analytics</a></p></li>
 </ul>
 </section>
 <section id="digicert">
@@ -810,7 +810,7 @@ document.write(`
 </section>
 <section id="f5">
 <h3>F5<a class="headerlink" href="#f5" title="Link to this heading">#</a></h3>
-<p>F5’s hardening recommendations for its systems can be found at the following link: <a class="reference external" href="https://my.f5.com/manage/s/article/K53108777">https://my.f5.com/manage/s/article/K53108777</a>. For information on hardening NGINX, please see <a class="reference external" href="https://docs.nginx.com/nginx/admin-guide/security-controls/">https://docs.nginx.com/nginx/admin-guide/security-controls/</a>.</p>
+<p>F5’s hardening recommendations for its systems can be found at the following link: <a class="reference external" href="https://my.f5.com/manage/s/article/K53108777">Hardening your F5 system</a>. For information on hardening NGINX, please see <a class="reference external" href="https://docs.nginx.com/nginx/admin-guide/security-controls/">Security Controls</a>.</p>
 </section>
 <section id="google">
 <h3>Google<a class="headerlink" href="#google" title="Link to this heading">#</a></h3>
@@ -818,19 +818,19 @@ document.write(`
 </section>
 <section id="ivanti">
 <h3>Ivanti<a class="headerlink" href="#ivanti" title="Link to this heading">#</a></h3>
-<p>Ivanti’s nZTA hardening information can be found in this portion of the Ivanti nZTA Admin Guide: <a class="reference external" href="https://help.ivanti.com/ps/help/en_US/nSA/22.x/nsa-zta/ag/tadmin_cr_gway.htm#Configur">https://help.ivanti.com/ps/help/en_US/nSA/22.x/nsa-zta/ag/tadmin_cr_gway.htm#Configur</a></p>
+<p>Ivanti’s nZTA hardening information can be found in this portion of the Ivanti nZTA Admin Guide: <a class="reference external" href="https://help.ivanti.com/ps/help/en_US/nSA/22.x/nsa-zta/ag/tadmin_cr_gway.htm#Configur">Working with Gateways</a></p>
 <p>Ivanti recommends implementing the relevant mobile device OS STIGs via the Ivanti Neurons for UEM (IN UEM) Platform for managed devices. The STIG controls are implemented through configurations and policies in the IN UEM Console.</p>
 <ol class="arabic simple">
 <li><p>Log in to the IN UEM Console.</p></li>
 <li><p>Navigate to <strong>Configurations</strong> -&gt; <strong>Add New</strong> -&gt; select relevant OS -&gt; select relevant configuration based on the STIG control implementation - &gt; <strong>Save Configuration</strong> and apply to appropriate User/Device group.</p></li>
 <li><p>Navigate to <strong>Policies</strong> -&gt; <strong>Add New</strong> -&gt; select relevant policy (Custom) -&gt; create device policy -&gt; <strong>Save Policy</strong> and apply to appropriate User/Device group.</p></li>
 </ol>
-<p>The relevant mobile OSes STIGs Ivanti supports are: Apple iOS, Google Android, Samsung/Honeywell/Motorola/Zebra. The STIG Mobility Library can be found at the following link: <a class="reference external" href="https://public.cyber.mil/stigs/downloads/?_dl_facet_stigs=mobility">https://public.cyber.mil/stigs/downloads/?_dl_facet_stigs=mobility</a></p>
-<p>Ivanti publishes a STIG for Ivanti Sentry (formerly MobileIron Sentry). The Ivanti Sentry STIG specifies the hardening recommendations and step-by-step configurations for Ivanti Sentry configured for Tunnel or Access ZSO. The Ivanti Sentry STIG can be found at the following link: <a class="reference external" href="https://ncp.nist.gov/checklist/1010/download/7785">https://ncp.nist.gov/checklist/1010/download/7785</a></p>
+<p>The relevant mobile OSes STIGs Ivanti supports are: Apple iOS, Google Android, Samsung/Honeywell/Motorola/Zebra. The STIG Mobility Library can be found at the following link: <a class="reference external" href="https://public.cyber.mil/stigs/downloads/?_dl_facet_stigs=mobility">STIGs Document Library</a></p>
+<p>Ivanti publishes a STIG for Ivanti Sentry (formerly MobileIron Sentry). The Ivanti Sentry STIG specifies the hardening recommendations and step-by-step configurations for Ivanti Sentry configured for Tunnel or Access ZSO. The Ivanti Sentry STIG can be found at the following link: <a class="reference external" href="https://ncp.nist.gov/checklist/1010/download/7785">Ivanti Sentry STIG download</a></p>
 </section>
 <section id="lookout">
 <h3>Lookout<a class="headerlink" href="#lookout" title="Link to this heading">#</a></h3>
-<p>The Lookout SSE hardening information can be found at the following link: <a class="reference external" href="https://www.lookout.com/form/sse-admin-guide">https://www.lookout.com/form/sse-admin-guide</a></p>
+<p>The Lookout SSE hardening information can be found at the following link: <a class="reference external" href="https://www.lookout.com/form/sse-admin-guide">Lookout Cloud Security Platform Administrator Guide</a></p>
 </section>
 <section id="mandiant-msv">
 <h3>Mandiant MSV<a class="headerlink" href="#mandiant-msv" title="Link to this heading">#</a></h3>
@@ -843,33 +843,33 @@ document.write(`
 <p>Best practices for securing Microsoft Entra can be found at the following link: <a class="reference external" href="https://learn.microsoft.com/en-us/entra/architecture/secure-best-practices">Best practices to secure with Microsoft Entra ID - Microsoft Entra | Microsoft Learn</a></p>
 <p>Best practices for securing Microsoft Entra privileged roles can be found at the following link: <a class="reference external" href="https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices">Best practices for Microsoft Entra roles - Microsoft Entra ID | Microsoft Learn</a></p>
 <p>Best practices for securing break glass accounts for Microsoft Entra can be found at the following link: <a class="reference external" href="https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access">Manage emergency access admin accounts - Microsoft Entra ID | Microsoft Learn</a></p>
-<p>Security best practices for Azure IaaS can be found at the following link: <a class="reference external" href="https://learn.microsoft.com/en-us/azure/security/fundamentals/iaas">https://learn.microsoft.com/en-us/azure/security/fundamentals/iaas</a></p>
-<p>The Windows hardening guide for Intune and Defender for Endpoint can be found at the following link: <a class="reference external" href="https://techcommunity.microsoft.com/t5/security-compliance-and-identity/hardening-windows-clients-with-microsoft-intune-and-defender-for/ba-p/3807378">https://techcommunity.microsoft.com/t5/security-compliance-and-identity/hardening-windows-clients-with-microsoft-intune-and-defender-for/ba-p/3807378</a></p>
-<p>The Microsoft user application hardening guide can be found at the following link: <a class="reference external" href="https://learn.microsoft.com/en-us/compliance/essential-eight/e8-app-harden">https://learn.microsoft.com/en-us/compliance/essential-eight/e8-app-harden</a></p>
-<p>The Microsoft Privilege Access Workstation hardening guide can be found at the following link: <a class="reference external" href="https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-deployment">https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-deployment</a></p>
-<p>The Azure Virtual Desktop hardening guide can be found at the following link: <a class="reference external" href="https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/azure-virtual-desktop-security-baseline">https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/azure-virtual-desktop-security-baseline</a></p>
-<p>The Windows 365 hardening guide can be found at the following link: <a class="reference external" href="https://learn.microsoft.com/en-us/windows-365/enterprise/security-guidelines">https://learn.microsoft.com/en-us/windows-365/enterprise/security-guidelines</a></p>
+<p>Security best practices for Azure IaaS can be found at the following link: <a class="reference external" href="https://learn.microsoft.com/en-us/azure/security/fundamentals/iaas">Security best practices for IaaS workloads in Azure</a></p>
+<p>The Windows hardening guide for Intune and Defender for Endpoint can be found at the following link: <a class="reference external" href="https://techcommunity.microsoft.com/t5/security-compliance-and-identity/hardening-windows-clients-with-microsoft-intune-and-defender-for/ba-p/3807378">Hardening Windows Clients with Microsoft Intune and Defender for Endpoint</a></p>
+<p>The Microsoft user application hardening guide can be found at the following link: <a class="reference external" href="https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden">Essential Eight user application hardening</a></p>
+<p>The Microsoft Privilege Access Workstation hardening guide can be found at the following link: <a class="reference external" href="https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-deployment">Privileged access deployment</a></p>
+<p>The Azure Virtual Desktop hardening guide can be found at the following link: <a class="reference external" href="https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/azure-virtual-desktop-security-baseline">Azure security baseline for Azure Virtual Desktop</a></p>
+<p>The Windows 365 hardening guide can be found at the following link: <a class="reference external" href="https://learn.microsoft.com/en-us/windows-365/enterprise/security-guidelines">Security guidelines</a></p>
 </section>
 <section id="okta">
 <h3>Okta<a class="headerlink" href="#okta" title="Link to this heading">#</a></h3>
-<p>Okta Identity Cloud is being hosted on a cloud platform which has options of FedRAMP High, FedRAMP Moderate, and DoD Impact Level 4 (IL4). For the hardening details, please refer to <a class="reference external" href="https://www.okta.com/resources/whitepaper/okta-security-technical-white-paper/">https://www.okta.com/resources/whitepaper/okta-security-technical-white-paper/</a></p>
+<p>Okta Identity Cloud is being hosted on a cloud platform which has options of FedRAMP High, FedRAMP Moderate, and DoD Impact Level 4 (IL4). For the hardening details, please refer to <a class="reference external" href="https://www.okta.com/resources/whitepaper/okta-security-technical-white-paper/">Okta Security Techincal Whitepaper</a></p>
 </section>
 <section id="omnissa">
 <h3>Omnissa<a class="headerlink" href="#omnissa" title="Link to this heading">#</a></h3>
 <p>Omnissa disables unnecessary ports, protocols, and services as part of baseline hardening standards. It follows industry best practices in applying secure configurations to managed servers.</p>
-<p>For Workspace ONE UEM, Workspace ONE Assist, and Omnissa RemoteHelp servers that use Windows operating systems, server configurations can be hardened using GPO policies (such as account policies, user rights, security options, event log settings, app restrictions). Workspace ONE UEM, Workspace ONE Access, and Workspace ONE Intelligence Linux-based servers use Amazon Linux 2 images for system hardening. The Amazon Linux 2 images include default security configurations, such as limited remote access using SSH key pairs, remote root login disablement, reduced non-critical package installation, and automatic security related updates. This hardening information can be found at <a class="reference external" href="https://techzone.vmware.com/resource/workspace-one-cloud-services-security#system-hardening">https://techzone.vmware.com/resource/workspace-one-cloud-services-security#system-hardening</a>.</p>
-<p>An overview of the security controls implemented within Workspace ONE commercial cloud services and their alignment with the NIST SP 800-171 standards can be found at the following link: <a class="reference external" href="https://techzone.vmware.com/resource/workspace-one-cloud-services-alignment-nist-sp-800-171#introduction">https://techzone.vmware.com/resource/workspace-one-cloud-services-alignment-nist-sp-800-171#introduction</a>.</p>
+<p>For Workspace ONE UEM, Workspace ONE Assist, and Omnissa RemoteHelp servers that use Windows operating systems, server configurations can be hardened using GPO policies (such as account policies, user rights, security options, event log settings, app restrictions). Workspace ONE UEM, Workspace ONE Access, and Workspace ONE Intelligence Linux-based servers use Amazon Linux 2 images for system hardening. The Amazon Linux 2 images include default security configurations, such as limited remote access using SSH key pairs, remote root login disablement, reduced non-critical package installation, and automatic security related updates. This hardening information can be found at <a class="reference external" href="https://techzone.omnissa.com/resource/workspace-one-cloud-services-security#system-hardening">Workspace ONE Cloud Services Security</a>.</p>
+<p>An overview of the security controls implemented within Workspace ONE commercial cloud services and their alignment with the NIST SP 800-171 standards can be found at the following link: <a class="reference external" href="https://techzone.omnissa.com/resource/workspace-one-cloud-services-alignment-nist-sp-800-171">Workspace ONE Cloud Services Alignment with NIST SP 800-171</a>.</p>
 <p>Note that after the VMware End User Computing division products were implemented at NCCoE, VMware was acquired by Broadcom, then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC.</p>
 </section>
 <section id="palo-alto-networks-pan">
 <h3>Palo Alto Networks (PAN)<a class="headerlink" href="#palo-alto-networks-pan" title="Link to this heading">#</a></h3>
 <p>Links to device hardening guidelines for Palo Alto Networks (PANW) Next Generation Firewalls and Panorama management devices are provided in the <a class="reference internal" href="#palo-alto-networks-firewall-hardening-pan-5250-ngfw"><span class="std std-ref">Palo Alto Networks Firewall Hardening (PAN 5250 NGFW)</span></a> section.</p>
-<p>Strata Cloud Manager is used by organizations to manage their NGFWs and SASE environments from a single interface. Strata Cloud Manager has best practice security checks built into it to allow organizations to assess their Panorama, NGFW, and Panorama-managed Prisma Access security configurations against best practices and remediate any failed checks. To use Strata Cloud Manager to perform best practice checks, see this link: <a class="reference external" href="https://docs.paloaltonetworks.com/cloud-management/administration/overview/built-in-best-practices">https://docs.paloaltonetworks.com/cloud-management/administration/overview/built-in-best-practices</a></p>
-<p>To configure a security policy that is shared across NGFWs and Prisma Access, see this link: <a class="reference external" href="https://docs.paloaltonetworks.com/cloud-management/administration/manage-configuration-ngfw-and-prisma-access">https://docs.paloaltonetworks.com/cloud-management/administration/manage-configuration-ngfw-and-prisma-access</a></p>
+<p>Strata Cloud Manager is used by organizations to manage their NGFWs and SASE environments from a single interface. Strata Cloud Manager has best practice security checks built into it to allow organizations to assess their Panorama, NGFW, and Panorama-managed Prisma Access security configurations against best practices and remediate any failed checks. To use Strata Cloud Manager to perform best practice checks, see this link: <a class="reference external" href="https://docs.paloaltonetworks.com/cloud-management/administration/overview/built-in-best-practices">Built-In Best Practices</a></p>
+<p>To configure a security policy that is shared across NGFWs and Prisma Access, see this link: <a class="reference external" href="https://docs.paloaltonetworks.com/cloud-management/administration/manage-configuration-ngfw-and-prisma-access">Manage: NGFW and Prisma Access</a></p>
 </section>
 <section id="ping-identity">
 <h3>Ping Identity<a class="headerlink" href="#ping-identity" title="Link to this heading">#</a></h3>
-<p>The OS is hardened according to the appropriate OS Hardening section above. A product-specific security hardening guide is available at: <a class="reference external" href="https://support.pingidentity.com/s/article/PingFederate-Security-Hardening-Guide">https://support.pingidentity.com/s/article/PingFederate-Security-Hardening-Guide</a></p>
+<p>The OS is hardened according to the appropriate OS Hardening section above. A product-specific security hardening guide is available at: <a class="reference external" href="https://support.pingidentity.com/s/article/PingFederate-Security-Hardening-Guide">PingFederate Security Hardening Guide</a></p>
 </section>
 <section id="tenable">
 <h3>Tenable<a class="headerlink" href="#tenable" title="Link to this heading">#</a></h3>
@@ -880,11 +880,11 @@ document.write(`
 </section>
 <section id="storage-manager-sql">
 <h4>Storage Manager (SQL)<a class="headerlink" href="#storage-manager-sql" title="Link to this heading">#</a></h4>
-<p>Tenable recommends that after installation completes, the customer should create a new account in SQL for database access and disable the default service account (SA). In addition, it is recommended to change the port for SQL to something other than the default SQL port. These changes will reduce the likelihood of a threat actor accessing the SQL data. Please reference the <em>How to change Tenable.AD SQL Service account Password Knowledge Article</em> here: <a class="reference external" href="https://community.tenable.com/s/article/How-to-change-the-Tenable-ad-SQL-service-account-password?language=en_US#:~:text=Connect%20to%20Storage%20Manager.%20Assign%20the%20new%20account,the%20Security%20Engine%20Node.%20Restart%20the%20alsid_eridanis%20service">https://community.tenable.com/s/article/How-to-change-the-Tenable-ad-SQL-service-account-password?language=en_US#:~:text=Connect%20to%20Storage%20Manager.%20Assign%20the%20new%20account,the%20Security%20Engine%20Node.%20Restart%20the%20alsid_eridanis%20service</a>.</p>
+<p>Tenable recommends that after installation completes, the customer should create a new account in SQL for database access and disable the default service account (SA). In addition, it is recommended to change the port for SQL to something other than the default SQL port. These changes will reduce the likelihood of a threat actor accessing the SQL data. Please reference <a class="reference external" href="https://community.tenable.com/s/article/How-to-change-the-Tenable-ad-SQL-service-account-password">How to change Tenable.AD SQL Service account Password Knowledge Article</a></p>
 </section>
 <section id="security-engine-node">
 <h4>Security Engine Node<a class="headerlink" href="#security-engine-node" title="Link to this heading">#</a></h4>
-<p>Tenable recommends that customers change the default username and password for RabbitMQ administration. Please refer to <em>Changing the default RabbitMQ password</em> <a class="reference external" href="https://community.tenable.com/s/article/Tenable-ad-Changing-the-default-RabbitMQ-password">Knowledge Article</a> here: <a class="reference external" href="https://community.tenable.com/s/article/Tenable-ad-Changing-the-default-RabbitMQ-password?language=en_US">https://community.tenable.com/s/article/Tenable-ad-Changing-the-default-RabbitMQ-password?language=en_US</a></p>
+<p>Tenable recommends that customers change the default username and password for RabbitMQ administration. Please refer to <a class="reference external" href="https://community.tenable.com/s/article/Tenable-ad-Changing-the-default-RabbitMQ-password">Changing the default RabbitMQ password</a></p>
 <p>Tenable recommends that customers use a <a class="reference external" href="https://docs.tenable.com/identity-exposure/Installation/Content/06_Manage/https-for-tenablead-web-application.htm">custom certificate</a> to enforce HTTPS for portal access in Internet Information Services (IIS).</p>
 </section>
 <section id="directory-listener">
@@ -910,7 +910,7 @@ document.write(`
 </section>
 <section id="zscaler">
 <h3>Zscaler<a class="headerlink" href="#zscaler" title="Link to this heading">#</a></h3>
-<p>Hardening recommendations for on-premises components such as Zscaler Client Connector can be found at the following link: <a class="reference external" href="https://help.zscaler.com/zcspm/about-quick-wins-os-hardening">https://help.zscaler.com/zcspm/about-quick-wins-os-hardening</a></p>
+<p>Hardening recommendations for on-premises components such as Zscaler Client Connector can be found at the following link: <a class="reference external" href="https://help.zscaler.com/zcspm/about-quick-wins-os-hardening">About Quick Wins and OS Hardening</a></p>
 <p>Zscaler only deploys its public cloud nodes within accredited and hardened data centers that meet Zscaler’s standards for physical security. Zscaler has achieved FedRAMP High and Impact Level 5 accreditation for Zscaler’s Federal Customers.</p>
 <p>In addition, Zscaler holds globally recognized certifications that cover locations where data is stored: SSAE 16/SOC 2 Type II, ISO 27001, ISO 27018, and others.</p>
 </section>

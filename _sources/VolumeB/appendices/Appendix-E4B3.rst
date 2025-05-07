@@ -10,6 +10,8 @@ E4B3 uses products from Broadcom (with VMware products), IBM, Mandiant, Palo Alt
 
 E4B3 components consist of IBM Security Verify, IBM Security MaaS360 (for both laptops and mobile devices), IBM Cloud Pak for Security, IBM QRadar XDR, Mandiant Security Validation, Palo Alto Networks GlobalProtect VPN, Tenable.io, Tenable.ad, Tenable NNM, IBM Security Guardium Data Encryption, IBM Security Guardium Data Protection, VMware infrastructure, and DigiCert ONE.
 
+Note that after Tenable products were implemented at NCCoE, the name Tenable.ad was changed to Tenable Identity Exposure.
+
 *Table 1* lists all of the technologies used in E4B3 ZTA. It lists the products used to instantiate each ZTA component and the security function that each component provides.
 
 **Table 1 - E4B3 Products and Technologies**
@@ -27,7 +29,7 @@ In this section we present the logical architecture of E4B3. We also describe E4
 Logical Architecture
 ~~~~~~~~~~~~~~~~~~~~
 
-*Figure 1* depicts the logical architecture of E4B3. *Figure 1* uses numbered arrows to depict the general flow of messages needed for a subject to request access to a resource and have that access request evaluated based on subject identity (both requesting user and requesting endpoint identity), authorizations, and requesting endpoint health. It also depicts the flow of messages supporting periodic reauthentication of the requesting user and the requesting endpoint and periodic verification of requesting endpoint health, all of which must be performed to continually reevaluate access. The labeled steps in *Figure 1* have the same meanings as they do in :ref:`Architecture - Figure 1<ArchitectureFigure1>`. However, *Figure 1* includes the specific products that instantiate the architecture of E4B3. *Figure 1* also does not depict any of the resource management steps found in :ref:`Architecture - Figure 1<ArchitectureFigure1>` because the ZTA technologies deployed in E4B3 do not support the ability to perform authentication and reauthentication of the resource or periodic verification of resource health.
+*Figure 1* depicts the logical architecture of E4B3. *Figure 1* uses numbered arrows to depict the general flow of messages needed for a subject to request access to a resource and have that access request evaluated based on subject identity (both requesting user and requesting endpoint identity), authorizations, and requesting endpoint health. It also depicts the flow of messages supporting periodic reauthentication of the requesting user and the requesting endpoint and periodic verification of requesting endpoint health, all of which must be performed to continually reevaluate access. The labeled steps in *Figure 1* have the same meanings as they do in :ref:`General ZTA Reference Architecture<ArchitectureFigure1>`. However, *Figure 1* includes the specific products that instantiate the architecture of E4B3. *Figure 1* also does not depict any of the resource management steps found in :ref:`General ZTA Reference Architecture<ArchitectureFigure1>` because the ZTA technologies deployed in E4B3 do not support the ability to perform authentication and reauthentication of the resource or periodic verification of resource health.
 
 E4B3 was designed with IBM Security Verify as the ZTA PE, PA, and PEP, and IBM Security Verify providing ICAM support. Other components that support endpoint security, security analytics, and data security are also listed in *Figure 1*.
 

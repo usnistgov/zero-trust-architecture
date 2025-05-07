@@ -28,13 +28,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/content.css?v=59cd0ab0" />
     <link rel="stylesheet" type="text/css" href="../_static/breadcrumbs.css?v=84f9056b" />
+    <link rel="stylesheet" type="text/css" href="../_static/tables.css?v=1ae3e97c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -44,7 +45,7 @@
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -54,7 +55,6 @@
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'VolumeC/HowTo-E3B1';</script>
     <script src="../_static/jquery.visible.js?v=5b129ffc"></script>
@@ -555,7 +555,7 @@ document.write(`
 <ol class="arabic simple">
 <li><p>After logging in to portal.azure.com, <a class="reference external" href="https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-access-create-new-tenant">create an Azure AD Tenant</a>.</p></li>
 <li><p><a class="reference external" href="https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-install-express">Create a connection between your on-premises AD and Azure AD</a> to replicate user, group, and authentication information from your AD to Azure AD.</p></li>
-<li><p>Configure the Azure AD Tenant to enable Single Sign-On Password Reset (SSPR). This gives users the ability to reset their passwords from <a class="reference external" href="https://aka.ms/sspr">https://aka.ms/sspr</a> or from within their profile in Azure AD. This will be effective for both their AD and Azure AD accounts.</p></li>
+<li><p>Configure the Azure AD Tenant to enable Single Sign-On Password Reset (SSPR). This gives users the ability to reset their passwords from the <a class="reference external" href="https://aka.ms/sspr">Microsoft Password Reset page</a> or from within their profile in Azure AD. This will be effective for both their AD and Azure AD accounts.</p></li>
 <li><p><a class="reference external" href="https://docs.microsoft.com/en-us/azure/active-directory/authentication/tutorial-enable-sspr-writeback">Configure password writeback</a>, which enables password changes in Azure AD to be replicated back to the on-premises AD.</p></li>
 <li><p>The conditional access feature in Azure AD specifies conditions under which a user would be given access to a resource or application that uses Azure AD for authentication. MFA was configured as a requirement for access to all applications. <a class="reference external" href="https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa">Configure MFA for all users.</a></p></li>
 <li><p>Access to resources based on device compliance was implemented as an essential feature in this solution. Access would only be granted to a user if the client device is compliant. Compliance is reported to Azure AD by Microsoft Endpoint Manager. <a class="reference external" href="https://docs.microsoft.com/en-us/mem/intune/protect/create-conditional-access-intune">Enable this feature, Conditional Access Device Compliance.</a></p></li>
@@ -744,11 +744,11 @@ document.write(`
 <ol class="arabic simple">
 <li><p>Obtain the <em>OnPremInstallerRun.ps1</em> installation script from the vendor and open an elevated PowerShell window.</p></li>
 <li><p>Execute the <em>OnPremInstallerRun.ps1</em> script by entering .\OnPremInstallerRun.ps1 registryUser pcmatic -registryPwd &lt;insert_password_here&gt; -localDBUser pcm-app to install docker, pull down the container images, and deploy the container instances that make up the PC Matic Pro server.</p></li>
-<li><p>Navigate to the PC Matic web server and verify that it is operational by opening a web browser and going to <em>https://&lt;pcmaticDNSName&gt;/web_portal.</em> In this build, the DNS name is nist.pcmaticfederal.com; as such, to access the server’s web interface, we would go to <a class="reference external" href="https://nist.pcmaticfederal.com/web_portal">https://nist.pcmaticfederal.com/web_portal</a>.</p></li>
+<li><p>Navigate to the PC Matic web server and verify that it is operational by opening a web browser and going to <em>https://&lt;pcmaticDNSName&gt;/web_portal.</em></p></li>
 </ol>
 <p>Follow these steps to install PC Matic Endpoint Agents:</p>
 <ol class="arabic simple">
-<li><p>Open a web browser on a Windows or macOS client device. Navigate to the PC Matic Server web interface by browsing to <a class="reference external" href="https://nist.pcmaticfederal.com">https://nist.pcmaticfederal.com</a> from the client device and log on with your credentials.</p></li>
+<li><p>Open a web browser on a Windows or macOS client device. Navigate to the PC Matic Server web interface from the client device and log on with your credentials.</p></li>
 <li><p>Click <strong>Add a Device</strong> and then click <strong>Windows Installer</strong> or <strong>Mac Installer,</strong> as appropriate, to download the PC Matic Endpoint Agent.</p></li>
 <li><p>Install the agent.</p></li>
 <li><p>Once installed, the agent will establish communications with the server and show up on the list of managed devices once you log on to the server as previously described.</p></li>
@@ -782,6 +782,7 @@ Access Control &gt; Users.</strong></p></li>
 <section id="tenable-ad">
 <h2>Tenable.ad<a class="headerlink" href="#tenable-ad" title="Link to this heading">#</a></h2>
 <p>For installation, configuration, and integration instructions, refer to <a class="reference internal" href="HowTo-E1B1.html#id11"><span class="std std-ref">Tenable.ad</span></a>.</p>
+<p>Note that after Tenable products were implemented at NCCoE, the name Tenable.ad was changed to Tenable Identity Exposure.</p>
 </section>
 <section id="tenable-nnm">
 <h2>Tenable NNM<a class="headerlink" href="#tenable-nnm" title="Link to this heading">#</a></h2>

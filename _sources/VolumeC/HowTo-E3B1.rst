@@ -16,7 +16,7 @@ Azure AD is a SaaS identity and access management platform. No installation step
 
 2. `Create a connection between your on-premises AD and Azure AD <https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-install-express>`__ to replicate user, group, and authentication information from your AD to Azure AD.
 
-3. Configure the Azure AD Tenant to enable Single Sign-On Password Reset (SSPR). This gives users the ability to reset their passwords from https://aka.ms/sspr or from within their profile in Azure AD. This will be effective for both their AD and Azure AD accounts.
+3. Configure the Azure AD Tenant to enable Single Sign-On Password Reset (SSPR). This gives users the ability to reset their passwords from the `Microsoft Password Reset page <https://aka.ms/sspr>`__ or from within their profile in Azure AD. This will be effective for both their AD and Azure AD accounts.
 
 4. `Configure password writeback <https://docs.microsoft.com/en-us/azure/active-directory/authentication/tutorial-enable-sspr-writeback>`__, which enables password changes in Azure AD to be replicated back to the on-premises AD.
 
@@ -269,11 +269,11 @@ PC Matic Pro Server needs to be installed on a server with Windows 2019 Server a
 
 2. Execute the *OnPremInstallerRun.ps1* script by entering .\\OnPremInstallerRun.ps1 registryUser pcmatic -registryPwd <insert_password_here> -localDBUser pcm-app to install docker, pull down the container images, and deploy the container instances that make up the PC Matic Pro server.
 
-3. Navigate to the PC Matic web server and verify that it is operational by opening a web browser and going to *https://<pcmaticDNSName>/web_portal.* In this build, the DNS name is nist.pcmaticfederal.com; as such, to access the server's web interface, we would go to https://nist.pcmaticfederal.com/web_portal.
+3. Navigate to the PC Matic web server and verify that it is operational by opening a web browser and going to *https://<pcmaticDNSName>/web_portal.*
 
 Follow these steps to install PC Matic Endpoint Agents:
 
-1. Open a web browser on a Windows or macOS client device. Navigate to the PC Matic Server web interface by browsing to https://nist.pcmaticfederal.com from the client device and log on with your credentials.
+1. Open a web browser on a Windows or macOS client device. Navigate to the PC Matic Server web interface from the client device and log on with your credentials.
 
 2. Click **Add a Device** and then click **Windows Installer** or **Mac Installer,** as appropriate, to download the PC Matic Endpoint Agent.
 
@@ -322,6 +322,8 @@ Tenable.ad
 ----------
 
 For installation, configuration, and integration instructions, refer to :ref:`Tenable.ad<tenable-ad>`.
+
+Note that after Tenable products were implemented at NCCoE, the name Tenable.ad was changed to Tenable Identity Exposure.
 
 Tenable NNM
 -----------

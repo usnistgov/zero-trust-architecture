@@ -3,7 +3,7 @@ Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace
 
 .. include:: /_publication_note.rst
 
-This section of the practice guide contains detailed instructions for installing, configuring, and integrating all the products used to implement E4B4. For additional details on E4B4's logical and physical architectures, please refer to :ref:`architecture and builds`. Note that after the VMware End User Computing division products were implemented at NCCoE, VMware was acquired by Broadcom, then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC.
+This section of the practice guide contains detailed instructions for installing, configuring, and integrating all the products used to implement E4B4. For additional details on E4B4's logical and physical architectures, please refer to :ref:`architecture and builds`. Note that after the VMware End User Computing Division products were implemented at NCCoE, VMware was acquired by Broadcom, and then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC.
 
 VMware Workspace ONE Access
 ----------------------------
@@ -306,7 +306,7 @@ Runtime and hardening policies can be set according to best practices in the `Ca
 VMware vSphere, vCenter, and vSAN
 ---------------------------------
 
-Installation and configuration of vSphere, vCenter, and vSAN is outside the scope of this document. General information can be found here: https://docs.vmware.com/en/VMware-vSphere/index.html
+Installation and configuration of vSphere, vCenter, and vSAN is outside the scope of this document. General information can be found here: `VMware vSphere 8.0 <https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0.html>`__
 
 IBM Security QRadar XDR
 -----------------------
@@ -322,6 +322,8 @@ Tenable.ad
 ----------
 
 For installation, configuration, and integration instructions, refer to :ref:`Tenable.ad<tenable-ad>`.
+
+Note that after Tenable products were implemented at NCCoE, the name Tenable.ad was changed to Tenable Identity Exposure.
 
 Tenable NNM
 -----------

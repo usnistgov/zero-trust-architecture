@@ -1492,7 +1492,7 @@ Table 6 lists the full demonstration results for SDP demonstrations run in Enter
 Enterprise 4 Build 4 (E4B4) - SDP, Microsegmentation, and EIG - VMware Workspace ONE Access, VMware Unified Access Gateway, and VMware NSX-T as PEs Detailed Demonstration Results
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Table 7 lists the full demonstration results for SDP, and Microsegmentation demonstrations run in Enterprise 4 Build 4 (E4B4). The technology deployed in E4B4 was able to determine endpoint compliance for Windows, macOS, Linux and mobile devices and prevent noncompliant endpoints from accessing private resources. Note that after the VMware End User Computing division products were implemented at NCCoE, VMware was acquired by Broadcom, then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC.
+Table 7 lists the full demonstration results for SDP, and Microsegmentation demonstrations run in Enterprise 4 Build 4 (E4B4). The technology deployed in E4B4 was able to determine endpoint compliance for Windows, macOS, Linux and mobile devices and prevent noncompliant endpoints from accessing private resources. Note that after the VMware End User Computing Division products were implemented at NCCoE, VMware was acquired by Broadcom, and then the VMware End User Computing Division was divested and reformed under a new entity, Omnissa LLC.
 
 **Table 7 - Detailed Demonstration Results for E4B4**
 
