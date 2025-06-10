@@ -17,7 +17,7 @@ EIG Crawl Builds Implemented
 
 - :ref:`Enterprise 1 Build 1 (E1B1) (EIG Crawl, Okta and Ivanti as PEs)<Enterprise 1 Build 1 (E1B1) - EIG Crawl - Okta Identity Cloud and Ivanti Access ZSO as PEs>` uses products from AWS, IBM, Ivanti, Mandiant, Okta, Radiant Logic, SailPoint, Tenable, and Zimperium. Certificates from DigiCert are used. 
 
-    E1B1 components consist of DigiCert CertCentral, IBM Cloud Pak for Security (CP4S), IBM Security QRadar XDR, Ivanti Access Zero Sign-On (ZSO), Ivanti Neurons for Unified Endpoint Management (UEM), Ivanti Sentry, Ivanti Tunnel, Mandiant Security Validation (MSV), Okta Identity Cloud, Okta Verify App, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, Tenable.ad, Tenable.io, and Zimperium Mobile Threat Defense (MTD). 
+    E1B1 components consist of DigiCert CertCentral, IBM Cloud Pak for Security (CP4S), IBM Security QRadar XDR, Ivanti Access Zero Sign-On (ZSO), Ivanti Neurons for Unified Endpoint Management (UEM), Ivanti Sentry, Ivanti Tunnel, Mandiant MSV, Okta Identity Cloud, Okta Verify App, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, Tenable.ad, Tenable.io, and Zimperium Mobile Threat Defense (MTD). 
 
 - :ref:`Enterprise 2 Build 1 (E2B1) (EIG Crawl, Ping Identity as PE)<Enterprise 2 Build 1 (E2B1) - EIG Crawl - Ping Identity Ping Federate as PE>` uses products from Cisco Systems, IBM, Mandiant, Palo Alto Networks, Ping Identity, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used.
 
@@ -80,7 +80,7 @@ SDP, Microsegmentation, and SASE Builds Implemented
 
 -  :ref:`Enterprise 2 Build 5 (E2B5) (SDP and SASE, Lookout SSE and Okta Identity Cloud as PEs)<Enterprise 2 Build 5 (E2B5) - SDP and SASE - Lookout SSE and Okta Identity Cloud as PEs>` uses products from Broadcom (with VMware products), Google Cloud, IBM, Lookout, Mandiant, Okta, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used.
     
-    E2B5 components consist of Lookout Security Service Edge (SSE) (includes Secure Private Access [SPA], Secure Cloud Access [SCA], and Secure Internet Access [SIA]), Lookout Secure Private Access Connector, VMware Workspace ONE UEM, Lookout MES, Lookout Client, Okta Identity Cloud, Okta Verify App, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, IBM Security QRadar XDR, Tenable.io, Tenable.ad, Tenable NNM, Mandiant Security Validation (MSV), Google Cloud, Google Workspace, and DigiCert CertCentral.
+    E2B5 components consist of Lookout Security Service Edge (SSE) (includes Secure Private Access [SPA], Secure Cloud Access [SCA], and Secure Internet Access [SIA]), Lookout Secure Private Access Connector, VMware Workspace ONE UEM, Lookout MES, Lookout Client, Okta Identity Cloud, Okta Verify App, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, IBM Security QRadar XDR, Tenable.io, Tenable.ad, Tenable NNM, Mandiant MSV, Google Cloud, Google Workspace, and DigiCert CertCentral.
 
 -  :ref:`Enterprise 3 Build 5 (E3B5) (SDP and SASE, Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs)<Enterprise 3 Build 5 (E3B5) - SDP and SASE - Microsoft Entra Conditional Access (formerly called Azure AD Conditional Access) and Microsoft Security Service Edge as PEs>` uses products from Mandiant, Microsoft, and Tenable. Certificates from DigiCert are also used.
     
@@ -88,14 +88,14 @@ SDP, Microsegmentation, and SASE Builds Implemented
 
 -  :ref:`Enterprise 4 Build 5 (E4B5) (SDP and Microsegmentation; AWS Verified Access and Amazon VPC Lattice as PEs) <Enterprise 4 Build 5 (E4B5) - SDP and Microsegmentation - AWS Verified Access and Amazon VPC Lattice as PEs>` uses products from AWS, IBM, Mandiant, Okta, and Tenable. Certificates from DigiCert are also used.
 
-    E4B5 components consist of AWS Verified Access, Amazon VPC Lattice, Amazon ECS and AWS Lambda Functions, Okta Identity Cloud, Okta Verify App, IBM Security QRadar XDR, Tenable Cloud Security, Mandiant Security Validation (MSV), DigiCert CertCentral, and AWS IaaS.
+    E4B5 components consist of AWS Verified Access, Amazon VPC Lattice, Amazon ECS and AWS Lambda Functions, Okta Identity Cloud, Okta Verify App, IBM Security QRadar XDR, Tenable Cloud Security, Mandiant MSV, DigiCert CertCentral, and AWS IaaS.
 
 
 -  :ref:`Enterprise 1 Build 6 (E1B6) (SDP and Microsegmentation, Ivanti Neurons for Zero Trust Access as PE)<Enterprise 1 Build 6 (E1B6) - SDP and Microsegmentation - Ivanti Neurons for Zero Trust Access as PE>` uses products from AWS, IBM, Ivanti, Mandiant, Okta, Radiant Logic, SailPoint, and Tenable. Certificates from DigiCert are also used.
     
-    E1B6 components consist of Ivanti nZTA, Ivanti nZTA Gateway, Okta Identity Cloud, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, Okta Verify App, Ivanti Secure Access Client, IBM Security QRadar XDR, Tenable.io, Tenable.ad, Tenable NNM, Mandiant Security Validation (MSV), DigiCert CertCentral, and AWS IaaS.
+    E1B6 components consist of Ivanti nZTA, Ivanti nZTA Gateway, Okta Identity Cloud, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, Okta Verify App, Ivanti Secure Access Client, IBM Security QRadar XDR, Tenable.io, Tenable.ad, Tenable NNM, Mandiant MSV, DigiCert CertCentral, and AWS IaaS.
 
 -  :ref:`Enterprise 2 Build 6 (E2B6) (SASE; Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE) <Enterprise 2 Build 6 (E2B6) - SASE - Google Chrome Enterprise Premium (CEP) - Access Context Manager as PE>` uses products from Google Cloud, IBM, Mandiant, Okta, Radiant Logic, SailPoint, Tenable, and Omnissa. Certificates from DigiCert are also used.
 
-    E2B6 components consist of Google CEP, Google Application Connector, Omnissa Workspace ONE UEM, Okta Identity Cloud, Okta Verify App, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, IBM Security QRadar XDR, Tenable.io, Tenable.ad, Tenable NNM, Mandiant Security Validation (MSV), Google Cloud (IaaS), Google Workspace (SaaS), and DigiCert CertCentral.
+    E2B6 components consist of Google CEP, Google Application Connector, Omnissa Workspace ONE UEM, Okta Identity Cloud, Okta Verify App, Radiant Logic RadiantOne Intelligent Identity Data Platform, SailPoint IdentityIQ, IBM Security QRadar XDR, Tenable.io, Tenable.ad, Tenable NNM, Mandiant MSV, Google Cloud (IaaS), Google Workspace (SaaS), and DigiCert CertCentral.
 

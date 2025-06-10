@@ -121,9 +121,9 @@ Implementing a Zero Trust Architecture: Full Document
 | Broadcom                   |                            | Radiant Logic         |                        |
 +----------------------------+----------------------------+-----------------------+------------------------+
 
-December 2024
+June 2025
 
-INITIAL PUBLIC DRAFT
+FINAL
 
 |This graphic contains the logos for NIST and the NCCoE.|
 
@@ -133,17 +133,36 @@ Certain commercial entities, equipment, products, or materials may be identified
 
 While NIST and the NCCoE address goals of improving management of cybersecurity and privacy risk through outreach and application of standards and best practices, it is the stakeholder's responsibility to fully perform a risk assessment to include the current threat, vulnerabilities, likelihood of a compromise, and the impact should the threat be realized before adopting cybersecurity measures such as this recommendation.
 
-National Institute of Standards and Technology Special Publication 1800-35, Natl. Inst. Stand. Technol. Spec. Publ. 1800-35, (December 2024), CODEN: NSPUE2
+National Institute of Standards and Technology Special Publication 1800-35, Natl. Inst. Stand. Technol. Spec. Publ. 1800-35, (June 2025), CODEN: NSPUE2
+
+**NIST TECHNICAL SERIES POLICIES**
+
+`Copyright, Use, and Licensing Statements <https://www.nist.gov/nist-research-library/nist-publications>`__
+
+`NIST Technical Series Publication Identifier Syntax <https://www.nist.gov/system/files/documents/2022/04/01/PubID_Syntax_NIST_TechPubs.pdf>`__
+
+**AUTHOR ORCID IDS** 
+
+Oliver Borchert: 0009-0006-1880-0542
+
+Gema Howell: 0000-0002-0428-5045
+
+Alper Kerman: 0009-0000-5880-8369
+
+Scott Rose: 0000-0002-3105-7427
+
+Murugiah Souppaya: 0000-0002-8055-8527
+
+Karen Scarfone: 0000-0001-6334-9486
+
+William Barker: 0000-0002-4113-8861
+
 
 **FEEDBACK**
 
-You can view or download the initial public draft guide at the `NCCoE ZTA project page <https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture>`__.
+You can view or download the final guide at the `NCCoE ZTA project page <https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture>`__.
 
-NIST used an agile process to make updates available as new example solutions were added. With this initial public draft, all example solutions are complete. We are now asking for feedback on this initial public draft.
-
-Please submit comments by completing the comment template spreadsheet posted on the `NCCoE ZTA project page <https://www.nccoe.nist.gov/projects/implementing-zero-trust-architecture>`__ and emailing it to nccoe-zta-project@list.nist.gov.
-
-Public comment period: December 4, 2024 through January 31, 2025
+Comments on this publication may be submitted to: nccoe-zta-project@list.nist.gov.
 
 All comments are subject to release under the Freedom of Information Act.
 
@@ -157,7 +176,7 @@ All comments are subject to release under the Freedom of Information Act.
 
 **NATIONAL CYBERSECURITY CENTER OF EXCELLENCE**
 
-The National Cybersecurity Center of Excellence (NCCoE), a part of the National Institute of Standards and Technology (NIST), is a collaborative hub where industry organizations, government agencies, and academic institutions work together to address businesses ' most pressing cybersecurity issues. This public-private partnership enables the creation of practical cybersecurity solutions for specific industries, as well as for broad, cross-sector technology challenges. Through consortia under Cooperative Research and Development Agreements (CRADAs), including technology partners—from Fortune 50 market leaders to smaller companies specializing in information technology security—the NCCoE applies standards and best practices to develop modular, adaptable example cybersecurity solutions using commercially available technology. The NCCoE documents these example solutions in the NIST Special Publication 1800 series, which maps capabilities to the NIST Cybersecurity Framework and details the steps needed for another entity to re-create the example solution. The NCCoE was established in 2012 by NIST in partnership with the State of Maryland and Montgomery County, Maryland.
+The National Cybersecurity Center of Excellence (NCCoE), a part of the National Institute of Standards and Technology (NIST), is a collaborative hub where industry organizations, government agencies, and academic institutions work together to address businesses ' most pressing cybersecurity issues. This public-private partnership enables the creation of practical cybersecurity solutions for specific industries, as well as for broad, cross-sector technology challenges. Through consortia under Cooperative Research and Development Agreements (CRADAs), including technology partners—from Fortune 50 market leaders to smaller companies specializing in information technology security—the NCCoE applies standards and best practices to develop modular, adaptable example cybersecurity solutions using commercially available technology. The NCCoE documents these example solutions in the NIST Special Publication 1800 series, which maps capabilities to the NIST Cybersecurity Framework (CSF) and details the steps needed for another entity to re-create the example solution. The NCCoE was established in 2012 by NIST in partnership with the State of Maryland and Montgomery County, Maryland.
 
 To learn more about the NCCoE, visit https://www.nccoe.nist.gov/. To learn more about NIST, visit https://www.nist.gov.
 
@@ -171,7 +190,7 @@ The documents in this series describe example implementations of cybersecurity p
 
 A zero trust architecture (ZTA) enables secure authorized access to enterprise resources that are distributed across on-premises and multiple cloud environments, while enabling a hybrid workforce and partners to access resources from anywhere, at any time, from any device in support of the organization's mission. 
 
-This NIST Cybersecurity Practice Guide explains how organizations can implement ZTA consistent with the concepts and principles outlined in NIST Special Publication (SP) 800-207, Zero Trust Architecture. The NCCoE worked with 24 collaborators under Cooperative Research and Development Agreements (CRADAs) to integrate commercially available technology to build 19 ZTA example implementations and demonstrate a number of common use cases. The Guide includes detailed technical information on each example ZTA implementation, providing models that organizations can emulate. The Guide also summarizes best practices and lessons learned from the implementations and integrations to make it easier and more cost-effective to implement ZTA. This guide also includes mappings of ZTA principles and technologies to commonly used security standards and guidelines.
+This NIST Cybersecurity Practice Guide explains how organizations can implement ZTA consistent with the concepts and principles outlined in NIST Special Publication (SP) 800-207, Zero Trust Architecture. The NCCoE worked with 24 collaborators under Cooperative Research and Development Agreements (CRADAs) to integrate commercially available technology to build 19 ZTA example implementations and demonstrate a number of common use cases. The guide includes detailed technical information on each example ZTA implementation, providing models that organizations can emulate. The Guide also summarizes best practices and lessons learned from the implementations and integrations to make it easier and more cost-effective to implement ZTA. This guide also includes mappings of ZTA principles and technologies to commonly used security standards and guidelines.
 
 
 **KEYWORDS**
@@ -206,7 +225,7 @@ We are grateful to the following individuals for their generous contributions of
 
 -  Microsoft: Thomas Detzner, Ehud Itshaki, Janet Jones, Hemma Prafullchandra\*, Enrique Saggese, Sarah Young
 
--  MITRE: Eileen Division\*, Spike Dog, Sallie Edwards, Ayayidjin Gabiam, Jolene Loveless\*, Karri Meldorf, Kenneth Sandlin, Lauren Swan, Jessica Walton
+-  MITRE: Eileen Division\*, Spike E. Dog\*, Sallie Edwards\*, Ayayidjin Gabiam, Jolene Loveless\*, Karri Meldorf, Kenneth Sandlin, Lauren Swan, Jessica Walton\*
 
 -  NIST: Mike Bartock, Julia Chua, Douglas Montgomery, Cherilyn Pascoe, Michael Powell, Kevin Stine
 
@@ -260,25 +279,14 @@ Note that after the VMware End User Computing division products were implemented
 
 The terms “shall” and “shall not” indicate requirements to be followed strictly to conform to the publication and from which no deviation is permitted. The terms “should” and “should not” indicate that among several possibilities, one is recommended as particularly suitable without mentioning or excluding others, or that a certain course of action is preferred but not necessarily required, or that (in the negative form) a certain possibility or course of action is discouraged but not prohibited. The terms “may” and “need not” indicate a course of action permissible within the limits of the publication. The terms “can” and “cannot” indicate a possibility and capability, whether material, physical, or causal.
 
-**CALL FOR PATENT CLAIMS**
+**PATENT DISCLOSURE NOTICE**
 
-This public review includes a call for information on essential patent claims (claims whose use would be required for compliance with the guidelines or requirements in this Information Technology Laboratory (ITL) draft publication). Such guidelines and/or requirements may be directly stated in this ITL Publication or by reference to another publication. This call also includes disclosure, where known, of the existence of pending U.S. or foreign patent applications relating to this ITL draft publication and of any relevant unexpired U.S. or foreign patents.
+NOTICE: The Information Technology Laboratory (ITL) has requested that holders of patent claims whose use may be required for compliance with the guidance or requirements of this publication disclose such patent claims to ITL. However, holders of patents are not obligated to respond to ITL calls for patents and ITL has not undertaken a patent search in order to identify which, if any, patents may apply to this publication.
 
-ITL may require from the patent holder, or a party authorized to make assurances on its behalf, in written or electronic form, either:
+As of the date of publication and following call(s) for the identification of patent claims whose use may be required for compliance with the guidance or requirements of this publication, no such patent claims have been identified to ITL. 
 
-a) assurance in the form of a general disclaimer to the effect that such party does not hold and does not currently intend holding any essential patent claim(s); or
+No representation is made or implied by ITL that licenses are not required to avoid patent infringement in the use of this publication.
 
-b) assurance that a license to such essential patent claim(s) will be made available to applicants desiring to utilize the license for the purpose of complying with the guidelines or requirements in this ITL draft publication either:
-
-   1. under reasonable terms and conditions that are demonstrably free of any unfair discrimination; or 
-
-   2. without compensation and under reasonable terms and conditions that are demonstrably free of any unfair discrimination. 
-
-Such assurance shall indicate that the patent holder (or third party authorized to make assurances on its behalf) will include in any documents transferring ownership of patents subject to the assurance, provisions sufficient to ensure that the commitments in the assurance are binding on the transferee, and that the transferee will similarly include appropriate provisions in the event of future transfers with the goal of binding each successor-in-interest. 
-
-The assurance shall also indicate that it is intended to be binding on successors-in-interest regardless of whether such provisions are included in the relevant transfer documents. 
-
-Such statements should be addressed to: nccoe-zta-project@list.nist.gov
 
 .. |This graphic contains the logos for NIST and the NCCoE.| image:: images/Figure1.png
    :alt: This graphic contains the logos for NIST and the NCCoE.
