@@ -98,7 +98,7 @@ Implementing a Zero Trust Architecture: Full Document
 |                            |                            |                       |                        |
 | **Adam Cerini**            | **Mike Spisak**            | **Shawn Higgins**     |                        |
 |                            |                            |                       |                        |
-| **Rajarshi Das**           | **Krishna Yellepeddy**     | **Rob Woodsworth**    |                        |
+| **Rajarshi Das**           | **Krishna Yellepeddy**     | **Rob Woodworth**     |                        |
 |                            |                            |                       |                        |
 | AWS (Amazon Web Services)  | IBM                        | PC Matic              |                        |
 |                            |                            |                       |                        |
@@ -112,13 +112,15 @@ Implementing a Zero Trust Architecture: Full Document
 |                            |                            |                       |                        |
 | **Jerry Haskins**          | Ivanti                     | |                     |                        |
 |                            |                            |                       |                        |
-| **Keith Luck**             |                            | **Don Coltrain**      |                        |
+| **Keith Luck**             |                            | **Bill Baz**          |                        |
 |                            |                            |                       |                        |
-| **Dale McKay**             |                            | **Wade Ellery**       |                        |
+| **Dale McKay**             |                            | **Don Coltrain**      |                        |
 |                            |                            |                       |                        |
-| **Sunjeet Randhawa**       |                            | **Deborah McGinn**    |                        |
+| **Sunjeet Randhawa**       |                            | **Wade Ellery**       |                        |
 |                            |                            |                       |                        |
-| Broadcom                   |                            | Radiant Logic         |                        |
+| Broadcom                   |                            | **Deborah McGinn**    |                        |
+|                            |                            |                       |                        |
+|                            |                            | Radiant Logic         |                        |
 +----------------------------+----------------------------+-----------------------+------------------------+
 
 June 2025
@@ -237,7 +239,7 @@ We are grateful to the following individuals for their generous contributions of
 
 -  Ping Identity: Ivan Anderson, Aubrey Turner
 
--  Radiant Logic: Bill Baz, Rusty Deaton, John Petrutiu, Lauren Selby
+-  Radiant Logic: Rusty Deaton, John Petrutiu, Lauren Selby
 
 -  SailPoint: Peter Amaral, Jim Russell, Esteban Soto
 
